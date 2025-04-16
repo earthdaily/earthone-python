@@ -660,7 +660,7 @@ class DLTile(GeoContext):
 
     Example
     -------
-    >>> import descarteslabs as dl
+    >>> import earthone as dl
     >>> from earthone.geo import DLTile
     >>> tile = DLTile.from_latlon(
     ...    lat=35.691,

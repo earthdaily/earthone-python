@@ -321,7 +321,7 @@ class Auth:
 
         Examples
         --------
-        >>> import descarteslabs
+        >>> import earthone
         >>> # Use default credentials obtained through 'descarteslabs auth login'
         >>> auth = descarteslabs.auth.Auth()
         >>> # Your Descartes Labs user id

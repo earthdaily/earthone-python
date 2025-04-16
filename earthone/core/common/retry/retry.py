@@ -43,7 +43,7 @@ class Retry(object):
     Example
     -------
 
-    >>> import descarteslabs as dl
+    >>> import earthone as dl
     >>> retry = dl.common.retry.Retry(
     ...     maximum=30,
     ...     retries=5,

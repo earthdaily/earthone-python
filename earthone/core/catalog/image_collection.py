@@ -142,7 +142,7 @@ class ImageCollection(Collection):
 
         Example
         -------
-        >>> import descarteslabs as dl
+        >>> import earthone as dl
         >>> aoi_geometry = {
         ...    'type': 'Polygon',
         ...    'coordinates': [[[-95, 42],[-93, 42],[-93, 40],[-95, 41],[-95, 42]]]}
@@ -704,7 +704,7 @@ class ImageCollection(Collection):
 
         Example
         -------
-        >>> import descarteslabs as dl
+        >>> import earthone as dl
         >>> tile = dl.common.geo.DLTile.from_key("256:0:75.0:15:-5:230")  # doctest: +SKIP
         >>> product = dl.catalog.Product.get("landsat:LC08:PRE:TOAR")  # doctest: +SKIP
         >>> images = product.images().intersects(tile).limit(5).collect()  # doctest: +SKIP
@@ -939,7 +939,7 @@ class ImageCollection(Collection):
 
         Example
         -------
-        >>> import descarteslabs as dl
+        >>> import earthone as dl
         >>> tile = dl.common.geo.DLTile.from_key("256:0:75.0:15:-5:230")  # doctest: +SKIP
         >>> product = dl.catalog.Product.get("landsat:LC08:PRE:TOAR")  # doctest: +SKIP
         >>> images = product.images().intersects(tile).limit(5).collect()  # doctest: +SKIP

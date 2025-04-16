@@ -45,7 +45,7 @@ from typing import (
 import pkg_resources
 from strenum import StrEnum
 
-import descarteslabs.exceptions as exceptions
+import earthone.exceptions as exceptions
 
 from ..client.deprecation import deprecate
 from ..client.services.service import ThirdPartyService
