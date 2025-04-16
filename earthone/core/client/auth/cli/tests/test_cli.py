@@ -92,7 +92,7 @@ class Open:
 #
 @patch("earthone.auth.auth.makedirs_if_not_exists")
 @patch(
-    "descarteslabs.auth.auth.get_default_domain",
+    "earthone.auth.auth.get_default_domain",
     return_value="https://descarteslabs.auth0.com",
 )
 @patch("earthone.auth.auth.DEFAULT_TOKEN_INFO_PATH", None)
