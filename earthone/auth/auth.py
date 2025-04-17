@@ -216,11 +216,11 @@ class Auth:
 
         By default and without arguments the credentials are retrieved from a
         config file named ``token_info.json``. This file can be created by running
-        ``descarteslabs auth login`` from the command line.
+        ``earthone auth login`` from the command line.
 
         You can change the default location by setting the environment variable
         ``DESCARTESLABS_TOKEN_INFO_PATH``. Make sure you do this **before** running
-        ``descarteslabs auth login`` so the credentials will be saved to the file
+        ``earthone auth login`` so the credentials will be saved to the file
         specified in the environment variable, and when still set when instantiating
         this class, the credentials will be read from that file.
 
@@ -262,7 +262,7 @@ class Auth:
         Parameters
         ----------
 
-        domain : str, default ``descarteslabs.config.get_settings().IAM_URL``
+        domain : str, default ``earthone.config.get_settings().IAM_URL``
             The domain used for the credentials. You should normally never
             change this.
         scope : list(str), optional
@@ -322,12 +322,12 @@ class Auth:
         Examples
         --------
         >>> import earthone
-        >>> # Use default credentials obtained through 'descarteslabs auth login'
-        >>> auth = descarteslabs.auth.Auth()
+        >>> # Use default credentials obtained through 'earthone auth login'
+        >>> auth = earthone.auth.Auth()
         >>> # Your Descartes Labs user id
         >>> auth.namespace # doctest: +SKIP
         'a54d88e06612d820bc3be72877c74f257b561b19'
-        >>> auth = descarteslabs.auth.Auth(
+        >>> auth = earthone.auth.Auth(
         ...     client_id="some-client-id",
         ...     client_secret="some-client-secret",
         ... )

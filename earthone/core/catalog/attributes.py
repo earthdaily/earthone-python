@@ -73,17 +73,17 @@ class DocumentState(StrEnum):
         the corresponding object in the Descartes Labs catalog.
     MODIFIED : enum
         The catalog object was synchronized with the Descartes Labs catalog (using
-        :py:meth:`~descarteslabs.catalog.Product.get` or
-        :py:meth:`~descarteslabs.catalog.Product.save`), but at least one
+        :py:meth:`~earthone.catalog.Product.get` or
+        :py:meth:`~earthone.catalog.Product.save`), but at least one
         attribute value has since been changed.  You can
-        :py:meth:`~descarteslabs.catalog.Product.save` a modified catalog object
+        :py:meth:`~earthone.catalog.Product.save` a modified catalog object
         to update the object in the Descartes Labs catalog.
 
         Note that assigning an identical value does not change the state.
     SAVED : enum
         The catalog object has been fully synchronized with the Descartes Labs catalog
-        (using :py:meth:`~descarteslabs.catalog.Product.get` or
-        :py:meth:`~descarteslabs.catalog.Product.save`).
+        (using :py:meth:`~earthone.catalog.Product.get` or
+        :py:meth:`~earthone.catalog.Product.save`).
     DELETED : enum
         The catalog object has been deleted from the Descartes Labs catalog.  Many
         operations cannot be performed on ``DELETED`` objects.
@@ -93,7 +93,7 @@ class DocumentState(StrEnum):
     A ``SAVED`` catalog object can still be out-of-date with respect to the Descartes
     Labs catalog if there was an update from another client since the last
     sycnronization.  To re-synchronize a ``SAVED`` catalog object you can use
-    :py:meth:`~descarteslabs.catalog.Product.reload`.
+    :py:meth:`~earthone.catalog.Product.reload`.
     """
 
     SAVED = "saved"
@@ -1245,31 +1245,31 @@ class File(MappingAttribute):
     Attributes
     ----------
     href : str
-        If the :py:class:`~descarteslabs.catalog.StorageState` is
-        :py:attr:`~descarteslabs.catalog.StorageState.AVAILABLE`, this field is required
+        If the :py:class:`~earthone.catalog.StorageState` is
+        :py:attr:`~earthone.catalog.StorageState.AVAILABLE`, this field is required
         and it must be a valid reference to either a JP2 or a GeoTiff file using the
-        ``gs`` scheme.  If the :py:class:`~descarteslabs.catalog.StorageState` is
-        :py:attr:`~descarteslabs.catalog.StorageState.REMOTE`, this field is optional
+        ``gs`` scheme.  If the :py:class:`~earthone.catalog.StorageState` is
+        :py:attr:`~earthone.catalog.StorageState.REMOTE`, this field is optional
         and you can use one of the schemes ``gs``, ``http``, ``https``, ``ftp``, or
         ``ftps``; if the scheme is ``gs``, it must be a valid reference
         but can be any format.
     size_bytes : int
         Size of the file in bytes.  Required when the
-        :py:class:`~descarteslabs.catalog.StorageState` is
-        :py:attr:`~descarteslabs.catalog.StorageState.AVAILABLE`.
+        :py:class:`~earthone.catalog.StorageState` is
+        :py:attr:`~earthone.catalog.StorageState.AVAILABLE`.
     hash : str
         The md5 hash for the given file.  Required when the
-        :py:class:`~descarteslabs.catalog.StorageState` is
-        :py:attr:`~descarteslabs.catalog.StorageState.AVAILABLE`.
+        :py:class:`~earthone.catalog.StorageState` is
+        :py:attr:`~earthone.catalog.StorageState.AVAILABLE`.
     provider_id : str
         Optional ID for the external provider when the
-        :py:class:`~descarteslabs.catalog.StorageState` is
-        :py:attr:`~descarteslabs.catalog.StorageState.REMOTE`.
+        :py:class:`~earthone.catalog.StorageState` is
+        :py:attr:`~earthone.catalog.StorageState.REMOTE`.
     provider_href : str
         A URI to describe the remote image in more detail.  Either the `provider_href`
         or the `href` must be specified when the
-        :py:class:`~descarteslabs.catalog.StorageState` is
-        :py:attr:`~descarteslabs.catalog.StorageState.REMOTE`.
+        :py:class:`~earthone.catalog.StorageState` is
+        :py:attr:`~earthone.catalog.StorageState.REMOTE`.
     """
 
     href = Attribute()

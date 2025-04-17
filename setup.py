@@ -63,7 +63,7 @@ def do_setup():
         long_description="\n".join(DOCLINES[2:]),
         author="Descartes Labs",
         author_email="hello@descarteslabs.com",
-        url="https://github.com/descarteslabs/descarteslabs-python",
+        url="https://github.com/descarteslabs/earthone-python",
         classifiers=[
             "Programming Language :: Python",
             "Programming Language :: Python :: 3",
@@ -74,7 +74,7 @@ def do_setup():
         ],
         license="Apache 2.0",
         download_url=(
-            "https://github.com/descarteslabs/descarteslabs-python/archive/v{}.tar.gz".format(
+            "https://github.com/descarteslabs/earthone-python/archive/v{}.tar.gz".format(
                 version
             )
         ),

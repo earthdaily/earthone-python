@@ -143,7 +143,7 @@ class Document(object):
 
         Returns
         -------
-        :py:class:`~descarteslabs.common.client.DocumentState`
+        :py:class:`~earthone.common.client.DocumentState`
         """
 
         if self._deleted:

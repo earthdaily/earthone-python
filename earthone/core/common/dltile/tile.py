@@ -438,7 +438,7 @@ class Tile:
 
     @property
     def geocontext(self):
-        """For compatibility with the current descarteslabs module"""
+        """For compatibility with the current earthone module"""
         properties = dict(
             coordinateSystem={"wkt": self.srs},
             geometry=self.geometry,

@@ -71,7 +71,7 @@ class EventApiDestination(AuthCatalogObject):
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
-        The :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict
         With the exception of readonly attributes (`created` and `modified`)
@@ -252,7 +252,7 @@ class EventApiDestination(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the Descartes Labs
             catalog.  The
-            :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
@@ -298,8 +298,8 @@ class EventApiDestination(AuthCatalogObject):
         """Get an existing EventApiDestination from the Descartes Labs catalog.
 
         If the EventApiDestination is found, it will be returned in the
-        `~descarteslabs.catalog.DocumentState.SAVED` state.  Subsequent changes will
-        put the instance in the `~descarteslabs.catalog.DocumentState.MODIFIED` state,
+        `~earthone.catalog.DocumentState.SAVED` state.  Subsequent changes will
+        put the instance in the `~earthone.catalog.DocumentState.MODIFIED` state,
         and you can use :py:meth:`save` to commit those changes and update the Descartes
         Labs catalog object.  Also see the example for :py:meth:`save`.
 
@@ -321,18 +321,18 @@ class EventApiDestination(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the Descartes Labs
             catalog.  The
-            :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
         -------
-        :py:class:`~descarteslabs.catalog.CatalogObject` or None
+        :py:class:`~earthone.catalog.CatalogObject` or None
             The object you requested, or ``None`` if an object with the given `id`
             does not exist in the Descartes Labs catalog.
 
         Raises
         ------
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -357,14 +357,14 @@ class EventApiDestination(AuthCatalogObject):
 
         If the Descartes Labs catalog object is found, and the remainder of the
         arguments do not differ from the values in the retrieved instance, it will be
-        returned in the `~descarteslabs.catalog.DocumentState.SAVED` state.
+        returned in the `~earthone.catalog.DocumentState.SAVED` state.
 
         If the Descartes Labs catalog object is found, and the remainder of the
         arguments update one or more values in the instance, it will be returned in
-        the `~descarteslabs.catalog.DocumentState.MODIFIED` state.
+        the `~earthone.catalog.DocumentState.MODIFIED` state.
 
         If the Descartes Labs catalog object is not found, it will be created and the
-        state will be `~descarteslabs.catalog.DocumentState.UNSAVED`.  Also see the
+        state will be `~earthone.catalog.DocumentState.UNSAVED`.  Also see the
         example for :py:meth:`save`.
 
         Parameters
@@ -381,7 +381,7 @@ class EventApiDestination(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the Descartes Labs
             catalog.  The
-            :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
         kwargs : dict, optional
             With the exception of readonly attributes (`created`, `modified`), any
@@ -390,7 +390,7 @@ class EventApiDestination(AuthCatalogObject):
 
         Returns
         -------
-        :py:class:`~descarteslabs.catalog.CatalogObject`
+        :py:class:`~earthone.catalog.CatalogObject`
             The requested catalog object that was retrieved or created.
 
         """
@@ -410,7 +410,7 @@ class EventApiDestination(AuthCatalogObject):
     def search(cls, client=None, request_params=None, headers=None):
         """A search query for all event api destinations.
 
-        Return an `~descarteslabs.catalog.EventApiDestinationSearch` instance for searching
+        Return an `~earthone.catalog.EventApiDestinationSearch` instance for searching
         event api destinations in the Descartes Labs catalog.
 
         Parameters
@@ -421,8 +421,8 @@ class EventApiDestination(AuthCatalogObject):
 
         Returns
         -------
-        :class:`~descarteslabs.catalog.EventApiDestinationSearch`
-            An instance of the `~descarteslabs.catalog.EventApiDestinationSearch` class
+        :class:`~earthone.catalog.EventApiDestinationSearch`
+            An instance of the `~earthone.catalog.EventApiDestinationSearch` class
 
         Example
         -------

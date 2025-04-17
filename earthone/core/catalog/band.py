@@ -443,22 +443,22 @@ class Band(NamedCatalogObject):
     classes.
 
     Common attributes:
-    :attr:`~descarteslabs.catalog.GenericBand.id`,
-    :attr:`~descarteslabs.catalog.GenericBand.name`,
-    :attr:`~descarteslabs.catalog.GenericBand.product_id`,
-    :attr:`~descarteslabs.catalog.GenericBand.description`,
-    :attr:`~descarteslabs.catalog.GenericBand.type`,
-    :attr:`~descarteslabs.catalog.GenericBand.sort_order`,
-    :attr:`~descarteslabs.catalog.GenericBand.vendor_order`,
-    :attr:`~descarteslabs.catalog.GenericBand.data_type`,
-    :attr:`~descarteslabs.catalog.GenericBand.nodata`,
-    :attr:`~descarteslabs.catalog.GenericBand.data_range`,
-    :attr:`~descarteslabs.catalog.GenericBand.display_range`,
-    :attr:`~descarteslabs.catalog.GenericBand.resolution`,
-    :attr:`~descarteslabs.catalog.GenericBand.band_index`,
-    :attr:`~descarteslabs.catalog.GenericBand.file_index`,
-    :attr:`~descarteslabs.catalog.GenericBand.jpx_layer_index`.
-    :attr:`~descarteslabs.catalog.GenericBand.vendor_band_name`.
+    :attr:`~earthone.catalog.GenericBand.id`,
+    :attr:`~earthone.catalog.GenericBand.name`,
+    :attr:`~earthone.catalog.GenericBand.product_id`,
+    :attr:`~earthone.catalog.GenericBand.description`,
+    :attr:`~earthone.catalog.GenericBand.type`,
+    :attr:`~earthone.catalog.GenericBand.sort_order`,
+    :attr:`~earthone.catalog.GenericBand.vendor_order`,
+    :attr:`~earthone.catalog.GenericBand.data_type`,
+    :attr:`~earthone.catalog.GenericBand.nodata`,
+    :attr:`~earthone.catalog.GenericBand.data_range`,
+    :attr:`~earthone.catalog.GenericBand.display_range`,
+    :attr:`~earthone.catalog.GenericBand.resolution`,
+    :attr:`~earthone.catalog.GenericBand.band_index`,
+    :attr:`~earthone.catalog.GenericBand.file_index`,
+    :attr:`~earthone.catalog.GenericBand.jpx_layer_index`.
+    :attr:`~earthone.catalog.GenericBand.vendor_band_name`.
 
     To create a new band instantiate one of those specialized classes:
 
@@ -638,7 +638,7 @@ class Band(NamedCatalogObject):
         """A search query for all bands.
 
         Returns an instance of the
-        :py:class:`~descarteslabs.catalog.Search` class configured for
+        :py:class:`~earthone.catalog.Search` class configured for
         searching bands.  Call this on the :py:class:`Band` base class to search all
         types of bands or classes :py:class:`SpectralBand`, :py:class:`MicrowaveBand`,
         :py:class:`MaskBand`, :py:class:`ClassBand` and :py:class:`GenericBand` to search
@@ -653,8 +653,8 @@ class Band(NamedCatalogObject):
 
         Returns
         -------
-        :py:class:`~descarteslabs.catalog.Search`
-            An instance of the :py:class:`~descarteslabs.catalog.Search` class
+        :py:class:`~earthone.catalog.Search`
+            An instance of the :py:class:`~earthone.catalog.Search` class
         """
         search = super(Band, cls).search(
             client, request_params=request_params, headers=headers
@@ -677,17 +677,17 @@ class SpectralBand(Band):
 
     Instantiating a spectral band indicates that you want to create a *new* Descartes
     Labs catalog spectral band.  If you instead want to retrieve an existing catalog
-    spectral band use `Band.get() <descarteslabs.catalog.Band.get>`, or if
+    spectral band use `Band.get() <earthone.catalog.Band.get>`, or if
     you're not sure use `SpectralBand.get_or_create()
-    <descarteslabs.catalog.SpectralBand.get_or_create>`.  You can also use
-    `Band.search() <descarteslabs.catalog.Band.search>`.  Also see the example
-    for :py:meth:`~descarteslabs.catalog.Band.save`.
+    <earthone.catalog.SpectralBand.get_or_create>`.  You can also use
+    `Band.search() <earthone.catalog.Band.search>`.  Also see the example
+    for :py:meth:`~earthone.catalog.Band.save`.
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
-        The :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
         With the exception of readonly attributes (`created`, `modified`) and with the
@@ -737,17 +737,17 @@ class MicrowaveBand(Band):
 
     Instantiating a microwave band indicates that you want to create a *new* Descartes
     Labs catalog microwave band.  If you instead want to retrieve an existing catalog
-    microwave band use `Band.get() <descarteslabs.catalog.Band.get>`, or if
+    microwave band use `Band.get() <earthone.catalog.Band.get>`, or if
     you're not sure use `MicrowaveBand.get_or_create()
-    <descarteslabs.catalog.MicrowaveBand.get_or_create>`.  You can also use
-    `Band.search() <descarteslabs.catalog.Band.search>`.  Also see the example
-    for :py:meth:`~descarteslabs.catalog.Band.save`.
+    <earthone.catalog.MicrowaveBand.get_or_create>`.  You can also use
+    `Band.search() <earthone.catalog.Band.search>`.  Also see the example
+    for :py:meth:`~earthone.catalog.Band.save`.
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
-        The :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
         With the exception of readonly attributes (`created`, `modified`) and with the
@@ -787,17 +787,17 @@ class MaskBand(Band):
 
     Instantiating a mask band indicates that you want to create a *new* Descartes
     Labs catalog mask band.  If you instead want to retrieve an existing catalog
-    mask band use `Band.get() <descarteslabs.catalog.Band.get>`, or if
+    mask band use `Band.get() <earthone.catalog.Band.get>`, or if
     you're not sure use `MaskBand.get_or_create()
-    <descarteslabs.catalog.MaskBand.get_or_create>`.  You can also use
-    `Band.search() <descarteslabs.catalog.Band.search>`.  Also see the example
-    for :py:meth:`~descarteslabs.catalog.Band.save`.
+    <earthone.catalog.MaskBand.get_or_create>`.  You can also use
+    `Band.search() <earthone.catalog.Band.search>`.  Also see the example
+    for :py:meth:`~earthone.catalog.Band.save`.
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
-        The :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
         With the exception of readonly attributes (`created`, `modified`) and with the
@@ -813,8 +813,8 @@ class MaskBand(Band):
 
         This enables special behavior for this band during rastering.  If this is
         ``True`` and the band appears as the last band in a raster operation (such as
-        :meth:`descarteslabs.catalog.imagecollection.ImageCollection.mosaic` or
-        :meth:`descarteslabs.catalog.imagecollection.ImageCollection.stack`) pixels
+        :meth:`earthone.catalog.imagecollection.ImageCollection.mosaic` or
+        :meth:`earthone.catalog.imagecollection.ImageCollection.stack`) pixels
         with a value of 0 in this band will be treated as transparent.
         """
     )
@@ -832,17 +832,17 @@ class ClassBand(Band):
 
     Instantiating a class band indicates that you want to create a *new* Descartes
     Labs catalog class band.  If you instead want to retrieve an existing catalog
-    class band use `Band.get() <descarteslabs.catalog.Band.get>`, or if
+    class band use `Band.get() <earthone.catalog.Band.get>`, or if
     you're not sure use `ClassBand.get_or_create()
-    <descarteslabs.catalog.ClassBand.get_or_create>`.  You can also use
-    `Band.search() <descarteslabs.catalog.Band.search>`.  Also see the example
-    for :py:meth:`~descarteslabs.catalog.Band.save`.
+    <earthone.catalog.ClassBand.get_or_create>`.  You can also use
+    `Band.search() <earthone.catalog.Band.search>`.  Also see the example
+    for :py:meth:`~earthone.catalog.Band.save`.
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
-        The :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
         With the exception of readonly attributes (`created`, `modified`) and with the
@@ -872,17 +872,17 @@ class GenericBand(Band):
 
     Instantiating a generic band indicates that you want to create a *new* Descartes
     Labs catalog generic band.  If you instead want to retrieve an existing catalog
-    generic band use `Band.get() <descarteslabs.catalog.Band.get>`, or if
+    generic band use `Band.get() <earthone.catalog.Band.get>`, or if
     you're not sure use `GenericBand.get_or_create()
-    <descarteslabs.catalog.GenericBand.get_or_create>`.  You can also use
-    `Band.search() <descarteslabs.catalog.Band.search>`.  Also see the example
-    for :py:meth:`~descarteslabs.catalog.Band.save`.
+    <earthone.catalog.GenericBand.get_or_create>`.  You can also use
+    `Band.search() <earthone.catalog.Band.search>`.  Also see the example
+    for :py:meth:`~earthone.catalog.Band.save`.
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
-        The :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
         With the exception of readonly attributes (`created`, `modified`) and with the

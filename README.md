@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/descarteslabs/descarteslabs-python/actions/workflows/public-ci.yml/badge.svg)](https://github.com/descarteslabs/descarteslabs-python/actions/workflows/public-ci.yml)
+[![Build Status](https://github.com/descarteslabs/earthone-python/actions/workflows/public-ci.yml/badge.svg)](https://github.com/descarteslabs/earthone-python/actions/workflows/public-ci.yml)
 
 Descartes Labs Platform
 =======================
@@ -979,7 +979,7 @@ Fixes a few buglets which slipped through. This release continues to use the wor
 ## [1.4.1] - 2020-09-02
 
 ### Fixed
-No more irrelevant `DeprecationWarning`s when importing the `descarteslabs` package ([#235](https://github.com/descarteslabs/descarteslabs-python/issues/235)). Deprecated functionality in the package will now show `FutureWarning`s instead.
+No more irrelevant `DeprecationWarning`s when importing the `descarteslabs` package ([#235](https://github.com/descarteslabs/earthone-python/issues/235)). Deprecated functionality in the package will now show `FutureWarning`s instead.
 
 ### Workflows (channel `v0-16`) - Fixed
 - `wf.map.geocontext` doesn't raise an error about the CRS of the map

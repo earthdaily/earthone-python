@@ -8,8 +8,8 @@ Create time stacks of images
 This example demonstrates how to aggregate the images returned from a Catalog image search by date.
 """
 
-from earthone.catalog import Product, properties as p
-from earthone.utils import display
+from descarteslabs.catalog import Product, properties as p
+from descarteslabs.utils import display
 
 # Define a bounding box around Taos in a GeoJSON
 taos = {

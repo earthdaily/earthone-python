@@ -10,8 +10,8 @@ display as a single image.
 
 """
 
-from earthone.catalog import Image, properties as p
-from earthone.utils import display
+from descarteslabs.catalog import Image, properties as p
+from descarteslabs.utils import display
 import numpy as np
 
 # Define a bounding box around Taos in a GeoJSON

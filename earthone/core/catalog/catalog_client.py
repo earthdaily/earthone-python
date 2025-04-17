@@ -36,7 +36,7 @@ class CatalogClient(JsonApiService, DefaultClientMixin):
         not set, then ``descarteslabs.config.get_settings().CATALOG_V2_URL`` will be used.
     auth : Auth, optional
         The authentication object used when connecting to the Descartes Labs catalog.
-        This is typically the default :class:`~descarteslabs.auth.Auth` object that uses
+        This is typically the default :class:`~earthone.auth.Auth` object that uses
         the cached authentication
         token retrieved with the shell command "$ descarteslabs auth login".
     retries : int, optional

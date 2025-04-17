@@ -957,7 +957,7 @@ class Function(Document):
 
         If any jobs are in a running state, the deletion will fail.
 
-        Please see the `:meth:~descarteslabs.compute.Function.delete_jobs` method for more
+        Please see the `:meth:~earthone.compute.Function.delete_jobs` method for more
         information on deleting large numbers of jobs.
 
         Parameters

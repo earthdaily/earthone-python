@@ -38,12 +38,12 @@ class Search(object):
 
     Each method on a search instance returns a narrowed-down search object.  You obtain
     a search instance using the search() method on a catalog object class, for example
-    `Product.search() <descarteslabs.catalog.Product.search>`, `Band.search()
-    <descarteslabs.catalog.Band>` or `Image.search() <descarteslabs.catalog.Image>`.
+    `Product.search() <earthone.catalog.Product.search>`, `Band.search()
+    <earthone.catalog.Band>` or `Image.search() <earthone.catalog.Image>`.
 
     You must use the `Search` object as an ``iterator`` to get the results.  This will
     execute the search query and return a generator for iterating through the returned
-    results.  This might raise a `~descarteslabs.exceptions.BadRequestError`
+    results.  This might raise a `~earthone.exceptions.BadRequestError`
     if any of the query parameters or filters are invalid.
 
     Example
@@ -135,22 +135,22 @@ class Search(object):
         properties : Expression
             Expression used to filter objects in the search by their properties, built
             from :class:`properties
-            <descarteslabs.common.property_filtering.filtering.Properties>`.
+            <earthone.common.property_filtering.filtering.Properties>`.
             You can construct filter expressions using the ``==``, ``!=``, ``<``,
             ``>``, ``<=`` and ``>=`` operators as well as the
-            :meth:`~descarteslabs.common.property_filtering.filtering.Property.in_`
+            :meth:`~earthone.common.property_filtering.filtering.Property.in_`
             or
-            :meth:`~descarteslabs.common.property_filtering.filtering.Property.any_of`
+            :meth:`~earthone.common.property_filtering.filtering.Property.any_of`
             method.  You cannot use the boolean keywords ``and`` and ``or`` because
             of Python language limitations; instead combine filter expressions using
             ``&`` (boolean "and") and ``|`` (boolean "or").  Filters using
-            :meth:`~descarteslabs.common.property_filtering.filtering.Property.like`
+            :meth:`~earthone.common.property_filtering.filtering.Property.like`
             are not supported.
 
         Returns
         -------
         Search
-            A new :py:class:`~descarteslabs.catalog.Search` instance with the
+            A new :py:class:`~earthone.catalog.Search` instance with the
             new filter(s) applied (using ``and`` if there were existing filters)
 
         Raises
@@ -192,10 +192,10 @@ class Search(object):
         """Full-text search for a string in the name or description of an item.
 
         Not all attributes support full-text search; the product name
-        (`Product.name <descarteslabs.catalog.Product.name>`)
+        (`Product.name <earthone.catalog.Product.name>`)
         and product and band description
-        (`Product.description <descarteslabs.catalog.Product.description>`,
-        `Band.description <descarteslabs.catalog.Band.description>`)
+        (`Product.description <earthone.catalog.Product.description>`,
+        `Band.description <earthone.catalog.Band.description>`)
         support full-text search.  Successive calls
         to `find_text` override the previous find_text parameter.
 
@@ -207,7 +207,7 @@ class Search(object):
         Returns
         -------
         Search
-            A new instance of the :py:class:`~descarteslabs.catalog.Search`
+            A new instance of the :py:class:`~earthone.catalog.Search`
             class that includes the text query.
         """
         s = copy.deepcopy(self)
@@ -282,7 +282,7 @@ class Search(object):
         ------
         BadRequestError
             If any of the query parameters or filters are invalid
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
 
@@ -306,14 +306,14 @@ class Search(object):
 
         Returns
         -------
-        ~descarteslabs.common.collection.Collection
+        ~earthone.common.collection.Collection
             Collection of objects that match the type of document beng searched.
 
         Raises
         ------
         BadRequestError
             If any of the query parameters or filters are invalid
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -335,7 +335,7 @@ class Search(object):
         ------
         BadRequestError
             If any of the query parameters or filters are invalid
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
 
@@ -482,13 +482,13 @@ class GeoSearch(Search):
 
         Parameters
         ----------
-        geometry : shapely.geometry.base.BaseGeometry, ~descarteslabs.common.geo.GeoContext, geojson-like Geometry that found images must intersect.
+        geometry : shapely.geometry.base.BaseGeometry, ~earthone.common.geo.GeoContext, geojson-like Geometry that found images must intersect.
         match_null_geometry : bool, optional (default False) Also match images or blobs with no geometry.
 
         Returns
         -------
         Search
-            A new instance of the :py:class:`~descarteslabs.catalog.GeoSearch`
+            A new instance of the :py:class:`~earthone.catalog.GeoSearch`
             class that includes geometry filter.
         """  # noqa: E501
         s = copy.deepcopy(self)
@@ -547,7 +547,7 @@ class SummarySearchMixin(Search):
 
         Raises
         ------
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
 
@@ -611,7 +611,7 @@ class SummarySearchMixin(Search):
 
         Raises
         ------
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
 

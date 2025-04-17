@@ -16,12 +16,12 @@
 
 .. code-block:: bash
 
-    pip install descarteslabs[complete]
+    pip install earthone[complete]
 
 Documentation is available at https://docs.descarteslabs.com.
 
 Source code and version information is at
-https://github.com/descarteslabs/descarteslabs-python.
+https://github.com/descarteslabs/earthone-python.
 
 The Descartes Labs Platform simplifies analysis of **global-scale raster data**
 by providing:

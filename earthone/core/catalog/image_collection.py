@@ -40,7 +40,7 @@ class ImageCollection(Collection):
     contained Images.
 
     `stack` and `mosaic` rasterize all contained images into an ndarray
-    using the a :class:`~descarteslabs.common.geo.geocontext.GeoContext`.
+    using the a :class:`~earthone.common.geo.geocontext.GeoContext`.
     """
 
     # _item_type set below due to circular imports
@@ -126,12 +126,12 @@ class ImageCollection(Collection):
         """
         Include only images overlapping with ``geom`` by some fraction.
 
-        See `Image.coverage <descarteslabs.catalog.image.Image.coverage>`
+        See `Image.coverage <earthone.catalog.image.Image.coverage>`
         for getting coverage information for an image.
 
         Parameters
         ----------
-        geom : GeoJSON-like dict, :class:`~descarteslabs.common.geo.geocontext.GeoContext`, or object with __geo_interface__  # noqa: E501
+        geom : GeoJSON-like dict, :class:`~earthone.common.geo.geocontext.GeoContext`, or object with __geo_interface__  # noqa: E501
             Geometry to which to compare each image's geometry.
         minimum_coverage : float
             Only include images that cover ``geom`` by at least this fraction.
@@ -179,7 +179,7 @@ class ImageCollection(Collection):
 
         If the selected bands and images have different data types the resulting
         ndarray has the most general of those data types. See
-        `Image.ndarray() <descarteslabs.catalog.image.Image.ndarray>` for details
+        `Image.ndarray() <earthone.catalog.image.Image.ndarray>` for details
         on data type conversions.
 
         Parameters
@@ -190,8 +190,8 @@ class ImageCollection(Collection):
             or a sequence of band names (``["red", "green", "blue"]``).
             If the alpha band is requested, it must be last in the list
             to reduce rasterization errors.
-        geocontext : :class:`~descarteslabs.common.geo.geocontext.GeoContext`, default None
-            A :class:`~descarteslabs.common.geo.geocontext.GeoContext` to use when loading each image.
+        geocontext : :class:`~earthone.common.geo.geocontext.GeoContext`, default None
+            A :class:`~earthone.common.geo.geocontext.GeoContext` to use when loading each image.
             If ``None`` then the default context of the collection will be used. If
             this is ``None``, a ValueError is raised.
         crs : str, default None
@@ -285,7 +285,7 @@ class ImageCollection(Collection):
             or are invalid.
             If the context is None and no default context for the ImageCollection
             is defined, or if not all required parameters are specified in the
-            :class:`~descarteslabs.common.geo.geocontext.GeoContext`.
+            :class:`~earthone.common.geo.geocontext.GeoContext`.
             If the ImageCollection is empty.
         NotFoundError
             If a Image's ID cannot be found in the Descartes Labs catalog
@@ -444,7 +444,7 @@ class ImageCollection(Collection):
 
         If the selected bands and images have different data types the resulting
         ndarray has the most general of those data types. See
-        `Image.ndarray() <descarteslabs.catalog.image.Image.ndarray>` for details
+        `Image.ndarray() <earthone.catalog.image.Image.ndarray>` for details
         on data type conversions.
 
         Parameters
@@ -455,8 +455,8 @@ class ImageCollection(Collection):
             or a sequence of band names (``["red", "green", "blue"]``).
             If the alpha band is requested, it must be last in the list
             to reduce rasterization errors.
-        geocontext : :class:`~descarteslabs.common.geo.geocontext.GeoContext`, default None
-            A :class:`~descarteslabs.common.geo.geocontext.GeoContext` to use when loading each image.
+        geocontext : :class:`~earthone.common.geo.geocontext.GeoContext`, default None
+            A :class:`~earthone.common.geo.geocontext.GeoContext` to use when loading each image.
             If ``None`` then the default context of the collection will be used. If
             this is ``None``, a ValueError is raised.
         crs : str, default None
@@ -525,7 +525,7 @@ class ImageCollection(Collection):
             If requested bands are unavailable, or band names are not given
             or are invalid.
             If not all required parameters are specified in the
-            :class:`~descarteslabs.common.geo.geocontext.GeoContext`.
+            :class:`~earthone.common.geo.geocontext.GeoContext`.
             If the ImageCollection is empty.
         NotFoundError
             If a Image's ID cannot be found in the Descartes Labs catalog
@@ -642,8 +642,8 @@ class ImageCollection(Collection):
             Band names to load. Can be a single string of band names
             separated by spaces (``"red green blue"``),
             or a sequence of band names (``["red", "green", "blue"]``).
-        geocontext : :class:`~descarteslabs.common.geo.geocontext.GeoContext`, default None
-            A :class:`~descarteslabs.common.geo.geocontext.GeoContext` to use when loading each image.
+        geocontext : :class:`~earthone.common.geo.geocontext.GeoContext`, default None
+            A :class:`~earthone.common.geo.geocontext.GeoContext` to use when loading each image.
             If ``None`` then the default context of the collection will be used. If
             this is ``None``, a ValueError is raised.
         crs : str, default None
@@ -735,7 +735,7 @@ class ImageCollection(Collection):
             If requested bands are unavailable, or band names are not given
             or are invalid.
             If not all required parameters are specified in the
-            :class:`~descarteslabs.common.geo.geocontext.GeoContext`.
+            :class:`~earthone.common.geo.geocontext.GeoContext`.
             If the ImageCollection is empty.
             If ``dest`` is a sequence not equal in length to the ImageCollection.
             If ``format`` is invalid, or a path has an invalid extension.
@@ -876,8 +876,8 @@ class ImageCollection(Collection):
             Band names to load. Can be a single string of band names
             separated by spaces (``"red green blue"``),
             or a sequence of band names (``["red", "green", "blue"]``).
-        geocontext : :class:`~descarteslabs.common.geo.geocontext.GeoContext`, default None
-            A :class:`~descarteslabs.common.geo.geocontext.GeoContext` to use when loading each image.
+        geocontext : :class:`~earthone.common.geo.geocontext.GeoContext`, default None
+            A :class:`~earthone.common.geo.geocontext.GeoContext` to use when loading each image.
             If ``None`` then the default context of the collection will be used. If
             this is ``None``, a ValueError is raised.
         crs : str, default None
@@ -955,7 +955,7 @@ class ImageCollection(Collection):
             If requested bands are unavailable, or band names are not given
             or are invalid.
             If not all required parameters are specified in the
-            :class:`~descarteslabs.common.geo.geocontext.GeoContext`.
+            :class:`~earthone.common.geo.geocontext.GeoContext`.
             If the ImageCollection is empty.
             If ``format`` is invalid, or the path has an invalid extension.
         NotFoundError
@@ -1027,7 +1027,7 @@ class ImageCollection(Collection):
         introducing the possibility that the band properties for a band
         of a given name may differ from product to product. This method
         works in a similar fashion to the
-        :meth:`Image.scaling_parameters <descarteslabs.catalog.image.Image.scaling_parameters>`
+        :meth:`Image.scaling_parameters <earthone.catalog.image.Image.scaling_parameters>`
         method, but it additionally ensures that the resulting scale
         elements are compatible across the multiple products. If there
         is an incompatibility, an appropriate ValueError will be raised.
@@ -1044,20 +1044,20 @@ class ImageCollection(Collection):
             is available.
         scaling : None or str or list or dict
             Band scaling specification. See
-            :meth:`Image.scaling_parameters <descarteslabs.catalog.image.Image.scaling_parameters>`
+            :meth:`Image.scaling_parameters <earthone.catalog.image.Image.scaling_parameters>`
             for a full description of this parameter.
         data_type : None or str
             Result data type desired, as a standard data type string (e.g.
             ``"Byte"``, ``"Uint16"``, or ``"Float64"``). If not specified,
             will be deduced from the ``scaling`` specification. See
-            :meth:`Image.scaling_parameters <descarteslabs.catalog.image.Image.scaling_parameters>`
+            :meth:`Image.scaling_parameters <earthone.catalog.image.Image.scaling_parameters>`
             for a full description of this parameter.
 
         Returns
         -------
         scales : list(tuple)
             The fully specified scaling parameter, compatible with the
-            :class:`~descarteslabs.client.services.raster.Raster` API and the
+            :class:`~earthone.client.services.raster.Raster` API and the
             output data type.
         data_type : str
             The result data type as a standard GDAL type string.

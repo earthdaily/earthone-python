@@ -283,9 +283,9 @@ class Session(requests.Session):
 
     You cannot control its instantiation, but you can derive from this class
     and pass it as the class to use when you instantiate a
-    :py:class:`~descarteslabs.client.services.service.Service` or register it as the
+    :py:class:`~earthone.client.services.service.Service` or register it as the
     default session class using
-    :py:meth:`~descarteslabs.client.services.service.Service.set_default_session_class`.
+    :py:meth:`~earthone.client.services.service.Service.set_default_session_class`.
 
     Notes
     =====
@@ -366,7 +366,7 @@ class Session(requests.Session):
             A 429 HTTP response status code was encountered.
         GatewayTimeoutError
             A 504 HTTP response status code was encountered.
-        ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ServerError
             Any HTTP response status code larger than 400 that was not covered above
             is returned as a ServerError.  The original HTTP response status code
             can be found in the attribute :py:attr:`original_status`.

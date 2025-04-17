@@ -124,16 +124,16 @@ class Blob(AuthCatalogObject):
 
     Instantiating a blob indicates that you want to create a *new* Descartes Labs
     storage blob.  If you instead want to retrieve an existing blob use
-    `Blob.get() <descarteslabs.catalog.Blob.get>`.
-    You can also use `Blob.search() <descarteslabs.catalog.Blob.search>`.
-    Also see the example for :py:meth:`~descarteslabs.catalog.Blob.upload`.
+    `Blob.get() <earthone.catalog.Blob.get>`.
+    You can also use `Blob.search() <earthone.catalog.Blob.search>`.
+    Also see the example for :py:meth:`~earthone.catalog.Blob.upload`.
 
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
-        The :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict
         With the exception of readonly attributes (`created`, `modified`) and with
@@ -193,7 +193,7 @@ class Blob(AuthCatalogObject):
         doc="""str or StorageType: Storage type of the blob.
 
         `~StorageType.DATA` is managed by end users (e.g. via
-        :py:meth:`descarteslabs.catalog.Blob.upload`.
+        :py:meth:`earthone.catalog.Blob.upload`.
         Other types are generated and managed by various components of the platform.
 
         *Filterable, sortable*.
@@ -215,7 +215,7 @@ class Blob(AuthCatalogObject):
         *Filterable*
 
         (use :py:meth:`BlobSearch.intersects
-        <descarteslabs.catalog.BlobSearch.intersects>` to search based on geometry)
+        <earthone.catalog.BlobSearch.intersects>` to search based on geometry)
         """
     )
     expires = Timestamp(
@@ -253,7 +253,7 @@ class Blob(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the Descartes Labs
             catalog.  The
-            :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
@@ -300,8 +300,8 @@ class Blob(AuthCatalogObject):
         """Get an existing Blob from the Descartes Labs catalog.
 
         If the Blob is found, it will be returned in the
-        `~descarteslabs.catalog.DocumentState.SAVED` state.  Subsequent changes will
-        put the instance in the `~descarteslabs.catalog.DocumentState.MODIFIED` state,
+        `~earthone.catalog.DocumentState.SAVED` state.  Subsequent changes will
+        put the instance in the `~earthone.catalog.DocumentState.MODIFIED` state,
         and you can use :py:meth:`save` to commit those changes and update the Descartes
         Labs catalog object.  Also see the example for :py:meth:`save`.
 
@@ -326,18 +326,18 @@ class Blob(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the Descartes Labs
             catalog.  The
-            :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
         -------
-        :py:class:`~descarteslabs.catalog.CatalogObject` or None
+        :py:class:`~earthone.catalog.CatalogObject` or None
             The object you requested, or ``None`` if an object with the given `id`
             does not exist in the Descartes Labs catalog.
 
         Raises
         ------
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -363,14 +363,14 @@ class Blob(AuthCatalogObject):
 
         If the Descartes Labs catalog object is found, and the remainder of the
         arguments do not differ from the values in the retrieved instance, it will be
-        returned in the `~descarteslabs.catalog.DocumentState.SAVED` state.
+        returned in the `~earthone.catalog.DocumentState.SAVED` state.
 
         If the Descartes Labs catalog object is found, and the remainder of the
         arguments update one or more values in the instance, it will be returned in
-        the `~descarteslabs.catalog.DocumentState.MODIFIED` state.
+        the `~earthone.catalog.DocumentState.MODIFIED` state.
 
         If the Descartes Labs catalog object is not found, it will be created and the
-        state will be `~descarteslabs.catalog.DocumentState.UNSAVED`.  Also see the
+        state will be `~earthone.catalog.DocumentState.UNSAVED`.  Also see the
         example for :py:meth:`save`.
 
         Parameters
@@ -390,7 +390,7 @@ class Blob(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the Descartes Labs
             catalog.  The
-            :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
         kwargs : dict, optional
             With the exception of readonly attributes (`created`, `modified`), any
@@ -399,7 +399,7 @@ class Blob(AuthCatalogObject):
 
         Returns
         -------
-        :py:class:`~descarteslabs.catalog.CatalogObject`
+        :py:class:`~earthone.catalog.CatalogObject`
             The requested catalog object that was retrieved or created.
 
         """
@@ -418,11 +418,11 @@ class Blob(AuthCatalogObject):
     def search(cls, client=None, request_params=None, headers=None):
         """A search query for all blobs.
 
-        Return an `~descarteslabs.catalog.BlobSearch` instance for searching
+        Return an `~earthone.catalog.BlobSearch` instance for searching
         blobs in the Descartes Labs catalog.  This instance extends the
-        :py:class:`~descarteslabs.catalog.Search` class with the
-        :py:meth:`~descarteslabs.catalog.BlobSearch.summary` and
-        :py:meth:`~descarteslabs.catalog.BlobSearch.summary_interval` methods
+        :py:class:`~earthone.catalog.Search` class with the
+        :py:meth:`~earthonelobSearch.summary` and
+        :py:meth:`~earthonelobSearch.summary_interval` methods
         which return summary statistics about the blobs that match the search query.
 
         Parameters
@@ -433,8 +433,8 @@ class Blob(AuthCatalogObject):
 
         Returns
         -------
-        :class:`~descarteslabs.catalog.BlobSearch`
-            An instance of the `~descarteslabs.catalog.BlobSearch` class
+        :class:`~earthone.catalog.BlobSearch`
+            An instance of the `~earthone.catalog.BlobSearch` class
 
         Example
         -------
@@ -454,7 +454,7 @@ class Blob(AuthCatalogObject):
 
         Uploads data from a file and creates the Blob.
 
-        The Blob must be in the state `~descarteslabs.catalog.DocumentState.UNSAVED`.
+        The Blob must be in the state `~earthone.catalog.DocumentState.UNSAVED`.
         The `storage_state`, `storage_type`, `namespace`, and the `name` attributes,
         must all be set. If either the `size_bytes` and the `hash` attributes are set,
         they must agree with the actual file to be uploaded, and will be validated
@@ -522,7 +522,7 @@ class Blob(AuthCatalogObject):
 
         Uploads data from a string or bytes and creates the Blob.
 
-        The Blob must be in the state `~descarteslabs.catalog.DocumentState.UNSAVED`.
+        The Blob must be in the state `~earthone.catalog.DocumentState.UNSAVED`.
         The `storage_state`, `storage_type`, `namespace`, and the `name` attributes,
         must all be set. If either the `size_bytes` and the `hash` attributes are set,
         they must agree with the actual data to be uploaded, and will be validated
@@ -614,7 +614,7 @@ class Blob(AuthCatalogObject):
 
         Downloads data from the blob to a file.
 
-        The Blob must be in the state `~descarteslabs.catalog.DocumentState.SAVED`.
+        The Blob must be in the state `~earthone.catalog.DocumentState.SAVED`.
 
         Parameters
         ----------
@@ -665,7 +665,7 @@ class Blob(AuthCatalogObject):
 
         Downloads data from the blob and returns as a bytes object.
 
-        The Blob must be in the state `~descarteslabs.catalog.DocumentState.SAVED`.
+        The Blob must be in the state `~earthone.catalog.DocumentState.SAVED`.
 
         Parameters
         ----------
@@ -702,7 +702,7 @@ class Blob(AuthCatalogObject):
         which will yield the data (as a bytes) in chunks. This enables the
         processing of very large files.
 
-        The Blob must be in the state `~descarteslabs.catalog.DocumentState.SAVED`.
+        The Blob must be in the state `~earthone.catalog.DocumentState.SAVED`.
 
         Parameters
         ----------
@@ -748,7 +748,7 @@ class Blob(AuthCatalogObject):
         which will yield the data as text lines.  This enables the
         processing of very large files.
 
-        The Blob must be in the state `~descarteslabs.catalog.DocumentState.SAVED`.
+        The Blob must be in the state `~earthone.catalog.DocumentState.SAVED`.
         The data within the blob must represent encoded text.
 
         .. note:: This method is not reentrant safe.
@@ -893,7 +893,7 @@ class Blob(AuthCatalogObject):
             If True, wait for the deletion to complete before returning. Defaults to False.
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
-            The :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+            The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
@@ -903,7 +903,7 @@ class Blob(AuthCatalogObject):
 
         Raises
         ------
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -977,7 +977,7 @@ class Blob(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the Descartes Labs
             catalog.  The
-            :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
@@ -990,7 +990,7 @@ class Blob(AuthCatalogObject):
         ------
         ConflictError
             If the object has related objects (bands, images) that exist.
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
 
@@ -1031,7 +1031,7 @@ class Blob(AuthCatalogObject):
             If this catalog object was already deleted.
         UnsavedObjectError
             If this catalog object is being deleted without having been saved.
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """

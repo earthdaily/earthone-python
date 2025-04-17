@@ -47,7 +47,7 @@ class ApiSession(Session):
         ------
         BadRequestError
             Either a 400 or 422 HTTP response status code was encountered.
-        ~descarteslabs.exceptions.NotFoundError
+        ~earthone.exceptions.NotFoundError
             A 404 HTTP response status code was encountered.
         ProxyAuthenticationRequiredError
             A 407 HTTP response status code was encountered indicating proxy
@@ -61,7 +61,7 @@ class ApiSession(Session):
             A 429 HTTP response status code was encountered.
         GatewayTimeoutError
             A 504 HTTP response status code was encountered.
-        ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ServerError
             Any HTTP response status code larger than 400 that was not covered above
             is returned as a ServerError.  The original HTTP response status code
             can be found in the attribute :py:attr:`original_status`.
@@ -149,7 +149,7 @@ class ApiService(Service):
         When set to ``True``, errors are rewritten to be more readable. Each API
         error becomes it's own line.
     auth: Auth, optional
-        A Descartes Labs :py:class:`~descarteslabs.auth.Auth` instance.  If not
+        A Descartes Labs :py:class:`~earthone.auth.Auth` instance.  If not
         provided, a default one will be instantiated.
     retries: int or urllib3.util.retry.Retry If a number, it's the number of retries
         that will be attempted.  If a :py:class:`urllib3.util.retry.Retry` instance,

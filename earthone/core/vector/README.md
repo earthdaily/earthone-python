@@ -133,6 +133,6 @@ table.visualize("My favourite shapes", m)
 
 Which should yield the feature we just created, outlining the coldest lake on Earth:
 
-![The coldest lake](https://raw.githubusercontent.com/earthone/descarteslabs-python/master/vector/images/the-coldest-lake.png)
+![The coldest lake](https://raw.githubusercontent.com/earthone/earthone-python/master/vector/images/the-coldest-lake.png)
 
 The Vector service also provides for more advanced product and feature management and querying. You can read more about what can be done with Vector in the [Descartes Labs API Documentation](https://docs.descarteslabs.com/api.html).

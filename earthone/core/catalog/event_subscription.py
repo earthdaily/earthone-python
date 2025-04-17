@@ -352,7 +352,7 @@ class EventSubscription(AuthCatalogObject):
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
-        The :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict
         With the exception of readonly attributes (`created`, `modified`, `owner`, and
@@ -408,7 +408,7 @@ class EventSubscription(AuthCatalogObject):
         *Filterable*
 
         (use :py:meth:`EventSubscriptionSearch.intersects
-        <descarteslabs.catalog.EventSubscriptionSearch.intersects>` to search based on geometry)
+        <earthone.catalog.EventSubscriptionSearch.intersects>` to search based on geometry)
         """
     )
     expires = Timestamp(
@@ -491,7 +491,7 @@ class EventSubscription(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the Descartes Labs
             catalog.  The
-            :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
@@ -537,8 +537,8 @@ class EventSubscription(AuthCatalogObject):
         """Get an existing EventSubscription from the Descartes Labs catalog.
 
         If the EventSubscription is found, it will be returned in the
-        `~descarteslabs.catalog.DocumentState.SAVED` state.  Subsequent changes will
-        put the instance in the `~descarteslabs.catalog.DocumentState.MODIFIED` state,
+        `~earthone.catalog.DocumentState.SAVED` state.  Subsequent changes will
+        put the instance in the `~earthone.catalog.DocumentState.MODIFIED` state,
         and you can use :py:meth:`save` to commit those changes and update the Descartes
         Labs catalog object.  Also see the example for :py:meth:`save`.
 
@@ -560,18 +560,18 @@ class EventSubscription(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the Descartes Labs
             catalog.  The
-            :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
         -------
-        :py:class:`~descarteslabs.catalog.CatalogObject` or None
+        :py:class:`~earthone.catalog.CatalogObject` or None
             The object you requested, or ``None`` if an object with the given `id`
             does not exist in the Descartes Labs catalog.
 
         Raises
         ------
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -596,14 +596,14 @@ class EventSubscription(AuthCatalogObject):
 
         If the Descartes Labs catalog object is found, and the remainder of the
         arguments do not differ from the values in the retrieved instance, it will be
-        returned in the `~descarteslabs.catalog.DocumentState.SAVED` state.
+        returned in the `~earthone.catalog.DocumentState.SAVED` state.
 
         If the Descartes Labs catalog object is found, and the remainder of the
         arguments update one or more values in the instance, it will be returned in
-        the `~descarteslabs.catalog.DocumentState.MODIFIED` state.
+        the `~earthone.catalog.DocumentState.MODIFIED` state.
 
         If the Descartes Labs catalog object is not found, it will be created and the
-        state will be `~descarteslabs.catalog.DocumentState.UNSAVED`.  Also see the
+        state will be `~earthone.catalog.DocumentState.UNSAVED`.  Also see the
         example for :py:meth:`save`.
 
         Parameters
@@ -620,7 +620,7 @@ class EventSubscription(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the Descartes Labs
             catalog.  The
-            :py:meth:`~descarteslabs.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
         kwargs : dict, optional
             With the exception of readonly attributes (`created`, `modified`), any
@@ -629,7 +629,7 @@ class EventSubscription(AuthCatalogObject):
 
         Returns
         -------
-        :py:class:`~descarteslabs.catalog.CatalogObject`
+        :py:class:`~earthone.catalog.CatalogObject`
             The requested catalog object that was retrieved or created.
 
         """
@@ -647,7 +647,7 @@ class EventSubscription(AuthCatalogObject):
     def search(cls, client=None, request_params=None, headers=None):
         """A search query for all event subscriptions.
 
-        Return an `~descarteslabs.catalog.EventSubscriptionSearch` instance for searching
+        Return an `~earthone.catalog.EventSubscriptionSearch` instance for searching
         event subscriptions in the Descartes Labs catalog.
 
         Parameters
@@ -658,8 +658,8 @@ class EventSubscription(AuthCatalogObject):
 
         Returns
         -------
-        :class:`~descarteslabs.catalog.EventSubscriptionSearch`
-            An instance of the `~descarteslabs.catalog.EventSubscriptionSearch` class
+        :class:`~earthone.catalog.EventSubscriptionSearch`
+            An instance of the `~earthone.catalog.EventSubscriptionSearch` class
 
         Example
         -------

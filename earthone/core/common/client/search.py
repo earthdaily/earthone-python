@@ -79,7 +79,7 @@ class Search(Generic[T]):
         ------
         BadRequestError
             If any of the query parameters or filters are invalid
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
 
@@ -106,14 +106,14 @@ class Search(Generic[T]):
 
         Returns
         -------
-        ~descarteslabs.common.collection.Collection
+        ~earthone.common.collection.Collection
             Collection of objects that match the type of document beng searched.
 
         Raises
         ------
         BadRequestError
             If any of the query parameters or filters are invalid
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -131,7 +131,7 @@ class Search(Generic[T]):
         ------
         BadRequestError
             If any of the query parameters or filters are invalid
-        ~descarteslabs.exceptions.ClientError or ~descarteslabs.exceptions.ServerError
+        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
 
@@ -158,12 +158,12 @@ class Search(Generic[T]):
         expression : Expression
             Expression used to filter objects in the search by their attributes, built
             from class :class:`attributes
-            <descarteslabs.common.client.attributes.Attribute>` ex. Job.id == 'some-id'.
+            <earthone.common.client.attributes.Attribute>` ex. Job.id == 'some-id'.
             You can construct filter expressions using the ``==``, ``!=``, ``<``,
             ``>``, ``<=`` and ``>=`` operators as well as the
-            :meth:`~descarteslabs.common.client.attributes.Attribute.in_`
+            :meth:`~earthone.common.client.attributes.Attribute.in_`
             or
-            :meth:`~descarteslabs.common.client.attributes.Attribute.any_of`
+            :meth:`~earthone.common.client.attributes.Attribute.any_of`
             method.  You cannot use the boolean keywords ``and`` and ``or`` because
             of Python language limitations; instead combine filter expressions using
             ``&`` (boolean "and") and ``|`` (boolean "or").
@@ -171,7 +171,7 @@ class Search(Generic[T]):
         Returns
         -------
         Search
-            A new :py:class:`~descarteslabs.common.client.Search` instance with the
+            A new :py:class:`~earthone.common.client.Search` instance with the
             new filter(s) applied (using ``and`` if there were existing filters)
 
         Raises

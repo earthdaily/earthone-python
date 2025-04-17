@@ -36,7 +36,7 @@ class BlobUpload(CatalogObjectBase):
         mutable=False,
         serializable=True,
         sticky=True,
-        doc="""~descarteslabs.catalog.Blob: Blob instance with all desired metadata fields.""",
+        doc="""~earthone.catalog.Blob: Blob instance with all desired metadata fields.""",
     )
     resumable_url = TypedAttribute(
         str,
