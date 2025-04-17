@@ -239,13 +239,13 @@ class TestFunctionBundle(FunctionTestCase):
     def get_module_paths(self):
         # Get the path to the module
 
-        parts = ["descarteslabs"] + __file__.split("descarteslabs")[-1].strip(
+        parts = ["earthone"] + __file__.split("earthone")[-1].strip(
             "/"
         ).split("/")
 
         # If the OS is Windows, the path will be different
         if os.name == "nt":
-            parts = ["descarteslabs"] + __file__.split("descarteslabs")[-1].split("\\")
+            parts = ["earthone"] + __file__.split("earthone")[-1].split("\\")
             # remove empty elements
             parts = [i for i in parts if i]
 
@@ -298,7 +298,7 @@ class TestFunctionBundle(FunctionTestCase):
             "timeout": 60,
             "retry_count": 1,
             "requirements": [
-                "descarteslabs[complete]>=2.0.3",
+                "earthone[complete]>=2.0.3",
                 "geopandas==0.13.2",
             ],
             "include_modules": [
