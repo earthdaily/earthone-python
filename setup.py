@@ -22,14 +22,14 @@ from setuptools import find_namespace_packages, find_packages, setup
 
 # Parse the docstring out of earthone/__init__.py
 _docstring_re = re.compile(r'"""((.|\n)*)\n"""', re.MULTILINE)
-with open("earthdaily/earthone/__init__.py", "rb") as f:
+with open("earthone/__init__.py", "rb") as f:
     __doc__ = _docstring_re.search(f.read().decode("utf-8")).group(1)
 
 DOCLINES = __doc__.split("\n")
 
 # Parse version out of earthone/core/client/version.py
 _version_re = re.compile(r"__version__\s+=\s+(.*)")
-with open("earthdaily/earthone/core/client/version.py", "rb") as f:
+with open("earthone/core/client/version.py", "rb") as f:
     version = str(
         ast.literal_eval(_version_re.search(f.read().decode("utf-8")).group(1))
     )
@@ -63,7 +63,7 @@ def do_setup():
         long_description="\n".join(DOCLINES[2:]),
         author="EarthDaily",
         author_email="support.eds@earthdaily.com ",
-        url="https://github.com/earthdaily/earthone-python",
+        url="https://github.com/earthone-python",
         classifiers=[
             "Programming Language :: Python",
             "Programming Language :: Python :: 3",
@@ -74,7 +74,7 @@ def do_setup():
         ],
         license="Apache 2.0",
         download_url=(
-            "https://github.com/earthdaily/earthone-python/archive/v{}.tar.gz".format(
+            "https://github.com/earthone-python/archive/v{}.tar.gz".format(
                 version
             )
         ),

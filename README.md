@@ -644,7 +644,7 @@ below.
   the client will configure itself against the AWS platform (`"aws-production"`).
   Alternate environments can be configured by setting the `EARTHONE_ENV` environment variable before starting python, or by using a prelude like
   ```
-  from earthdaily.earthone.config import Settings
+  from earthone.config import Settings
   Settings.select_env("environment-name")
   ```
   before any other imports of any part of the descarteslabs client package.
