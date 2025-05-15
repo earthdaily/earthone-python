@@ -28,7 +28,7 @@ jobs:
           EARTHONE_ENV: testing
         run: |
           mkdir tempdir
-          python -m pytest -rfExXP --assert=plain --ignore-glob="*/smoke_tests" --ignore-glob="*/e2e" --ignore="earthdaily/earthone/core/third_party" earthdaily
+          python -m pytest -v -rfExXP --assert=plain --ignore-glob="*/smoke_tests" --ignore-glob="*/e2e" --ignore="earthdaily/earthone/core/third_party" earthdaily
           rm -r tempdir
       - name: Test CLI
         env:

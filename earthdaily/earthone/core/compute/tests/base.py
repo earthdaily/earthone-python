@@ -67,6 +67,7 @@ class BaseTestCase(TestCase):
             .strip("=")
         )
         token = f"header.{payload}.signature"
+        print(f"Creating token {token}")
         auth = Auth(jwt_token=token, token_info_path=None)
         ComputeClient.set_default_client(ComputeClient(auth=auth))
 
