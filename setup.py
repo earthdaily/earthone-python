@@ -18,7 +18,7 @@ import ast
 import re
 import sys
 
-from setuptools import find_packages, setup
+from setuptools import find_namespace_packages, find_packages, setup
 
 # Parse the docstring out of earthone/__init__.py
 _docstring_re = re.compile(r'"""((.|\n)*)\n"""', re.MULTILINE)
@@ -58,11 +58,11 @@ def do_setup():
         "freezegun==0.3.12",
     ]
     setup(
-        name="descarteslabs",
+        name="earthdaily-earthone",
         description=DOCLINES[0],
         long_description="\n".join(DOCLINES[2:]),
-        author="Descartes Labs",
-        author_email="hello@earthdaily.com",
+        author="EarthDaily",
+        author_email="support.eds@earthdaily.com ",
         url="https://github.com/earthdaily/earthone-python",
         classifiers=[
             "Programming Language :: Python",
@@ -79,16 +79,16 @@ def do_setup():
             )
         ),
         version=version,
-        packages=find_packages(),
+        packages=find_namespace_packages(include=['earthdaily.*']),
         package_data={
-            "descarteslabs": [
+            "earthdaily.earthone": [
                 "config/settings.toml",
             ]
         },
         include_package_data=True,
         entry_points={
             "console_scripts": [
-                "earthone = earthone.core.client.scripts.__main__:main"
+                "earthdaily.earthone = earthdaily.earthone.core.client.scripts.__main__:main"
             ]
         },
         python_requires="~=3.9",
