@@ -495,7 +495,6 @@ class Auth:
         if self._token:
             try:
                 payload = self._get_payload(self._token)
-                print(f"CLIENT ID {self.client_id}")
             except AuthError:
                 self._token = None
             else:
