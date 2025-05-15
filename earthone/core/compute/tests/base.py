@@ -42,11 +42,11 @@ class BaseTestCase(TestCase):
         # make sure all of these are gone, so our Auth is only a JWT
         for envvar in (
             "CLIENT_ID",
-            "DESCARTESLABS_CLIENT_ID",
+            "EARTHONE_CLIENT_ID",
             "CLIENT_SECRET",
-            "DESCARTESLABS_CLIENT_SECRET",
-            "DESCARTESLABS_REFRESH_TOKEN",
-            "DESCARTESLABS_TOKEN",
+            "EARTHONE_CLIENT_SECRET",
+            "EARTHONE_REFRESH_TOKEN",
+            "EARTHONE_TOKEN",
         ):
             if envvar in os.environ:
                 del os.environ[envvar]

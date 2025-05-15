@@ -75,17 +75,17 @@ class ThreadLocalWrapper(object):
         self._local._pid = pid
 
 
-DEFAULT_TOKEN_INFO_DIR = os.path.join(os.path.expanduser("~"), ".descarteslabs")
+DEFAULT_TOKEN_INFO_DIR = os.path.join(os.path.expanduser("~"), ".earthone")
 DEFAULT_TOKEN_INFO_PATH = os.path.join(DEFAULT_TOKEN_INFO_DIR, "token_info.json")
 JWT_TOKEN_PREFIX = "jwt_token_"
-DESCARTESLABS_CLIENT_ID = "DESCARTESLABS_CLIENT_ID"
-DESCARTESLABS_CLIENT_SECRET = "DESCARTESLABS_CLIENT_SECRET"
-DESCARTESLABS_REFRESH_TOKEN = "DESCARTESLABS_REFRESH_TOKEN"
-DESCARTESLABS_TOKEN = "DESCARTESLABS_TOKEN"
+EARTHONE_CLIENT_ID = "EARTHONE_CLIENT_ID"
+EARTHONE_CLIENT_SECRET = "EARTHONE_CLIENT_SECRET"
+EARTHONE_REFRESH_TOKEN = "EARTHONE_REFRESH_TOKEN"
+EARTHONE_TOKEN = "EARTHONE_TOKEN"
 
-DESCARTESLABS_TOKEN_INFO_PATH = "DESCARTESLABS_TOKEN_INFO_PATH"
+EARTHONE_TOKEN_INFO_PATH = "EARTHONE_TOKEN_INFO_PATH"
 
-DESCARTESLABS_CUSTOM_CLAIM_PREFIX = "earthdaily__dl__"
+EARTHONE_CUSTOM_CLAIM_PREFIX = "earthdaily__dl__"
 
 
 def base64url_decode(input):
@@ -219,35 +219,35 @@ class Auth:
         ``earthone auth login`` from the command line.
 
         You can change the default location by setting the environment variable
-        ``DESCARTESLABS_TOKEN_INFO_PATH``. Make sure you do this **before** running
+        ``EARTHONE_TOKEN_INFO_PATH``. Make sure you do this **before** running
         ``earthone auth login`` so the credentials will be saved to the file
         specified in the environment variable, and when still set when instantiating
         this class, the credentials will be read from that file.
 
         To use a short-lived access token that will not be refreshed, either set the
-        environment variable ``DESCARTESLABS_TOKEN`` or use the ``jwt_token`` parameter.
+        environment variable ``EARTHONE_TOKEN`` or use the ``jwt_token`` parameter.
 
         To use a long-lived refresh token that will be refreshed, either set the
-        environment variables ``DESCARTESLABS_CLIENT_ID`` and
-        ``DESCARTESLABS_CLIENT_SECRET`` or use the parameters ``client_id`` and
+        environment variables ``EARTHONE_CLIENT_ID`` and
+        ``EARTHONE_CLIENT_SECRET`` or use the parameters ``client_id`` and
         ``client_secret``. This will retrieve an access token which will be cached
         between instances for the same combination of client id and client secret.
 
         If in addition to the client id and client secret you also specify a valid
         short-lived access token, it will be used until it expires.
 
-        Note that the environment variable ``DESCARTESLABS_REFRESH_TOKEN`` is identical
-        to ``DESCARTESLABS_CLIENT_SECRET`` and the parameter ``refresh_token`` is
+        Note that the environment variable ``EARTHONE_REFRESH_TOKEN`` is identical
+        to ``EARTHONE_CLIENT_SECRET`` and the parameter ``refresh_token`` is
         identical to ``client_secret``. Use one or the other but not both.
 
         Although discouraged, it is possible to set one value as environment variable,
         and pass the other value in as parameter. For example, one could set the
-        environment variable ``DESCARTESLABS_CLIENT_ID`` and only pass in the parameter
+        environment variable ``EARTHONE_CLIENT_ID`` and only pass in the parameter
         ``client_secret``.
 
         If you also specify a ``token_info_path`` that indicates which file to
         read the credentials from. If used by itself, it works the same as
-        ``DESCARTESLABS_TOKEN_INFO_PATH`` and assuming the file exists and contains
+        ``EARTHONE_TOKEN_INFO_PATH`` and assuming the file exists and contains
         valid credentials, you could switch between accounts this way.
 
         If you specify the ``token_info_path`` together with an additional
@@ -360,7 +360,7 @@ class Auth:
         if token_info_path is Auth._default_token_info_path:
             token_info_path = None
             self.token_info_path = os.environ.get(
-                DESCARTESLABS_TOKEN_INFO_PATH, DEFAULT_TOKEN_INFO_PATH
+                EARTHONE_TOKEN_INFO_PATH, DEFAULT_TOKEN_INFO_PATH
             )
 
         token_info = {}
@@ -371,7 +371,7 @@ class Auth:
                 x
                 for x in (
                     client_id,
-                    os.environ.get(DESCARTESLABS_CLIENT_ID),
+                    os.environ.get(EARTHONE_CLIENT_ID),
                     os.environ.get("CLIENT_ID"),
                 )
                 if x is not None
@@ -384,7 +384,7 @@ class Auth:
                 x
                 for x in (
                     client_secret,
-                    os.environ.get(DESCARTESLABS_CLIENT_SECRET),
+                    os.environ.get(EARTHONE_CLIENT_SECRET),
                     os.environ.get("CLIENT_SECRET"),
                 )
                 if x is not None
@@ -397,7 +397,7 @@ class Auth:
                 x
                 for x in (
                     refresh_token,
-                    os.environ.get(DESCARTESLABS_REFRESH_TOKEN),
+                    os.environ.get(EARTHONE_REFRESH_TOKEN),
                 )
                 if x is not None
             ),
@@ -409,7 +409,7 @@ class Auth:
                 x
                 for x in (
                     jwt_token,
-                    os.environ.get(DESCARTESLABS_TOKEN),
+                    os.environ.get(EARTHONE_TOKEN),
                 )
                 if x is not None
             ),
@@ -620,10 +620,10 @@ class Auth:
             payload = self._get_payload(self.token)
 
             # doctor custom claims
-            if DESCARTESLABS_CUSTOM_CLAIM_PREFIX:
+            if EARTHONE_CUSTOM_CLAIM_PREFIX:
                 for key in list(payload.keys()):
-                    if key.startswith(DESCARTESLABS_CUSTOM_CLAIM_PREFIX):
-                        payload[key[len(DESCARTESLABS_CUSTOM_CLAIM_PREFIX) :]] = (
+                    if key.startswith(EARTHONE_CUSTOM_CLAIM_PREFIX):
+                        payload[key[len(EARTHONE_CUSTOM_CLAIM_PREFIX) :]] = (
                             payload.pop(key)
                         )
 
@@ -677,7 +677,7 @@ class Auth:
 
     @staticmethod
     def _read_token_info(path, suppress_warning=False):
-        if os.environ.get("DESCARTESLABS_NO_JWT_CACHE", "").lower() == "true":
+        if os.environ.get("EARTHONE_NO_JWT_CACHE", "").lower() == "true":
             return {}
 
         try:
