@@ -21,10 +21,10 @@ import click
 
 from earthdaily.earthone.auth.auth import (
     DEFAULT_TOKEN_INFO_PATH,
-    DESCARTESLABS_CLIENT_ID,
-    DESCARTESLABS_CLIENT_SECRET,
-    DESCARTESLABS_REFRESH_TOKEN,
-    DESCARTESLABS_TOKEN_INFO_PATH,
+    EARTHONE_CLIENT_ID,
+    EARTHONE_CLIENT_SECRET,
+    EARTHONE_REFRESH_TOKEN,
+    EARTHONE_TOKEN_INFO_PATH,
     Auth,
     base64url_decode,
     get_app_domain as get_auth_refresh_domain,
@@ -90,7 +90,7 @@ to retrieve your token"""
                 )
 
             Auth._write_token_info(
-                os.environ.get(DESCARTESLABS_TOKEN_INFO_PATH, DEFAULT_TOKEN_INFO_PATH),
+                os.environ.get(EARTHONE_TOKEN_INFO_PATH, DEFAULT_TOKEN_INFO_PATH),
                 token_info,
             )
 
@@ -128,6 +128,6 @@ def groups():
 @cli.command()
 def env():
     """Print the environment settings for the current user."""
-    click.echo(f"{DESCARTESLABS_CLIENT_ID}={Auth().client_id}")
-    click.echo(f"{DESCARTESLABS_CLIENT_SECRET}={Auth().client_secret}")
-    click.echo(f"{DESCARTESLABS_REFRESH_TOKEN}={Auth().refresh_token}")
+    click.echo(f"{EARTHONE_CLIENT_ID}={Auth().client_id}")
+    click.echo(f"{EARTHONE_CLIENT_SECRET}={Auth().client_secret}")
+    click.echo(f"{EARTHONE_REFRESH_TOKEN}={Auth().refresh_token}")

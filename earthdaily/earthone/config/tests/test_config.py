@@ -68,7 +68,7 @@ class TestSettings(unittest.TestCase):
         self.assertEqual(settings.current_env, os.environ.get("EARTHONE_ENV"))
         self.assertEqual(settings.testing, "hello")
 
-    @patch.dict(os.environ, {"DESCARTESLABS_TESTING": "hello"})
+    @patch.dict(os.environ, {"EARTHONE_TESTING": "hello"})
     def test_select_env_override_from_env(self):
         settings = Settings.select_env()
         self.assertEqual(settings.current_env, os.environ.get("EARTHONE_ENV"))

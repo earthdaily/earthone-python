@@ -1571,7 +1571,7 @@ method no longer accepts the `continuation_token` parameter.
 
 ## [0.11.1] - 2018-08-17
 ### Added
-- Namespaced auth environment variables: `DESCARTESLABS_CLIENT_SECRET` and `DESCARTESLABS_CLIENT_ID`. `CLIENT_SECRET` and `CLIENT_ID` will continue to work.
+- Namespaced auth environment variables: `EARTHONE_CLIENT_SECRET` and `EARTHONE_CLIENT_ID`. `CLIENT_SECRET` and `CLIENT_ID` will continue to work.
 - Tasks runtime check for Python version.
 
 ### Changed

@@ -27,7 +27,7 @@ import responses
 from earthdaily.earthone.exceptions import AuthError
 
 from .. import auth as auth_module
-from ..auth import Auth, DESCARTESLABS_CUSTOM_CLAIM_PREFIX, LEGACY_DELEGATION_CLIENT_IDS
+from ..auth import Auth, EARTHONE_CUSTOM_CLAIM_PREFIX, LEGACY_DELEGATION_CLIENT_IDS
 
 
 def token_response_callback(request):
@@ -134,10 +134,10 @@ class TestAuth(unittest.TestCase):
 
         token_payload = {
             "sub": "asdf",
-            f"{DESCARTESLABS_CUSTOM_CLAIM_PREFIX}groups": ["public"],
-            f"{DESCARTESLABS_CUSTOM_CLAIM_PREFIX}name": "some name",
-            f"{DESCARTESLABS_CUSTOM_CLAIM_PREFIX}org": "some-org",
-            f"{DESCARTESLABS_CUSTOM_CLAIM_PREFIX}userid": "1234",
+            f"{EARTHONE_CUSTOM_CLAIM_PREFIX}groups": ["public"],
+            f"{EARTHONE_CUSTOM_CLAIM_PREFIX}name": "some name",
+            f"{EARTHONE_CUSTOM_CLAIM_PREFIX}org": "some-org",
+            f"{EARTHONE_CUSTOM_CLAIM_PREFIX}userid": "1234",
             "exp": 9999999999,
             "aud": "client-id",
         }
@@ -297,9 +297,9 @@ class TestAuth(unittest.TestCase):
         environ = dict(
             CLIENT_SECRET="secret_bar",
             CLIENT_ID="id_bar",
-            DESCARTESLABS_CLIENT_SECRET="secret_foo",
-            DESCARTESLABS_CLIENT_ID="id_foo",
-            DESCARTESLABS_REFRESH_TOKEN="refresh_foo",
+            EARTHONE_CLIENT_SECRET="secret_foo",
+            EARTHONE_CLIENT_ID="id_foo",
+            EARTHONE_REFRESH_TOKEN="refresh_foo",
         )
 
         # should work with direct var
@@ -318,24 +318,24 @@ class TestAuth(unittest.TestCase):
             # when refresh_token and client_secret do not match,
             # the Auth implementation sets both to the value of
             # refresh_token
-            assert auth.client_secret == environ.get("DESCARTESLABS_REFRESH_TOKEN")
-            assert auth.client_id == environ.get("DESCARTESLABS_CLIENT_ID")
+            assert auth.client_secret == environ.get("EARTHONE_REFRESH_TOKEN")
+            assert auth.client_id == environ.get("EARTHONE_CLIENT_ID")
 
         # remove the namespaced ones, except the refresh token because
         # Auth does not recognize a REFRESH_TOKEN environment variable
         # and removing it from the dictionary would result in non-deterministic
         # results based on the token_info.json file on the test runner disk
-        environ.pop("DESCARTESLABS_CLIENT_SECRET")
-        environ.pop("DESCARTESLABS_CLIENT_ID")
+        environ.pop("EARTHONE_CLIENT_SECRET")
+        environ.pop("EARTHONE_CLIENT_ID")
 
         # should fallback to legacy env vars
         with patch.object(auth_module.os, "environ", environ):
             auth = Auth()
-            assert auth.client_secret == environ.get("DESCARTESLABS_REFRESH_TOKEN")
+            assert auth.client_secret == environ.get("EARTHONE_REFRESH_TOKEN")
             assert auth.client_id == environ.get("CLIENT_ID")
 
     def test_set_token(self):
-        environ = dict(DESCARTESLABS_TOKEN="token")
+        environ = dict(EARTHONE_TOKEN="token")
 
         with patch.object(auth_module.os, "environ", environ):
             with self.assertRaises(AuthError):
@@ -347,7 +347,7 @@ class TestAuth(unittest.TestCase):
             auth.payload
 
     def test_set_token_info_path(self):
-        environ = dict(DESCARTESLABS_TOKEN_INFO_PATH="token_info_path")
+        environ = dict(EARTHONE_TOKEN_INFO_PATH="token_info_path")
 
         with patch.object(auth_module.os, "environ", environ):
             with self.assertRaises(AuthError):
