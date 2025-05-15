@@ -76,7 +76,7 @@ class Settings(dynaconf.Dynaconf):
         env : str, optional
             Name of the environment to configure. Must appear in
             ``earthone/config/settings.toml`` If not supplied will be determined
-            from the `DESCARTESLABS_ENV` environment variable (or use the prefix
+            from the `EARTHONE_ENV` environment variable (or use the prefix
             specified in the `envvar_prefix`_ENV), if set. Otherwise defaults to
             `aws-production`.
         settings_file : str, optional
@@ -248,7 +248,7 @@ class Settings(dynaconf.Dynaconf):
             restore_env()
 
             if not env:
-                message += " Check your DESCARTESLABS_ENV environment variable."
+                message += " Check your EARTHONE_ENV environment variable."
 
             raise ConfigError(message) from None
 

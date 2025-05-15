@@ -42,11 +42,11 @@ class TestSettings(unittest.TestCase):
 
     def test_select_env_default(self):
         settings = Settings.select_env()
-        self.assertEqual(settings.current_env, os.environ.get("DESCARTESLABS_ENV"))
+        self.assertEqual(settings.current_env, os.environ.get("EARTHONE_ENV"))
         self.assertEqual(id(settings), id(Settings._settings))
         self.assertEqual(id(settings), id(Settings.get_settings()))
 
-    @patch.dict(os.environ, {"DESCARTESLABS_ENV": "aws-production"})
+    @patch.dict(os.environ, {"EARTHONE_ENV": "aws-production"})
     def test_select_env_from_env(self):
         settings = Settings.select_env()
         self.assertEqual(settings.current_env, "aws-production")
@@ -65,13 +65,13 @@ class TestSettings(unittest.TestCase):
         settings = Settings.select_env(
             settings_file=os.path.join(os.path.dirname(__file__), "settings.toml"),
         )
-        self.assertEqual(settings.current_env, os.environ.get("DESCARTESLABS_ENV"))
+        self.assertEqual(settings.current_env, os.environ.get("EARTHONE_ENV"))
         self.assertEqual(settings.testing, "hello")
 
     @patch.dict(os.environ, {"DESCARTESLABS_TESTING": "hello"})
     def test_select_env_override_from_env(self):
         settings = Settings.select_env()
-        self.assertEqual(settings.current_env, os.environ.get("DESCARTESLABS_ENV"))
+        self.assertEqual(settings.current_env, os.environ.get("EARTHONE_ENV"))
         self.assertEqual(settings.testing, "hello")
 
     @patch.dict(os.environ, {"DL_ENV": "testing", "DL_TESTING": "hello"})
@@ -82,15 +82,15 @@ class TestSettings(unittest.TestCase):
 
     def test_get_settings(self):
         settings = Settings.get_settings()
-        self.assertEqual(settings.current_env, os.environ.get("DESCARTESLABS_ENV"))
+        self.assertEqual(settings.current_env, os.environ.get("EARTHONE_ENV"))
         self.assertEqual(id(settings), id(Settings._settings))
         self.assertEqual(id(settings), id(Settings.get_settings()))
 
     def test_peek_settings(self):
-        current_env = os.environ["DESCARTESLABS_ENV"]
+        current_env = os.environ["EARTHONE_ENV"]
         env = "aws-production"
         settings = Settings.peek_settings(env)
-        assert os.environ["DESCARTESLABS_ENV"] == current_env
+        assert os.environ["EARTHONE_ENV"] == current_env
         assert settings.env == env
         assert Settings._settings is None
 
@@ -108,7 +108,7 @@ class TestSettings(unittest.TestCase):
         assert a.domain == "https://iam.dev.aws.descarteslabs.com"
 
     def test_auth_with_env(self):
-        with patch.dict(os.environ, {"DESCARTESLABS_ENV": "aws-production"}):
+        with patch.dict(os.environ, {"EARTHONE_ENV": "aws-production"}):
             a = Auth()
             assert a.domain == "https://iam.production.aws.descarteslabs.com"
 
