@@ -43,6 +43,6 @@ class TestCli(unittest.TestCase):
 
     def test_blobs(self):
         result = self.runner.invoke(cli, ["blobs"])
-        print(f"RESULT = {repr(result)}")
+        print(f"RESULT = {result.exception}")
         assert result.exit_code == 0
         assert result.output.startswith("Usage: ")
