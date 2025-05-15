@@ -748,7 +748,6 @@ class Auth:
                 os.remove(temp_path)
 
     def _get_token(self, timeout=100):
-        print(f"_get_token {self.client_id}")
         if self.client_id is None:
             raise AuthError(self.AUTHORIZATION_ERROR.format(" (no client_id)"))
 
