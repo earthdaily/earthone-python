@@ -1,4 +1,4 @@
-# Release the Descartes Labs Python Client to PyPI
+# Release the EarthOne Python Client to PyPI
 name: Publish to PyPI
 
 on:

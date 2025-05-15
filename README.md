@@ -1,17 +1,17 @@
 [![Build Status](https://github.com/descarteslabs/earthone-python/actions/workflows/public-ci.yml/badge.svg)](https://github.com/descarteslabs/earthone-python/actions/workflows/public-ci.yml)
 
-Descartes Labs Platform
+EarthOne Platform
 =======================
 
-The Descartes Labs Platform is designed to answer some of the world’s most complex and pressing geospatial analytics questions. Our customers use the platform to build algorithms and models that transform their businesses quickly, efficiently, and cost-effectively.
+The EarthOne Platform is designed to answer some of the world’s most complex and pressing geospatial analytics questions. Our customers use the platform to build algorithms and models that transform their businesses quickly, efficiently, and cost-effectively.
 
 By giving data scientists and their line-of-business colleagues the best geospatial data and modeling tools in one package, we help turn AI into a core competency.
 
 Data science teams can use our scaling infrastructure to design models faster than ever, using our massive data archive or their own.
 
-Please visit [https://descarteslabs.com](https://descarteslabs.com) for more information about the Descartes Labs Platform and to request access.
+Please visit [https://descarteslabs.com](https://descarteslabs.com) for more information about the EarthOne Platform and to request access.
 
-The `descarteslabs` python package, available at [https://pypi.org/project/earthone/](https://pypi.org/project/earthone/), provides client-side access to the Descartes Labs Platform for our customers. You must be a registered customer with access to our Descartes Labs Platform before you can make use of this package with our platform.
+The `descarteslabs` python package, available at [https://pypi.org/project/earthone/](https://pypi.org/project/earthone/), provides client-side access to the EarthOne Platform for our customers. You must be a registered customer with access to our EarthOne Platform before you can make use of this package with our platform.
 
 The documentation for the latest release can be found at [https://docs.descarteslabs.com](https://docs.descarteslabs.com). For any issues please request Customer Support at [https://support.descarteslabs.com](https://support.descarteslabs.com).
 
@@ -179,7 +179,7 @@ below.
 ### Vector
 
 - The Vector client library, previously available as the `descarteslabs-vector` package on PyPI, has
-  now been integrated into the Descartes Labs Python Client (this package). It should no longer be
+  now been integrated into the EarthOne Python Client (this package). It should no longer be
   installed separately.
 - Visualization support (`ipyleaflet.Map`) is enabled when `ipyleaflet` is available. It is not
   installed by default, but can be installed manually, or by installing the `descarteslabs` python
@@ -1382,7 +1382,7 @@ deltas = ndvi.map(lambda img: img - overall_comp)
 
 ## [0.20.0] - 2019-06-04
 ### Added
-- Metadata, Catalog, and Scenes now support a new `storage_state` property for managing image metadata and filtering search results. `storage_state="available"` is the default for new images and indicates that the raster data for that scene is available on the Descartes Labs Platform. `storage_state="remote"` indicates that the raster data has not yet been processed and made available to client users.
+- Metadata, Catalog, and Scenes now support a new `storage_state` property for managing image metadata and filtering search results. `storage_state="available"` is the default for new images and indicates that the raster data for that scene is available on the EarthOne Platform. `storage_state="remote"` indicates that the raster data has not yet been processed and made available to client users.
 - The following additional colormaps are now supported for bands – 'cool', 'coolwarm', 'hot', 'bwr', 'gist_earth', 'terrain'. Find more details about the colormaps [here](https://matplotlib.org/gallery/color/colormap_reference.html).
 - `Scene.ndarray`, `SceneCollection.stack`, and `SceneCollection.mosaic` now support passing a string as the `mask_alpha` argument to allow users to specify an alternate band name to use for masking.
 - Scenes now supports a new `save_image` function that allows a user to save a visualization given a filename and extension.

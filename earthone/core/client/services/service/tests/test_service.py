@@ -53,7 +53,7 @@ class TestService(unittest.TestCase):
             == HttpHeaderValues.ApplicationJson
         )
         assert service.session.headers[HttpHeaderKeys.UserAgent] == "{}/{}".format(
-            HttpHeaderValues.DlPython, __version__
+            HttpHeaderValues.EarthOnePython, __version__
         )
 
 
@@ -70,7 +70,7 @@ class TestJsonApiService(unittest.TestCase):
             == HttpHeaderValues.ApplicationVndApiJson
         )
         assert service.session.headers[HttpHeaderKeys.UserAgent] == "{}/{}".format(
-            HttpHeaderValues.DlPython, __version__
+            HttpHeaderValues.EarthOnePython, __version__
         )
 
 

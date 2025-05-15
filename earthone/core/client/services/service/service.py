@@ -75,7 +75,7 @@ class HttpHeaderValues:
     ApplicationJson = "application/json"
     ApplicationVndApiJson = "application/vnd.api+json"
     ApplicationOctetStream = "application/octet-stream"
-    DlPython = "dl-python"
+    EarthOnePython = "earthone-python"
 
 
 # For backward compatibility
@@ -270,7 +270,7 @@ class Service:
             {
                 HttpHeaderKeys.ContentType: HttpHeaderValues.ApplicationJson,
                 HttpHeaderKeys.UserAgent: "{}/{}".format(
-                    HttpHeaderValues.DlPython, __version__
+                    HttpHeaderValues.EarthOnePython, __version__
                 ),
             }
         )
@@ -844,7 +844,7 @@ class ThirdPartyService:
             {
                 # HttpHeaderKeys.ContentType: HttpHeaderValues.ApplicationOctetStream,
                 HttpHeaderKeys.UserAgent: "{}/{}".format(
-                    HttpHeaderValues.DlPython, __version__
+                    HttpHeaderValues.EarthOnePython, __version__
                 ),
             }
         )
