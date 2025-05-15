@@ -18,7 +18,7 @@ import ast
 import re
 import sys
 
-from setuptools import find_packages, setup
+from setuptools import find_namespace_packages, find_packages, setup
 
 # Parse the docstring out of earthone/__init__.py
 _docstring_re = re.compile(r'"""((.|\n)*)\n"""', re.MULTILINE)
@@ -58,12 +58,12 @@ def do_setup():
         "freezegun==0.3.12",
     ]
     setup(
-        name="descarteslabs",
+        name="earthdaily-earthone",
         description=DOCLINES[0],
         long_description="\n".join(DOCLINES[2:]),
-        author="Descartes Labs",
-        author_email="hello@descarteslabs.com",
-        url="https://github.com/descarteslabs/earthone-python",
+        author="EarthDaily",
+        author_email="support.eds@earthdaily.com ",
+        url="https://github.com/earthdaily/earthone-python",
         classifiers=[
             "Programming Language :: Python",
             "Programming Language :: Python :: 3",
@@ -74,21 +74,21 @@ def do_setup():
         ],
         license="Apache 2.0",
         download_url=(
-            "https://github.com/descarteslabs/earthone-python/archive/v{}.tar.gz".format(
+            "https://github.com/earthdaily/earthone-python/archive/v{}.tar.gz".format(
                 version
             )
         ),
         version=version,
-        packages=find_packages(),
+        packages=find_namespace_packages(include=['earthdaily.*']),
         package_data={
-            "descarteslabs": [
+            "earthdaily.earthone": [
                 "config/settings.toml",
             ]
         },
         include_package_data=True,
         entry_points={
             "console_scripts": [
-                "descarteslabs = descarteslabs.core.client.scripts.__main__:main"
+                "earthdaily.earthone = earthdaily.earthone.core.client.scripts.__main__:main"
             ]
         },
         python_requires="~=3.9",
@@ -122,7 +122,7 @@ def do_setup():
             "complete": viz_requires,
             "tests": tests_requires,
         },
-        data_files=[("docs/descarteslabs", ["README.md"])],
+        data_files=[("docs/earthone", ["README.md"])],
     )
 
 
