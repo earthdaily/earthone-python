@@ -67,7 +67,7 @@ class Settings(dynaconf.Dynaconf):
     _lock = Lock()
 
     @classmethod
-    def select_env(cls, env=None, settings_file=None, envvar_prefix="DESCARTESLABS"):
+    def select_env(cls, env=None, settings_file=None, envvar_prefix="EARTHONE"):
         """
         Configure the Descartes Labs client.
 
@@ -157,7 +157,7 @@ class Settings(dynaconf.Dynaconf):
         return settings
 
     @classmethod
-    def peek_settings(cls, env=None, settings_file=None, envvar_prefix="DESCARTESLABS"):
+    def peek_settings(cls, env=None, settings_file=None, envvar_prefix="EARTHONE"):
         """Retrieve the settings without configuring the client.
 
         Unlike :py:meth:`~Settings.get_settings` and :py:meth:`~Settings.select_env`
@@ -185,7 +185,7 @@ class Settings(dynaconf.Dynaconf):
         return settings
 
     @classmethod
-    def _select_env(cls, env=None, settings_file=None, envvar_prefix="DESCARTESLABS"):
+    def _select_env(cls, env=None, settings_file=None, envvar_prefix="EARTHONE"):
         # Assign to the global instance.
         cls._settings = cls._get_settings(
             env=env, settings_file=settings_file, envvar_prefix=envvar_prefix
@@ -195,7 +195,7 @@ class Settings(dynaconf.Dynaconf):
         return cls._settings
 
     @classmethod
-    def _get_settings(cls, env=None, settings_file=None, envvar_prefix="DESCARTESLABS"):
+    def _get_settings(cls, env=None, settings_file=None, envvar_prefix="EARTHONE"):
         # Get the settings. If the settings are retrieved successfully, the os.environ
         # will contain the selector for the given settings.
         selector = f"{envvar_prefix}_ENV"
