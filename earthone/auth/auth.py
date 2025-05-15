@@ -495,6 +495,7 @@ class Auth:
         if self._token:
             try:
                 payload = self._get_payload(self._token)
+                print(f"CLIENT ID {self.client_id}")
             except AuthError:
                 self._token = None
             else:
@@ -750,6 +751,7 @@ class Auth:
                 os.remove(temp_path)
 
     def _get_token(self, timeout=100):
+        print(f"_get_token {self.client_id}")
         if self.client_id is None:
             raise AuthError(self.AUTHORIZATION_ERROR.format(" (no client_id)"))
 
