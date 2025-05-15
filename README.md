@@ -11,9 +11,9 @@ Data science teams can use our scaling infrastructure to design models faster th
 
 Please visit [https://descarteslabs.com](https://descarteslabs.com) for more information about the EarthOne Platform and to request access.
 
-The `descarteslabs` python package, available at [https://pypi.org/project/earthone/](https://pypi.org/project/earthone/), provides client-side access to the EarthOne Platform for our customers. You must be a registered customer with access to our EarthOne Platform before you can make use of this package with our platform.
+The `earthdaily-earthone` python package, available at [https://pypi.org/project/earthdaily-earthone/](https://pypi.org/project/earthdaily-earthone/), provides client-side access to the EarthOne Platform for our customers. You must be a registered customer with access to our EarthOne Platform before you can make use of this package with our platform.
 
-The documentation for the latest release can be found at [https://docs.descarteslabs.com](https://docs.descarteslabs.com). For any issues please request Customer Support at [https://support.descarteslabs.com](https://support.descarteslabs.com).
+The documentation for the latest release can be found at [https://docs.earthdaily.com](https://docs.earthdaily.com). For any issues please request Customer Support at [https://support.earthdaily.com](https://support.earthdaily.com).
 
 Changelog
 =========
