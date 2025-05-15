@@ -634,9 +634,6 @@ class Auth:
 
     @staticmethod
     def _get_payload(token):
-
-        print("GETTING PAYLOAD")
-
         if isinstance(token, str):
             token = token.encode("utf-8")
 
