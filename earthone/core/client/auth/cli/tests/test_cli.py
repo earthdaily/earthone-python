@@ -144,4 +144,5 @@ class TestAuth(unittest.TestCase):
 
         result = self.runner.invoke(cli, ["payload"])
         assert result.exit_code == 0
+        print(f"PAYLOAD = {PAYLOAD}")
         assert json.loads(result.output) == PAYLOAD
