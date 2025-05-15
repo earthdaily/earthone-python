@@ -34,7 +34,7 @@ MODULE_PREFIX = version_module.__package__.rsplit(".", 1)[0]
     help="Descartes Labs command-line interface",
 )
 @click.option(
-    "--env", help="The environment to use", envvar="DESCARTESLABS_ENV", default=None
+    "--env", help="The environment to use", envvar="EARTHONE_ENV", default=None
 )
 @click.pass_context
 def cli(ctx, env):
