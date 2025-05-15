@@ -301,7 +301,7 @@ class Collection(Generic[T]):
 
         Example
         -------
-        >>> from earthone.catalog import Product
+        >>> from earthdaily.earthone.catalog import Product
         >>> collection = Product.search().collect() # doctest: +SKIP
         >>> sorted_collection = collection.sort("created", ascending=False) # doctest: +SKIP
         >>> sorted_collection # doctest: +SKIP

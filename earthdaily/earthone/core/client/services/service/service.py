@@ -28,8 +28,8 @@ import uuid
 from http import HTTPStatus
 from warnings import warn
 
-from earthone.auth import Auth
-from earthone.exceptions import ClientError, ServerError
+from earthdaily.earthone.auth import Auth
+from earthdaily.earthone.exceptions import ClientError, ServerError
 
 from ....common.http import (
     HttpHeaderKeys as CommonHttpHeaderKeys,

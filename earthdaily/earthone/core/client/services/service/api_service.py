@@ -15,7 +15,7 @@
 import json
 from typing import Optional
 
-from earthone.exceptions import ClientError, ServerError
+from earthdaily.earthone.exceptions import ClientError, ServerError
 
 from .service import HttpHeaderKeys, HttpHeaderValues, Service, Session
 

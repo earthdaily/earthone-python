@@ -26,7 +26,7 @@ except ImportError:
 from affine import Affine
 import numpy as np
 
-from earthone.exceptions import BadRequestError, NotFoundError
+from earthdaily.earthone.exceptions import BadRequestError, NotFoundError
 
 from ..client.services.raster import Raster
 from ..client.services.service import ThirdPartyService
@@ -568,7 +568,7 @@ class Image(NamedCatalogObject):
 
         Example
         -------
-        >>> from earthone.catalog import Image
+        >>> from earthdaily.earthone.catalog import Image
         >>> search = Image.search().limit(10)
         >>> for result in search: # doctest: +SKIP
         ...     print(result.name) # doctest: +SKIP

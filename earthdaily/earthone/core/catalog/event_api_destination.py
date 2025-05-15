@@ -426,7 +426,7 @@ class EventApiDestination(AuthCatalogObject):
 
         Example
         -------
-        >>> from earthone.catalog import EventApiDestination
+        >>> from earthdaily.earthone.catalog import EventApiDestination
         >>> search = EventApiDestination.search().limit(10)
         >>> for result in search: # doctest: +SKIP
         ...     print(result.name) # doctest: +SKIP

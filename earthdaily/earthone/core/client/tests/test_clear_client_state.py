@@ -15,7 +15,7 @@
 import unittest
 
 from .. import clear_client_state
-from earthone.auth import Auth
+from earthdaily.earthone.auth import Auth
 from ..services.raster import Raster
 
 

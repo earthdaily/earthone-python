@@ -19,7 +19,7 @@ import time
 import unittest
 
 import responses
-from earthone.auth import Auth
+from earthdaily.earthone.auth import Auth
 
 from ..catalog_client import CatalogClient
 

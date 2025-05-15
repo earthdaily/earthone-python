@@ -422,7 +422,7 @@ class EventRule(AuthCatalogObject):
 
         Example
         -------
-        >>> from earthone.catalog import EventRule
+        >>> from earthdaily.earthone.catalog import EventRule
         >>> search = EventRule.search().limit(10)
         >>> for result in search: # doctest: +SKIP
         ...     print(result.name) # doctest: +SKIP

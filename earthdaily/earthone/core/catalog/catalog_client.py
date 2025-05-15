@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from earthone.auth import Auth
-from earthone.config import get_settings
+from earthdaily.earthone.auth import Auth
+from earthdaily.earthone.config import get_settings
 
 from ..client.services.service.service import HttpRequestMethod, JsonApiService
 from ..common.http.service import DefaultClientMixin

@@ -17,8 +17,8 @@ import unittest
 from copy import deepcopy
 from unittest.mock import patch
 
-from earthone.auth import Auth
-from earthone.exceptions import ConfigError
+from earthdaily.earthone.auth import Auth
+from earthdaily.earthone.exceptions import ConfigError
 
 from .. import Settings
 

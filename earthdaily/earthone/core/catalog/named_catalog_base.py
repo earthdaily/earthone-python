@@ -142,7 +142,7 @@ class NamedCatalogObject(CatalogObject):
     Any combination that will yield the image name and the product id will work, but
     the preferred way is using the `name` and `product`:
 
-    >>> from earthone.catalog import Product, Image
+    >>> from earthdaily.earthone.catalog import Product, Image
     >>> product_id = "some_org:some_product_name"
     >>> product = Product.get(product_id) # doctest: +SKIP
     >>> image_name = "some_image_name"
@@ -212,7 +212,7 @@ class NamedCatalogObject(CatalogObject):
 
         Example
         -------
-        >>> from earthone.catalog import SpectralBand, Band
+        >>> from earthdaily.earthone.catalog import SpectralBand, Band
         >>> name = "This is ań @#$^*% ïñvalid name!!!!"
         >>> band = SpectralBand()
         >>> band.name = Band.make_valid_name(name)

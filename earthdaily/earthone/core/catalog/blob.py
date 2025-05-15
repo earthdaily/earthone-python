@@ -16,7 +16,7 @@ import io
 
 from strenum import StrEnum
 
-from earthone.exceptions import NotFoundError
+from earthdaily.earthone.exceptions import NotFoundError
 
 from ..client.services.service import ThirdPartyService
 from ..common.collection import Collection
@@ -438,7 +438,7 @@ class Blob(AuthCatalogObject):
 
         Example
         -------
-        >>> from earthone.catalog import Blob
+        >>> from earthdaily.earthone.catalog import Blob
         >>> search = Blob.search().limit(10)
         >>> for result in search: # doctest: +SKIP
         ...     print(result.name) # doctest: +SKIP

@@ -27,8 +27,8 @@ import pandas as pd
 import responses
 from requests import PreparedRequest
 
-from earthone.auth import Auth
-from earthone.config import get_settings
+from earthdaily.earthone.auth import Auth
+from earthdaily.earthone.config import get_settings
 
 from ..vector_client import VectorClient
 

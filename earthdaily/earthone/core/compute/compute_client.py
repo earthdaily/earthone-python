@@ -16,8 +16,8 @@ import json
 from datetime import datetime, timezone
 from typing import Iterator, Optional
 
-from earthone.auth import Auth
-from earthone.config import get_settings
+from earthdaily.earthone.auth import Auth
+from earthdaily.earthone.config import get_settings
 
 from ..catalog import CatalogClient
 from ..client.services.service import ApiService

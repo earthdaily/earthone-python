@@ -663,7 +663,7 @@ class EventSubscription(AuthCatalogObject):
 
         Example
         -------
-        >>> from earthone.catalog import EventSubscription
+        >>> from earthdaily.earthone.catalog import EventSubscription
         >>> search = EventSubscription.search().limit(10)
         >>> for result in search: # doctest: +SKIP
         ...     print(result.name) # doctest: +SKIP

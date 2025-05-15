@@ -24,7 +24,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 import responses
 
-from earthone.exceptions import AuthError
+from earthdaily.earthone.exceptions import AuthError
 
 from .. import auth as auth_module
 from ..auth import Auth, DESCARTESLABS_CUSTOM_CLAIM_PREFIX, LEGACY_DELEGATION_CLIENT_IDS

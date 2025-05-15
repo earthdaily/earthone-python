@@ -30,7 +30,7 @@ if sys.version_info >= (3, 13):
 
 def clear_client_state():
     """Clear all cached client state."""
-    from earthone.auth import Auth
+    from earthdaily.earthone.auth import Auth
     from ..common.http.service import DefaultClientMixin
     from ..catalog.helpers import (
         BANDS_BY_PRODUCT_CACHE as catalog_bands_by_product_cache,

@@ -27,7 +27,7 @@ from datetime import datetime
 from tempfile import NamedTemporaryFile
 from unittest.mock import patch
 
-from earthone.exceptions import BadRequestError
+from earthdaily.earthone.exceptions import BadRequestError
 from .base import ClientTestCase
 from ..attributes import AttributeValidationError
 from ..blob import Blob, BlobCollection, BlobDeletionTaskStatus, BlobSearch, StorageType

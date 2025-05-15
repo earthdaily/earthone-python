@@ -17,7 +17,7 @@ from threading import Lock
 
 import dynaconf
 
-from earthone.exceptions import ConfigError
+from earthdaily.earthone.exceptions import ConfigError
 
 GCP_ENVIRONMENT = "gcp-production"  #: Standard GCP environment
 AWS_ENVIRONMENT = "aws-production"  #: Standard AWS environment
@@ -40,7 +40,7 @@ class Settings(dynaconf.Dynaconf):
 
     .. code-block::
 
-        from earthone.config import Settings
+        from earthdaily.earthone.config import Settings
         Settings.select_env(...)
 
     Before importing or otherwise accessing anything else within the

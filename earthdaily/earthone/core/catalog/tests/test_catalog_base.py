@@ -17,7 +17,7 @@ import responses
 from datetime import datetime, timezone
 
 
-from earthone.exceptions import (
+from earthdaily.earthone.exceptions import (
     NotFoundError,
     BadRequestError,
     ConflictError,

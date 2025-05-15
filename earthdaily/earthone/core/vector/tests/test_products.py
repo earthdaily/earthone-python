@@ -15,7 +15,7 @@
 import pytest
 import responses
 
-from earthone.exceptions import BadRequestError, ConflictError, NotFoundError
+from earthdaily.earthone.exceptions import BadRequestError, ConflictError, NotFoundError
 
 from .. import products
 from ...common.vector.models import GenericFeatureBaseModel, VectorBaseModel

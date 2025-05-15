@@ -16,7 +16,7 @@ import cachetools
 import os.path
 import json
 
-from earthone.exceptions import NotFoundError, BadRequestError
+from earthdaily.earthone.exceptions import NotFoundError, BadRequestError
 from ..client.services.raster import Raster
 from ..common.property_filtering import Properties
 

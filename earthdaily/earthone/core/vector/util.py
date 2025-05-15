@@ -19,7 +19,7 @@ import geopandas as gpd
 import pandas as pd
 import requests
 
-from earthone.exceptions import ServerError
+from earthdaily.earthone.exceptions import ServerError
 
 
 def response_to_dataframe(

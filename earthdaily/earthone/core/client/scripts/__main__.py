@@ -18,10 +18,10 @@ import sys
 import click
 
 try:
-    from earthone.core.client.scripts.cli import cli
+    from earthdaily.earthone.core.client.scripts.cli import cli
 except ImportError:
     # run from monorepo, somewhat unusual
-    from earthone.client.scripts.cli import cli
+    from earthdaily.earthone.client.scripts.cli import cli
 
 
 def main():

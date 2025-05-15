@@ -21,7 +21,7 @@ import geopandas as gpd
 import pandas as pd
 import shapely
 
-from earthone.exceptions import NotFoundError
+from earthdaily.earthone.exceptions import NotFoundError
 
 from ..common.geo import GeoContext
 from ..common.property_filtering import Properties

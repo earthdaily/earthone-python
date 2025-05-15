@@ -17,7 +17,7 @@ import urllib.parse
 from functools import wraps
 from types import MethodType
 
-from earthone.exceptions import NotFoundError
+from earthdaily.earthone.exceptions import NotFoundError
 
 from ..client.deprecation import deprecate
 from ..common.collection import Collection

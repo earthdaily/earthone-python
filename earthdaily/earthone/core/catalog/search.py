@@ -48,7 +48,7 @@ class Search(object):
 
     Example
     -------
-    >>> from earthone.catalog import Product, Search, properties as p
+    >>> from earthdaily.earthone.catalog import Product, Search, properties as p
     >>> search = Search(Product).filter(p.start_datetime >= "2012-01-01")
     >>> list(search) # doctest: +SKIP
     """
@@ -114,7 +114,7 @@ class Search(object):
 
         Example
         -------
-        >>> from earthone.catalog import Product, Search
+        >>> from earthdaily.earthone.catalog import Product, Search
         >>> search = Search(Product).sort("created", ascending=False)
         >>> list(search) # doctest: +SKIP
 
@@ -160,7 +160,7 @@ class Search(object):
 
         Example
         -------
-        >>> from earthone.catalog import Product, Search, properties as p
+        >>> from earthdaily.earthone.catalog import Product, Search, properties as p
         >>> search = Search(Product).filter(
         ...     (p.resolution_min < 60) & (p.start_datetime > "2000-01-01")
         ... )
@@ -288,7 +288,7 @@ class Search(object):
 
         Example
         -------
-        >>> from earthone.catalog import Band, Search, properties as p
+        >>> from earthdaily.earthone.catalog import Band, Search, properties as p
         >>> search = Search(Band).filter(p.type=="spectral")
         >>> count = search.count() # doctest: +SKIP
         """
@@ -341,7 +341,7 @@ class Search(object):
 
         Example
         -------
-        >>> from earthone.catalog import Product, Search, properties as p
+        >>> from earthdaily.earthone.catalog import Product, Search, properties as p
         >>> search = Search(Product).filter(p.tags == "test")
         >>> list(search) # doctest: +SKIP
 
@@ -553,7 +553,7 @@ class SummarySearchMixin(Search):
 
         Example
         -------
-        >>> from earthone.catalog import Image, properties as p
+        >>> from earthdaily.earthone.catalog import Image, properties as p
         >>> search = Image.search().filter(
         ...     p.product_id=="landsat:LC08:01:RT:TOAR"
         ... )
@@ -617,7 +617,7 @@ class SummarySearchMixin(Search):
 
         Example
         -------
-        >>> from earthone.catalog import Image, AggregateDateField, Interval, properties
+        >>> from earthdaily.earthone.catalog import Image, AggregateDateField, Interval, properties
         >>> search = (
         ...     Image.search()
         ...     .filter(properties.product_id == "landsat:LC08:01:RT:TOAR")

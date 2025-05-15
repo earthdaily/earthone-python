@@ -20,7 +20,7 @@ import warnings
 
 from datetime import datetime
 
-from earthone.exceptions import BadRequestError
+from earthdaily.earthone.exceptions import BadRequestError
 
 from ..attributes import AttributeValidationError
 from ..catalog_base import DocumentState, DeletedObjectError

@@ -68,7 +68,7 @@ class Expression(object):
 
     Examples
     --------
-    >>> from earthone.common.property_filtering import Properties
+    >>> from earthdaily.earthone.common.property_filtering import Properties
     >>> p = Properties()
     >>> e = p.foo == 5
     >>> type(e)

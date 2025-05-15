@@ -61,11 +61,11 @@ class ComputeResult:
         Examples
         --------
         Result with raw binary data:
-        >>> from earthone.compute import ComputeResult
+        >>> from earthdaily.earthone.compute import ComputeResult
         >>> result = ComputeResult(value=b"result", description="result description")
 
         Null result with attributes:
-        >>> from earthone.compute import ComputeResult
+        >>> from earthdaily.earthone.compute import ComputeResult
         >>> result = ComputeResult(None, geometry=geometry, tags=["tag1", "tag2"])
 
         Parameters

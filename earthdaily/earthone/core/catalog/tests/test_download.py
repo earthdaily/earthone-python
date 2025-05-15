@@ -17,7 +17,7 @@ import pytest
 import unittest
 from unittest.mock import MagicMock, mock_open, patch
 
-from earthone.exceptions import NotFoundError, BadRequestError
+from earthdaily.earthone.exceptions import NotFoundError, BadRequestError
 from ...common.geo import AOI
 from .. import helpers
 

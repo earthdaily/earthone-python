@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # this is a convenience import for backwards compatibility with external existing code
-from earthone.auth import Auth
+from earthdaily.earthone.auth import Auth
 
 
 __all__ = ["Auth"]

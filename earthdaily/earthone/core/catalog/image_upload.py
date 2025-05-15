@@ -21,7 +21,7 @@ import warnings
 
 from strenum import StrEnum
 
-from earthone.exceptions import ServerError
+from earthdaily.earthone.exceptions import ServerError
 
 from .catalog_base import CatalogObjectBase, check_deleted, check_derived, hybridmethod
 from .attributes import (
@@ -411,7 +411,7 @@ class ImageUpload(CatalogObjectBase):
 
         Example
         -------
-        >>> from earthone.catalog import (
+        >>> from earthdaily.earthone.catalog import (
         ...     ImageUpload,
         ...     ImageUploadStatus,
         ...     properties as p,

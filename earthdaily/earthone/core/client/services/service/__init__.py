@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from earthone.exceptions import NotFoundError
+from earthdaily.earthone.exceptions import NotFoundError
 
 from .api_service import ApiService, ApiSession
 from .service import (

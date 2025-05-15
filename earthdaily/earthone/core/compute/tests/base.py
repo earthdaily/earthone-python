@@ -25,8 +25,8 @@ from unittest import TestCase
 import responses
 from requests import PreparedRequest
 
-from earthone.auth import Auth
-from earthone.compute import FunctionStatus, JobStatus
+from earthdaily.earthone.auth import Auth
+from earthdaily.earthone.compute import FunctionStatus, JobStatus
 
 from ..compute_client import ComputeClient
 

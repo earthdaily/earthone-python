@@ -25,8 +25,8 @@ from datetime import timezone
 import responses
 from requests import PreparedRequest
 
-from earthone import exceptions
-from earthone.compute import Function, FunctionStatus, Job, JobStatus
+from earthdaily.earthone import exceptions
+from earthdaily.earthone.compute import Function, FunctionStatus, Job, JobStatus
 
 from .base import BaseTestCase, make_uuid
 

@@ -12,4 +12,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from earthone.exceptions import *  # noqa 401
+from earthdaily.earthone.exceptions import *  # noqa 401

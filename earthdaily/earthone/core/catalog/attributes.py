@@ -977,11 +977,11 @@ class MappingAttribute(ModelAttribute, AttributeEqualityMixin, metaclass=Attribu
 
     The other way mapping attributes are used is but instantiating a new instance and
     assigning that instance to a model object.
-    >>> from earthone.catalog.attributes import (
+    >>> from earthdaily.earthone.catalog.attributes import (
     ...     MappingAttribute,
     ...     Attribute,
     ... )
-    >>> from earthone.catalog import CatalogObject
+    >>> from earthdaily.earthone.catalog import CatalogObject
     >>> class MyMapping(MappingAttribute):
     ...     foo = Attribute()
     >>> class ExampleCatalogObject(CatalogObject):
@@ -1316,8 +1316,8 @@ class ListAttribute(ModelAttribute, MutableSequence):
     This is the recommended way to instantiate a ListAttribute, you don't maintain a
     reference to the original list but the semantics are much cleaner.
 
-    >>> from earthone.catalog import CatalogObject, File
-    >>> from earthone.catalog.attributes import ListAttribute
+    >>> from earthdaily.earthone.catalog import CatalogObject, File
+    >>> from earthdaily.earthone.catalog.attributes import ListAttribute
     >>> class ExampleCatalogObject(CatalogObject):
     ...     files = ListAttribute(File)
     >>> files = [
@@ -1608,8 +1608,8 @@ class StringDictAttribute(ModelAttribute, MutableMapping):
     This is the recommended way to instantiate a StringDictAttribute, you don't
     maintain a reference to the original list but the semantics are much cleaner.
 
-    >>> from earthone.catalog import CatalogObject
-    >>> from earthone.catalog.attributes import StringDictAttribute
+    >>> from earthdaily.earthone.catalog import CatalogObject
+    >>> from earthdaily.earthone.catalog.attributes import StringDictAttribute
     >>> class ExampleCatalogObject(CatalogObject):
     ...     headers = StringDictAttribute()
     >>> headers = {
@@ -1759,8 +1759,8 @@ class ExtraPropertiesAttribute(ModelAttribute, MutableMapping):
     This is the recommended way to instantiate a ExtraPropertiesAttribute, you don't
     maintain a reference to the original list but the semantics are much cleaner.
 
-    >>> from earthone.catalog import CatalogObject
-    >>> from earthone.catalog.attributes import ExtraPropertiesAttribute
+    >>> from earthdaily.earthone.catalog import CatalogObject
+    >>> from earthdaily.earthone.catalog.attributes import ExtraPropertiesAttribute
     >>> class ExampleCatalogObject(CatalogObject):
     ...     extra_properties = ExtraPropertiesAttribute()
     >>> properties = {

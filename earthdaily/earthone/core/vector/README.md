@@ -9,7 +9,7 @@ Formal documentation for this library is available under the [Descartes Labs API
 To start using the Vector client, first import it:
 
 ```python
-from earthone.vector import Table, TableOptions, models, properties as p
+from earthdaily.earthone.vector import Table, TableOptions, models, properties as p
 import json
 import geopandas as gpd
 import ipyleaflet

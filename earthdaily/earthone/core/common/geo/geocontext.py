@@ -661,7 +661,7 @@ class DLTile(GeoContext):
     Example
     -------
     >>> import earthone as dl
-    >>> from earthone.geo import DLTile
+    >>> from earthdaily.earthone.geo import DLTile
     >>> tile = DLTile.from_latlon(
     ...    lat=35.691,
     ...    lon=-105.944,
@@ -787,7 +787,7 @@ class DLTile(GeoContext):
 
         Example
         -------
-        >>> from earthone.geo import DLTile
+        >>> from earthdaily.earthone.geo import DLTile
         >>> # make a tile with total size 100, centered on lat, lon
         >>> # total tilesize == tilesize + 2 * pad
         >>> params = {
@@ -843,7 +843,7 @@ class DLTile(GeoContext):
 
         Example
         -------
-        >>> from earthone.geo import DLTile
+        >>> from earthdaily.earthone.geo import DLTile
         >>> shape = {
         ... "type":"Feature",
         ... "geometry":{
@@ -916,7 +916,7 @@ class DLTile(GeoContext):
 
         Example
         -------
-        >>> from earthone.geo import DLTile
+        >>> from earthdaily.earthone.geo import DLTile
         >>> shape = {
         ... "type":"Feature",
         ... "geometry":{
@@ -971,7 +971,7 @@ class DLTile(GeoContext):
 
         Example
         -------
-        >>> from earthone.geo import DLTile
+        >>> from earthdaily.earthone.geo import DLTile
         >>> tile = DLTile.from_key("2048:16:30.0:15:3:80")
         >>> tile            # doctest: +SKIP
         DLTile(key='2048:16:30.0:15:3:80',
@@ -1021,7 +1021,7 @@ class DLTile(GeoContext):
 
         Example:
         -------
-        >>> from earthone.geo import DLTile
+        >>> from earthdaily.earthone.geo import DLTile
         >>> tile = DLTile.from_key("2048:0:30.0:15:3:80")
         >>> tiles = [tile for tile in tile.subtile(8)]
         >>> len(tiles)
@@ -1060,7 +1060,7 @@ class DLTile(GeoContext):
 
         Example
         -------
-        >>> from earthone.geo import DLTile
+        >>> from earthdaily.earthone.geo import DLTile
         >>> tile = DLTile.from_key("2048:0:30.0:15:3:80")
         >>> tile.rowcol_to_latlon(row=56, col=1111)
         [(44.894653081367544,), (-90.24334206726267,)]
@@ -1093,7 +1093,7 @@ class DLTile(GeoContext):
 
         Example
         -------
-        >>> from earthone.geo import DLTile
+        >>> from earthdaily.earthone.geo import DLTile
         >>> tile = DLTile.from_key("2048:0:30.0:15:3:80")
         >>> tile.latlon_to_rowcol(lat=44.8, lon=-90.2)
         [(403,), (1237,)]
@@ -1124,7 +1124,7 @@ class DLTile(GeoContext):
 
         Example:
         --------
-        >>> from earthone.geo import DLTile
+        >>> from earthdaily.earthone.geo import DLTile
         >>> tile = DLTile.from_key("2048:16:30.0:15:3:80")
         >>> tile.pad
         16

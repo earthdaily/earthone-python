@@ -19,7 +19,7 @@ import os
 
 import click
 
-from earthone.auth.auth import (
+from earthdaily.earthone.auth.auth import (
     DEFAULT_TOKEN_INFO_PATH,
     DESCARTESLABS_CLIENT_ID,
     DESCARTESLABS_CLIENT_SECRET,
@@ -36,7 +36,7 @@ LOGIN_URL = f"{get_auth_refresh_domain()}/account/refresh-token"
 
 # this is defined this way to support mocking in the tests
 # def get_default_domain():
-#     from earthone.auth.auth import get_default_domain as get_auth_domain
+#     from earthdaily.earthone.auth.auth import get_default_domain as get_auth_domain
 
 #     return get_auth_domain()
 

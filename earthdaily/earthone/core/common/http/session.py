@@ -34,7 +34,7 @@ except ImportError:
         )
 
 
-from earthone.exceptions import (
+from earthdaily.earthone.exceptions import (
     BadRequestError,
     ClientError,
     ConflictError,

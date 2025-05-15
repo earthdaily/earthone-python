@@ -24,7 +24,7 @@ import threading
 import warnings
 from hashlib import sha1
 
-from earthone.exceptions import AuthError, OauthError
+from earthdaily.earthone.exceptions import AuthError, OauthError
 
 try:
     # public client
@@ -39,7 +39,7 @@ except ImportError:
 LEGACY_DELEGATION_CLIENT_IDS = ["ZOBAi4UROl5gKZIpxxlwOEfx8KpqXf2c"]
 
 
-# copied from earthone/common/threading/local.py, but we need
+# copied from earthdaily.earthone/common/threading/local.py, but we need
 # it standalone here to avoid any dependencies on our own packages
 # for client configuration purposes
 class ThreadLocalWrapper(object):
@@ -118,7 +118,7 @@ def makedirs_if_not_exists(path):
 def get_default_domain():
     # See if we know the environment we're in, and if so use the
     # correct `iam_url`. Use a default if we don't know the environment
-    from earthone.config import peek_settings
+    from earthdaily.earthone.config import peek_settings
 
     class DummyAuth:
         payload = {}
@@ -127,7 +127,7 @@ def get_default_domain():
 
 
 def get_app_domain():
-    from earthone.config import peek_settings
+    from earthdaily.earthone.config import peek_settings
 
     class DummyAuth:
         payload = {}

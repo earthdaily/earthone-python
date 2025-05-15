@@ -22,9 +22,9 @@ from concurrent import futures
 
 import blosc
 import numpy as np
-from earthone.auth import Auth
-from earthone.config import get_settings
-from earthone.exceptions import ServerError
+from earthdaily.earthone.auth import Auth
+from earthdaily.earthone.config import get_settings
+from earthdaily.earthone.exceptions import ServerError
 from PIL import Image
 from tqdm import tqdm
 from urllib3.exceptions import IncompleteRead, ProtocolError, ReadTimeoutError

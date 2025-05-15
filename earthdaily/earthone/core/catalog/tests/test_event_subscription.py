@@ -23,7 +23,7 @@ import shapely.geometry
 
 from datetime import datetime
 
-from earthone.exceptions import ConflictError
+from earthdaily.earthone.exceptions import ConflictError
 from .base import ClientTestCase
 from ..attributes import AttributeValidationError
 from ..event_subscription import (

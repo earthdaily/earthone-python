@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from earthone.config import get_settings, select_env
+from earthdaily.earthone.config import get_settings, select_env
 from ..auth.cli import cli as auth_cli
 from .. import version as version_module
 from .lazy_group import LazyGroup

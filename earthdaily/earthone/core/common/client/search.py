@@ -85,7 +85,7 @@ class Search(Generic[T]):
 
         Example
         -------
-        >>> from earthone.compute import Function
+        >>> from earthdaily.earthone.compute import Function
         >>> search = Function.search().filter(Function.status == "success")
         >>> list(search) # doctest: +SKIP
         """
@@ -137,7 +137,7 @@ class Search(Generic[T]):
 
         Example
         -------
-        >>> from earthone.compute import Function
+        >>> from earthdaily.earthone.compute import Function
         >>> search = Function.search().filter(Function.status == "building")
         >>> count = search.count() # doctest: +SKIP
         """
@@ -181,7 +181,7 @@ class Search(Generic[T]):
 
         Example
         -------
-        >>> from earthone.compute import Job
+        >>> from earthdaily.earthone.compute import Job
         >>> search = Job.search().filter(
         ...     (Job.runtime > 60) | (Job.status == "failure")
         ... )
@@ -249,7 +249,7 @@ class Search(Generic[T]):
 
         Example
         -------
-        >>> from earthone.compute import Function
+        >>> from earthdaily.earthone.compute import Function
         >>> Function.search().sort(Function.id, -Function.creation_date) # doctest: +SKIP
         >>> list(search) # doctest: +SKIP
         """

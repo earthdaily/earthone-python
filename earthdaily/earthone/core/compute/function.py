@@ -346,7 +346,7 @@ class Function(Document):
 
         Creating a new function.
 
-        >>> from earthone.compute import Function
+        >>> from earthdaily.earthone.compute import Function
         >>> def test_func():
         ...     print("Hello :)")
         >>> fn = Function(
@@ -843,7 +843,7 @@ class Function(Document):
 
         Example
         -------
-        >>> from earthone.compute import Function
+        >>> from earthdaily.earthone.compute import Function
         >>> fn = Function.get(<func_id>)
         <Function name="test_name" image=test_image cpus=1 memory=16 maximum_concurrency=5 timeout=3 retries=1
         """
@@ -874,7 +874,7 @@ class Function(Document):
 
         Example
         -------
-        >>> from earthone.compute import Function
+        >>> from earthdaily.earthone.compute import Function
         >>> fn = Function.list()
         """
         params = {"page_size": page_size, **params}
@@ -895,7 +895,7 @@ class Function(Document):
 
         Example
         -------
-        >>> from earthone.compute import Function, FunctionStatus
+        >>> from earthdaily.earthone.compute import Function, FunctionStatus
         >>> fns: List[Function] = (
         ...     Function.search()
         ...     .filter(Function.status.in_([
@@ -995,7 +995,7 @@ class Function(Document):
         --------
         Create a Function without creating jobs:
 
-        >>> from earthone.compute import Function
+        >>> from earthdaily.earthone.compute import Function
         >>> def test_func():
         ...     print("Hello :)")
         >>> fn = Function(
@@ -1013,7 +1013,7 @@ class Function(Document):
 
         Updating a Function:
 
-        >>> from earthone.compute import Function
+        >>> from earthdaily.earthone.compute import Function
         >>> fn = Function.get(<func_id>)
         >>> fn.memory = 4096  # 4 Gi
         >>> fn.save()

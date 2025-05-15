@@ -20,7 +20,7 @@ from typing import TYPE_CHECKING, Any, Dict, List, Optional, Type
 
 from strenum import StrEnum
 
-from earthone.exceptions import NotFoundError
+from earthdaily.earthone.exceptions import NotFoundError
 
 from ..catalog import Blob, CatalogClient, DeletedObjectError, StorageType
 from ..common.client import (
@@ -269,7 +269,7 @@ class Job(Document):
 
         Example
         -------
-        >>> from earthone.compute import Job
+        >>> from earthdaily.earthone.compute import Job
         >>> job = Job.get(<job-id>)
         Job <job-id>: pending
         """
@@ -295,7 +295,7 @@ class Job(Document):
 
         Example
         -------
-        >>> from earthone.compute import Job
+        >>> from earthdaily.earthone.compute import Job
         >>> fn = Job.list(<function_id>)
         [Job <job-id1>: pending, Job <job-id2>: pending, Job <job-id3>: pending]
         """
@@ -498,7 +498,7 @@ class Job(Document):
 
         Example
         -------
-        >>> from earthone.compute import Job, JobStatus
+        >>> from earthdaily.earthone.compute import Job, JobStatus
         >>> jobs: List[Job] = Job.search().filter(Job.status == JobStatus.SUCCESS).collect()
         Collection([Job <job-id1>: success, <job-id2>: success])
         """

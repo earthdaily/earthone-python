@@ -22,7 +22,7 @@ import blosc
 import numpy as np
 import pytest
 import responses
-from earthone.auth import Auth
+from earthdaily.earthone.auth import Auth
 
 from ..raster import Raster, as_json_string
 

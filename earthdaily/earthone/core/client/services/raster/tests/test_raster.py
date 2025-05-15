@@ -23,8 +23,8 @@ import blosc
 import numpy as np
 import pytest
 import responses
-from earthone.auth import Auth
-from earthone.exceptions import ServerError
+from earthdaily.earthone.auth import Auth
+from earthdaily.earthone.exceptions import ServerError
 
 from ..raster import Raster, as_json_string
 from .. import raster as raster_module

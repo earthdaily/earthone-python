@@ -20,7 +20,7 @@ import textwrap
 
 from datetime import datetime
 
-from earthone.exceptions import ConflictError
+from earthdaily.earthone.exceptions import ConflictError
 from .base import ClientTestCase
 from ..event_api_destination import (
     EventApiDestination,

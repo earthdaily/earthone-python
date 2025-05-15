@@ -21,7 +21,7 @@ from unittest import mock
 import requests
 import responses
 import urllib3
-from earthone.exceptions import BadRequestError, ProxyAuthenticationRequiredError
+from earthdaily.earthone.exceptions import BadRequestError, ProxyAuthenticationRequiredError
 
 from .....common.http.authorization import add_bearer
 from .....common.http import ProxyAuthentication

@@ -342,7 +342,7 @@ class EventSchedule(AuthCatalogObject):
 
         Example
         -------
-        >>> from earthone.catalog import EventSchedule
+        >>> from earthdaily.earthone.catalog import EventSchedule
         >>> search = EventSchedule.search().limit(10)
         >>> for result in search: # doctest: +SKIP
         ...     print(result.name) # doctest: +SKIP

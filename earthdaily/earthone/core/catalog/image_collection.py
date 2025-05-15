@@ -19,7 +19,7 @@ import os
 
 import numpy as np
 
-from earthone.exceptions import NotFoundError, BadRequestError
+from earthdaily.earthone.exceptions import NotFoundError, BadRequestError
 
 from ..common.collection import Collection
 from ..common.geo import GeoContext, AOI
