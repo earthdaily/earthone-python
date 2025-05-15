@@ -75,7 +75,7 @@ def to_bytes(s):
 domain = "https://some_domain"
 
 
-@patch("earthdaily.earthone.auth.auth.get_default_domain", MagicMock(return_value=domain))
+@patch("earthone.auth.auth.get_default_domain", MagicMock(return_value=domain))
 class TestAuth(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

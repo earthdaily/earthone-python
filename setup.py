@@ -79,16 +79,16 @@ def do_setup():
             )
         ),
         version=version,
-        packages=find_namespace_packages(include=['earthdaily.*']),
+        packages=find_namespace_packages(include=['earthone.*']),
         package_data={
-            "earthdaily.earthone": [
+            "earthone": [
                 "config/settings.toml",
             ]
         },
         include_package_data=True,
         entry_points={
             "console_scripts": [
-                "earthdaily.earthone = earthdaily.earthone.core.client.scripts.__main__:main"
+                "earthone = earthone.core.client.scripts.__main__:main"
             ]
         },
         python_requires="~=3.9",
