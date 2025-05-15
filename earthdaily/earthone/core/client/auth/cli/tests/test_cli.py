@@ -105,8 +105,8 @@ class TestAuth(unittest.TestCase):
     @patch.dict(
         os.environ,
         {
-            "EARTHONE_CLIENT_ID": "some_client_id",
-            "EARTHONE_CLIENT_SECRET": "some_client_secret",
+            "DESCARTESLABS_CLIENT_ID": "some_client_id",
+            "DESCARTESLABS_CLIENT_SECRET": "some_client_secret",
         },
     )
     def test_login(self, *mocks):
@@ -128,8 +128,8 @@ class TestAuth(unittest.TestCase):
     @patch.dict(
         os.environ,
         {
-            "EARTHONE_CLIENT_ID": "some_client_id",
-            "EARTHONE_CLIENT_SECRET": "some_client_secret",
+            "DESCARTESLABS_CLIENT_ID": "some_client_id",
+            "DESCARTESLABS_CLIENT_SECRET": "some_client_secret",
         },
     )
     def test_payload(self, *mocks):

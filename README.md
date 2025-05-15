@@ -370,7 +370,7 @@ below.
 
 - Deprecated support for Python 3.7 (will end of life in July).
 - Added support for Python 3.10 and Python 3.11
-- AWS-only client. For the time being, the AWS client can be used to communicate with the legacy GCP platform (e.g. `EARTHONE_ENV=gcp-production`) but only supports those services that are supported on AWS (`catalog` and `scenes`). This support may break at any point in the future, so it is strictly transitional.
+- AWS-only client. For the time being, the AWS client can be used to communicate with the legacy GCP platform (e.g. `DESCARTESLABS_ENV=gcp-production`) but only supports those services that are supported on AWS (`catalog` and `scenes`). This support may break at any point in the future, so it is strictly transitional.
 
 ### Dependencies
 
@@ -511,7 +511,7 @@ below.
 
 - Deprecated support for Python 3.7 (will end of life in July).
 - Added support for Python 3.10 and Python 3.11
-- AWS-only client. For the time being, the AWS client can be used to communicate with the legacy GCP platform (e.g. `EARTHONE_ENV=gcp-production`) but only supports those services that are supported on AWS (`catalog` and `scenes`). This support may break at any point in the future, so it is strictly transitional.
+- AWS-only client. For the time being, the AWS client can be used to communicate with the legacy GCP platform (e.g. `DESCARTESLABS_ENV=gcp-production`) but only supports those services that are supported on AWS (`catalog` and `scenes`). This support may break at any point in the future, so it is strictly transitional.
 
 ### Dependencies
 
@@ -642,7 +642,7 @@ below.
 - The Descartes Labs client now supports configuration to support operating in different environments. By default,
   the client will configure itself for standard usage against the GCP platform (`"gcp-production"`), except in the case of AWS Marketplace users, for whom
   the client will configure itself against the AWS platform (`"aws-production"`).
-  Alternate environments can be configured by setting the `EARTHONE_ENV` environment variable before starting python, or by using a prelude like
+  Alternate environments can be configured by setting the `DESCARTESLABS_ENV` environment variable before starting python, or by using a prelude like
   ```
   from earthone.config import Settings
   Settings.select_env("environment-name")
@@ -1571,7 +1571,7 @@ method no longer accepts the `continuation_token` parameter.
 
 ## [0.11.1] - 2018-08-17
 ### Added
-- Namespaced auth environment variables: `EARTHONE_CLIENT_SECRET` and `EARTHONE_CLIENT_ID`. `CLIENT_SECRET` and `CLIENT_ID` will continue to work.
+- Namespaced auth environment variables: `DESCARTESLABS_CLIENT_SECRET` and `DESCARTESLABS_CLIENT_ID`. `CLIENT_SECRET` and `CLIENT_ID` will continue to work.
 - Tasks runtime check for Python version.
 
 ### Changed

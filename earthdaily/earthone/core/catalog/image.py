@@ -1088,7 +1088,7 @@ class Image(NamedCatalogObject):
         NotFoundError
             If a Image's ID cannot be found in the Descartes Labs catalog
         BadRequestError
-            If the Descartes Labs Platform is given invalid parameters
+            If the EarthOne Platform is given invalid parameters
         """
         if geocontext is None:
             # Lose the image's geometry (which is only used as a cutline),
@@ -1336,7 +1336,7 @@ class Image(NamedCatalogObject):
         NotFoundError
             If a image's ID cannot be found in the Descartes Labs catalog
         BadRequestError
-            If the Descartes Labs Platform is given invalid parameters
+            If the EarthOne Platform is given invalid parameters
         """
         if geocontext is None:
             # Lose the image's geometry (which is only used as a cutline),

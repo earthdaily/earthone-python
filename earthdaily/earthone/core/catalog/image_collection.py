@@ -290,7 +290,7 @@ class ImageCollection(Collection):
         NotFoundError
             If a Image's ID cannot be found in the Descartes Labs catalog
         BadRequestError
-            If the Descartes Labs Platform is given unrecognized parameters
+            If the EarthOne Platform is given unrecognized parameters
         """
         if len(self) == 0:
             raise ValueError("This ImageCollection is empty")
@@ -530,7 +530,7 @@ class ImageCollection(Collection):
         NotFoundError
             If a Image's ID cannot be found in the Descartes Labs catalog
         BadRequestError
-            If the Descartes Labs Platform is given unrecognized parameters
+            If the EarthOne Platform is given unrecognized parameters
         """
         if len(self) == 0:
             raise ValueError("This ImageCollection is empty")
@@ -744,7 +744,7 @@ class ImageCollection(Collection):
         NotFoundError
             If a Image's ID cannot be found in the Descartes Labs catalog
         BadRequestError
-            If the Descartes Labs Platform is given unrecognized parameters
+            If the EarthOne Platform is given unrecognized parameters
         """
         if len(self) == 0:
             raise ValueError("This ImageCollection is empty")
@@ -961,7 +961,7 @@ class ImageCollection(Collection):
         NotFoundError
             If a Image's ID cannot be found in the Descartes Labs catalog
         BadRequestError
-            If the Descartes Labs Platform is given unrecognized parameters
+            If the EarthOne Platform is given unrecognized parameters
         """
         if len(self) == 0:
             raise ValueError("This ImageCollection is empty")

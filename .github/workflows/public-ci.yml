@@ -25,7 +25,7 @@ jobs:
       - name: Test Client
         env:
           TMPDIR: tempdir
-          EARTHONE_ENV: testing
+          DESCARTESLABS_ENV: testing
         run: |
           mkdir tempdir
           python -m pytest -rfExXP --assert=plain --ignore-glob="*/smoke_tests" --ignore-glob="*/e2e" --ignore="earthone/core/third_party" earthone
@@ -33,7 +33,7 @@ jobs:
       - name: Test CLI
         env:
           TMPDIR: tempdir
-          EARTHONE_ENV: testing
+          DESCARTESLABS_ENV: testing
         run: |
           mkdir tempdir
           earthone version

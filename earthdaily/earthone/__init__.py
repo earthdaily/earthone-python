@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Descartes Labs Python Client
+"""EarthOne Python Client
 
 .. code-block:: bash
 
@@ -23,7 +23,7 @@ Documentation is available at https://docs.descarteslabs.com.
 Source code and version information is at
 https://github.com/earthdaily/earthone-python.
 
-The Descartes Labs Platform simplifies analysis of **global-scale raster data**
+The EarthOne Platform simplifies analysis of **global-scale raster data**
 by providing:
 
     * Access to a catalog of petabytes of disparate geospatial data,
