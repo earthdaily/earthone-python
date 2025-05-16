@@ -623,8 +623,8 @@ class Auth:
             if EARTHONE_CUSTOM_CLAIM_PREFIX:
                 for key in list(payload.keys()):
                     if key.startswith(EARTHONE_CUSTOM_CLAIM_PREFIX):
-                        payload[key[len(EARTHONE_CUSTOM_CLAIM_PREFIX) :]] = (
-                            payload.pop(key)
+                        payload[key[len(EARTHONE_CUSTOM_CLAIM_PREFIX) :]] = payload.pop(
+                            key
                         )
 
             self.__dict__[self.KEY_PAYLOAD] = payload
