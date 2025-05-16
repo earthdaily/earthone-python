@@ -74,9 +74,7 @@ def do_setup():
         ],
         license="Apache 2.0",
         download_url=(
-            "https://github.com/earthone-python/archive/v{}.tar.gz".format(
-                version
-            )
+            "https://github.com/earthone-python/archive/v{}.tar.gz".format(version)
         ),
         version=version,
         packages=find_packages(),
@@ -87,9 +85,7 @@ def do_setup():
         },
         include_package_data=True,
         entry_points={
-            "console_scripts": [
-                "earthone = earthone.core.client.scripts.__main__:main"
-            ]
+            "console_scripts": ["earthone = earthone.core.client.scripts.__main__:main"]
         },
         python_requires="~=3.9",
         install_requires=[
