@@ -21,7 +21,7 @@
 Documentation is available at https://docs.descarteslabs.com.
 
 Source code and version information is at
-https://github.com/earthdaily/earthone-python.
+https://github.com/descarteslabs/earthone-python.
 
 The EarthOne Platform simplifies analysis of **global-scale raster data**
 by providing:
@@ -54,7 +54,7 @@ get_settings = config.get_settings
 AWS_ENVIRONMENT = config.AWS_ENVIRONMENT
 GCP_ENVIRONMENT = config.GCP_ENVIRONMENT
 
-__author__ = "Descartes Labs"
+__author__ = "EarthDaily"
 
 __all__ = [
     "__version__",

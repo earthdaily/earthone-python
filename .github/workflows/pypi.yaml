@@ -3,7 +3,7 @@ name: Publish to PyPI
 
 on:
   # Trigger manually (via Github Web UI) here:
-  # https://github.com/earthdaily/earthone-python/actions/workflows/pypi.yaml
+  # https://github.com/descarteslabs/earthone-python/actions/workflows/pypi.yaml
   #
   # Documentation for manually running a workflow:
   # https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow
@@ -47,7 +47,7 @@ jobs:
 
       # Upload the Python wheel packages to PyPI using an API Token
       # https://pypi.org/help/#apitoken
-      # https://github.com/earthdaily/paas-infrastructure/blob/main/foundation/operations/pypi.tf
+      # https://github.com/descarteslabs/paas-infrastructure/blob/main/foundation/operations/pypi.tf
       - name: Upload to PyPI
         if: inputs.publish
         env:

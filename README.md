@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/earthdaily/earthone-python/actions/workflows/public-ci.yml/badge.svg)](https://github.com/earthdaily/earthone-python/actions/workflows/public-ci.yml)
+[![Build Status](https://github.com/descarteslabs/earthone-python/actions/workflows/public-ci.yml/badge.svg)](https://github.com/descarteslabs/earthone-python/actions/workflows/public-ci.yml)
 
 EarthOne Platform
 =======================
@@ -9,7 +9,7 @@ By giving data scientists and their line-of-business colleagues the best geospat
 
 Data science teams can use our scaling infrastructure to design models faster than ever, using our massive data archive or their own.
 
-Please visit [https://earthdaily.com](https://earthdaily.com) for more information about the EarthOne Platform and to request access.
+Please visit [https://descarteslabs.com](https://descarteslabs.com) for more information about the EarthOne Platform and to request access.
 
 The `earthdaily-earthone` python package, available at [https://pypi.org/project/earthdaily-earthone/](https://pypi.org/project/earthdaily-earthone/), provides client-side access to the EarthOne Platform for our customers. You must be a registered customer with access to our EarthOne Platform before you can make use of this package with our platform.
 
@@ -73,7 +73,7 @@ Changelog
 
 ### Catalog
 
-- The Catalog now provides support for Events, essentially notifications of new or updated assets in the Catalog, including images and storage blobs. Additionally, scheduled calendar-based events can be defined. You can subscribe to these events to trigger running a Compute function of your choice. This makes it possible to set up automated processing of new imagery. See the [https://docs.earthdaily.com/guides/catalog.html](Catalog Guide) and API documentation for more information.
+- The Catalog now provides support for Events, essentially notifications of new or updated assets in the Catalog, including images and storage blobs. Additionally, scheduled calendar-based events can be defined. You can subscribe to these events to trigger running a Compute function of your choice. This makes it possible to set up automated processing of new imagery. See the [https://docs.descarteslabs.com/guides/catalog.html](Catalog Guide) and API documentation for more information.
 
 ## [3.1.0] - 2024-05-09
 
@@ -189,7 +189,7 @@ below.
 - The Vector package now has a `VectorClient` API client, with the usual support for `get_default_client()`
   and `set_default_client()`. Most constructors and methods now accept an optional `client=` parameter
   if you need to use something other than the default client.
-- Configuration is now accomplished using the standard `descarteslabs.config` package. In particular,
+- Configuration is now accomplished using the standard `earthone.config` package. In particular,
   the `vector_url` setting is used to specify the default Vector host. The `VECTOR_API_HOST` environment
   variable is no longer consulted.
 - Vector client methods now raise standard `descarteslabs.exceptions` Exception classes rather than
@@ -772,7 +772,7 @@ only recommended when using an AOI which is smaller than the source imagery pixe
   - `Discover().list_org_users()`
 
 ### Tables - Added
-- Added an **alpha** Tables client. The Tables module lets you organize, upload, and query tabular data and vector geometries. As an alpha release, we reserve the right to modify the Tables client API without any guarantees about backwards compatibility. See the [Tables API](https://docs.earthdaily.com/earthone/tables/readme.html) and [Tables Guide](https://docs.earthdaily.com/guides/tables.html) documentation for more details.
+- Added an **alpha** Tables client. The Tables module lets you organize, upload, and query tabular data and vector geometries. As an alpha release, we reserve the right to modify the Tables client API without any guarantees about backwards compatibility. See the [Tables API](https://docs.descarteslabs.com/earthone/tables/readme.html) and [Tables Guide](https://docs.descarteslabs.com/guides/tables.html) documentation for more details.
 
 ### Scenes
 - Added the `progress=` parameter to the various rastering methods such as `Scene.ndarray`,
@@ -844,7 +844,7 @@ only recommended when using an AOI which is smaller than the source imagery pixe
 
 ### Discover (alpha) - Added
 
-- Added an **alpha** Discover client. Discover allows users to organize and share assets with other users. As an alpha release, we reserve the right to modify the Discover client API without any guarantees about backwards compatibility. See the [Discover API documentation](https://docs.earthdaily.com/earthone/discover/readme.html) for more details.
+- Added an **alpha** Discover client. Discover allows users to organize and share assets with other users. As an alpha release, we reserve the right to modify the Discover client API without any guarantees about backwards compatibility. See the [Discover API documentation](https://docs.descarteslabs.com/earthone/discover/readme.html) for more details.
 
 ### Metadata/Catalog V1 - Changed
 
@@ -861,9 +861,9 @@ only recommended when using an AOI which is smaller than the source imagery pixe
 ### Scenes - Changed
 
 - Scenes now uses the client-side `dltile` library to make DLTiles. This improves performance when creating a large number of DLTile objects.
-- Scenes DLTile `from_shape` now has a parameter to return tile keys only instead of full tile objects. Usage details can be found [in the docs](https://docs.earthdaily.com/earthone/scenes/docs/geocontext.html#descarteslabs.scenes.geocontext.DLTile.from_shape).
-- Scenes DLTile now has new methods: `iter_from_shape` that takes the same arguments as `from_shape` but returns an iterator ([from_shape docs](https://docs.earthdaily.com/earthone/scenes/docs/geocontext.html#descarteslabs.scenes.geocontext.DLTile.iter_from_shape)), `subtile` that adds the ability to subdivide tiles ([subtile docs](https://docs.earthdaily.com/earthone/scenes/docs/geocontext.html#descarteslabs.scenes.geocontext.DLTile.subtile)), and `rowcol_to_latlon` and `latlon_to_rowcol` which converts pixel coordinates to spatial coordinates and vice versa ([rowcol_to_latlon docs](https://docs.earthdaily.com/earthone/scenes/docs/geocontext.html#descarteslabs.scenes.geocontext.DLTile.rowcol_to_latlon) and [latlon_to_rowcol docs](https://docs.earthdaily.com/earthone/scenes/docs/geocontext.html#descarteslabs.scenes.geocontext.DLTile.latlon_to_rowcol)).
-- Scenes DLTile now has a new parameter `tile_extent` which is the total size of the tile in pixels including padding. Usage details can be found [in the docs](https://docs.earthdaily.com/earthone/scenes/docs/geocontext.html#descarteslabs.scenes.geocontext.DLTile.tile_extent).
+- Scenes DLTile `from_shape` now has a parameter to return tile keys only instead of full tile objects. Usage details can be found [in the docs](https://docs.descarteslabs.com/earthone/scenes/docs/geocontext.html#descarteslabs.scenes.geocontext.DLTile.from_shape).
+- Scenes DLTile now has new methods: `iter_from_shape` that takes the same arguments as `from_shape` but returns an iterator ([from_shape docs](https://docs.descarteslabs.com/earthone/scenes/docs/geocontext.html#descarteslabs.scenes.geocontext.DLTile.iter_from_shape)), `subtile` that adds the ability to subdivide tiles ([subtile docs](https://docs.descarteslabs.com/earthone/scenes/docs/geocontext.html#descarteslabs.scenes.geocontext.DLTile.subtile)), and `rowcol_to_latlon` and `latlon_to_rowcol` which converts pixel coordinates to spatial coordinates and vice versa ([rowcol_to_latlon docs](https://docs.descarteslabs.com/earthone/scenes/docs/geocontext.html#descarteslabs.scenes.geocontext.DLTile.rowcol_to_latlon) and [latlon_to_rowcol docs](https://docs.descarteslabs.com/earthone/scenes/docs/geocontext.html#descarteslabs.scenes.geocontext.DLTile.latlon_to_rowcol)).
+- Scenes DLTile now has a new parameter `tile_extent` which is the total size of the tile in pixels including padding. Usage details can be found [in the docs](https://docs.descarteslabs.com/earthone/scenes/docs/geocontext.html#descarteslabs.scenes.geocontext.DLTile.tile_extent).
 - **breaking** Removed the dependence on `Raster` for tiling. The `raster_client` parameter has been removed from the `from_latlon`, `from_key`, `from_shape`, and `assign`DLTile methods.
 - Tiling using `from_shape` may return a different number of tiles compared to previous versions under certain conditions. These tiles are usually found in overlapping areas between UTM zones and should not affect the overall coverage.
 - DLTile geospatial transformations are guaranteed to be within eight decimal points of the past implementation.
@@ -876,7 +876,7 @@ only recommended when using an AOI which is smaller than the source imagery pixe
 - `dltiles_from_shape`, `dltiles_from_latlon`, and `dltile` have been removed. **It is
   strongly recommended to test any existing code which uses the Raster API when upgrading to this
   release.**
-- Fully masked arrays are now supported and are the default. Usage details can be found [in the docs](https://docs.earthdaily.com/earthone/client/services/raster/readme.html#descarteslabs.client.services.raster.Raster.ndarray)
+- Fully masked arrays are now supported and are the default. Usage details can be found [in the docs](https://docs.descarteslabs.com/earthone/client/services/raster/readme.html#descarteslabs.client.services.raster.Raster.ndarray)
 - Added support to draw progress bar. Usage details can be found [in the docs](https://docs.stage.descarteslabs.com/earthone/client/services/raster/readme.html).
 - The signature and return value of `Raster.raster()` have changed. The `save=` parameter has been removed as the resulting download is always saved
   to disk, to a file named by the `outfile_basename=` parameter. The method returns a tuple containing the name of the resulting file and the metadata
@@ -898,8 +898,8 @@ Internal release only. See 1.8.1 above.
 
 ### Workflows (channel `v0-19`) - Added
 - Workflows sharing. Support has been added to manage sharing of `Workflow` objects with other authorized users. The `public` option for publishing workflows
-has been removed now that `Workflow.add_public_reader()` provides the equivalent capability. See the [Workflows Guide](https://docs.earthdaily.com/guides/workflows/sharing.html#sharing-workflows).
-- Lots of improvements to [API documentation](https://docs.earthdaily.com/earthone/workflows/readme.html) and the [Workflows Guide](https://docs.earthdaily.com/guides/workflows.html).
+has been removed now that `Workflow.add_public_reader()` provides the equivalent capability. See the [Workflows Guide](https://docs.descarteslabs.com/guides/workflows/sharing.html#sharing-workflows).
+- Lots of improvements to [API documentation](https://docs.descarteslabs.com/earthone/workflows/readme.html) and the [Workflows Guide](https://docs.descarteslabs.com/guides/workflows.html).
 
 ### Workflows - Fixed
 - Allow constructing `Float` instances from literal python integers.
@@ -979,7 +979,7 @@ Fixes a few buglets which slipped through. This release continues to use the wor
 ## [1.4.1] - 2020-09-02
 
 ### Fixed
-No more irrelevant `DeprecationWarning`s when importing the `descarteslabs` package ([#235](https://github.com/earthdaily/earthone-python/issues/235)). Deprecated functionality in the package will now show `FutureWarning`s instead.
+No more irrelevant `DeprecationWarning`s when importing the `descarteslabs` package ([#235](https://github.com/descarteslabs/earthone-python/issues/235)). Deprecated functionality in the package will now show `FutureWarning`s instead.
 
 ### Workflows (channel `v0-16`) - Fixed
 - `wf.map.geocontext` doesn't raise an error about the CRS of the map
@@ -992,7 +992,7 @@ No more irrelevant `DeprecationWarning`s when importing the `descarteslabs` pack
 
 ### Workflows (channel `v0-16`) - Added
 - **Sharing of any Workflows object as a `Workflow`** with version and access control. Browse through shared `Workflow`s with the `wf.flows` browser widget.
-- **Upload images to the DL catalog from Workflows jobs**. Usage details can be found [in the docs](https://docs.earthdaily.com/earthone/workflows/docs/destinations.html).
+- **Upload images to the DL catalog from Workflows jobs**. Usage details can be found [in the docs](https://docs.descarteslabs.com/earthone/workflows/docs/destinations.html).
 - `wf.np.median`
 - `Job.cancel()` to cancel running jobs.
 - Transient failures in Jobs are automatically retried, resulting in fewer errors.
@@ -1004,15 +1004,15 @@ No more irrelevant `DeprecationWarning`s when importing the `descarteslabs` pack
 - `.median` is slightly less prone to OOM errors
 
 ### Workflows - Changed
-- **Breaking: Workflows sharing**: `wf.publish()` and `wf.use()` have new signatures, `wf.retrieve()` has been removed in favor of `wf.Workflow.get()` and `wf.VersionedGraft.get_version()` and the `wf.Workflow` object has been completely refactored. Detailed information is [in the docs](https://docs.earthdaily.com/earthone/workflows/docs/execution.html#module-descarteslabs.workflows.models).
+- **Breaking: Workflows sharing**: `wf.publish()` and `wf.use()` have new signatures, `wf.retrieve()` has been removed in favor of `wf.Workflow.get()` and `wf.VersionedGraft.get_version()` and the `wf.Workflow` object has been completely refactored. Detailed information is [in the docs](https://docs.descarteslabs.com/earthone/workflows/docs/execution.html#module-descarteslabs.workflows.models).
 - `Array.to_imagery` now accepts `KnownDict` for bandinfo and properties.
 - `Number`s can now be constructed from `Str`s
 
 ## [1.3.0] - 2020-06-12
 
 ### Workflows (channel `v0-15`) - Added
-- **Output formats for `.compute` including GeoTIFF, JSON**, PyArrow, and MessagePack. Usage details can be found [in the docs](https://docs.earthdaily.com/earthone/workflows/docs/formats.html).
-- **Destinations for Job results: download and email**. Usage details can be found [in the docs](https://docs.earthdaily.com/earthone/workflows/docs/destinations.html).
+- **Output formats for `.compute` including GeoTIFF, JSON**, PyArrow, and MessagePack. Usage details can be found [in the docs](https://docs.descarteslabs.com/earthone/workflows/docs/formats.html).
+- **Destinations for Job results: download and email**. Usage details can be found [in the docs](https://docs.descarteslabs.com/earthone/workflows/docs/destinations.html).
 - **Save `.compute` outputs to a file** with the `file=` argument.
 - **Pixel value inspector**: click in the map widget to view pixel values.
 - **`wf.ifelse`** for simple conditional logic.
@@ -1050,7 +1050,7 @@ No more irrelevant `DeprecationWarning`s when importing the `descarteslabs` pack
 ## [1.2.0] - 2020-04-23
 
 ### Workflows (channel `v0-14`) - Added
-- **191 functions from NumPy are available for Workflows `Array`s**, including parts of the `numpy.linalg` and `numpy.ma` submodules. See the full list [on the docs](https://docs.earthdaily.com/earthone/workflows/docs/types/numpy.html).
+- **191 functions from NumPy are available for Workflows `Array`s**, including parts of the `numpy.linalg` and `numpy.ma` submodules. See the full list [on the docs](https://docs.descarteslabs.com/earthone/workflows/docs/types/numpy.html).
 - `index_to_coords` and `coords_to_index` methods on `Image`/`ImageCollection`/`GeoContext` for converting between geospatial and array coordinates
 - `value_at` function on `Image` and `ImageCollection` for extracting single pixel values at spatial coordinates.
 
@@ -1181,7 +1181,7 @@ You should _NOT_ install version 1.1.0; 1.1.1 should be used instead in all circ
   - `ImageCollection.from_id` returns an empty ImageCollection if no data exist for the given time/place, rather than an error
   - `ImageCollection.filter` returns an empty ImageCollection if the predicate is False for every Image, rather than an error
   - `Image.replace_empty_with` and `ImageCollection.replace_empty_with` for explicitly filling in missing data
-  - See the [Workflows guide](https://docs.earthdaily.com/guides/workflows.html) for more information
+  - See the [Workflows guide](https://docs.descarteslabs.com/guides/workflows.html) for more information
 - **Docstrings and examples** on every class and function!
 - **Assigning new metadata to Image properties** & bandinfo: `Image.with_properties()`, `Image.with_bandinfo()`
 - Interactive map: **colorbar legends** on layers with colormaps (requires matplotlib)
@@ -1266,7 +1266,7 @@ You should _NOT_ install version 1.1.0; 1.1.1 should be used instead in all circ
 ## [0.26.0] - 2019-10-30
 ### Added
 
-- A new catalog client in `descarteslabs.catalog` makes searching and managing products, bands and images easier. This client encompasses functionality previously split between the `descarteslabs.Metadata` and `descarteslabs.Catalog` client, which are now deprecated. Learn how to use the new API in the [Catalog guide](https://docs.earthdaily.com/guides/catalog_v2.html).
+- A new catalog client in `descarteslabs.catalog` makes searching and managing products, bands and images easier. This client encompasses functionality previously split between the `descarteslabs.Metadata` and `descarteslabs.Catalog` client, which are now deprecated. Learn how to use the new API in the [Catalog guide](https://docs.descarteslabs.com/guides/catalog_v2.html).
 - Property filtering expressions such as used in `scenes.search()` and `FeatureCollection.filter()` now support an `in_()` method.
 
 ### Changed
@@ -1538,7 +1538,7 @@ method no longer accepts the `continuation_token` parameter.
 
 ## [0.13.0] - 2018-10-05
 ### Changed
-- Shapely is now a full requirement of this package. Note: Windows users should visit https://docs.earthdaily.com/installation.html#windows-users for installation guidance.
+- Shapely is now a full requirement of this package. Note: Windows users should visit https://docs.descarteslabs.com/installation.html#windows-users for installation guidance.
 - Reduced the number of retries for some failure types.
 - Resolved intermittent `SceneCollection.stack` bug that manifested as `AttributeError: 'NoneType' object has no attribute 'coords'` due to Shapely thread-unsafety.
 - Tracking system environment to improve installation and support of different systems.
@@ -1619,7 +1619,7 @@ method no longer accepts the `continuation_token` parameter.
 - Removed deprecated searching by `const_id`
 - Removed deprecated raster band methods
 - Deprecated `sat_id` parameter for metadata searches
-- Changed documentation from readthedocs to https://docs.earthdaily.com
+- Changed documentation from readthedocs to https://docs.descarteslabs.com
 
 ### Added
 - Dot notation access to dictionaries returned by services
