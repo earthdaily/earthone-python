@@ -36,7 +36,7 @@ jobs:
           EARTHONE_ENV: testing
         run: |
           mkdir tempdir
-          earthdaily-earthone version
+          earthone version
           rm -r tempdir
 
   slack:
