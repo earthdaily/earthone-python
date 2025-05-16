@@ -26,6 +26,7 @@ class TestCli(unittest.TestCase):
 
     def test_help(self):
         result = self.runner.invoke(cli, [])
+        print(f" click.__version__ {click.__version__}")
         print(result.output)
         assert result.exit_code == 0
         assert result.output.startswith("Usage: ")
