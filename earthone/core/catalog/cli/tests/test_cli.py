@@ -17,7 +17,6 @@ import unittest
 import click.testing
 
 from ..cli import cli
-import os
 
 
 class TestCli(unittest.TestCase):
@@ -26,34 +25,26 @@ class TestCli(unittest.TestCase):
 
     def test_help(self):
         result = self.runner.invoke(cli, [])
-        print(f" click.__version__ {click.__version__}")
-        print(result.output)
-        assert result.exit_code == 0
+        assert result.exit_code in [0, 2] 
         assert result.output.startswith("Usage: ")
 
     # at present, I don't want to test individual commands,
     # it'd be a huge pain to mock and would basically just be
     # testing catalog itself.
-    # def test_products(self):
-    #     result = self.runner.invoke(cli, ["products"])
-    #     assert result.exit_code == 0
-    #     assert result.output.startswith("Usage: ")
+    # click version >= 8.2.0 returns exit code 2 if no command specified
 
-    # def test_bands(self):
-    #     result = self.runner.invoke(cli, ["bands"])
-    #     assert result.exit_code == 0
-    #     assert result.output.startswith("Usage: ")
+    def test_products(self):
+        result = self.runner.invoke(cli, ["products"])
+        assert result.exit_code in [0, 2] 
+        assert result.output.startswith("Usage: ")
 
-    # def test_blobs(self):
-    #     print("ENV:", dict(os.environ))
-    #     result = self.runner.invoke(cli, ["blobs"])
-    #     print(f"RESULT = {result.exception}")
-    #     assert result.exit_code == 0
-    #     assert result.output.startswith("Usage: ")
+    def test_bands(self):
+        result = self.runner.invoke(cli, ["bands"])
+        assert result.exit_code in [0, 2] 
+        assert result.output.startswith("Usage: ")
 
-    # def test_blobs(self):
-    #     print("ENV:", dict(os.environ))
-    #     result = self.runner.invoke(cli, ["blobs"])
-    #     print(f"RESULT = {result.exception}")
-    #     assert result.exit_code == 0
-    #     assert result.output.startswith("Usage: ")
+    def test_blobs(self):
+        result = self.runner.invoke(cli, ["blobs"])
+        print(f"RESULT = {result.exception}")
+        assert result.exit_code in [0, 2] 
+        assert result.output.startswith("Usage: ")
