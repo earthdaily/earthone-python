@@ -18,7 +18,7 @@ import ast
 import re
 import sys
 
-from setuptools import find_namespace_packages, find_packages, setup
+from setuptools import find_packages, setup
 
 # Parse the docstring out of earthone/__init__.py
 _docstring_re = re.compile(r'"""((.|\n)*)\n"""', re.MULTILINE)
@@ -79,7 +79,7 @@ def do_setup():
             )
         ),
         version=version,
-        packages=find_namespace_packages(include=['earthone.*']),
+        packages=find_packages(),
         package_data={
             "earthone": [
                 "config/settings.toml",
