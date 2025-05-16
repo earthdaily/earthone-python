@@ -17,6 +17,7 @@ import unittest
 import click.testing
 
 from ..cli import cli
+import os
 
 
 class TestCli(unittest.TestCase):
@@ -42,6 +43,14 @@ class TestCli(unittest.TestCase):
         assert result.output.startswith("Usage: ")
 
     def test_blobs(self):
+        print("ENV:", dict(os.environ))
+        result = self.runner.invoke(cli, ["blobs"])
+        print(f"RESULT = {result.exception}")
+        assert result.exit_code == 0
+        assert result.output.startswith("Usage: ")
+
+    def test_blobs(self):
+        print("ENV:", dict(os.environ))
         result = self.runner.invoke(cli, ["blobs"])
         print(f"RESULT = {result.exception}")
         assert result.exit_code == 0
