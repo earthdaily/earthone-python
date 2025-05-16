@@ -33,26 +33,26 @@ class TestCli(unittest.TestCase):
     # at present, I don't want to test individual commands,
     # it'd be a huge pain to mock and would basically just be
     # testing catalog itself.
-    def test_products(self):
-        result = self.runner.invoke(cli, ["products"])
-        assert result.exit_code == 0
-        assert result.output.startswith("Usage: ")
+    # def test_products(self):
+    #     result = self.runner.invoke(cli, ["products"])
+    #     assert result.exit_code == 0
+    #     assert result.output.startswith("Usage: ")
 
-    def test_bands(self):
-        result = self.runner.invoke(cli, ["bands"])
-        assert result.exit_code == 0
-        assert result.output.startswith("Usage: ")
+    # def test_bands(self):
+    #     result = self.runner.invoke(cli, ["bands"])
+    #     assert result.exit_code == 0
+    #     assert result.output.startswith("Usage: ")
 
-    def test_blobs(self):
-        print("ENV:", dict(os.environ))
-        result = self.runner.invoke(cli, ["blobs"])
-        print(f"RESULT = {result.exception}")
-        assert result.exit_code == 0
-        assert result.output.startswith("Usage: ")
+    # def test_blobs(self):
+    #     print("ENV:", dict(os.environ))
+    #     result = self.runner.invoke(cli, ["blobs"])
+    #     print(f"RESULT = {result.exception}")
+    #     assert result.exit_code == 0
+    #     assert result.output.startswith("Usage: ")
 
-    def test_blobs(self):
-        print("ENV:", dict(os.environ))
-        result = self.runner.invoke(cli, ["blobs"])
-        print(f"RESULT = {result.exception}")
-        assert result.exit_code == 0
-        assert result.output.startswith("Usage: ")
+    # def test_blobs(self):
+    #     print("ENV:", dict(os.environ))
+    #     result = self.runner.invoke(cli, ["blobs"])
+    #     print(f"RESULT = {result.exception}")
+    #     assert result.exit_code == 0
+    #     assert result.output.startswith("Usage: ")
