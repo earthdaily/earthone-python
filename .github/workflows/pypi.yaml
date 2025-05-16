@@ -3,7 +3,7 @@ name: Publish to PyPI
 
 on:
   # Trigger manually (via Github Web UI) here:
-  # https://github.com/descarteslabs/earthone-python/actions/workflows/pypi.yaml
+  # https://github.com/earthdaily/earthone-python/actions/workflows/pypi.yaml
   #
   # Documentation for manually running a workflow:
   # https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow
