@@ -33,7 +33,7 @@ class CatalogClient(JsonApiService, DefaultClientMixin):
     url : str, optional
         The URL to use when connecting to the Descartes Labs catalog.  Only change
         this if you are being asked to use a non-default Descartes Labs catalog.  If
-        not set, then ``descarteslabs.config.get_settings().CATALOG_V2_URL`` will be used.
+        not set, then ``earthone.config.get_settings().CATALOG_V2_URL`` will be used.
     auth : Auth, optional
         The authentication object used when connecting to the Descartes Labs catalog.
         This is typically the default :class:`~earthone.auth.Auth` object that uses

@@ -9,9 +9,9 @@ Visualize a true color Landsat 8 image.
 
 """
 
-from descarteslabs.catalog import Product, properties as p
-from descarteslabs.geo import DLTile
-from descarteslabs.utils import display
+from earthone.catalog import Product, properties as p
+from earthone.geo import DLTile
+from earthone.utils import display
 
 #################################################
 # Create a tile around Pisa, Italy.

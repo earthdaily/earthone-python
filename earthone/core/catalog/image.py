@@ -112,7 +112,7 @@ class ImageSearch(SummarySearchMixin, GeoSearch):
 
         Parameters
         ----------
-        geocontext : shapely.geometry.base.BaseGeometry, descarteslabs.common.geo.Geocontext, geojson-like, default None  # noqa: E501
+        geocontext : shapely.geometry.base.BaseGeometry, earthone.common.geo.Geocontext, geojson-like, default None  # noqa: E501
             AOI for the ImageCollection.
 
         Returns

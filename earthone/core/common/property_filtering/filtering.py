@@ -72,22 +72,22 @@ class Expression(object):
     >>> p = Properties()
     >>> e = p.foo == 5
     >>> type(e)
-    <class 'descarteslabs.common.property_filtering.filtering.EqExpression'>
+    <class 'earthone.common.property_filtering.filtering.EqExpression'>
     >>> e = p.foo.any_of([1, 2, 3, 4, 5])
     >>> type(e)
-    <class 'descarteslabs.common.property_filtering.filtering.OrExpression'>
+    <class 'earthone.common.property_filtering.filtering.OrExpression'>
     >>> e = 5 < p.foo < 10
     >>> type(e)
-    <class 'descarteslabs.common.property_filtering.filtering.RangeExpression'>
+    <class 'earthone.common.property_filtering.filtering.RangeExpression'>
     >>> e = (5 < p.foo < 10) & p.foo.any_of([1, 2, 3, 4, 5])
     >>> type(e)
-    <class 'descarteslabs.common.property_filtering.filtering.AndExpression'>
+    <class 'earthone.common.property_filtering.filtering.AndExpression'>
     >>> e = p.foo.isnotnull
     >>> type(e)
-    <class 'descarteslabs.common.property_filtering.filtering.IsNotNullExpression'>
+    <class 'earthone.common.property_filtering.filtering.IsNotNullExpression'>
     >>> e = p.foo.isnull
     >>> type(e)
-    <class 'descarteslabs.common.property_filtering.filtering.IsNullExpression'>
+    <class 'earthone.common.property_filtering.filtering.IsNullExpression'>
     """
 
     __abstract__: bool = False

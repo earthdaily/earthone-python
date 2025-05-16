@@ -54,7 +54,7 @@ get_settings = config.get_settings
 AWS_ENVIRONMENT = config.AWS_ENVIRONMENT
 GCP_ENVIRONMENT = config.GCP_ENVIRONMENT
 
-__author__ = "Descartes Labs"
+__author__ = "EarthDaily"
 
 __all__ = [
     "__version__",

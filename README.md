@@ -189,7 +189,7 @@ below.
 - The Vector package now has a `VectorClient` API client, with the usual support for `get_default_client()`
   and `set_default_client()`. Most constructors and methods now accept an optional `client=` parameter
   if you need to use something other than the default client.
-- Configuration is now accomplished using the standard `descarteslabs.config` package. In particular,
+- Configuration is now accomplished using the standard `earthone.config` package. In particular,
   the `vector_url` setting is used to specify the default Vector host. The `VECTOR_API_HOST` environment
   variable is no longer consulted.
 - Vector client methods now raise standard `descarteslabs.exceptions` Exception classes rather than
