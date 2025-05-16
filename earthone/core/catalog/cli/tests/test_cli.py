@@ -26,6 +26,7 @@ class TestCli(unittest.TestCase):
 
     def test_help(self):
         result = self.runner.invoke(cli, [])
+        print(result.output)
         assert result.exit_code == 0
         assert result.output.startswith("Usage: ")
 
