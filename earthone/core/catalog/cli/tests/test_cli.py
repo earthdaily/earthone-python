@@ -25,7 +25,7 @@ class TestCli(unittest.TestCase):
 
     def test_help(self):
         result = self.runner.invoke(cli, [])
-        assert result.exit_code in [0, 2] 
+        assert result.exit_code in [0, 2]
         assert result.output.startswith("Usage: ")
 
     # at present, I don't want to test individual commands,
@@ -35,16 +35,16 @@ class TestCli(unittest.TestCase):
 
     def test_products(self):
         result = self.runner.invoke(cli, ["products"])
-        assert result.exit_code in [0, 2] 
+        assert result.exit_code in [0, 2]
         assert result.output.startswith("Usage: ")
 
     def test_bands(self):
         result = self.runner.invoke(cli, ["bands"])
-        assert result.exit_code in [0, 2] 
+        assert result.exit_code in [0, 2]
         assert result.output.startswith("Usage: ")
 
     def test_blobs(self):
         result = self.runner.invoke(cli, ["blobs"])
         print(f"RESULT = {result.exception}")
-        assert result.exit_code in [0, 2] 
+        assert result.exit_code in [0, 2]
         assert result.output.startswith("Usage: ")

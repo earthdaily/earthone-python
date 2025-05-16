@@ -125,6 +125,7 @@ def do_setup():
         data_files=[("docs/earthone", ["README.md"])],
     )
 
+
 if __name__ == "__main__":
     check_setuptools()
     do_setup()
