@@ -61,7 +61,7 @@ def do_setup():
         name="earthdaily-earthone",
         description=DOCLINES[0],
         long_description="\n".join(DOCLINES[2:]),
-        author="EarthDaily",
+        author="Earthdaily",
         author_email="support.eds@earthdaily.com",
         url="https://github.com/earthone-python",
         classifiers=[
