@@ -750,6 +750,8 @@ class Auth:
         if self.client_id is None:
             raise AuthError(self.AUTHORIZATION_ERROR.format(" (no client_id)"))
 
+        print(f"The client_id = {self.client_id}")
+
         if self.client_secret is None and self.refresh_token is None:
             raise AuthError(
                 self.AUTHORIZATION_ERROR.format(" (no client_secret or refresh_token)")
