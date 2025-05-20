@@ -12,7 +12,7 @@ on:
       publish:
         description: 'Publish packages to PyPI Repository'
         required: true
-        default: false
+        # default: false
         type: boolean
       repository:
         description: 'PyPI Repository to upload package to'
@@ -21,7 +21,7 @@ on:
         type: choice
         options:
           - 'testpypi'
-          - 'pypi'
+          # - 'pypi'
 
 jobs:
   publish:
