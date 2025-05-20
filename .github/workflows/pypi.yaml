@@ -20,7 +20,7 @@ on:
         default: 'testpypi'
         type: choice
         options:
-          - 'testpypi'
+          - 'tcopstpypi'
           # - 'pypi'
 
 jobs:
