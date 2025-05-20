@@ -18,7 +18,7 @@ import ast
 import re
 import sys
 
-from setuptools import find_packages, setup
+from setuptools import find_namespace_packages, find_packages, setup
 
 # Parse the docstring out of earthone/__init__.py
 _docstring_re = re.compile(r'"""((.|\n)*)\n"""', re.MULTILINE)
@@ -61,7 +61,7 @@ def do_setup():
         name="earthdaily-earthone",
         description=DOCLINES[0],
         long_description="\n".join(DOCLINES[2:]),
-        author="Earthdaily",
+        author="EarthDaily",
         author_email="support.eds@earthdaily.com",
         url="https://github.com/earthone-python",
         classifiers=[
@@ -77,7 +77,7 @@ def do_setup():
             "https://github.com/earthone-python/archive/v{}.tar.gz".format(version)
         ),
         version=version,
-        packages=find_packages(),
+        packages=find_namespace_packages()
         package_data={
             "earthone": [
                 "config/settings.toml",

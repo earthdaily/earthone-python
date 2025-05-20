@@ -1,0 +1,73 @@
+# © 2025 EarthDaily Analytics Corp.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""EarthOne Python Client
+
+.. code-block:: bash
+
+    pip install earthone[complete]
+
+Documentation is available at https://docs.descarteslabs.com.
+
+Source code and version information is at
+https://github.com/descarteslabs/earthone-python.
+
+The EarthOne Platform simplifies analysis of **global-scale raster data**
+by providing:
+
+    * Access to a catalog of petabytes of disparate geospatial data,
+      all normalized and interoperable through one **common interface**
+    * A Python client library to access these systems
+"""
+
+# This enables the use of namespace packages for descarteslabs
+# while still maintaining this __init__.py here in the core
+# client package
+from pkgutil import extend_path
+
+__path__ = extend_path(__path__, __name__)  # noqa F821
+
+from earthone import auth
+from earthone import config
+from earthone import exceptions
+from earthdaily.earthone.core.client.version import __version__
+
+from earthone import geo
+from earthone import utils
+from earthone import catalog
+from earthone import compute
+from earthone import vector
+
+select_env = config.select_env
+get_settings = config.get_settings
+AWS_ENVIRONMENT = config.AWS_ENVIRONMENT
+GCP_ENVIRONMENT = config.GCP_ENVIRONMENT
+
+__author__ = "EarthDaily"
+
+__all__ = [
+    "__version__",
+    "AWS_ENVIRONMENT",
+    "GCP_ENVIRONMENT",
+    "auth",
+    "catalog",
+    "compute",
+    "config",
+    "exceptions",
+    "geo",
+    "get_settings",
+    "select_env",
+    "utils",
+    "vector",
+]
