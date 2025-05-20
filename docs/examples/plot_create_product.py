@@ -9,7 +9,7 @@ This example demonstrates how to create a product
 in our Catalog and upload an example image.
 """
 
-from earthone.catalog import Product, SpectralBand, Image, properties as p
+from earthdaily.earthone.catalog import Product, SpectralBand, Image, properties as p
 import uuid
 
 ################################################

@@ -1,10 +1,6 @@
 # Release the EarthOne Python Client to PyPI
 name: Publish to PyPI
 
-permissions:
-  id-token: write # This is required for requesting the JWT
-  contents: read  # This is required for actions/checkout
-
 on:
   # Trigger manually (via Github Web UI) here:
   # https://github.com/earthdaily/earthone-python/actions/workflows/pypi.yaml
@@ -56,5 +52,7 @@ jobs:
         if: inputs.publish
         env:
           TWINE_REPOSITORY: "${{ inputs.repository }}"
+          TWINE_USERNAME: "__token__"
+          TWINE_PASSWORD: "${{ secrets.PYPI_API_TOKEN }}"
         run: |
-          twine upload dist/* --verbose
+          twine upload dist/*

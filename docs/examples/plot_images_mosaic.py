@@ -14,9 +14,9 @@ by acquisition date (and/or any other metadata property).
 
 """
 
-from earthone.catalog import Product, properties as p
-from earthone.geo import DLTile
-from earthone.utils import display
+from earthdaily.earthone.catalog import Product, properties as p
+from earthdaily.earthone.geo import DLTile
+from earthdaily.earthone.utils import display
 
 # Define my area of interest
 tile = DLTile.from_latlon(
