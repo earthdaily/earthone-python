@@ -18,18 +18,18 @@ import ast
 import re
 import sys
 
-from setuptools import find_namespace_packages, find_packages, setup
+from setuptools import find_packages, setup
 
 # Parse the docstring out of earthone/__init__.py
 _docstring_re = re.compile(r'"""((.|\n)*)\n"""', re.MULTILINE)
-with open("earthdaily/earthone/__init__.py", "rb") as f:
+with open("earthone/__init__.py", "rb") as f:
     __doc__ = _docstring_re.search(f.read().decode("utf-8")).group(1)
 
 DOCLINES = __doc__.split("\n")
 
 # Parse version out of earthone/core/client/version.py
 _version_re = re.compile(r"__version__\s+=\s+(.*)")
-with open("earthdaily/earthone/core/client/version.py", "rb") as f:
+with open("earthone/core/client/version.py", "rb") as f:
     version = str(
         ast.literal_eval(_version_re.search(f.read().decode("utf-8")).group(1))
     )
@@ -77,7 +77,7 @@ def do_setup():
             "https://github.com/earthone-python/archive/v{}.tar.gz".format(version)
         ),
         version=version,
-        packages=find_namespace_packages(),
+        packages=find_packages(),
         package_data={
             "earthone": [
                 "config/settings.toml",
@@ -85,7 +85,7 @@ def do_setup():
         },
         include_package_data=True,
         entry_points={
-            "console_scripts": ["earthone = earthdaily.earthone.core.client.scripts.__main__:main"]
+            "console_scripts": ["earthone = earthone.core.client.scripts.__main__:main"]
         },
         python_requires="~=3.9",
         install_requires=[

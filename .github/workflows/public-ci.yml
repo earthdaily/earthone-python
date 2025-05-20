@@ -28,7 +28,7 @@ jobs:
           EARTHONE_ENV: testing
         run: |
           mkdir tempdir
-          python -m pytest -rfExXP --assert=plain --ignore-glob="*/smoke_tests" --ignore-glob="*/e2e" --ignore="earthdaily/earthone/core/third_party" earthdaily/earthone --verbose
+          python -m pytest -rfExXP --assert=plain --ignore-glob="*/smoke_tests" --ignore-glob="*/e2e" --ignore="earthone/core/third_party" earthone
           rm -r tempdir
       - name: Test CLI
         env:
@@ -55,3 +55,4 @@ jobs:
           `
           PAYLOAD='{"text":"${{ env.EMOJI }} CI testing of ${{ github.event.repository.full_name }} has ${{ env.STATUS }}\nCommit <${{ github.event.commits[0].url }}|${{ github.sha }}> by ${{ github.event.commits[0].author.name }}: '"$message"'\n<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Test results>"}'
           curl -s -X POST -H "Content-Type: application/json" -d "$PAYLOAD" ${{ secrets.slack_webhook }}
+
