@@ -5,8 +5,6 @@ permissions:
   id-token: write # This is required for requesting the JWT
   contents: read  # This is required for actions/checkout
 
-environment: pypi
-
 on:
   # Trigger manually (via Github Web UI) here:
   # https://github.com/earthdaily/earthone-python/actions/workflows/pypi.yaml
@@ -32,6 +30,7 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: pypi
     steps:
       # Checkout the source code from this repository
       - name: Checkout Source Code
