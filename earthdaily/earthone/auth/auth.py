@@ -323,11 +323,11 @@ class Auth:
         --------
         >>> import earthdaily.earthone
         >>> # Use default credentials obtained through 'earthone auth login'
-        >>> auth = earthdaily.earthone.auth.Auth()
+        >>> auth = earthone.auth.Auth()
         >>> # Your Descartes Labs user id
         >>> auth.namespace # doctest: +SKIP
         'a54d88e06612d820bc3be72877c74f257b561b19'
-        >>> auth = earthdaily.earthone.auth.Auth(
+        >>> auth = earthone.auth.Auth(
         ...     client_id="some-client-id",
         ...     client_secret="some-client-secret",
         ... )
@@ -749,6 +749,8 @@ class Auth:
     def _get_token(self, timeout=100):
         if self.client_id is None:
             raise AuthError(self.AUTHORIZATION_ERROR.format(" (no client_id)"))
+
+        print(f"The client_id = {self.client_id}")
 
         if self.client_secret is None and self.refresh_token is None:
             raise AuthError(

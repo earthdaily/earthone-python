@@ -31,6 +31,13 @@ by providing:
     * A Python client library to access these systems
 """
 
+# This enables the use of namespace packages for descarteslabs
+# while still maintaining this __init__.py here in the core
+# client package
+from pkgutil import extend_path
+
+__path__ = extend_path(__path__, __name__)  # noqa F821
+
 from earthdaily.earthone import auth
 from earthdaily.earthone import config
 from earthdaily.earthone import exceptions

@@ -26,11 +26,9 @@ import responses
 from requests import PreparedRequest
 
 from earthdaily.earthone.auth import Auth
-from earthdaily.earthone.config import get_settings
+from earthdaily.earthone.compute import FunctionStatus, JobStatus
 
 from ..compute_client import ComputeClient
-from ..function import FunctionStatus
-from ..job import JobStatus
 
 
 def make_uuid():
@@ -38,7 +36,7 @@ def make_uuid():
 
 
 class BaseTestCase(TestCase):
-    compute_url = get_settings().compute_url
+    compute_url = "https://platform.dev.aws.descarteslabs.com/compute/v1"
 
     def setUp(self):
         # make sure all of these are gone, so our Auth is only a JWT

@@ -1083,7 +1083,7 @@ No more irrelevant `DeprecationWarning`s when importing the `descarteslabs` pack
 
 ## [1.1.1] - 2020-03-11
 
-1.1.1 fixes a packaging issue that caused `import earthone.workflows` to fail.
+1.1.1 fixes a packaging issue that caused `import earthdaily.earthone.workflows` to fail.
 
 It also makes NumPy an explicit dependency. NumPy was already a transitive dependency, so this shouldn't cause any changes.
 
