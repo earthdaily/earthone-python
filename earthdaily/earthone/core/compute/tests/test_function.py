@@ -26,7 +26,9 @@ import responses
 from requests import PreparedRequest
 
 from earthdaily.earthone import exceptions
-from earthdaily.earthone.compute import Function, FunctionStatus, Job, JobStatus
+
+from ..function import Function, FunctionStatus
+from ..job import Job, JobStatus
 
 from .base import BaseTestCase, make_uuid
 
@@ -239,7 +241,7 @@ class TestFunctionBundle(FunctionTestCase):
     def get_module_paths(self):
         # Get the path to the module
 
-        parts = ["earthone"] + __file__.split("earthone")[-1].strip("/").split("/")
+        parts = ["earthdaily", "earthone"] + __file__.split("earthdaily/earthone")[-1].strip("/").split("/")
 
         # If the OS is Windows, the path will be different
         if os.name == "nt":

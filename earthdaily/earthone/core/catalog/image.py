@@ -952,7 +952,7 @@ class Image(NamedCatalogObject):
 
         Example
         -------
-        >>> import earthone as dl
+        >>> import earthdaily.earthone as dl
         >>> image = dl.catalog.Image.get("landsat:LC08:PRE:TOAR:meta_LC80270312016188_v1")  # doctest: +SKIP
         >>> image.coverage(image.geometry.buffer(1))  # doctest: +SKIP
         0.258370644415335
@@ -1070,7 +1070,7 @@ class Image(NamedCatalogObject):
 
         Example
         -------
-        >>> import earthone as dl
+        >>> import earthdaily.earthone as dl
         >>> image = dl.catalog.Image.get("landsat:LC08:PRE:TOAR:meta_LC80270312016188_v1")  # doctest: +SKIP
         >>> arr = image.ndarray("red green blue", resolution=120.)  # doctest: +SKIP
         >>> type(arr)  # doctest: +SKIP
@@ -1313,7 +1313,7 @@ class Image(NamedCatalogObject):
 
         Example
         -------
-        >>> import earthone as dl
+        >>> import earthdaily.earthone as dl
         >>> image = dl.catalog.Image.get("landsat:LC08:PRE:TOAR:meta_LC80270312016188_v1")  # doctest: +SKIP
         >>> image.download("red green blue", resolution=120.)  # doctest: +SKIP
         "landsat:LC08:PRE:TOAR:meta_LC80270312016188_v1_red-green-blue.tif"

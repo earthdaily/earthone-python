@@ -92,7 +92,7 @@ class Open:
 #
 @patch("earthdaily.earthone.auth.auth.makedirs_if_not_exists")
 @patch(
-    "earthone.auth.auth.get_default_domain",
+    "earthdaily.earthone.auth.auth.get_default_domain",
     return_value="https://descarteslabs.auth0.com",
 )
 @patch("earthdaily.earthone.auth.auth.DEFAULT_TOKEN_INFO_PATH", None)
@@ -144,4 +144,5 @@ class TestAuth(unittest.TestCase):
 
         result = self.runner.invoke(cli, ["payload"])
         assert result.exit_code == 0
+        print(f"output: {result.output}")
         assert json.loads(result.output) == PAYLOAD
