@@ -64,7 +64,7 @@ def do_setup():
             "https://github.com/earthone-python/archive/v{}.tar.gz".format(version)
         ),
         version=version,
-        packages=find_namespace_packages(include=["earthdaily.earthone"]),
+        packages=find_namespace_packages(include=["earthdaily.earthone*"]),
         package_data={
             "earthone": [
                 "config/settings.toml",
