@@ -19,7 +19,7 @@ from unittest.mock import patch
 import responses
 
 from earthdaily.earthone.catalog import Blob, StorageType
-from earthdaily.earthone.compute import Job, JobStatus
+from ..job import Job, JobStatus
 
 from .base import BaseTestCase
 
