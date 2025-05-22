@@ -66,7 +66,7 @@ def do_setup():
         version=version,
         packages=find_namespace_packages(include=["earthdaily.earthone*"]),
         package_data={
-            "earthone": [
+            "earthdaily.earthone": [
                 "config/settings.toml",
             ]
         },
