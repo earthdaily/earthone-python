@@ -38,7 +38,7 @@ class CatalogClient(JsonApiService, DefaultClientMixin):
         The authentication object used when connecting to the Descartes Labs catalog.
         This is typically the default :class:`~earthone.auth.Auth` object that uses
         the cached authentication
-        token retrieved with the shell command "$ descarteslabs auth login".
+        token retrieved with the shell command "$ earthone auth login".
     retries : int, optional
         The number of retries when there is a problem with the connection.  Set this to
         zero to disable retries.  The default is 3 retries.

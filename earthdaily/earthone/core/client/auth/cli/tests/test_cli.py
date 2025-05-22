@@ -28,7 +28,7 @@ REFRESH = {
     "id": "some id",
     "client_id": "some_client_id",
     "name": "API token",
-    "revoke_url": "https://iam.descarteslabs.com/auth/credentials/revoke/revoke.me",
+    "revoke_url": "https://iam.earthone.earthdaily.com/auth/credentials/revoke/revoke.me",
     "client_secret": "some_client_secret",
 }
 REFRESH_TOKEN = base64.urlsafe_b64encode(
@@ -41,7 +41,7 @@ PAYLOAD = {
     "org": "someorg",
     "email": "some_body@someorg.com",
     "email_verified": True,
-    "iss": "https://descarteslabs.auth0.com/",
+    "iss": "https://earthdaily.auth0.com/",
     "sub": "google-oauth2|202801449858648638555",
     "aud": "some_client_id",
     "exp": 1610770917,
@@ -93,7 +93,7 @@ class Open:
 @patch("earthdaily.earthone.auth.auth.makedirs_if_not_exists")
 @patch(
     "earthdaily.earthone.auth.auth.get_default_domain",
-    return_value="https://descarteslabs.auth0.com",
+    return_value="https://earthdaily.auth0.com",
 )
 @patch("earthdaily.earthone.auth.auth.DEFAULT_TOKEN_INFO_PATH", None)
 class TestAuth(unittest.TestCase):
@@ -113,7 +113,7 @@ class TestAuth(unittest.TestCase):
         payload = base64.urlsafe_b64encode(PAYLOAD_JSON.encode("utf-8")).decode("utf-8")
         responses.add(
             responses.POST,
-            "https://descarteslabs.auth0.com/token",
+            "https://earthdaily.auth0.com/token",
             json={
                 "access_token": f".{payload}.",
             },
@@ -136,7 +136,7 @@ class TestAuth(unittest.TestCase):
         payload = base64.urlsafe_b64encode(PAYLOAD_JSON.encode("utf-8")).decode("utf-8")
         responses.add(
             responses.POST,
-            "https://descarteslabs.auth0.com/token",
+            "https://earthdaily.auth0.com/token",
             json={
                 "access_token": f".{payload}.",
             },

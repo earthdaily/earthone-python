@@ -105,17 +105,17 @@ class TestSettings(unittest.TestCase):
 
     def test_default_auth(self):
         a = Auth()
-        assert a.domain == "https://iam.dev.aws.descarteslabs.com"
+        assert a.domain == "https://iam.dev.earthdaily.earthone.com"
 
     def test_auth_with_env(self):
         with patch.dict(os.environ, {"EARTHONE_ENV": "aws-production"}):
             a = Auth()
-            assert a.domain == "https://iam.production.aws.descarteslabs.com"
+            assert a.domain == "https://iam.production.earthdaily.earthone.com"
 
     def test_auth_with_test_config(self):
         Settings.select_env("aws-production")
         a = Auth()
-        assert a.domain == "https://iam.production.aws.descarteslabs.com"
+        assert a.domain == "https://iam.production.earthdaily.earthone.com"
 
     def test_env(self):
         peek1_env = "aws-dev"
@@ -135,72 +135,72 @@ class TestSettings(unittest.TestCase):
 class VerifyValues(unittest.TestCase):
     configs = {
         "aws-dev": {
-            "APP_URL": "https://app.descarteslabs.com",
-            "CATALOG_V2_URL": "https://platform.dev.aws.descarteslabs.com/metadata/v1/catalog/v2",
-            "COMPUTE_URL": "https://platform.dev.aws.descarteslabs.com/compute/v1",
-            "IAM_URL": "https://iam.dev.aws.descarteslabs.com",
+            "APP_URL": "https://app.earthone.earthdaily.com",
+            "CATALOG_V2_URL": "https://platform.dev.earthone.earthdaily.com/metadata/v1/catalog/v2",
+            "COMPUTE_URL": "https://platform.dev.earthone.earthdaily.com/compute/v1",
+            "IAM_URL": "https://iam.dev.earthone.earthdaily.com",
             "LOG_LEVEL": "WARNING",
-            "METADATA_URL": "https://platform.dev.aws.descarteslabs.com/metadata/v1",
-            "PLATFORM_URL": "https://platform.dev.aws.descarteslabs.com",
-            "RASTER_URL": "https://platform.dev.aws.descarteslabs.com/raster/v2",
-            "USAGE_URL": "https://platform.dev.aws.descarteslabs.com/usage/v1",
-            "USERLIMIT_URL": "https://platform.dev.aws.descarteslabs.com/userlimit/v1",
-            "VECTOR_URL": "https://platform.dev.aws.descarteslabs.com/vector/v1",
-            "YAAS_URL": "https://platform.dev.aws.descarteslabs.com/yaas/v1",
+            "METADATA_URL": "https://platform.dev.earthone.earthdaily.com/metadata/v1",
+            "PLATFORM_URL": "https://platform.dev.earthone.earthdaily.com",
+            "RASTER_URL": "https://platform.dev.earthone.earthdaily.com/raster/v2",
+            "USAGE_URL": "https://platform.dev.earthone.earthdaily.com/usage/v1",
+            "USERLIMIT_URL": "https://platform.dev.earthone.earthdaily.com/userlimit/v1",
+            "VECTOR_URL": "https://platform.dev.earthone.earthdaily.com/vector/v1",
+            "YAAS_URL": "https://platform.dev.earthone.earthdaily.com/yaas/v1",
         },
         "aws-freemium": {
-            "APP_URL": "https://app.descarteslabs.com",
-            "CATALOG_V2_URL": "https://platform.freemium.aws.descarteslabs.com/metadata/v1/catalog/v2",
-            "IAM_URL": "https://iam.freemium.aws.descarteslabs.com",
+            "APP_URL": "https://app.earthone.earthdaily.com",
+            "CATALOG_V2_URL": "https://platform.freemium.earthone.earthdaily.com/metadata/v1/catalog/v2",
+            "IAM_URL": "https://iam.freemium.earthone.earthdaily.com",
             "LOG_LEVEL": "WARNING",
-            "METADATA_URL": "https://platform.freemium.aws.descarteslabs.com/metadata/v1",
-            "PLATFORM_URL": "https://platform.freemium.aws.descarteslabs.com",
-            "RASTER_URL": "https://platform.freemium.aws.descarteslabs.com/raster/v2",
-            "USAGE_URL": "https://platform.freemium.aws.descarteslabs.com/usage/v1",
-            "USERLIMIT_URL": "https://platform.freemium.aws.descarteslabs.com/userlimit/v1",
+            "METADATA_URL": "https://platform.freemium.earthone.earthdaily.com/metadata/v1",
+            "PLATFORM_URL": "https://platform.freemium.earthone.earthdaily.com",
+            "RASTER_URL": "https://platform.freemium.earthone.earthdaily.com/raster/v2",
+            "USAGE_URL": "https://platform.freemium.earthone.earthdaily.com/usage/v1",
+            "USERLIMIT_URL": "https://platform.freemium.earthone.earthdaily.com/userlimit/v1",
         },
         "aws-production": {
-            "APP_URL": "https://app.descarteslabs.com",
-            "CATALOG_V2_URL": "https://platform.production.aws.descarteslabs.com/metadata/v1/catalog/v2",
-            "COMPUTE_URL": "https://platform.production.aws.descarteslabs.com/compute/v1",
-            "IAM_URL": "https://iam.production.aws.descarteslabs.com",
+            "APP_URL": "https://app.earthone.earthdaily.com",
+            "CATALOG_V2_URL": "https://platform.production.earthone.earthdaily.com/metadata/v1/catalog/v2",
+            "COMPUTE_URL": "https://platform.production.earthone.earthdaily.com/compute/v1",
+            "IAM_URL": "https://iam.production.earthone.earthdaily.com",
             "LOG_LEVEL": "WARNING",
-            "METADATA_URL": "https://platform.production.aws.descarteslabs.com/metadata/v1",
-            "PLATFORM_URL": "https://platform.production.aws.descarteslabs.com",
-            "RASTER_URL": "https://platform.production.aws.descarteslabs.com/raster/v2",
-            "USAGE_URL": "https://platform.production.aws.descarteslabs.com/usage/v1",
-            "USERLIMIT_URL": "https://platform.production.aws.descarteslabs.com/userlimit/v1",
-            "VECTOR_URL": "https://platform.production.aws.descarteslabs.com/vector/v1",
-            "YAAS_URL": "https://platform.production.aws.descarteslabs.com/yaas/v1",
+            "METADATA_URL": "https://platform.production.earthone.earthdaily.com/metadata/v1",
+            "PLATFORM_URL": "https://platform.production.earthone.earthdaily.com",
+            "RASTER_URL": "https://platform.production.earthone.earthdaily.com/raster/v2",
+            "USAGE_URL": "https://platform.production.earthone.earthdaily.com/usage/v1",
+            "USERLIMIT_URL": "https://platform.production.earthone.earthdaily.com/userlimit/v1",
+            "VECTOR_URL": "https://platform.production.earthone.earthdaily.com/vector/v1",
+            "YAAS_URL": "https://platform.production.earthone.earthdaily.com/yaas/v1",
         },
         "aws-staging": {
-            "APP_URL": "https://app.descarteslabs.com",
-            "CATALOG_V2_URL": "https://platform.staging.aws.descarteslabs.com/metadata/v1/catalog/v2",
-            "COMPUTE_URL": "https://platform.staging.aws.descarteslabs.com/compute/v1",
-            "IAM_URL": "https://iam.staging.aws.descarteslabs.com",
+            "APP_URL": "https://app.earthone.earthdaily.com",
+            "CATALOG_V2_URL": "https://platform.staging.earthone.earthdaily.com/metadata/v1/catalog/v2",
+            "COMPUTE_URL": "https://platform.staging.earthone.earthdaily.com/compute/v1",
+            "IAM_URL": "https://iam.staging.earthone.earthdaily.com",
             "LOG_LEVEL": "WARNING",
-            "METADATA_URL": "https://platform.staging.aws.descarteslabs.com/metadata/v1",
-            "PLATFORM_URL": "https://platform.staging.aws.descarteslabs.com",
-            "RASTER_URL": "https://platform.staging.aws.descarteslabs.com/raster/v2",
-            "USAGE_URL": "https://platform.staging.aws.descarteslabs.com/usage/v1",
-            "USERLIMIT_URL": "https://platform.staging.aws.descarteslabs.com/userlimit/v1",
-            "VECTOR_URL": "https://platform.staging.aws.descarteslabs.com/vector/v1",
-            "YAAS_URL": "https://platform.staging.aws.descarteslabs.com/yaas/v1",
+            "METADATA_URL": "https://platform.staging.earthone.earthdaily.com/metadata/v1",
+            "PLATFORM_URL": "https://platform.staging.earthone.earthdaily.com",
+            "RASTER_URL": "https://platform.staging.earthone.earthdaily.com/raster/v2",
+            "USAGE_URL": "https://platform.staging.earthone.earthdaily.com/usage/v1",
+            "USERLIMIT_URL": "https://platform.staging.earthone.earthdaily.com/userlimit/v1",
+            "VECTOR_URL": "https://platform.staging.earthone.earthdaily.com/vector/v1",
+            "YAAS_URL": "https://platform.staging.earthone.earthdaily.com/yaas/v1",
         },
         "testing": {
-            "APP_URL": "https://app.descarteslabs.com",
-            "CATALOG_V2_URL": "https://platform.dev.aws.descarteslabs.com/metadata/v1/catalog/v2",
-            "COMPUTE_URL": "https://platform.dev.aws.descarteslabs.com/compute/v1",
-            "IAM_URL": "https://iam.dev.aws.descarteslabs.com",
+            "APP_URL": "https://app.earthone.earthdaily.com",
+            "CATALOG_V2_URL": "https://platform.dev.earthone.earthdaily.com/metadata/v1/catalog/v2",
+            "COMPUTE_URL": "https://platform.dev.earthone.earthdaily.com/compute/v1",
+            "IAM_URL": "https://iam.dev.earthone.earthdaily.com",
             "LOG_LEVEL": "WARNING",
-            "METADATA_URL": "https://platform.dev.aws.descarteslabs.com/metadata/v1",
-            "PLATFORM_URL": "https://platform.dev.aws.descarteslabs.com",
-            "RASTER_URL": "https://platform.dev.aws.descarteslabs.com/raster/v2",
+            "METADATA_URL": "https://platform.dev.earthone.earthdaily.com/metadata/v1",
+            "PLATFORM_URL": "https://platform.dev.earthone.earthdaily.com",
+            "RASTER_URL": "https://platform.dev.earthone.earthdaily.com/raster/v2",
             "TESTING": True,
-            "USAGE_URL": "https://platform.dev.aws.descarteslabs.com/usage/v1",
-            "USERLIMIT_URL": "https://platform.dev.aws.descarteslabs.com/userlimit/v1",
-            "VECTOR_URL": "https://platform.dev.aws.descarteslabs.com/vector/v1",
-            "YAAS_URL": "https://platform.dev.aws.descarteslabs.com/yaas/v1",
+            "USAGE_URL": "https://platform.dev.earthone.earthdaily.com/usage/v1",
+            "USERLIMIT_URL": "https://platform.dev.earthone.earthdaily.com/userlimit/v1",
+            "VECTOR_URL": "https://platform.dev.earthone.earthdaily.com/vector/v1",
+            "YAAS_URL": "https://platform.dev.earthone.earthdaily.com/yaas/v1",
         },
     }
 

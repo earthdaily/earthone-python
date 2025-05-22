@@ -313,7 +313,7 @@ class Image(NamedCatalogObject):
         doc="""float, optional: Fraction of pixels which are obscured by clouds.
 
         This is as per an alternative algorithm.  See the product documentation in the
-        `Descartes Labs catalog <catalog.descarteslabs.com>`_ for more information.
+        `EarthOne catalog <catalog.earthone.earthdaily.com>`_ for more information.
 
         *Filterable, sortable*.
         """,
@@ -495,7 +495,7 @@ class Image(NamedCatalogObject):
                         "The array will be 'north-up', with the data rotated within it, "
                         "and extra empty pixels padded around the side(s). "
                         "To get the original, unrotated data, you must use the Raster API: "
-                        "`descarteslabs.client.services.raster.Raster.ndarray(image.id, ...)`."
+                        "`earthone.client.services.raster.Raster.ndarray(image.id, ...)`."
                     )
 
                 if self.x_pixels is not None and self.y_pixels is not None:

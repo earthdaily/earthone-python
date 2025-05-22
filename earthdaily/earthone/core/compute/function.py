@@ -907,7 +907,7 @@ class Function(Document):
     def update_credentials(cls, client: ComputeClient = None):
         """Updates the credentials for the Functions and Jobs run by this user.
 
-        These credentials are used by other Descarteslabs services.
+        These credentials are used by other EarthOne services.
 
         If the user invalidates existing credentials and needs to update them,
         you should call this method.

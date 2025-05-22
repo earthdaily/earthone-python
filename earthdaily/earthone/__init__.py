@@ -18,10 +18,10 @@
 
     pip install earthone[complete]
 
-Documentation is available at https://docs.descarteslabs.com.
+Documentation is available at https://docs.earthone.earthdaily.com.
 
 Source code and version information is at
-https://github.com/descarteslabs/earthone-python.
+https://github.com/earthdaily/earthone-python.
 
 The EarthOne Platform simplifies analysis of **global-scale raster data**
 by providing:

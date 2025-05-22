@@ -409,7 +409,7 @@ class TestRaster(unittest.TestCase):
             os.unlink(filename)
 
     # see #9000
-    # https://github.com/descarteslabs/monorepo/pull/9000
+    # monorepo/pull/9000
     def test_adjacent_mosiac(self):
         scene_ids = [
             "landsat:LC08:01:RT:TOAR:meta_LC08_L1TP_191031_20180130_20180130_01_RT_v1",

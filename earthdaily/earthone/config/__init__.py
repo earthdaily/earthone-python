@@ -44,7 +44,7 @@ class Settings(dynaconf.Dynaconf):
         Settings.select_env(...)
 
     Before importing or otherwise accessing anything else within the
-    :py:mod:`descarteslabs` package.
+    :py:mod:`earthdaily-earthone` package.
     """
 
     class _EnvDescriptor:

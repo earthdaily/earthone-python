@@ -16,7 +16,7 @@ import sys
 import warnings
 
 if sys.version_info < (3, 9):
-    msg = "Python version {}.{} not supported by the descarteslabs client".format(
+    msg = "Python version {}.{} not supported by the EarthOne client".format(
         sys.version_info.major, sys.version_info.minor
     )
     raise ImportError(msg)

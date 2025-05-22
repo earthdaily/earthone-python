@@ -443,7 +443,7 @@ def make_tifffile_geotiff(outfile, chunk_iter, metadata, blosc_meta, compress, n
             tile=tile,
             shape=shape,
             dtype=geotiff_profile["dtype"],
-            software="descarteslabs",
+            software="earthone",
             extratags=extra_tags,
             compression=compress,
             planarconfig=pconfig,
