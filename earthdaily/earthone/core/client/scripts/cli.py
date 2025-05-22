@@ -31,7 +31,7 @@ MODULE_PREFIX = version_module.__package__.rsplit(".", 1)[0]
         # "compute": f"{MODULE_PREFIX}.compute.scripts.cli",
         # "vector": f"{MODULE_PREFIX}.vector.scripts.cli",
     },
-    help="Descartes Labs command-line interface",
+    help="EarthOne command-line interface",
 )
 @click.option(
     "--env", help="The environment to use", envvar="EARTHONE_ENV", default=None

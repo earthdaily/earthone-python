@@ -48,7 +48,7 @@ def cli():
 
 @cli.command()
 def login():
-    """Log in to Descartes Labs"""
+    """Log in to EarthOne"""
     click.echo(f"Follow this link to login and request a token:\n\n    {LOGIN_URL}\n")
 
     while True:
