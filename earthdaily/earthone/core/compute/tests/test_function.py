@@ -245,7 +245,7 @@ class TestFunctionBundle(FunctionTestCase):
 
         # If the OS is Windows, the path will be different
         if os.name == "nt":
-            parts = ["earthone"] + __file__.split("earthone")[-1].split("\\")
+            parts = ["earthdaily", "earthone"] + __file__.split("earthdaily\\earthone")[-1].split("\\")
             # remove empty elements
             parts = [i for i in parts if i]
 
