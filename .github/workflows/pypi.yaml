@@ -26,6 +26,7 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: pypi
     steps:
       # Checkout the source code from this repository
       - name: Checkout Source Code
