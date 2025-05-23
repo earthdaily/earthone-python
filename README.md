@@ -21,15 +21,14 @@ Changelog
 
 ## [5.0.0] - 2025-05-23
 
+## General
+
 - Client updated as the EarthOne platform, using new Github page and Pypi project.
 - Top level module is now `earthdaily`. Use `earthdaily.earthone` to import EarthOne modules.
 - Client CLI command renamed to `earthone`.
 - API domain updated to `earthone.earthdaily.com`.
 - `descarteslabs:` prefixed Product, Image and Band ids updated to `earthdaily:`.
 - Client environment variable prefixes updated to `EARTHONE_`.
-
-## General
-
 - Support for Python 3.9 has been dropped, as it is reaching end of life an many dependencies no longer support it.
 
 ## [4.0.0] - 2025-03-13
