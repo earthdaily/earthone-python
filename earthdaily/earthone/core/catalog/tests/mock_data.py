@@ -37,12 +37,12 @@ IMAGES = {
         files=[
             File(
                 hash="5b12fa74275aee3234428fc996429256",
-                href="gs://descartes-l8/2016-07-06_027031_L8_432.jp2",
+                href="gs://earthone-l8/2016-07-06_027031_L8_432.jp2",
                 size_bytes=49721086,
             ),
             File(
                 hash="efb979aeda1b2fbd58fd689f84540165",
-                href="gs://descartes-l8/2016-07-06_027031_L8_567_19a.jp2",
+                href="gs://earthone-l8/2016-07-06_027031_L8_567_19a.jp2",
                 size_bytes=43577223,
             ),
         ],
@@ -99,12 +99,12 @@ IMAGES = {
         files=[
             File(
                 hash="c80038509ca5572ecdba473bc3931fab",
-                href="gs://descartes-l8/2016-07-15_026032_L8_432.jp2",
+                href="gs://earthone-l8/2016-07-15_026032_L8_432.jp2",
                 size_bytes=60751671,
             ),
             File(
                 hash="92b10252278663b0b2d438bfa6c6b494",
-                href="gs://descartes-l8/2016-07-15_026032_L8_567_19a.jp2",
+                href="gs://earthone-l8/2016-07-15_026032_L8_567_19a.jp2",
                 size_bytes=56534564,
             ),
         ],

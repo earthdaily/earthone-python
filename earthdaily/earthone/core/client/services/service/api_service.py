@@ -26,7 +26,7 @@ class ApiSession(Session):
         super().__init__(*args, **kwargs)
 
     def request(self, *args, **kwargs):
-        """Sends an HTTP request and emits Descartes Labs specific errors.
+        """Sends an HTTP request and emits EarthOne specific errors.
 
         Parameters
         ----------
@@ -127,7 +127,7 @@ class ApiSession(Session):
 
 
 class ApiService(Service):
-    """A FastAPI oriented default Descartes Labs HTTP Service.
+    """A FastAPI oriented default EarthOne HTTP Service.
 
     For details see the :py:class:`Service`.
 
@@ -139,7 +139,7 @@ class ApiService(Service):
     Parameters
     ----------
     url: str
-        The URL prefix to use for communication with the Descartes Labs servers.
+        The URL prefix to use for communication with the EarthOne servers.
     session_class: class
         The session class to use when instantiating the session.  This must be a derived
         class from :py:class:`ApiSession`.  If not provided, the default session
@@ -149,7 +149,7 @@ class ApiService(Service):
         When set to ``True``, errors are rewritten to be more readable. Each API
         error becomes it's own line.
     auth: Auth, optional
-        A Descartes Labs :py:class:`~earthone.auth.Auth` instance.  If not
+        A EarthOne :py:class:`~earthone.auth.Auth` instance.  If not
         provided, a default one will be instantiated.
     retries: int or urllib3.util.retry.Retry If a number, it's the number of retries
         that will be attempted.  If a :py:class:`urllib3.util.retry.Retry` instance,

@@ -118,7 +118,7 @@ class TestEventSubscription(ClientTestCase):
         match_str = """\
             EventSubscription: test-sub
               id: someorg:test-namespace:test-sub
-            * Not up-to-date in the Descartes Labs catalog. Call `.save()` to save or update this record."""
+            * Not up-to-date in the EarthOne catalog. Call `.save()` to save or update this record."""
         assert s_repr.strip("\n") == textwrap.dedent(match_str)
 
     def test_set_geometry(self):

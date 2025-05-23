@@ -83,7 +83,7 @@ WrappedSession = Session
 
 
 class Service:
-    """The default Descartes Labs HTTP Service used to communicate with its servers.
+    """The default EarthOne HTTP Service used to communicate with its servers.
 
     This service has a default timeout and retry policy that retries HTTP requests
     depending on the timeout and HTTP status code that was returned.  This is based
@@ -108,11 +108,11 @@ class Service:
     Parameters
     ----------
     url: str
-        The URL prefix to use for communication with the Descartes Labs server.
+        The URL prefix to use for communication with the EarthOne server.
     token: str, optional
         Deprecated.
     auth: Auth, optional
-        A Descartes Labs :py:class:`~earthone.auth.Auth` instance.  If not
+        A EarthOne :py:class:`~earthone.auth.Auth` instance.  If not
         provided, a default one will be instantiated.
     retries: int or urllib3.util.retry.Retry
         If a number, it's the number of retries that will be attempted.  If a
@@ -318,7 +318,7 @@ class JsonApiSession(Session):
     Parameters
     ----------
     base_url: str
-        The URL prefix to use for communication with the Descartes Labs servers.
+        The URL prefix to use for communication with the EarthOne servers.
     timeout: int or tuple(int, int)
         See `requests timeouts
         <https://requests.readthedocs.io/en/master/user/advanced/#timeouts>`_.
@@ -357,7 +357,7 @@ class JsonApiSession(Session):
         pass
 
     def request(self, *args, **kwargs):
-        """Sends an HTTP request and emits Descartes Labs specific errors.
+        """Sends an HTTP request and emits EarthOne specific errors.
 
         Parameters
         ----------
@@ -498,7 +498,7 @@ class JsonApiSession(Session):
 
 
 class JsonApiService(Service):
-    """A JsonApi oriented default Descartes Labs HTTP Service.
+    """A JsonApi oriented default EarthOne HTTP Service.
 
     For details see the :py:class:`Service`.  This service adheres to the `JsonApi
     standard <https://jsonapi.org/format/>`_ and interprets responses as needed.
@@ -509,7 +509,7 @@ class JsonApiService(Service):
     Parameters
     ----------
     url: str
-        The URL prefix to use for communication with the Descartes Labs servers.
+        The URL prefix to use for communication with the EarthOne servers.
     session_class: class
         The session class to use when instantiating the session.  This must be a derived
         class from :py:class:`JsonApiSession`.  If not provided, the default session
@@ -519,7 +519,7 @@ class JsonApiService(Service):
         When set to ``True``, errors are rewritten to be more readable.  Each JsonApi
         error becomes a single line of error information without tags.
     auth: Auth, optional
-        A Descartes Labs :py:class:`~earthone.auth.Auth` instance.  If not
+        A EarthOne :py:class:`~earthone.auth.Auth` instance.  If not
         provided, a default one will be instantiated.
     retries: int or urllib3.util.retry.Retry If a number, it's the number of retries
         that will be attempted.  If a :py:class:`urllib3.util.retry.Retry` instance,
@@ -718,7 +718,7 @@ class JsonApiService(Service):
 
 
 class ThirdPartyService:
-    """The default Descartes Labs HTTP Service used for 3rd party servers.
+    """The default EarthOne HTTP Service used for 3rd party servers.
 
     This service has a default timeout and retry policy that retries HTTP requests
     depending on the timeout and HTTP status code that was returned.  This is based

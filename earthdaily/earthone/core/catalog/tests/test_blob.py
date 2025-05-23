@@ -219,7 +219,7 @@ class TestBlob(ClientTestCase):
         match_str = """\
             Blob: test-blob
               id: data/someorg:test-namespace/test-blob
-            * Not up-to-date in the Descartes Labs catalog. Call `.save()` to save or update this record."""
+            * Not up-to-date in the EarthOne catalog. Call `.save()` to save or update this record."""
         assert b_repr.strip("\n") == textwrap.dedent(match_str)
 
     def test_set_geometry(self):

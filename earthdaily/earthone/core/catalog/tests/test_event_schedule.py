@@ -69,7 +69,7 @@ class TestEventSchedule(ClientTestCase):
         match_str = """\
             EventSchedule: test-sched
               id: someorg:test-namespace:test-sched
-            * Not up-to-date in the Descartes Labs catalog. Call `.save()` to save or update this record."""
+            * Not up-to-date in the EarthOne catalog. Call `.save()` to save or update this record."""
         assert s_repr.strip("\n") == textwrap.dedent(match_str)
 
     @responses.activate

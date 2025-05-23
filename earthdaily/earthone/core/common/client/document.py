@@ -28,7 +28,7 @@ class DocumentState(LowercaseStrEnum):
 
 
 class Document(object):
-    """An Object or Document in a Descartes Labs service."""
+    """An Object or Document in a EarthOne service."""
 
     def __init__(self, saved=False, **kwargs) -> None:
         self._attributes = dict()

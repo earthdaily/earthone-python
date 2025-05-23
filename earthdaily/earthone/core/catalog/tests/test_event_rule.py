@@ -97,7 +97,7 @@ class TestEventRule(ClientTestCase):
         match_str = """\
             EventRule: test-rule
               id: someorg:test-namespace:test-rule
-            * Not up-to-date in the Descartes Labs catalog. Call `.save()` to save or update this record."""
+            * Not up-to-date in the EarthOne catalog. Call `.save()` to save or update this record."""
         assert r_repr.strip("\n") == textwrap.dedent(match_str)
 
     @responses.activate

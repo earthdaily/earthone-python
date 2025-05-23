@@ -218,8 +218,8 @@ class EventSchedule(AuthCatalogObject):
         If the EventSchedule is found, it will be returned in the
         `~earthone.catalog.DocumentState.SAVED` state.  Subsequent changes will
         put the instance in the `~earthone.catalog.DocumentState.MODIFIED` state,
-        and you can use :py:meth:`save` to commit those changes and update the Descartes
-        Labs catalog object.  Also see the example for :py:meth:`save`.
+        and you can use :py:meth:`save` to commit those changes and update the EarthOne
+        catalog object.  Also see the example for :py:meth:`save`.
 
         Exactly one of the ``id`` and ``name`` parameters must be specified. If ``name``
         is specified, it is used together with the ``namespace``

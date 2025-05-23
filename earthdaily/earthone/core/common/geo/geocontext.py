@@ -37,7 +37,7 @@ EARTH_CIRCUMFERENCE_WGS84 = 2 * math.pi * 6378137
 class GeoContext(object):
     """
     Specifies spatial parameters to use when loading a raster
-    from the Descartes Labs catalog.
+    from the EarthOne catalog.
 
     Two Images loaded with the same GeoContext will result in images
     with the same shape (in pixels), covering the same spatial extent,

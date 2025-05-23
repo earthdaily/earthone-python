@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-""" Descartes Labs utilities for our Universal Transverse Mercator (UTM)-based
+""" EarthOne utilities for our Universal Transverse Mercator (UTM)-based
 projection system. """
 
-# The Descartes Labs projection system is slightly different from the
+# The EarthOne projection system is slightly different from the
 # canonical UTM standard. Only North UTM zones are used, including for the
 # southern hemisphere; so there are no false northings. Also, the latitude
 # range is extended to the full +/-90 (instead of -80 to +84).

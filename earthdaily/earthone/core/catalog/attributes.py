@@ -90,8 +90,8 @@ class DocumentState(StrEnum):
 
     Note
     ----
-    A ``SAVED`` catalog object can still be out-of-date with respect to the Descartes
-    Labs catalog if there was an update from another client since the last
+    A ``SAVED`` catalog object can still be out-of-date with respect to the EarthOne
+    catalog if there was an update from another client since the last
     sycnronization.  To re-synchronize a ``SAVED`` catalog object you can use
     :py:meth:`~earthone.catalog.Product.reload`.
     """

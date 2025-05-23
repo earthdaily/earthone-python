@@ -240,7 +240,7 @@ class ImageCollection(Collection):
             Whether to also return a list of dicts about the rasterization of
             each image, including the coordinate system WKT and geotransform matrix.
             Generally only useful if you plan to upload data derived from this
-            image back to the Descartes Labs catalog, or use it with GDAL.
+            image back to the EarthOne catalog, or use it with GDAL.
         resampler : `ResampleAlgorithm`, default `ResampleAlgorithm.NEAR`
             Algorithm used to interpolate pixel values when scaling and transforming
             each image to its new resolution or SRS.
@@ -288,7 +288,7 @@ class ImageCollection(Collection):
             :class:`~earthone.common.geo.geocontext.GeoContext`.
             If the ImageCollection is empty.
         NotFoundError
-            If a Image's ID cannot be found in the Descartes Labs catalog
+            If a Image's ID cannot be found in the EarthOne catalog
         BadRequestError
             If the EarthOne Platform is given unrecognized parameters
         """
@@ -488,7 +488,7 @@ class ImageCollection(Collection):
             Whether to also return a dict of information about the rasterization
             of the images, including the coordinate system WKT and geotransform matrix.
             Generally only useful if you plan to upload data derived
-            from this image back to the Descartes Labs catalog, or use it with GDAL.
+            from this image back to the EarthOne catalog, or use it with GDAL.
         resampler : `ResampleAlgorithm`, default `ResampleAlgorithm.NEAR`
             Algorithm used to interpolate pixel values when scaling and transforming
             the image to its new resolution or SRS.
@@ -528,7 +528,7 @@ class ImageCollection(Collection):
             :class:`~earthone.common.geo.geocontext.GeoContext`.
             If the ImageCollection is empty.
         NotFoundError
-            If a Image's ID cannot be found in the Descartes Labs catalog
+            If a Image's ID cannot be found in the EarthOne catalog
         BadRequestError
             If the EarthOne Platform is given unrecognized parameters
         """
@@ -592,7 +592,7 @@ class ImageCollection(Collection):
             arr, info = Raster.get_default_client().ndarray(**full_raster_args)
         except NotFoundError:
             raise NotFoundError(
-                "Some or all of these IDs don't exist in the Descartes Labs catalog: {}".format(
+                "Some or all of these IDs don't exist in the EarthOne catalog: {}".format(
                     full_raster_args["inputs"]
                 )
             )
@@ -742,7 +742,7 @@ class ImageCollection(Collection):
         TypeError
             If ``dest`` is not a string or a sequence type.
         NotFoundError
-            If a Image's ID cannot be found in the Descartes Labs catalog
+            If a Image's ID cannot be found in the EarthOne catalog
         BadRequestError
             If the EarthOne Platform is given unrecognized parameters
         """
@@ -959,7 +959,7 @@ class ImageCollection(Collection):
             If the ImageCollection is empty.
             If ``format`` is invalid, or the path has an invalid extension.
         NotFoundError
-            If a Image's ID cannot be found in the Descartes Labs catalog
+            If a Image's ID cannot be found in the EarthOne catalog
         BadRequestError
             If the EarthOne Platform is given unrecognized parameters
         """

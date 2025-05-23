@@ -230,8 +230,8 @@ def _retry(req, headers=None):
 
 class Raster(Service, DefaultClientMixin):
     """
-    The Raster API retrieves data from the Descartes Labs Catalog. Direct use of
-    the Raster API is not recommended. Consider using the Descartes Labs Catalog API instead.
+    The Raster API retrieves data from the EarthOne Catalog. Direct use of
+    the Raster API is not recommended. Consider using the EarthOne Catalog API instead.
     """
 
     # https://requests.readthedocs.io/en/master/user/advanced/#timeouts
@@ -322,7 +322,7 @@ class Raster(Service, DefaultClientMixin):
         :param str dltile: a dltile key used to specify the resolution, bounds, and srs.
         :param str processing_level: How the processing level of the underlying data
             should be adjusted, one of ``toa`` (top of atmosphere) and ``surface``. For
-            products that support it, ``surface`` applies Descartes Labs' general surface
+            products that support it, ``surface`` applies EarthOne' general surface
             reflectance algorithm to the output.
         :param str outfile_basename: Overrides default filename using this string as a base.
         :param bool progress: Display a progress bar.
@@ -481,7 +481,7 @@ class Raster(Service, DefaultClientMixin):
         :param str dltile: a dltile key used to specify the resolution, bounds, and srs.
         :param str processing_level: How the processing level of the underlying data
             should be adjusted, one of ``toa`` (top of atmosphere) and ``surface``. For
-            products that support it, ``surface`` applies Descartes Labs' general surface
+            products that support it, ``surface`` applies EarthOne' general surface
             reflectance algorithm to the output.
         :param bool masked: Whether to return a masked array or a regular Numpy array.
         :param bool progress: Display a progress bar.
@@ -635,7 +635,7 @@ class Raster(Service, DefaultClientMixin):
         :param str dltile: a dltile key used to specify the resolution, bounds, and srs.
         :param str processing_level: How the processing level of the underlying data
             should be adjusted, one of ``toa`` (top of atmosphere) and ``surface``. For
-            products that support it, ``surface`` applies Descartes Labs' general surface
+            products that support it, ``surface`` applies EarthOne' general surface
             reflectance algorithm to the output.
         :param int max_workers: Maximum number of threads over which to
             parallelize individual ndarray calls. If `None`, will be set to the minimum

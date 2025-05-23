@@ -145,7 +145,7 @@ class TestEventApiDestination(ClientTestCase):
         match_str = """\
             EventApiDestination: test-api-destination
               id: someorg:test-namespace:test-api-destination
-            * Not up-to-date in the Descartes Labs catalog. Call `.save()` to save or update this record."""
+            * Not up-to-date in the EarthOne catalog. Call `.save()` to save or update this record."""
         assert d_repr.strip("\n") == textwrap.dedent(match_str)
 
     @responses.activate

@@ -512,8 +512,8 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         If the EarthOne catalog object is found, it will be returned in the
         `~earthone.catalog.DocumentState.SAVED` state.  Subsequent changes will
         put the instance in the `~earthone.catalog.DocumentState.MODIFIED` state,
-        and you can use :py:meth:`save` to commit those changes and update the Descartes
-        Labs catalog object.  Also see the example for :py:meth:`save`.
+        and you can use :py:meth:`save` to commit those changes and update the EarthOne
+        catalog object.  Also see the example for :py:meth:`save`.
 
         For bands, if you request a specific band type, for example
         :meth:`SpectralBand.get`, you will only receive that type.  Use :meth:`Band.get`

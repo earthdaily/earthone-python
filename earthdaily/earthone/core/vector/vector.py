@@ -950,7 +950,7 @@ class Table:
         options will be honored but the AOI option will be ignored.
 
         To use this method, you must have the `ipyleaflet` package installed,
-        it is not installed by default when installing the Descartes Labs python
+        it is not installed by default when installing the EarthOne python
         client.
 
         Parameters

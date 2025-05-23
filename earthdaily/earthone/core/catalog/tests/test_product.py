@@ -50,7 +50,7 @@ class TestProduct(ClientTestCase):
         match_str = """\
             Product: Pléiades
               id: plieades
-            * Not up-to-date in the Descartes Labs catalog. Call `.save()` to save or update this record."""
+            * Not up-to-date in the EarthOne catalog. Call `.save()` to save or update this record."""
         assert p_repr.strip("\n") == textwrap.dedent(match_str)
 
     def test_resolution(self):
@@ -257,7 +257,7 @@ class TestProduct(ClientTestCase):
             Product: My Product
               id: someorg:my-product
               created: Tue Jun 11 23:52:35 2019
-            * Not up-to-date in the Descartes Labs catalog. Call `.save()` to save or update this record."""
+            * Not up-to-date in the EarthOne catalog. Call `.save()` to save or update this record."""
 
         assert p1_repr.strip("\n") == textwrap.dedent(match_str)
 

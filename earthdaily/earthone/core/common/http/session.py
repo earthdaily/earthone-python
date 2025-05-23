@@ -277,7 +277,7 @@ class HTTPAdapter(requests.adapters.HTTPAdapter):
 class Session(requests.Session):
     """The HTTP Session that performs the actual HTTP request.
 
-    This is the base session that is used for all Descartes Labs HTTP calls which
+    This is the base session that is used for all EarthOne HTTP calls which
     itself is derived from `requests.Session
     <https://requests.readthedocs.io/en/master/api/#requests.Session>`_.
 
@@ -296,7 +296,7 @@ class Session(requests.Session):
     Parameters
     ----------
     base_url: str
-        The URL prefix to use for communication with the Descartes Labs servers.
+        The URL prefix to use for communication with the EarthOne servers.
     timeout: int or tuple(int, int)
         See `requests timeouts
         <https://requests.readthedocs.io/en/master/user/advanced/#timeouts>`_.
@@ -327,7 +327,7 @@ class Session(requests.Session):
         pass
 
     def request(self, method, url, headers=None, **kwargs):
-        """Sends an HTTP request and emits Descartes Labs specific errors.
+        """Sends an HTTP request and emits EarthOne specific errors.
 
         Parameters
         ----------
