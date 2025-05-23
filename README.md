@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/descarteslabs/earthone-python/actions/workflows/public-ci.yml/badge.svg)](https://github.com/descarteslabs/earthone-python/actions/workflows/public-ci.yml)
+[![Build Status](https://github.com/earthdaily/earthone-python/actions/workflows/public-ci.yml/badge.svg)](https://github.com/earthdaily/earthone-python/actions/workflows/public-ci.yml)
 
 EarthOne Platform
 =======================
