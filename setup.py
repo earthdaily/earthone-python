@@ -17,7 +17,7 @@
 import ast
 import re
 
-from setuptools import find_namespace_packages, find_packages, setup
+from setuptools import find_namespace_packages, setup
 
 # Parse the docstring out of earthone/__init__.py
 _docstring_re = re.compile(r'"""((.|\n)*)\n"""', re.MULTILINE)

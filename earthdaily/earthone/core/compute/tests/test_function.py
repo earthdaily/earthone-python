@@ -241,7 +241,7 @@ class TestFunctionBundle(FunctionTestCase):
         # Get the path to the module
 
         parts = ["earthdaily", "earthone"] + __file__.split("earthdaily/earthone")[-1].strip("/").split("/")
-        
+
         # If the OS is Windows, the path will be different
         if os.name == "nt":
             parts = ["earthdaily", "earthone"] + __file__.split("earthdaily\\earthone")[-1].split("\\")

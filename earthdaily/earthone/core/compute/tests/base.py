@@ -34,8 +34,6 @@ from ..function import FunctionStatus
 from ..job import JobStatus
 
 
-
-
 def make_uuid():
     return str(uuid.uuid4())
 
