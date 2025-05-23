@@ -1,11 +1,11 @@
 [default]
-domain = "earthone.earthdaily.com"
+domain = "descarteslabs.com"
 log_level = "WARNING"
 # default_domain must be overridden
 default_domain = ""
 
 [aws-production]
-default_domain = "@format production.{this.DOMAIN}"
+default_domain = "@format production.aws.{this.DOMAIN}"
 platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
 
 app_url = "@format https://app.{this.DOMAIN}"
@@ -20,7 +20,7 @@ vector_url = "@format {this.PLATFORM_URL}/vector/v1"
 yaas_url = "@format {this.PLATFORM_URL}/yaas/v1"
 
 [aws-staging]
-default_domain = "@format staging.{this.DOMAIN}"
+default_domain = "@format staging.aws.{this.DOMAIN}"
 platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
 
 app_url = "@format https://app.{this.DOMAIN}"
@@ -35,7 +35,7 @@ vector_url = "@format {this.PLATFORM_URL}/vector/v1"
 yaas_url = "@format {this.PLATFORM_URL}/yaas/v1"
 
 [aws-dev]
-default_domain = "@format dev.{this.DOMAIN}"
+default_domain = "@format dev.aws.{this.DOMAIN}"
 platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
 
 app_url = "@format https://app.{this.DOMAIN}"
@@ -50,7 +50,7 @@ vector_url = "@format {this.PLATFORM_URL}/vector/v1"
 yaas_url = "@format {this.PLATFORM_URL}/yaas/v1"
 
 [aws-freemium]
-default_domain = "@format freemium.{this.DOMAIN}"
+default_domain = "@format freemium.aws.{this.DOMAIN}"
 platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
 
 app_url = "@format https://app.{this.DOMAIN}"
@@ -62,7 +62,7 @@ usage_url = "@format {this.PLATFORM_URL}/usage/v1"
 userlimit_url = "@format {this.PLATFORM_URL}/userlimit/v1"
 
 [testing]
-default_domain = "@format dev.{this.DOMAIN}"
+default_domain = "@format dev.aws.{this.DOMAIN}"
 platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
 testing = true
 
@@ -80,7 +80,7 @@ yaas_url = "@format {this.PLATFORM_URL}/yaas/v1"
 [local]
 # feel free to mess with anything here as needed
 default_domain = "dev.localhost"
-platform_url = "@format https://platform.dev.earthone.earthdaily.com"
+platform_url = "@format https://platform.dev.aws.descarteslabs.com"
 testing = true
 
 app_url = "@format https://app.{this.DOMAIN}"
@@ -93,3 +93,103 @@ usage_url = "@format {this.PLATFORM_URL}/usage/v1"
 userlimit_url = "@format {this.PLATFORM_URL}/userlimit/v1"
 vector_url = "@format {this.PLATFORM_URL}/vector/v1"
 yaas_url = "@format {this.PLATFORM_URL}/yaas/v1"
+
+
+# New settings to be used when DNS update complete
+# 
+# [default]
+# domain = "earthone.earthdaily.com"
+# log_level = "WARNING"
+# # default_domain must be overridden
+# default_domain = ""
+# 
+# [aws-production]
+# default_domain = "@format production.{this.DOMAIN}"
+# platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
+# 
+# app_url = "@format https://app.{this.DOMAIN}"
+# catalog_v2_url = "@format {this.PLATFORM_URL}/metadata/v1/catalog/v2"
+# compute_url = "@format {this.PLATFORM_URL}/compute/v1"
+# iam_url = "@format https://iam.{this.DEFAULT_DOMAIN}"
+# metadata_url = "@format {this.PLATFORM_URL}/metadata/v1"
+# raster_url = "@format {this.PLATFORM_URL}/raster/v2"
+# usage_url = "@format {this.PLATFORM_URL}/usage/v1"
+# userlimit_url = "@format {this.PLATFORM_URL}/userlimit/v1"
+# vector_url = "@format {this.PLATFORM_URL}/vector/v1"
+# yaas_url = "@format {this.PLATFORM_URL}/yaas/v1"
+# 
+# [aws-staging]
+# default_domain = "@format staging.{this.DOMAIN}"
+# platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
+# 
+# app_url = "@format https://app.{this.DOMAIN}"
+# catalog_v2_url = "@format {this.PLATFORM_URL}/metadata/v1/catalog/v2"
+# compute_url = "@format {this.PLATFORM_URL}/compute/v1"
+# iam_url = "@format https://iam.{this.DEFAULT_DOMAIN}"
+# metadata_url = "@format {this.PLATFORM_URL}/metadata/v1"
+# raster_url = "@format {this.PLATFORM_URL}/raster/v2"
+# usage_url = "@format {this.PLATFORM_URL}/usage/v1"
+# userlimit_url = "@format {this.PLATFORM_URL}/userlimit/v1"
+# vector_url = "@format {this.PLATFORM_URL}/vector/v1"
+# yaas_url = "@format {this.PLATFORM_URL}/yaas/v1"
+# 
+# [aws-dev]
+# default_domain = "@format dev.{this.DOMAIN}"
+# platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
+# 
+# app_url = "@format https://app.{this.DOMAIN}"
+# catalog_v2_url = "@format {this.PLATFORM_URL}/metadata/v1/catalog/v2"
+# compute_url = "@format {this.PLATFORM_URL}/compute/v1"
+# iam_url = "@format https://iam.{this.DEFAULT_DOMAIN}"
+# metadata_url = "@format {this.PLATFORM_URL}/metadata/v1"
+# raster_url = "@format {this.PLATFORM_URL}/raster/v2"
+# usage_url = "@format {this.PLATFORM_URL}/usage/v1"
+# userlimit_url = "@format {this.PLATFORM_URL}/userlimit/v1"
+# vector_url = "@format {this.PLATFORM_URL}/vector/v1"
+# yaas_url = "@format {this.PLATFORM_URL}/yaas/v1"
+# 
+# [aws-freemium]
+# default_domain = "@format freemium.{this.DOMAIN}"
+# platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
+# 
+# app_url = "@format https://app.{this.DOMAIN}"
+# catalog_v2_url = "@format {this.PLATFORM_URL}/metadata/v1/catalog/v2"
+# iam_url = "@format https://iam.{this.DEFAULT_DOMAIN}"
+# metadata_url = "@format {this.PLATFORM_URL}/metadata/v1"
+# raster_url = "@format {this.PLATFORM_URL}/raster/v2"
+# usage_url = "@format {this.PLATFORM_URL}/usage/v1"
+# userlimit_url = "@format {this.PLATFORM_URL}/userlimit/v1"
+# 
+# [testing]
+# default_domain = "@format dev.{this.DOMAIN}"
+# platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
+# testing = true
+# 
+# app_url = "@format https://app.{this.DOMAIN}"
+# catalog_v2_url = "@format {this.PLATFORM_URL}/metadata/v1/catalog/v2"
+# compute_url = "@format {this.PLATFORM_URL}/compute/v1"
+# iam_url = "@format https://iam.{this.DEFAULT_DOMAIN}"
+# metadata_url = "@format {this.PLATFORM_URL}/metadata/v1"
+# raster_url = "@format {this.PLATFORM_URL}/raster/v2"
+# usage_url = "@format {this.PLATFORM_URL}/usage/v1"
+# userlimit_url = "@format {this.PLATFORM_URL}/userlimit/v1"
+# vector_url = "@format {this.PLATFORM_URL}/vector/v1"
+# yaas_url = "@format {this.PLATFORM_URL}/yaas/v1"
+# 
+# [local]
+# # feel free to mess with anything here as needed
+# default_domain = "dev.localhost"
+# platform_url = "@format https://platform.dev.earthone.earthdaily.com"
+# testing = true
+# 
+# app_url = "@format https://app.{this.DOMAIN}"
+# catalog_v2_url = "@format {this.PLATFORM_URL}/metadata/v1/catalog/v2"
+# compute_url = "@format {this.PLATFORM_URL}/compute/v1"
+# iam_url = "@format https://{this.DEFAULT_DOMAIN}:8000"
+# metadata_url = "@format {this.PLATFORM_URL}/metadata/v1"
+# raster_url = "@format {this.PLATFORM_URL}/raster/v2"
+# usage_url = "@format {this.PLATFORM_URL}/usage/v1"
+# userlimit_url = "@format {this.PLATFORM_URL}/userlimit/v1"
+# vector_url = "@format {this.PLATFORM_URL}/vector/v1"
+# yaas_url = "@format {this.PLATFORM_URL}/yaas/v1"
+# 
