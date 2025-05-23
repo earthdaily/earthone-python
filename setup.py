@@ -54,7 +54,6 @@ def do_setup():
         classifiers=[
             "Programming Language :: Python",
             "Programming Language :: Python :: 3",
-            "Programming Language :: Python :: 3.9",
             "Programming Language :: Python :: 3.10",
             "Programming Language :: Python :: 3.11",
             "Programming Language :: Python :: 3.12",
@@ -74,11 +73,12 @@ def do_setup():
         entry_points={
             "console_scripts": ["earthone = earthdaily.earthone.core.client.scripts.__main__:main"]
         },
-        python_requires="~=3.9",
+        python_requires="~=3.10",
         install_requires=[
             "affine>=2.2.2",
             "blosc>=1.11.2",
             "cachetools>=3.1.1",
+            "click>=8.2.0",
             "dill>=0.3.6",
             "dynaconf>=3.2.1",
             "geojson>=2.5.0",
@@ -86,7 +86,7 @@ def do_setup():
             "imagecodecs>=2023.3.16",
             "lazy_object_proxy>=1.7.1",
             "mercantile>=1.1.3",
-            "numpy>=1.22.0;python_version>='3.9' and python_version<'3.11'",
+            "numpy>=1.22.0;python_version>='3.10' and python_version<'3.11'",
             "numpy>=1.23.2;python_version>='3.11'",
             "packaging>=25.0",
             "Pillow>=9.2.0",
