@@ -129,7 +129,7 @@ class NamedCatalogObject(CatalogObject):
     Parameters
     ----------
     client : CatalogClient, optional
-        A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
+        A `CatalogClient` instance to use for requests to the EarthOne catalog.
         The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional

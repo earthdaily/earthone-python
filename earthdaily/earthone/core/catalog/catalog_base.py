@@ -40,7 +40,7 @@ class DeletedObjectError(Exception):
     """Indicates that an action cannot be performed.
 
     Raised when some action cannot be performed because the catalog object
-    has been deleted from the Descartes Labs catalog using the delete method
+    has been deleted from the EarthOne catalog using the delete method
     (e.g. :py:meth:`Product.delete`).
     """
 
@@ -164,7 +164,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         serializable=False,
         doc="""str, immutable: A unique identifier for this object.
 
-        Note that if you pass a string that does not begin with your Descartes Labs
+        Note that if you pass a string that does not begin with your EarthOne
         user organization ID, it will be prepended to your `id` with a ``:`` as
         separator.  If you are not part of an organization, your user ID is used.  Once
         set, it cannot be changed.
@@ -294,10 +294,10 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
             sections.append("  created: {:%c}".format(self.created))
 
         if self.state == DocumentState.DELETED:
-            sections.append("* Deleted from the Descartes Labs catalog.")
+            sections.append("* Deleted from the EarthOne catalog.")
         elif self.state != DocumentState.SAVED:
             sections.append(
-                "* Not up-to-date in the Descartes Labs catalog. Call `.save()` to save or update this record."
+                "* Not up-to-date in the EarthOne catalog. Call `.save()` to save or update this record."
             )
 
         return "\n".join(sections)
@@ -507,9 +507,9 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
 
     @classmethod
     def get(cls, id, client=None, request_params=None, headers=None):
-        """Get an existing object from the Descartes Labs catalog.
+        """Get an existing object from the EarthOne catalog.
 
-        If the Descartes Labs catalog object is found, it will be returned in the
+        If the EarthOne catalog object is found, it will be returned in the
         `~earthone.catalog.DocumentState.SAVED` state.  Subsequent changes will
         put the instance in the `~earthone.catalog.DocumentState.MODIFIED` state,
         and you can use :py:meth:`save` to commit those changes and update the Descartes
@@ -524,7 +524,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         id : str
             The id of the object you are requesting.
         client : CatalogClient, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
             :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
@@ -533,7 +533,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         -------
         :py:class:`~earthone.catalog.CatalogObject` or None
             The object you requested, or ``None`` if an object with the given `id`
-            does not exist in the Descartes Labs catalog.
+            does not exist in the EarthOne catalog.
 
         Raises
         ------
@@ -569,17 +569,17 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
     def get_or_create(
         cls, id, client=None, request_params=None, headers=None, **kwargs
     ):
-        """Get an existing object from the Descartes Labs catalog or create a new object.
+        """Get an existing object from the EarthOne catalog or create a new object.
 
-        If the Descartes Labs catalog object is found, and the remainder of the
+        If the EarthOne catalog object is found, and the remainder of the
         arguments do not differ from the values in the retrieved instance, it will be
         returned in the `~earthone.catalog.DocumentState.SAVED` state.
 
-        If the Descartes Labs catalog object is found, and the remainder of the
+        If the EarthOne catalog object is found, and the remainder of the
         arguments update one or more values in the instance, it will be returned in
         the `~earthone.catalog.DocumentState.MODIFIED` state.
 
-        If the Descartes Labs catalog object is not found, it will be created and the
+        If the EarthOne catalog object is not found, it will be created and the
         state will be `~earthone.catalog.DocumentState.UNSAVED`.  Also see the
         example for :py:meth:`save`.
 
@@ -588,7 +588,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         id : str
             The id of the object you are requesting.
         client : CatalogClient, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
             :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
@@ -616,9 +616,9 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
     def get_many(
         cls, ids, ignore_missing=False, client=None, request_params=None, headers=None
     ):
-        """Get existing objects from the Descartes Labs catalog.
+        """Get existing objects from the EarthOne catalog.
 
-        All returned Descartes Labs catalog objects will be in the
+        All returned EarthOne catalog objects will be in the
         `~earthone.catalog.DocumentState.SAVED` state.  Also see :py:meth:`get`.
 
         For bands, if you request a specific band type, for example
@@ -634,7 +634,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
             exception if any of the requested objects are not found in the Descartes
             Labs catalog.  ``False`` by default which raises the exception.
         client : CatalogClient, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
             :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
@@ -647,7 +647,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         Raises
         ------
         NotFoundError
-            If any of the requested objects do not exist in the Descartes Labs catalog
+            If any of the requested objects do not exist in the EarthOne catalog
             and `ignore_missing` is ``False``.
         ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
@@ -695,14 +695,14 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
     @classmethod
     @check_derived
     def exists(cls, id, client=None, headers=None):
-        """Checks if an object exists in the Descartes Labs catalog.
+        """Checks if an object exists in the EarthOne catalog.
 
         Parameters
         ----------
         id : str
             The id of the object.
         client : CatalogClient, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
             :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
@@ -711,7 +711,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         -------
         bool
             Returns ``True`` if the given ``id`` represents an existing object in
-            the Descartes Labs catalog and ``False`` if not.
+            the EarthOne catalog and ``False`` if not.
 
         Raises
         ------
@@ -736,7 +736,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         Parameters
         ----------
         client : CatalogClient, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
             :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
@@ -760,11 +760,11 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
     @check_deleted
     @deprecate(renamed={"extra_attributes": "request_params"})
     def save(self, request_params=None, headers=None):
-        """Saves this object to the Descartes Labs catalog.
+        """Saves this object to the EarthOne catalog.
 
         If this instance was created using the constructor, it will be in the
         `~earthone.catalog.DocumentState.UNSAVED` state and is considered a new
-        Descartes Labs catalog object that must be created.  If the catalog object
+        EarthOne catalog object that must be created.  If the catalog object
         already exists in this case, this method will raise a
         `~earthone.exceptions.BadRequestError`.
 
@@ -786,7 +786,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
             A dictionary of attributes that should be sent to the catalog along with
             attributes already set on this object.  Empty by default.  If not empty,
             and the object is in the `~earthone.catalog.DocumentState.SAVED`
-            state, it is updated in the Descartes Labs catalog even though no attributes
+            state, it is updated in the EarthOne catalog even though no attributes
             were modified.
         headers : dict, optional
             A dictionary of header keys and values to be sent with the request.
@@ -795,7 +795,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         ------
         ConflictError
             If you're trying to create a new object and the object with given ``id``
-            already exists in the Descartes Labs catalog.
+            already exists in the EarthOne catalog.
         BadRequestError
             If any of the attribute values are invalid.
         DeletedObjectError
@@ -832,11 +832,11 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
 
     @check_deleted
     def reload(self, request_params=None, headers=None):
-        """Reload all attributes from the Descartes Labs catalog.
+        """Reload all attributes from the EarthOne catalog.
 
-        Refresh the state of this catalog object from the object in the Descartes Labs
+        Refresh the state of this catalog object from the object in the EarthOne
         catalog.  This may be necessary if there are concurrent updates and the object
-        in the Descartes Labs catalog was updated from another client.  The instance
+        in the EarthOne catalog was updated from another client.  The instance
         state must be in the `~earthone.catalog.DocumentState.SAVED` state.
 
         If you want to revert a modified object to its original one, you should use
@@ -887,7 +887,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         id : str
             The id of the object to be deleted.
         client : CatalogClient, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
             :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
@@ -926,7 +926,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
     @delete.instancemethod
     @check_deleted
     def delete(self):
-        """Delete this catalog object from the Descartes Labs catalog.
+        """Delete this catalog object from the EarthOne catalog.
 
         Once deleted, you cannot use the catalog object and should release any
         references.
@@ -1005,7 +1005,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
 
 
 class CatalogObject(CatalogObjectBase):
-    """A base class for all representations of objects in the Descartes Labs catalog."""
+    """A base class for all representations of objects in the EarthOne catalog."""
 
     extra_properties = ExtraPropertiesAttribute(
         doc="""dict, optional: A dictionary of up to 50 key/value pairs.
@@ -1030,7 +1030,7 @@ class CatalogObject(CatalogObjectBase):
 
 
 class AuthCatalogObject(CatalogObject):
-    """A base class for all representations of objects in the Descartes Labs catalog
+    """A base class for all representations of objects in the EarthOne catalog
     that support ACLs.
 
     .. _auth_note:

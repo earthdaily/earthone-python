@@ -25,7 +25,7 @@ AWS_ENVIRONMENT = "aws-production"  #: Standard AWS environment
 
 class Settings(dynaconf.Dynaconf):
     """
-    Configuration settings for the Descartes Labs client.
+    Configuration settings for the EarthOne client.
 
     Based on the ``Dynaconf`` package. This settings class supports configuration from
     named "environments" in a ``settings.toml`` file as well as environment variables
@@ -69,7 +69,7 @@ class Settings(dynaconf.Dynaconf):
     @classmethod
     def select_env(cls, env=None, settings_file=None, envvar_prefix="EARTHONE"):
         """
-        Configure the Descartes Labs client.
+        Configure the EarthOne client.
 
         Parameters
         ----------

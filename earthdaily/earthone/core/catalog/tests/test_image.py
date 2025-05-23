@@ -284,14 +284,14 @@ class TestImage(ClientTestCase):
                         "product_id": "prod1",
                         "files": [
                             {
-                                "href": "gs://descartes-files/01.jp2",
+                                "href": "gs://earthone-files/01.jp2",
                                 "size_bytes": 121091191,
                                 "hash": "c1fe6f604b0bf1e7265d06ed0379bf0c",
                                 "provider_href": None,
                                 "provider_id": None,
                             },
                             {
-                                "href": "gs://descartes-files/02.jp2",
+                                "href": "gs://earthone-files/02.jp2",
                                 "size_bytes": 53718630,
                                 "hash": "37ea2fb38268875f7f473c52ba485bc6",
                                 "provider_href": None,
@@ -332,7 +332,7 @@ class TestImage(ClientTestCase):
         assert isinstance(i.files[0], MappingAttribute)
 
         file0 = i.files[0]
-        assert file0.href == "gs://descartes-files/01.jp2"
+        assert file0.href == "gs://earthone-files/01.jp2"
         assert i.state == DocumentState.SAVED
 
         file0.href = "gs://new-bucket/file0.jp2"
@@ -349,7 +349,7 @@ class TestImage(ClientTestCase):
                 "provider_id": None,
             },
             {
-                "href": "gs://descartes-files/02.jp2",
+                "href": "gs://earthone-files/02.jp2",
                 "size_bytes": 53718630,
                 "hash": "37ea2fb38268875f7f473c52ba485bc6",
                 "provider_href": None,

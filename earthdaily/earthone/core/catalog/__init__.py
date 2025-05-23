@@ -14,7 +14,7 @@
 
 """
 The Catalog Service provides access to products, bands, and images
-available from Descartes Labs.
+available from EarthOne.
 """
 
 from .task import TaskState

@@ -35,7 +35,7 @@ properties = Properties()
 class Product(AuthCatalogObject):
     """A raster product that connects band information to imagery.
 
-    Instantiating a product indicates that you want to create a *new* Descartes Labs
+    Instantiating a product indicates that you want to create a *new* EarthOne
     catalog product.  If you instead want to retrieve an existing catalog product use
     `Product.get() <earthone.catalog.Product.get>`, or if you're not sure
     use `Product.get_or_create() <earthone.catalog.Product.get_or_create>`.
@@ -46,7 +46,7 @@ class Product(AuthCatalogObject):
     Parameters
     ----------
     client : CatalogClient, optional
-        A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
+        A `CatalogClient` instance to use for requests to the EarthOne catalog.
         The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict
@@ -85,9 +85,9 @@ class Product(AuthCatalogObject):
         """,
     )
     is_core = BooleanAttribute(
-        doc="""bool, optional: Whether this is a Descartes Labs catalog core product.
+        doc="""bool, optional: Whether this is a EarthOne catalog core product.
 
-        A core product is a product that is fully supported by Descartes Labs.  By
+        A core product is a product that is fully supported by EarthOne.  By
         default this value is ``False`` and you must have a special permission
         (``internal:core:create``) to set it to ``True``.
 
@@ -201,7 +201,7 @@ class Product(AuthCatalogObject):
         name : str
             The name of the band to retrieve.
         client : CatalogClient, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
             :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
@@ -231,7 +231,7 @@ class Product(AuthCatalogObject):
         name : str
             The name of the image to retrieve.
         client : CatalogClient, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
             :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
@@ -395,7 +395,7 @@ class Product(AuthCatalogObject):
         id_ : str
             The unprefixed part of the id that you want prefixed.
         client : CatalogClient, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
             :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.

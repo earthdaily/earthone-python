@@ -648,7 +648,7 @@ class Band(NamedCatalogObject):
         Parameters
         ----------
         client : :py:class:`CatalogClient`
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.
 
         Returns
@@ -686,7 +686,7 @@ class SpectralBand(Band):
     Parameters
     ----------
     client : CatalogClient, optional
-        A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
+        A `CatalogClient` instance to use for requests to the EarthOne catalog.
         The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
@@ -746,7 +746,7 @@ class MicrowaveBand(Band):
     Parameters
     ----------
     client : CatalogClient, optional
-        A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
+        A `CatalogClient` instance to use for requests to the EarthOne catalog.
         The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
@@ -796,7 +796,7 @@ class MaskBand(Band):
     Parameters
     ----------
     client : CatalogClient, optional
-        A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
+        A `CatalogClient` instance to use for requests to the EarthOne catalog.
         The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
@@ -841,7 +841,7 @@ class ClassBand(Band):
     Parameters
     ----------
     client : CatalogClient, optional
-        A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
+        A `CatalogClient` instance to use for requests to the EarthOne catalog.
         The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
@@ -881,7 +881,7 @@ class GenericBand(Band):
     Parameters
     ----------
     client : CatalogClient, optional
-        A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
+        A `CatalogClient` instance to use for requests to the EarthOne catalog.
         The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional

@@ -68,24 +68,24 @@ class DocumentState(StrEnum):
     Attributes
     ----------
     UNSAVED : enum
-        The catalog object was never synchronized with the Descartes Labs catalog.
+        The catalog object was never synchronized with the EarthOne catalog.
         All values are considered modified and saving the catalog object will create
-        the corresponding object in the Descartes Labs catalog.
+        the corresponding object in the EarthOne catalog.
     MODIFIED : enum
-        The catalog object was synchronized with the Descartes Labs catalog (using
+        The catalog object was synchronized with the EarthOne catalog (using
         :py:meth:`~earthone.catalog.Product.get` or
         :py:meth:`~earthone.catalog.Product.save`), but at least one
         attribute value has since been changed.  You can
         :py:meth:`~earthone.catalog.Product.save` a modified catalog object
-        to update the object in the Descartes Labs catalog.
+        to update the object in the EarthOne catalog.
 
         Note that assigning an identical value does not change the state.
     SAVED : enum
-        The catalog object has been fully synchronized with the Descartes Labs catalog
+        The catalog object has been fully synchronized with the EarthOne catalog
         (using :py:meth:`~earthone.catalog.Product.get` or
         :py:meth:`~earthone.catalog.Product.save`).
     DELETED : enum
-        The catalog object has been deleted from the Descartes Labs catalog.  Many
+        The catalog object has been deleted from the EarthOne catalog.  Many
         operations cannot be performed on ``DELETED`` objects.
 
     Note
@@ -118,7 +118,7 @@ class StorageState(StrEnum):
 
 
 class Attribute(object):
-    """A description of an attribute as received from the Descartes Labs catalog or
+    """A description of an attribute as received from the EarthOne catalog or
     set by the end-user.
 
     Changing the value of an attribute will set the corresponding CatalogObject to
@@ -137,10 +137,10 @@ class Attribute(object):
         serialization.
     sticky : bool
         Whether this attribute will be cleared when new attribute values are loaded
-        from the Descartes Labs catalog.  Set to ``False`` by default.  This is used
-        specifically for attributes that are only deserialised on the Descartes Labs
+        from the EarthOne catalog.  Set to ``False`` by default.  This is used
+        specifically for attributes that are only deserialised on the EarthOne
         catalog (`load_only`).  These attributes will never appear in the data from
-        the Descartes Labs catalog, and to allow them to persist you can set the _sticky
+        the EarthOne catalog, and to allow them to persist you can set the _sticky
         parameter to True.
     readonly : bool
         Whether this attribute can be set.  Set to ``False`` by default.  If set to
@@ -247,7 +247,7 @@ class Attribute(object):
         """Serialize a value to a json-serializable type.
 
         Serializes a value for this attribute to a value that can be serialized to a
-        JSONAPI representation fit to send to the Descartes Labs catalog.
+        JSONAPI representation fit to send to the EarthOne catalog.
 
         Parameters
         ----------
@@ -269,7 +269,7 @@ class Attribute(object):
         """Deserialize a value to a native type.
 
         Deserializes a value for this attribute from a plain python type, possibly
-        generated through JSONAPI deserialization as it comes from the Descartes Labs
+        generated through JSONAPI deserialization as it comes from the EarthOne
         catalog.  Optionally indicates whether the data should be validated.
 
         Parameters
@@ -318,7 +318,7 @@ class TypedAttribute(Attribute):
         """Deserialize a value to a native type.
 
         Deserializes a value for this attribute from a plain python type, possibly
-        generated through JSONAPI deserialization as it comes from the Descartes Labs
+        generated through JSONAPI deserialization as it comes from the EarthOne
         catalog.  Optionally indicates whether the data should be validated.
 
         Parameters
@@ -407,7 +407,7 @@ class CatalogObjectReference(Attribute):
         """Gets the value for this attribute on the given object.
 
         Access the referenced object by looking it up in related objects or else on
-        the Descartes Labs catalog.  Values are cached until this attribute or the
+        the EarthOne catalog.  Values are cached until this attribute or the
         corresponding id field are modified.
         """
         if obj is None:
@@ -496,7 +496,7 @@ class CatalogObjectReference(Attribute):
         """Deserialize a value to a native type.
 
         Deserializes a value for this attribute from a plain python type, possibly
-        generated through JSONAPI deserialization as it comes from the Descartes Labs
+        generated through JSONAPI deserialization as it comes from the EarthOne
         catalog.  Optionally indicates whether the data should be validated.
 
         Parameters

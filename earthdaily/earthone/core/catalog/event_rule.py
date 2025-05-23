@@ -141,7 +141,7 @@ class EventRule(AuthCatalogObject):
     Parameters
     ----------
     client : CatalogClient, optional
-        A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
+        A `CatalogClient` instance to use for requests to the EarthOne catalog.
         The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict
@@ -192,9 +192,9 @@ class EventRule(AuthCatalogObject):
         """,
     )
     is_core = BooleanAttribute(
-        doc="""bool, optional: Whether this is a Descartes Labs catalog core event rule.
+        doc="""bool, optional: Whether this is a EarthOne catalog core event rule.
 
-        A core event rule is an event rule that is fully managed by Descartes Labs.  By
+        A core event rule is an event rule that is fully managed by EarthOne.  By
         default this value is ``False`` and you must have a special permission
         (``internal:core:create``) to set it to ``True``.
 
@@ -248,7 +248,7 @@ class EventRule(AuthCatalogObject):
         namespace_id : str or None
             The unprefixed part of the id that you want prefixed.
         client : CatalogClient, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
             :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
@@ -293,7 +293,7 @@ class EventRule(AuthCatalogObject):
         request_params=None,
         headers=None,
     ):
-        """Get an existing EventRule from the Descartes Labs catalog.
+        """Get an existing EventRule from the EarthOne catalog.
 
         If the EventRule is found, it will be returned in the
         `~earthone.catalog.DocumentState.SAVED` state.  Subsequent changes will
@@ -317,7 +317,7 @@ class EventRule(AuthCatalogObject):
             The name of the EventRule you wish to retrieve. Required if ``id`` is not specified.
             May not be specified if ``id`` is specified.
         client : CatalogClient, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
             :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
@@ -326,7 +326,7 @@ class EventRule(AuthCatalogObject):
         -------
         :py:class:`~earthone.catalog.CatalogObject` or None
             The object you requested, or ``None`` if an object with the given `id`
-            does not exist in the Descartes Labs catalog.
+            does not exist in the EarthOne catalog.
 
         Raises
         ------
@@ -351,17 +351,17 @@ class EventRule(AuthCatalogObject):
         client=None,
         **kwargs,
     ):
-        """Get an existing object from the Descartes Labs catalog or create a new object.
+        """Get an existing object from the EarthOne catalog or create a new object.
 
-        If the Descartes Labs catalog object is found, and the remainder of the
+        If the EarthOne catalog object is found, and the remainder of the
         arguments do not differ from the values in the retrieved instance, it will be
         returned in the `~earthone.catalog.DocumentState.SAVED` state.
 
-        If the Descartes Labs catalog object is found, and the remainder of the
+        If the EarthOne catalog object is found, and the remainder of the
         arguments update one or more values in the instance, it will be returned in
         the `~earthone.catalog.DocumentState.MODIFIED` state.
 
-        If the Descartes Labs catalog object is not found, it will be created and the
+        If the EarthOne catalog object is not found, it will be created and the
         state will be `~earthone.catalog.DocumentState.UNSAVED`.  Also see the
         example for :py:meth:`save`.
 
@@ -377,7 +377,7 @@ class EventRule(AuthCatalogObject):
             The name of the EventRule you wish to retrieve. Required if ``id`` is not specified.
             May not be specified if ``id`` is specified.
         client : CatalogClient, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
             :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
@@ -407,12 +407,12 @@ class EventRule(AuthCatalogObject):
         """A search query for all event rules.
 
         Return an `~earthone.catalog.EventRuleSearch` instance for searching
-        event rules in the Descartes Labs catalog.
+        event rules in the EarthOne catalog.
 
         Parameters
         ----------
         client : :class:`CatalogClient`, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.
 
         Returns

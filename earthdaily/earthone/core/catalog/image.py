@@ -139,7 +139,7 @@ class ImageSearch(SummarySearchMixin, GeoSearch):
 class Image(NamedCatalogObject):
     """An image with raster data.
 
-    Instantiating an image indicates that you want to create a *new* Descartes Labs
+    Instantiating an image indicates that you want to create a *new* EarthOne
     catalog image.  If you instead want to retrieve an existing catalog image use
     `Image.get() <earthone.catalog.Image.get>`, or if you're not sure use
     `Image.get_or_create() <~earthone.catalog.Image.get_or_create>`.  You
@@ -149,7 +149,7 @@ class Image(NamedCatalogObject):
     Parameters
     ----------
     client : CatalogClient, optional
-        A `CatalogClient` instance to use for requests to the Descartes Labs catalog.
+        A `CatalogClient` instance to use for requests to the EarthOne catalog.
         The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict
@@ -549,7 +549,7 @@ class Image(NamedCatalogObject):
         """A search query for all images.
 
         Return an `~earthone.catalog.ImageSearch` instance for searching
-        images in the Descartes Labs catalog.  This instance extends the
+        images in the EarthOne catalog.  This instance extends the
         :py:class:`~earthone.catalog.Search` class with the
         :py:meth:`~earthone.catalog.ImageSearch.summary` and
         :py:meth:`~earthone.catalog.ImageSearch.summary_interval` methods
@@ -558,7 +558,7 @@ class Image(NamedCatalogObject):
         Parameters
         ----------
         client : :class:`CatalogClient`, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.
 
         Returns
@@ -1038,7 +1038,7 @@ class Image(NamedCatalogObject):
             Whether to also return a dict of information about the rasterization
             of the image, including the coordinate system WKT and geotransform matrix.
             Generally only useful if you plan to upload data derived
-            from this image back to the Descartes Labs catalog, or use it with GDAL.
+            from this image back to the EarthOne catalog, or use it with GDAL.
         resampler : `ResampleAlgorithm`, default `ResampleAlgorithm.NEAR`
             Algorithm used to interpolate pixel values when scaling and transforming
             the image to its new resolution or CRS.
@@ -1086,7 +1086,7 @@ class Image(NamedCatalogObject):
             If band names are not given or are invalid.
             If the requested bands have incompatible dtypes.
         NotFoundError
-            If a Image's ID cannot be found in the Descartes Labs catalog
+            If a Image's ID cannot be found in the EarthOne catalog
         BadRequestError
             If the EarthOne Platform is given invalid parameters
         """
@@ -1208,7 +1208,7 @@ class Image(NamedCatalogObject):
 
         except NotFoundError:
             raise NotFoundError(
-                "'{}' does not exist in the Descartes Labs catalog".format(self.id)
+                "'{}' does not exist in the EarthOne catalog".format(self.id)
             ) from None
         except BadRequestError as e:
             msg = (
@@ -1334,7 +1334,7 @@ class Image(NamedCatalogObject):
             If the requested bands have incompatible dtypes.
             If ``format`` is invalid, or the path has an invalid extension.
         NotFoundError
-            If a image's ID cannot be found in the Descartes Labs catalog
+            If a image's ID cannot be found in the EarthOne catalog
         BadRequestError
             If the EarthOne Platform is given invalid parameters
         """

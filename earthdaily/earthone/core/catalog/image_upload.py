@@ -401,7 +401,7 @@ class ImageUpload(CatalogObjectBase):
             Controls the inclusion of events. If True, includes these objects.
             If False, no events are included. Defaults to True.
         client : :class:`CatalogClient`, optional
-            A `CatalogClient` instance to use for requests to the Descartes Labs
+            A `CatalogClient` instance to use for requests to the EarthOne
             catalog.
 
         Returns
@@ -476,7 +476,7 @@ class ImageUpload(CatalogObjectBase):
             time.sleep(t)
 
     def reload(self):
-        """Reload all attributes from the Descartes Labs catalog.
+        """Reload all attributes from the EarthOne catalog.
 
         Refresh the state of this upload object.  The instance
         state must be in the `~earthone.catalog.DocumentState.SAVED` state.

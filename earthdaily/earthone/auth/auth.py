@@ -136,7 +136,7 @@ def get_app_domain():
 
 
 class Auth:
-    """Client used to authenticate with all Descartes Labs service APIs."""
+    """Client used to authenticate with all EarthOne service APIs."""
 
     RETRY_CONFIG = Retry(
         total=5,
@@ -324,7 +324,7 @@ class Auth:
         >>> import earthdaily.earthone
         >>> # Use default credentials obtained through 'earthone auth login'
         >>> auth = earthone.auth.Auth()
-        >>> # Your Descartes Labs user id
+        >>> # Your EarthOne user id
         >>> auth.namespace # doctest: +SKIP
         'a54d88e06612d820bc3be72877c74f257b561b19'
         >>> auth = earthone.auth.Auth(
@@ -822,7 +822,7 @@ class Auth:
 
     @property
     def namespace(self):
-        """Gets the user namespace (the Descartes Labs user id).
+        """Gets the user namespace (the EarthOne user id).
 
         Returns
         -------
