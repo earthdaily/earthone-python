@@ -259,7 +259,6 @@ class TestFunctionBundle(FunctionTestCase):
                 # We are running tests in monorepo
                 parts = ["earthone"] + __file__.split("earthone")[-1].strip("/").split("/")
 
-
         # Construct the module path and module in dot notation
         module_path = os.path.join(*parts[:-1])
         module_dot = ".".join(parts[:-1])
