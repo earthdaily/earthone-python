@@ -9,11 +9,11 @@ By giving data scientists and their line-of-business colleagues the best geospat
 
 Data science teams can use our scaling infrastructure to design models faster than ever, using our massive data archive or their own.
 
-Please visit [https://descarteslabs.com](https://descarteslabs.com) for more information about the EarthOne Platform and to request access.
+Please visit [https://earthdaily.com/earthone](https://earthdaily.com/earthone) for more information about the EarthOne Platform and to request access.
 
 The `earthdaily-earthone` python package, available at [https://pypi.org/project/earthdaily-earthone/](https://pypi.org/project/earthdaily-earthone/), provides client-side access to the EarthOne Platform for our customers. You must be a registered customer with access to our EarthOne Platform before you can make use of this package with our platform.
 
-The documentation for the latest release can be found at [https://docs.earthdaily.com](https://docs.earthdaily.com). For any issues please request Customer Support at [https://support.earthdaily.com](https://support.earthdaily.com).
+The documentation for the latest release can be found at [https://docs.earthone.earthdaily.com](https://docs.earthone.earthdaily.com). For any issues please request Customer Support at [https://support.earthdaily.com](https://support.earthdaily.com).
 
 Changelog
 =========

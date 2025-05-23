@@ -61,7 +61,7 @@ def do_setup():
         ],
         license="Apache 2.0",
         download_url=(
-            "https://github.com/earthone-python/archive/v{}.tar.gz".format(version)
+            "https://github.com/earthdaily/earthone-python/archive/v{}.tar.gz".format(version)
         ),
         version=version,
         packages=find_namespace_packages(include=["earthdaily.earthone*"]),

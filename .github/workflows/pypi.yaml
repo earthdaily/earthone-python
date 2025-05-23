@@ -52,7 +52,7 @@ jobs:
 
       # Upload the Python wheel packages to PyPI using an API Token
       # https://pypi.org/help/#apitoken
-      # https://github.com/descarteslabs/paas-infrastructure/blob/main/foundation/operations/pypi.tf
+      # paas-infrastructure repo: paas-infrastructure/blob/main/foundation/operations/pypi.tf
       - name: Upload to PyPI
         if: inputs.publish
         env:
