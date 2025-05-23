@@ -105,17 +105,17 @@ class TestSettings(unittest.TestCase):
 
     def test_default_auth(self):
         a = Auth()
-        assert a.domain == "https://iam.dev.earthdaily.earthone.com"
+        assert a.domain == "https://iam.dev.earthone.earthdaily.com"
 
     def test_auth_with_env(self):
         with patch.dict(os.environ, {"EARTHONE_ENV": "aws-production"}):
             a = Auth()
-            assert a.domain == "https://iam.production.earthdaily.earthone.com"
+            assert a.domain == "https://iam.production.earthone.earthdaily.com"
 
     def test_auth_with_test_config(self):
         Settings.select_env("aws-production")
         a = Auth()
-        assert a.domain == "https://iam.production.earthdaily.earthone.com"
+        assert a.domain == "https://iam.production.earthone.earthdaily.com"
 
     def test_env(self):
         peek1_env = "aws-dev"
