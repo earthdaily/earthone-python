@@ -631,8 +631,8 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
             A list of identifiers for the objects you are requesting.
         ignore_missing : bool, optional
             Whether to raise a `~earthone.exceptions.NotFoundError`
-            exception if any of the requested objects are not found in the Descartes
-            Labs catalog.  ``False`` by default which raises the exception.
+            exception if any of the requested objects are not found in the EarthOne
+            catalog.  ``False`` by default which raises the exception.
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The

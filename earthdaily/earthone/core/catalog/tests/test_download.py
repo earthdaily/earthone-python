@@ -138,7 +138,7 @@ class TestDownload(unittest.TestCase):
     def test_raster_not_found(self, mock_raster, mock_makedirs, mock_open):
         mock_raster.side_effect = NotFoundError("there is no foo")
         with pytest.raises(
-            NotFoundError, match="does not exist in the Descartes catalog"
+            NotFoundError, match="does not exist in the EarthOne catalog"
         ):
             self.download("file.tif")
 

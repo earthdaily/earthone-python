@@ -140,9 +140,9 @@ def download(
         Raster.get_default_client().raster(**full_raster_args)
     except NotFoundError:
         if len(inputs) == 1:
-            msg = "'{}' does not exist in the Descartes catalog".format(inputs[0])
+            msg = "'{}' does not exist in the EarthOne catalog".format(inputs[0])
         else:
-            msg = "Some or all of these IDs don't exist in the Descartes catalog: {}".format(
+            msg = "Some or all of these IDs don't exist in the EarthOne catalog: {}".format(
                 inputs
             )
         raise NotFoundError(msg) from None
