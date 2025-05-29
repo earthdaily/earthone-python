@@ -126,14 +126,14 @@ class Blob(AuthCatalogObject):
     storage blob.  If you instead want to retrieve an existing blob use
     `Blob.get() <earthone.catalog.Blob.get>`.
     You can also use `Blob.search() <earthone.catalog.Blob.search>`.
-    Also see the example for :py:meth:`~earthone.catalog.Blob.upload`.
+    Also see the example for :py:meth:`~earthdaily.earthone.catalog.Blob.upload`.
 
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the EarthOne catalog.
-        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict
         With the exception of readonly attributes (`created`, `modified`) and with
@@ -253,7 +253,7 @@ class Blob(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
@@ -300,8 +300,8 @@ class Blob(AuthCatalogObject):
         """Get an existing Blob from the EarthOne catalog.
 
         If the Blob is found, it will be returned in the
-        `~earthone.catalog.DocumentState.SAVED` state.  Subsequent changes will
-        put the instance in the `~earthone.catalog.DocumentState.MODIFIED` state,
+        `~earthdaily.earthone.catalog.DocumentState.SAVED` state.  Subsequent changes will
+        put the instance in the `~earthdaily.earthone.catalog.DocumentState.MODIFIED` state,
         and you can use :py:meth:`save` to commit those changes and update the EarthOne
         catalog object.  Also see the example for :py:meth:`save`.
 
@@ -326,18 +326,18 @@ class Blob(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
         -------
-        :py:class:`~earthone.catalog.CatalogObject` or None
+        :py:class:`~earthdaily.earthone.catalog.CatalogObject` or None
             The object you requested, or ``None`` if an object with the given `id`
             does not exist in the EarthOne catalog.
 
         Raises
         ------
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -363,14 +363,14 @@ class Blob(AuthCatalogObject):
 
         If the EarthOne catalog object is found, and the remainder of the
         arguments do not differ from the values in the retrieved instance, it will be
-        returned in the `~earthone.catalog.DocumentState.SAVED` state.
+        returned in the `~earthdaily.earthone.catalog.DocumentState.SAVED` state.
 
         If the EarthOne catalog object is found, and the remainder of the
         arguments update one or more values in the instance, it will be returned in
-        the `~earthone.catalog.DocumentState.MODIFIED` state.
+        the `~earthdaily.earthone.catalog.DocumentState.MODIFIED` state.
 
         If the EarthOne catalog object is not found, it will be created and the
-        state will be `~earthone.catalog.DocumentState.UNSAVED`.  Also see the
+        state will be `~earthdaily.earthone.catalog.DocumentState.UNSAVED`.  Also see the
         example for :py:meth:`save`.
 
         Parameters
@@ -390,7 +390,7 @@ class Blob(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
         kwargs : dict, optional
             With the exception of readonly attributes (`created`, `modified`), any
@@ -399,7 +399,7 @@ class Blob(AuthCatalogObject):
 
         Returns
         -------
-        :py:class:`~earthone.catalog.CatalogObject`
+        :py:class:`~earthdaily.earthone.catalog.CatalogObject`
             The requested catalog object that was retrieved or created.
 
         """
@@ -418,11 +418,11 @@ class Blob(AuthCatalogObject):
     def search(cls, client=None, request_params=None, headers=None):
         """A search query for all blobs.
 
-        Return an `~earthone.catalog.BlobSearch` instance for searching
+        Return an `~earthdaily.earthone.catalog.BlobSearch` instance for searching
         blobs in the EarthOne catalog.  This instance extends the
-        :py:class:`~earthone.catalog.Search` class with the
-        :py:meth:`~earthonelobSearch.summary` and
-        :py:meth:`~earthonelobSearch.summary_interval` methods
+        :py:class:`~earthdaily.earthone.catalog.Search` class with the
+        :py:meth:`~earthone.catalog.BlobSearch.summary` and
+        :py:meth:`~earthone.catalog.BlobSearch.summary_interval` methods
         which return summary statistics about the blobs that match the search query.
 
         Parameters
@@ -433,8 +433,8 @@ class Blob(AuthCatalogObject):
 
         Returns
         -------
-        :class:`~earthone.catalog.BlobSearch`
-            An instance of the `~earthone.catalog.BlobSearch` class
+        :class:`~earthdaily.earthone.catalog.BlobSearch`
+            An instance of the `~earthdaily.earthone.catalog.BlobSearch` class
 
         Example
         -------
@@ -454,7 +454,7 @@ class Blob(AuthCatalogObject):
 
         Uploads data from a file and creates the Blob.
 
-        The Blob must be in the state `~earthone.catalog.DocumentState.UNSAVED`.
+        The Blob must be in the state `~earthdaily.earthone.catalog.DocumentState.UNSAVED`.
         The `storage_state`, `storage_type`, `namespace`, and the `name` attributes,
         must all be set. If either the `size_bytes` and the `hash` attributes are set,
         they must agree with the actual file to be uploaded, and will be validated
@@ -522,7 +522,7 @@ class Blob(AuthCatalogObject):
 
         Uploads data from a string or bytes and creates the Blob.
 
-        The Blob must be in the state `~earthone.catalog.DocumentState.UNSAVED`.
+        The Blob must be in the state `~earthdaily.earthone.catalog.DocumentState.UNSAVED`.
         The `storage_state`, `storage_type`, `namespace`, and the `name` attributes,
         must all be set. If either the `size_bytes` and the `hash` attributes are set,
         they must agree with the actual data to be uploaded, and will be validated
@@ -614,7 +614,7 @@ class Blob(AuthCatalogObject):
 
         Downloads data from the blob to a file.
 
-        The Blob must be in the state `~earthone.catalog.DocumentState.SAVED`.
+        The Blob must be in the state `~earthdaily.earthone.catalog.DocumentState.SAVED`.
 
         Parameters
         ----------
@@ -665,7 +665,7 @@ class Blob(AuthCatalogObject):
 
         Downloads data from the blob and returns as a bytes object.
 
-        The Blob must be in the state `~earthone.catalog.DocumentState.SAVED`.
+        The Blob must be in the state `~earthdaily.earthone.catalog.DocumentState.SAVED`.
 
         Parameters
         ----------
@@ -702,7 +702,7 @@ class Blob(AuthCatalogObject):
         which will yield the data (as a bytes) in chunks. This enables the
         processing of very large files.
 
-        The Blob must be in the state `~earthone.catalog.DocumentState.SAVED`.
+        The Blob must be in the state `~earthdaily.earthone.catalog.DocumentState.SAVED`.
 
         Parameters
         ----------
@@ -748,7 +748,7 @@ class Blob(AuthCatalogObject):
         which will yield the data as text lines.  This enables the
         processing of very large files.
 
-        The Blob must be in the state `~earthone.catalog.DocumentState.SAVED`.
+        The Blob must be in the state `~earthdaily.earthone.catalog.DocumentState.SAVED`.
         The data within the blob must represent encoded text.
 
         .. note:: This method is not reentrant safe.
@@ -893,7 +893,7 @@ class Blob(AuthCatalogObject):
             If True, wait for the deletion to complete before returning. Defaults to False.
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne catalog.
-            The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            The :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
@@ -903,7 +903,7 @@ class Blob(AuthCatalogObject):
 
         Raises
         ------
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -977,7 +977,7 @@ class Blob(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
@@ -990,7 +990,7 @@ class Blob(AuthCatalogObject):
         ------
         ConflictError
             If the object has related objects (bands, images) that exist.
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
 
@@ -1031,7 +1031,7 @@ class Blob(AuthCatalogObject):
             If this catalog object was already deleted.
         UnsavedObjectError
             If this catalog object is being deleted without having been saved.
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """

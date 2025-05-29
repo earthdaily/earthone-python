@@ -112,7 +112,7 @@ class Service:
     token: str, optional
         Deprecated.
     auth: Auth, optional
-        A EarthOne :py:class:`~earthone.auth.Auth` instance.  If not
+        A EarthOne :py:class:`~earthdaily.earthone.auth.Auth` instance.  If not
         provided, a default one will be instantiated.
     retries: int or urllib3.util.retry.Retry
         If a number, it's the number of retries that will be attempted.  If a
@@ -378,7 +378,7 @@ class JsonApiSession(Session):
         ------
         BadRequestError
             Either a 400 or 422 HTTP response status code was encountered.
-        ~earthone.exceptions.NotFoundError
+        ~earthdaily.earthone.exceptions.NotFoundError
             A 404 HTTP response status code was encountered.
         ProxyAuthenticationRequiredError
             A 407 HTTP response status code was encountered indicating proxy
@@ -392,7 +392,7 @@ class JsonApiSession(Session):
             A 429 HTTP response status code was encountered.
         GatewayTimeoutError
             A 504 HTTP response status code was encountered.
-        ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ServerError
             Any HTTP response status code larger than 400 that was not covered above
             is returned as a ServerError.  The original HTTP response status code
             can be found in the attribute :py:attr:`original_status`.
@@ -519,7 +519,7 @@ class JsonApiService(Service):
         When set to ``True``, errors are rewritten to be more readable.  Each JsonApi
         error becomes a single line of error information without tags.
     auth: Auth, optional
-        A EarthOne :py:class:`~earthone.auth.Auth` instance.  If not
+        A EarthOne :py:class:`~earthdaily.earthone.auth.Auth` instance.  If not
         provided, a default one will be instantiated.
     retries: int or urllib3.util.retry.Retry If a number, it's the number of retries
         that will be attempted.  If a :py:class:`urllib3.util.retry.Retry` instance,

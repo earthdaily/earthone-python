@@ -143,7 +143,7 @@ class Document(object):
 
         Returns
         -------
-        :py:class:`~earthone.common.client.DocumentState`
+        :py:class:`~earthdaily.earthone.common.client.DocumentState`
         """
 
         if self._deleted:

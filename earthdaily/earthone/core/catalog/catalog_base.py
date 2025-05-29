@@ -510,8 +510,8 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         """Get an existing object from the EarthOne catalog.
 
         If the EarthOne catalog object is found, it will be returned in the
-        `~earthone.catalog.DocumentState.SAVED` state.  Subsequent changes will
-        put the instance in the `~earthone.catalog.DocumentState.MODIFIED` state,
+        `~earthdaily.earthone.catalog.DocumentState.SAVED` state.  Subsequent changes will
+        put the instance in the `~earthdaily.earthone.catalog.DocumentState.MODIFIED` state,
         and you can use :py:meth:`save` to commit those changes and update the EarthOne
         catalog object.  Also see the example for :py:meth:`save`.
 
@@ -526,18 +526,18 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
         -------
-        :py:class:`~earthone.catalog.CatalogObject` or None
+        :py:class:`~earthdaily.earthone.catalog.CatalogObject` or None
             The object you requested, or ``None`` if an object with the given `id`
             does not exist in the EarthOne catalog.
 
         Raises
         ------
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -573,14 +573,14 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
 
         If the EarthOne catalog object is found, and the remainder of the
         arguments do not differ from the values in the retrieved instance, it will be
-        returned in the `~earthone.catalog.DocumentState.SAVED` state.
+        returned in the `~earthdaily.earthone.catalog.DocumentState.SAVED` state.
 
         If the EarthOne catalog object is found, and the remainder of the
         arguments update one or more values in the instance, it will be returned in
-        the `~earthone.catalog.DocumentState.MODIFIED` state.
+        the `~earthdaily.earthone.catalog.DocumentState.MODIFIED` state.
 
         If the EarthOne catalog object is not found, it will be created and the
-        state will be `~earthone.catalog.DocumentState.UNSAVED`.  Also see the
+        state will be `~earthdaily.earthone.catalog.DocumentState.UNSAVED`.  Also see the
         example for :py:meth:`save`.
 
         Parameters
@@ -590,7 +590,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
         kwargs : dict, optional
             With the exception of readonly attributes (`created`, `modified`), any
@@ -599,7 +599,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
 
         Returns
         -------
-        :py:class:`~earthone.catalog.CatalogObject`
+        :py:class:`~earthdaily.earthone.catalog.CatalogObject`
             The requested catalog object that was retrieved or created.
 
         """
@@ -619,7 +619,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         """Get existing objects from the EarthOne catalog.
 
         All returned EarthOne catalog objects will be in the
-        `~earthone.catalog.DocumentState.SAVED` state.  Also see :py:meth:`get`.
+        `~earthdaily.earthone.catalog.DocumentState.SAVED` state.  Also see :py:meth:`get`.
 
         For bands, if you request a specific band type, for example
         :meth:`SpectralBand.get_many`, you will only receive that type.  Use
@@ -630,18 +630,18 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         ids : list(str)
             A list of identifiers for the objects you are requesting.
         ignore_missing : bool, optional
-            Whether to raise a `~earthone.exceptions.NotFoundError`
+            Whether to raise a `~earthdaily.earthone.exceptions.NotFoundError`
             exception if any of the requested objects are not found in the EarthOne
             catalog.  ``False`` by default which raises the exception.
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
         -------
-        list(:py:class:`~earthone.catalog.CatalogObject`)
+        list(:py:class:`~earthdaily.earthone.catalog.CatalogObject`)
             List of the objects you requested in the same order.
 
         Raises
@@ -649,7 +649,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         NotFoundError
             If any of the requested objects do not exist in the EarthOne catalog
             and `ignore_missing` is ``False``.
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -704,7 +704,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
@@ -715,7 +715,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
 
         Raises
         ------
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -738,13 +738,13 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
         -------
         Search
-            An instance of the :py:class:`~earthone.catalog.Search`
+            An instance of the :py:class:`~earthdaily.earthone.catalog.Search`
             class.
 
         Example
@@ -763,21 +763,21 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         """Saves this object to the EarthOne catalog.
 
         If this instance was created using the constructor, it will be in the
-        `~earthone.catalog.DocumentState.UNSAVED` state and is considered a new
+        `~earthdaily.earthone.catalog.DocumentState.UNSAVED` state and is considered a new
         EarthOne catalog object that must be created.  If the catalog object
         already exists in this case, this method will raise a
-        `~earthone.exceptions.BadRequestError`.
+        `~earthdaily.earthone.exceptions.BadRequestError`.
 
         If this instance was retrieved using :py:meth:`get`, :py:meth:`get_or_create`
         or any other way (for example as part of a :py:meth:`search`), and any of its
         values were changed, it will be in the
-        `~earthone.catalog.DocumentState.MODIFIED` state and the existing catalog
+        `~earthdaily.earthone.catalog.DocumentState.MODIFIED` state and the existing catalog
         object will be updated.
 
         If this instance was retrieved using :py:meth:`get`, :py:meth:`get_or_create`
         or any other way (for example as part of a :py:meth:`search`), and none of its
         values were changed, it will be in the
-        `~earthone.catalog.DocumentState.SAVED` state, and if no `request_params`
+        `~earthdaily.earthone.catalog.DocumentState.SAVED` state, and if no `request_params`
         parameter is given, nothing will happen.
 
         Parameters
@@ -785,7 +785,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         request_params : dict, optional
             A dictionary of attributes that should be sent to the catalog along with
             attributes already set on this object.  Empty by default.  If not empty,
-            and the object is in the `~earthone.catalog.DocumentState.SAVED`
+            and the object is in the `~earthdaily.earthone.catalog.DocumentState.SAVED`
             state, it is updated in the EarthOne catalog even though no attributes
             were modified.
         headers : dict, optional
@@ -800,7 +800,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
             If any of the attribute values are invalid.
         DeletedObjectError
             If this catalog object was deleted.
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -837,7 +837,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         Refresh the state of this catalog object from the object in the EarthOne
         catalog.  This may be necessary if there are concurrent updates and the object
         in the EarthOne catalog was updated from another client.  The instance
-        state must be in the `~earthone.catalog.DocumentState.SAVED` state.
+        state must be in the `~earthdaily.earthone.catalog.DocumentState.SAVED` state.
 
         If you want to revert a modified object to its original one, you should use
         :py:meth:`get` on the object class with the object's `id`.
@@ -848,7 +848,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
             If the catalog object is not in the ``SAVED`` state.
         DeletedObjectError
             If this catalog object was deleted.
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -889,7 +889,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
@@ -902,7 +902,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         ------
         ConflictError
             If the object has related objects (bands, images) that exist.
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
 
@@ -937,7 +937,7 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
             If this catalog object was already deleted.
         UnsavedObjectError
             If this catalog object is being deleted without having been saved.
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """

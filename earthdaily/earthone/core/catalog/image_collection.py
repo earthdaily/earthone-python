@@ -40,7 +40,7 @@ class ImageCollection(Collection):
     contained Images.
 
     `stack` and `mosaic` rasterize all contained images into an ndarray
-    using the a :class:`~earthone.common.geo.geocontext.GeoContext`.
+    using the a :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext`.
     """
 
     # _item_type set below due to circular imports
@@ -131,7 +131,7 @@ class ImageCollection(Collection):
 
         Parameters
         ----------
-        geom : GeoJSON-like dict, :class:`~earthone.common.geo.geocontext.GeoContext`, or object with __geo_interface__  # noqa: E501
+        geom : GeoJSON-like dict, :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext`, or object with __geo_interface__  # noqa: E501
             Geometry to which to compare each image's geometry.
         minimum_coverage : float
             Only include images that cover ``geom`` by at least this fraction.
@@ -190,8 +190,8 @@ class ImageCollection(Collection):
             or a sequence of band names (``["red", "green", "blue"]``).
             If the alpha band is requested, it must be last in the list
             to reduce rasterization errors.
-        geocontext : :class:`~earthone.common.geo.geocontext.GeoContext`, default None
-            A :class:`~earthone.common.geo.geocontext.GeoContext` to use when loading each image.
+        geocontext : :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext`, default None
+            A :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext` to use when loading each image.
             If ``None`` then the default context of the collection will be used. If
             this is ``None``, a ValueError is raised.
         crs : str, default None
@@ -285,7 +285,7 @@ class ImageCollection(Collection):
             or are invalid.
             If the context is None and no default context for the ImageCollection
             is defined, or if not all required parameters are specified in the
-            :class:`~earthone.common.geo.geocontext.GeoContext`.
+            :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext`.
             If the ImageCollection is empty.
         NotFoundError
             If a Image's ID cannot be found in the EarthOne catalog
@@ -455,8 +455,8 @@ class ImageCollection(Collection):
             or a sequence of band names (``["red", "green", "blue"]``).
             If the alpha band is requested, it must be last in the list
             to reduce rasterization errors.
-        geocontext : :class:`~earthone.common.geo.geocontext.GeoContext`, default None
-            A :class:`~earthone.common.geo.geocontext.GeoContext` to use when loading each image.
+        geocontext : :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext`, default None
+            A :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext` to use when loading each image.
             If ``None`` then the default context of the collection will be used. If
             this is ``None``, a ValueError is raised.
         crs : str, default None
@@ -525,7 +525,7 @@ class ImageCollection(Collection):
             If requested bands are unavailable, or band names are not given
             or are invalid.
             If not all required parameters are specified in the
-            :class:`~earthone.common.geo.geocontext.GeoContext`.
+            :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext`.
             If the ImageCollection is empty.
         NotFoundError
             If a Image's ID cannot be found in the EarthOne catalog
@@ -642,8 +642,8 @@ class ImageCollection(Collection):
             Band names to load. Can be a single string of band names
             separated by spaces (``"red green blue"``),
             or a sequence of band names (``["red", "green", "blue"]``).
-        geocontext : :class:`~earthone.common.geo.geocontext.GeoContext`, default None
-            A :class:`~earthone.common.geo.geocontext.GeoContext` to use when loading each image.
+        geocontext : :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext`, default None
+            A :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext` to use when loading each image.
             If ``None`` then the default context of the collection will be used. If
             this is ``None``, a ValueError is raised.
         crs : str, default None
@@ -735,7 +735,7 @@ class ImageCollection(Collection):
             If requested bands are unavailable, or band names are not given
             or are invalid.
             If not all required parameters are specified in the
-            :class:`~earthone.common.geo.geocontext.GeoContext`.
+            :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext`.
             If the ImageCollection is empty.
             If ``dest`` is a sequence not equal in length to the ImageCollection.
             If ``format`` is invalid, or a path has an invalid extension.
@@ -876,8 +876,8 @@ class ImageCollection(Collection):
             Band names to load. Can be a single string of band names
             separated by spaces (``"red green blue"``),
             or a sequence of band names (``["red", "green", "blue"]``).
-        geocontext : :class:`~earthone.common.geo.geocontext.GeoContext`, default None
-            A :class:`~earthone.common.geo.geocontext.GeoContext` to use when loading each image.
+        geocontext : :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext`, default None
+            A :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext` to use when loading each image.
             If ``None`` then the default context of the collection will be used. If
             this is ``None``, a ValueError is raised.
         crs : str, default None
@@ -955,7 +955,7 @@ class ImageCollection(Collection):
             If requested bands are unavailable, or band names are not given
             or are invalid.
             If not all required parameters are specified in the
-            :class:`~earthone.common.geo.geocontext.GeoContext`.
+            :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext`.
             If the ImageCollection is empty.
             If ``format`` is invalid, or the path has an invalid extension.
         NotFoundError
@@ -1057,7 +1057,7 @@ class ImageCollection(Collection):
         -------
         scales : list(tuple)
             The fully specified scaling parameter, compatible with the
-            :class:`~earthone.client.services.raster.Raster` API and the
+            :class:`~earthdaily.earthone.client.services.raster.Raster` API and the
             output data type.
         data_type : str
             The result data type as a standard GDAL type string.

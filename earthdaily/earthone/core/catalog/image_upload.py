@@ -273,8 +273,8 @@ class ImageUploadEvent(MappingAttribute):
 
 class ImageUpload(CatalogObjectBase):
     """The status object returned when you upload an image using
-    :py:meth:`~earthone.catalog.Image.upload` or
-    :py:meth:`~earthone.catalog.Image.upload_ndarray`.
+    :py:meth:`~earthdaily.earthone.catalog.Image.upload` or
+    :py:meth:`~earthdaily.earthone.catalog.Image.upload_ndarray`.
     """
 
     _POLLING_INTERVALS = [1, 1, 1, 1, 1, 5, 10, 10, 30, 60]
@@ -303,7 +303,7 @@ class ImageUpload(CatalogObjectBase):
         mutable=False,
         doc="""str: Product id of the product for this imagery.
 
-        The product id for the `~earthone.catalog.Product` to which this imagery
+        The product id for the `~earthdaily.earthone.catalog.Product` to which this imagery
         will be uploaded.
 
         *Filterable, sortable*.
@@ -314,7 +314,7 @@ class ImageUpload(CatalogObjectBase):
         mutable=False,
         doc="""str: Image id of the image for this imagery.
 
-        The image id for the `~earthone.catalog.Image` to which this imagery will
+        The image id for the `~earthdaily.earthone.catalog.Image` to which this imagery will
         be uploaded.  This is identical to `image`.id.
 
         *Filterable*.
@@ -326,7 +326,7 @@ class ImageUpload(CatalogObjectBase):
         mutable=False,
         serializable=True,
         sticky=True,
-        doc="""~earthone.catalog.Image: Image instance with all desired metadata fields.
+        doc="""~earthdaily.earthone.catalog.Image: Image instance with all desired metadata fields.
 
         Note that any values will override those determined from the image files
         themselves.
@@ -406,7 +406,7 @@ class ImageUpload(CatalogObjectBase):
 
         Returns
         -------
-        :class:`~earthone.catalog.search.Search`
+        :class:`~earthdaily.earthone.catalog.search.Search`
             An instance of the `Search` class
 
         Example
@@ -479,7 +479,7 @@ class ImageUpload(CatalogObjectBase):
         """Reload all attributes from the EarthOne catalog.
 
         Refresh the state of this upload object.  The instance
-        state must be in the `~earthone.catalog.DocumentState.SAVED` state.
+        state must be in the `~earthdaily.earthone.catalog.DocumentState.SAVED` state.
         If the status changes to ``ImageUploadStatus.SUCCESS`` then the `image`
         instance is also reloaded so that it contains the full state of the newly
         loaded image.

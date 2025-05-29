@@ -690,10 +690,10 @@ class Property(object):
 
     Although you can generate filter properties by instantiating this class, a more
     convenient method is to use a
-    :py:class:`~earthone.common.property_filtering.filtering.Properties`
+    :py:class:`~earthdaily.earthone.common.property_filtering.filtering.Properties`
     instance.
     By referencing any attribute of a
-    :py:class:`~earthone.common.property_filtering.filtering.Properties`
+    :py:class:`~earthdaily.earthone.common.property_filtering.filtering.Properties`
     instance the corresponding filter property
     will be created.
 

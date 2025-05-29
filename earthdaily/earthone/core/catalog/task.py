@@ -96,7 +96,7 @@ class TaskStatus(object):
 
         Raises
         ------
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """

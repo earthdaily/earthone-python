@@ -117,14 +117,14 @@ class ImageSearch(SummarySearchMixin, GeoSearch):
 
         Returns
         -------
-        ~earthone.catalog.ImageCollection
+        ~earthdaily.earthone.catalog.ImageCollection
             ImageCollection of Images returned from the search.
 
         Raises
         ------
         BadRequestError
             If any of the query parameters or filters are invalid
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -142,15 +142,15 @@ class Image(NamedCatalogObject):
     Instantiating an image indicates that you want to create a *new* EarthOne
     catalog image.  If you instead want to retrieve an existing catalog image use
     `Image.get() <earthone.catalog.Image.get>`, or if you're not sure use
-    `Image.get_or_create() <~earthone.catalog.Image.get_or_create>`.  You
+    `Image.get_or_create() <~earthdaily.earthone.catalog.Image.get_or_create>`.  You
     can also use `Image.search() <earthone.catalog.Image.search>`.  Also
-    see the example for :py:meth:`~earthone.catalog.Image.save`.
+    see the example for :py:meth:`~earthdaily.earthone.catalog.Image.save`.
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the EarthOne catalog.
-        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict
         With the exception of readonly attributes (`created`, `modified`) and with the
@@ -457,7 +457,7 @@ class Image(NamedCatalogObject):
     @property
     def geocontext(self):
         """
-        `~earthone.common.geo.AOI`: A geocontext for loading this Image's original, unwarped data.
+        `~earthdaily.earthone.common.geo.AOI`: A geocontext for loading this Image's original, unwarped data.
 
         These defaults are used:
 
@@ -470,11 +470,11 @@ class Image(NamedCatalogObject):
 
         .. note::
 
-            Using this :class:`~earthone.common.geo.GeoContext` will only
+            Using this :class:`~earthdaily.earthone.common.geo.GeoContext` will only
             return original, unwarped data if the Image is axis-aligned ("north-up")
             within the CRS. If its ``geotrans`` applies a rotation, a warning will be raised.
             In that case, use `Raster.ndarray` or `Raster.raster` to retrieve
-            original data. (The :class:`~earthone.common.geo.GeoContext`
+            original data. (The :class:`~earthdaily.earthone.common.geo.GeoContext`
             paradigm requires bounds for consistency, which are inherently axis-aligned.)
         """
         if self._geocontext is None:
@@ -548,11 +548,11 @@ class Image(NamedCatalogObject):
     def search(cls, client=None, request_params=None, headers=None):
         """A search query for all images.
 
-        Return an `~earthone.catalog.ImageSearch` instance for searching
+        Return an `~earthdaily.earthone.catalog.ImageSearch` instance for searching
         images in the EarthOne catalog.  This instance extends the
-        :py:class:`~earthone.catalog.Search` class with the
-        :py:meth:`~earthone.catalog.ImageSearch.summary` and
-        :py:meth:`~earthone.catalog.ImageSearch.summary_interval` methods
+        :py:class:`~earthdaily.earthone.catalog.Search` class with the
+        :py:meth:`~earthdaily.earthone.catalog.ImageSearch.summary` and
+        :py:meth:`~earthdaily.earthone.catalog.ImageSearch.summary_interval` methods
         which return summary statistics about the images that match the search query.
 
         Parameters
@@ -563,8 +563,8 @@ class Image(NamedCatalogObject):
 
         Returns
         -------
-        :class:`~earthone.catalog.ImageSearch`
-            An instance of the `~earthone.catalog.ImageSearch` class
+        :class:`~earthdaily.earthone.catalog.ImageSearch`
+            An instance of the `~earthdaily.earthone.catalog.ImageSearch` class
 
         Example
         -------
@@ -585,7 +585,7 @@ class Image(NamedCatalogObject):
         Uploads imagery from a file (or files) in GeoTIFF or JP2 format to be ingested
         as an Image.
 
-        The Image must be in the state `~earthone.catalog.DocumentState.UNSAVED`.
+        The Image must be in the state `~earthdaily.earthone.catalog.DocumentState.UNSAVED`.
         The `product` or `product_id` attribute, the `name` attribute, and the
         `acquired` attribute must all be set. If either the `cs_code` or `projection`
         attributes is set (deprecated), it must agree with the projection defined in the file,
@@ -597,20 +597,20 @@ class Image(NamedCatalogObject):
             File or files to be uploaded.  Can be string with path to the file in the
             local filesystem, or an opened file (``io.IOBase``), or an iterable of
             either of these when multiple files make up the image.
-        upload_options : `~earthone.catalog.ImageUploadOptions`, optional
+        upload_options : `~earthdaily.earthone.catalog.ImageUploadOptions`, optional
             Control of the upload process.
         overwrite : bool, optional
             If True, then permit overwriting of an existing image with the same id
             in the catalog. Defaults to False. Note that in all cases, the image
-            object must have a state of `~earthone.catalog.DocumentState.UNSAVED`.
+            object must have a state of `~earthdaily.earthone.catalog.DocumentState.UNSAVED`.
             USE WITH CAUTION: This can cause data cache inconsistencies in the platform,
             and should only be used for infrequent needs to update the image file
             contents. You can expect inconsistencies to endure for a period afterwards.
 
         Returns
         -------
-        :py:class:`~earthone.catalog.ImageUpload`
-            An `~earthone.catalog.ImageUpload` instance which can
+        :py:class:`~earthdaily.earthone.catalog.ImageUpload`
+            An `~earthdaily.earthone.catalog.ImageUpload` instance which can
             be used to check the status or wait on the asynchronous upload process to
             complete.
 
@@ -692,7 +692,7 @@ class Image(NamedCatalogObject):
     ):
         """Uploads imagery from an ndarray to be ingested as an Image.
 
-        The Image must be in the state `~earthone.catalog.DocumentState.UNSAVED`.
+        The Image must be in the state `~earthdaily.earthone.catalog.DocumentState.UNSAVED`.
         The `product` or `product_id` attribute, the `name` attribute, and the
         `acquired` attribute must all be set. Either (but not both) the `cs_code`
         or `projection` attributes must be set, or the `raster_meta` parameter must be provided.
@@ -715,7 +715,7 @@ class Image(NamedCatalogObject):
             also be one of the following:
             [``uint8``, ``int8``, ``uint16``, ``int16``, ``uint32``, ``int32``,
             ``float32``, ``float64``]
-        upload_options : :py:class:`~earthone.catalog.ImageUploadOptions`, optional
+        upload_options : :py:class:`~earthdaily.earthone.catalog.ImageUploadOptions`, optional
             Control of the upload process.
         raster_meta : dict, optional
             Metadata returned from the :meth:`Raster.ndarray()
@@ -735,7 +735,7 @@ class Image(NamedCatalogObject):
         overwrite : bool, optional
             If True, then permit overwriting of an existing image with the same id
             in the catalog. Defaults to False. Note that in all cases, the image
-            object must have a state of `~earthone.catalog.DocumentState.UNSAVED`.
+            object must have a state of `~earthdaily.earthone.catalog.DocumentState.UNSAVED`.
             USE WITH CAUTION: This can cause data cache inconsistencies in the platform,
             and should only be used for infrequent needs to update the image file
             contents. You can expect inconsistencies to endure for a period afterwards.
@@ -749,8 +749,8 @@ class Image(NamedCatalogObject):
 
         Returns
         -------
-        :py:class:`~earthone.catalog.ImageUpload`
-            An `~earthone.catalog.ImageUpload` instance which can
+        :py:class:`~earthdaily.earthone.catalog.ImageUpload`
+            An `~earthdaily.earthone.catalog.ImageUpload` instance which can
             be used to check the status or wait on the asynchronous upload process to
             complete.
         """
@@ -893,8 +893,8 @@ class Image(NamedCatalogObject):
 
         Returns
         -------
-        :py:class:`~earthone.catalog.Search`
-            A :py:class:`~earthone.catalog.Search` instance configured to
+        :py:class:`~earthdaily.earthone.catalog.Search`
+            A :py:class:`~earthdaily.earthone.catalog.Search` instance configured to
             find all uploads for this image.
         """
         from .image_upload import ImageUpload
@@ -941,7 +941,7 @@ class Image(NamedCatalogObject):
 
         Parameters
         ----------
-        geom : GeoJSON-like dict, :class:`~earthone.common.geo.geocontext.GeoContext`, or object with __geo_interface__
+        geom : GeoJSON-like dict, :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext`, or object with __geo_interface__
             Geometry to which to compare this Image's geometry
 
         Returns
@@ -1007,8 +1007,8 @@ class Image(NamedCatalogObject):
             Names must be keys in ``self.properties.bands``.
             If the alpha band is requested, it must be last in the list
             to reduce rasterization errors.
-        geocontext : :class:`~earthone.common.geo.geocontext.GeoContext`, default None
-            A :class:`~earthone.common.geo.geocontext.GeoContext` to use when loading this Image.
+        geocontext : :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext`, default None
+            A :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext` to use when loading this Image.
             If ``None`` then the default geocontext of the image will be used.
         crs : str, default None
             if not None, update the gecontext with this value to set the output CRS.
@@ -1257,8 +1257,8 @@ class Image(NamedCatalogObject):
             separated by spaces (``"red green blue"``),
             or a sequence of band names (``["red", "green", "blue"]``).
             Names must be keys in ``self.properties.bands``.
-        geocontext : :class:`~earthone.common.geo.geocontext.GeoContext`, default None
-            A :class:`~earthone.common.geo.geocontext.GeoContext` to use when loading this image.
+        geocontext : :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext`, default None
+            A :class:`~earthdaily.earthone.common.geo.geocontext.GeoContext` to use when loading this image.
             If ``None`` then use the default context for the image.
         crs : str, default None
             if not None, update the gecontext with this value to set the output CRS.
@@ -1445,7 +1445,7 @@ class Image(NamedCatalogObject):
         -------
         scales : list(tuple)
             The fully specified scaling parameter, compatible with the
-            :class:`~earthone.client.services.raster.Raster` API and the
+            :class:`~earthdaily.earthone.client.services.raster.Raster` API and the
             output data type.
         data_type : str
             The result data type as a standard GDAL type string.

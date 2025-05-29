@@ -130,7 +130,7 @@ class NamedCatalogObject(CatalogObject):
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the EarthOne catalog.
-        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
         With the exception of readonly attributes (`created`, `modified`) and with the

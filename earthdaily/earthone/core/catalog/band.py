@@ -443,22 +443,22 @@ class Band(NamedCatalogObject):
     classes.
 
     Common attributes:
-    :attr:`~earthone.catalog.GenericBand.id`,
-    :attr:`~earthone.catalog.GenericBand.name`,
-    :attr:`~earthone.catalog.GenericBand.product_id`,
-    :attr:`~earthone.catalog.GenericBand.description`,
-    :attr:`~earthone.catalog.GenericBand.type`,
-    :attr:`~earthone.catalog.GenericBand.sort_order`,
-    :attr:`~earthone.catalog.GenericBand.vendor_order`,
-    :attr:`~earthone.catalog.GenericBand.data_type`,
-    :attr:`~earthone.catalog.GenericBand.nodata`,
-    :attr:`~earthone.catalog.GenericBand.data_range`,
-    :attr:`~earthone.catalog.GenericBand.display_range`,
-    :attr:`~earthone.catalog.GenericBand.resolution`,
-    :attr:`~earthone.catalog.GenericBand.band_index`,
-    :attr:`~earthone.catalog.GenericBand.file_index`,
-    :attr:`~earthone.catalog.GenericBand.jpx_layer_index`.
-    :attr:`~earthone.catalog.GenericBand.vendor_band_name`.
+    :attr:`~earthdaily.earthone.catalog.GenericBand.id`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.name`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.product_id`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.description`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.type`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.sort_order`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.vendor_order`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.data_type`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.nodata`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.data_range`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.display_range`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.resolution`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.band_index`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.file_index`,
+    :attr:`~earthdaily.earthone.catalog.GenericBand.jpx_layer_index`.
+    :attr:`~earthdaily.earthone.catalog.GenericBand.vendor_band_name`.
 
     To create a new band instantiate one of those specialized classes:
 
@@ -638,7 +638,7 @@ class Band(NamedCatalogObject):
         """A search query for all bands.
 
         Returns an instance of the
-        :py:class:`~earthone.catalog.Search` class configured for
+        :py:class:`~earthdaily.earthone.catalog.Search` class configured for
         searching bands.  Call this on the :py:class:`Band` base class to search all
         types of bands or classes :py:class:`SpectralBand`, :py:class:`MicrowaveBand`,
         :py:class:`MaskBand`, :py:class:`ClassBand` and :py:class:`GenericBand` to search
@@ -653,8 +653,8 @@ class Band(NamedCatalogObject):
 
         Returns
         -------
-        :py:class:`~earthone.catalog.Search`
-            An instance of the :py:class:`~earthone.catalog.Search` class
+        :py:class:`~earthdaily.earthone.catalog.Search`
+            An instance of the :py:class:`~earthdaily.earthone.catalog.Search` class
         """
         search = super(Band, cls).search(
             client, request_params=request_params, headers=headers
@@ -681,13 +681,13 @@ class SpectralBand(Band):
     you're not sure use `SpectralBand.get_or_create()
     <earthone.catalog.SpectralBand.get_or_create>`.  You can also use
     `Band.search() <earthone.catalog.Band.search>`.  Also see the example
-    for :py:meth:`~earthone.catalog.Band.save`.
+    for :py:meth:`~earthdaily.earthone.catalog.Band.save`.
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the EarthOne catalog.
-        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
         With the exception of readonly attributes (`created`, `modified`) and with the
@@ -741,13 +741,13 @@ class MicrowaveBand(Band):
     you're not sure use `MicrowaveBand.get_or_create()
     <earthone.catalog.MicrowaveBand.get_or_create>`.  You can also use
     `Band.search() <earthone.catalog.Band.search>`.  Also see the example
-    for :py:meth:`~earthone.catalog.Band.save`.
+    for :py:meth:`~earthdaily.earthone.catalog.Band.save`.
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the EarthOne catalog.
-        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
         With the exception of readonly attributes (`created`, `modified`) and with the
@@ -791,13 +791,13 @@ class MaskBand(Band):
     you're not sure use `MaskBand.get_or_create()
     <earthone.catalog.MaskBand.get_or_create>`.  You can also use
     `Band.search() <earthone.catalog.Band.search>`.  Also see the example
-    for :py:meth:`~earthone.catalog.Band.save`.
+    for :py:meth:`~earthdaily.earthone.catalog.Band.save`.
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the EarthOne catalog.
-        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
         With the exception of readonly attributes (`created`, `modified`) and with the
@@ -836,13 +836,13 @@ class ClassBand(Band):
     you're not sure use `ClassBand.get_or_create()
     <earthone.catalog.ClassBand.get_or_create>`.  You can also use
     `Band.search() <earthone.catalog.Band.search>`.  Also see the example
-    for :py:meth:`~earthone.catalog.Band.save`.
+    for :py:meth:`~earthdaily.earthone.catalog.Band.save`.
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the EarthOne catalog.
-        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
         With the exception of readonly attributes (`created`, `modified`) and with the
@@ -876,13 +876,13 @@ class GenericBand(Band):
     you're not sure use `GenericBand.get_or_create()
     <earthone.catalog.GenericBand.get_or_create>`.  You can also use
     `Band.search() <earthone.catalog.Band.search>`.  Also see the example
-    for :py:meth:`~earthone.catalog.Band.save`.
+    for :py:meth:`~earthdaily.earthone.catalog.Band.save`.
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the EarthOne catalog.
-        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict, optional
         With the exception of readonly attributes (`created`, `modified`) and with the

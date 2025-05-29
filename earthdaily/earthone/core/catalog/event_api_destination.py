@@ -71,7 +71,7 @@ class EventApiDestination(AuthCatalogObject):
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the EarthOne catalog.
-        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict
         With the exception of readonly attributes (`created` and `modified`)
@@ -252,7 +252,7 @@ class EventApiDestination(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
@@ -298,8 +298,8 @@ class EventApiDestination(AuthCatalogObject):
         """Get an existing EventApiDestination from the EarthOne catalog.
 
         If the EventApiDestination is found, it will be returned in the
-        `~earthone.catalog.DocumentState.SAVED` state.  Subsequent changes will
-        put the instance in the `~earthone.catalog.DocumentState.MODIFIED` state,
+        `~earthdaily.earthone.catalog.DocumentState.SAVED` state.  Subsequent changes will
+        put the instance in the `~earthdaily.earthone.catalog.DocumentState.MODIFIED` state,
         and you can use :py:meth:`save` to commit those changes and update the EarthOne
         catalog object.  Also see the example for :py:meth:`save`.
 
@@ -321,18 +321,18 @@ class EventApiDestination(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
         -------
-        :py:class:`~earthone.catalog.CatalogObject` or None
+        :py:class:`~earthdaily.earthone.catalog.CatalogObject` or None
             The object you requested, or ``None`` if an object with the given `id`
             does not exist in the EarthOne catalog.
 
         Raises
         ------
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -357,14 +357,14 @@ class EventApiDestination(AuthCatalogObject):
 
         If the EarthOne catalog object is found, and the remainder of the
         arguments do not differ from the values in the retrieved instance, it will be
-        returned in the `~earthone.catalog.DocumentState.SAVED` state.
+        returned in the `~earthdaily.earthone.catalog.DocumentState.SAVED` state.
 
         If the EarthOne catalog object is found, and the remainder of the
         arguments update one or more values in the instance, it will be returned in
-        the `~earthone.catalog.DocumentState.MODIFIED` state.
+        the `~earthdaily.earthone.catalog.DocumentState.MODIFIED` state.
 
         If the EarthOne catalog object is not found, it will be created and the
-        state will be `~earthone.catalog.DocumentState.UNSAVED`.  Also see the
+        state will be `~earthdaily.earthone.catalog.DocumentState.UNSAVED`.  Also see the
         example for :py:meth:`save`.
 
         Parameters
@@ -381,7 +381,7 @@ class EventApiDestination(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
         kwargs : dict, optional
             With the exception of readonly attributes (`created`, `modified`), any
@@ -390,7 +390,7 @@ class EventApiDestination(AuthCatalogObject):
 
         Returns
         -------
-        :py:class:`~earthone.catalog.CatalogObject`
+        :py:class:`~earthdaily.earthone.catalog.CatalogObject`
             The requested catalog object that was retrieved or created.
 
         """
@@ -410,7 +410,7 @@ class EventApiDestination(AuthCatalogObject):
     def search(cls, client=None, request_params=None, headers=None):
         """A search query for all event api destinations.
 
-        Return an `~earthone.catalog.EventApiDestinationSearch` instance for searching
+        Return an `~earthdaily.earthone.catalog.EventApiDestinationSearch` instance for searching
         event api destinations in the EarthOne catalog.
 
         Parameters
@@ -421,8 +421,8 @@ class EventApiDestination(AuthCatalogObject):
 
         Returns
         -------
-        :class:`~earthone.catalog.EventApiDestinationSearch`
-            An instance of the `~earthone.catalog.EventApiDestinationSearch` class
+        :class:`~earthdaily.earthone.catalog.EventApiDestinationSearch`
+            An instance of the `~earthdaily.earthone.catalog.EventApiDestinationSearch` class
 
         Example
         -------

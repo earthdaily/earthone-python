@@ -40,14 +40,14 @@ class Product(AuthCatalogObject):
     `Product.get() <earthone.catalog.Product.get>`, or if you're not sure
     use `Product.get_or_create() <earthone.catalog.Product.get_or_create>`.
     You can also use `Product.search() <earthone.catalog.Product.search>`.
-    Also see the example for :py:meth:`~earthone.catalog.Product.save`.
+    Also see the example for :py:meth:`~earthdaily.earthone.catalog.Product.save`.
 
 
     Parameters
     ----------
     client : CatalogClient, optional
         A `CatalogClient` instance to use for requests to the EarthOne catalog.
-        The :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+        The :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
         be used if not set.
     kwargs : dict
         With the exception of readonly attributes (`created`, `modified`,
@@ -177,13 +177,13 @@ class Product(AuthCatalogObject):
     )
 
     def named_id(self, name):
-        """Return the ~earthone.catalog.NamedCatalogObject.id` for the given named catalog object.
+        """Return the ~earthdaily.earthone.catalog.NamedCatalogObject.id` for the given named catalog object.
 
         Parameters
         ----------
         name : str
             The name of the catalog object within this product, see
-            :py:attr:`~earthone.catalog.NamedCatalogObject.name`.
+            :py:attr:`~earthdaily.earthone.catalog.NamedCatalogObject.name`.
 
         Returns
         -------
@@ -203,7 +203,7 @@ class Product(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
@@ -233,12 +233,12 @@ class Product(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns
         -------
-        ~earthone.catalog.Image or None
+        ~earthdaily.earthone.catalog.Image or None
             The requested image if found, or ``None`` if not found.
 
         """
@@ -272,7 +272,7 @@ class Product(AuthCatalogObject):
             If a deletion process is already in progress.
         DeletedObjectError
             If this product was deleted.
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -303,7 +303,7 @@ class Product(AuthCatalogObject):
         ------
         DeletedObjectError
             If this product was deleted.
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -322,8 +322,8 @@ class Product(AuthCatalogObject):
 
         Returns
         -------
-        :py:class:`~earthone.catalog.Search`
-            A :py:class:`~earthone.catalog.Search` instance configured to
+        :py:class:`~earthdaily.earthone.catalog.Search`
+            A :py:class:`~earthdaily.earthone.catalog.Search` instance configured to
             find all bands for this product.
 
         Raises
@@ -348,8 +348,8 @@ class Product(AuthCatalogObject):
 
         Returns
         -------
-        :py:class:`~earthone.catalog.Search`
-            A :py:class:`~earthone.catalog.Search` instance configured to
+        :py:class:`~earthdaily.earthone.catalog.Search`
+            A :py:class:`~earthdaily.earthone.catalog.Search` instance configured to
             find all images in this product.
 
         Raises
@@ -370,8 +370,8 @@ class Product(AuthCatalogObject):
 
         Returns
         -------
-        :py:class:`~earthone.catalog.Search`
-            A :py:class:`~earthone.catalog.Search` instance configured to
+        :py:class:`~earthdaily.earthone.catalog.Search`
+            A :py:class:`~earthdaily.earthone.catalog.Search` instance configured to
             find all uploads in this product.
 
         Raises
@@ -397,7 +397,7 @@ class Product(AuthCatalogObject):
         client : CatalogClient, optional
             A `CatalogClient` instance to use for requests to the EarthOne
             catalog.  The
-            :py:meth:`~earthone.catalog.CatalogClient.get_default_client` will
+            :py:meth:`~earthdaily.earthone.catalog.CatalogClient.get_default_client` will
             be used if not set.
 
         Returns

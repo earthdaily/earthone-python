@@ -43,7 +43,7 @@ class Search(object):
 
     You must use the `Search` object as an ``iterator`` to get the results.  This will
     execute the search query and return a generator for iterating through the returned
-    results.  This might raise a `~earthone.exceptions.BadRequestError`
+    results.  This might raise a `~earthdaily.earthone.exceptions.BadRequestError`
     if any of the query parameters or filters are invalid.
 
     Example
@@ -138,19 +138,19 @@ class Search(object):
             <earthone.common.property_filtering.filtering.Properties>`.
             You can construct filter expressions using the ``==``, ``!=``, ``<``,
             ``>``, ``<=`` and ``>=`` operators as well as the
-            :meth:`~earthone.common.property_filtering.filtering.Property.in_`
+            :meth:`~earthdaily.earthone.common.property_filtering.filtering.Property.in_`
             or
-            :meth:`~earthone.common.property_filtering.filtering.Property.any_of`
+            :meth:`~earthdaily.earthone.common.property_filtering.filtering.Property.any_of`
             method.  You cannot use the boolean keywords ``and`` and ``or`` because
             of Python language limitations; instead combine filter expressions using
             ``&`` (boolean "and") and ``|`` (boolean "or").  Filters using
-            :meth:`~earthone.common.property_filtering.filtering.Property.like`
+            :meth:`~earthdaily.earthone.common.property_filtering.filtering.Property.like`
             are not supported.
 
         Returns
         -------
         Search
-            A new :py:class:`~earthone.catalog.Search` instance with the
+            A new :py:class:`~earthdaily.earthone.catalog.Search` instance with the
             new filter(s) applied (using ``and`` if there were existing filters)
 
         Raises
@@ -207,7 +207,7 @@ class Search(object):
         Returns
         -------
         Search
-            A new instance of the :py:class:`~earthone.catalog.Search`
+            A new instance of the :py:class:`~earthdaily.earthone.catalog.Search`
             class that includes the text query.
         """
         s = copy.deepcopy(self)
@@ -282,7 +282,7 @@ class Search(object):
         ------
         BadRequestError
             If any of the query parameters or filters are invalid
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
 
@@ -306,14 +306,14 @@ class Search(object):
 
         Returns
         -------
-        ~earthone.common.collection.Collection
+        ~earthdaily.earthone.common.collection.Collection
             Collection of objects that match the type of document beng searched.
 
         Raises
         ------
         BadRequestError
             If any of the query parameters or filters are invalid
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
         """
@@ -335,7 +335,7 @@ class Search(object):
         ------
         BadRequestError
             If any of the query parameters or filters are invalid
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
 
@@ -482,13 +482,13 @@ class GeoSearch(Search):
 
         Parameters
         ----------
-        geometry : shapely.geometry.base.BaseGeometry, ~earthone.common.geo.GeoContext, geojson-like Geometry that found images must intersect.
+        geometry : shapely.geometry.base.BaseGeometry, ~earthdaily.earthone.common.geo.GeoContext, geojson-like Geometry that found images must intersect.
         match_null_geometry : bool, optional (default False) Also match images or blobs with no geometry.
 
         Returns
         -------
         Search
-            A new instance of the :py:class:`~earthone.catalog.GeoSearch`
+            A new instance of the :py:class:`~earthdaily.earthone.catalog.GeoSearch`
             class that includes geometry filter.
         """  # noqa: E501
         s = copy.deepcopy(self)
@@ -547,7 +547,7 @@ class SummarySearchMixin(Search):
 
         Raises
         ------
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
 
@@ -611,7 +611,7 @@ class SummarySearchMixin(Search):
 
         Raises
         ------
-        ~earthone.exceptions.ClientError or ~earthone.exceptions.ServerError
+        ~earthdaily.earthone.exceptions.ClientError or ~earthdaily.earthone.exceptions.ServerError
             :ref:`Spurious exception <network_exceptions>` that can occur during a
             network request.
 

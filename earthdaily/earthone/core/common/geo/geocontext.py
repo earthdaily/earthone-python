@@ -208,15 +208,15 @@ class AOI(GeoContext):
             native resolution and projection.
         bounds: 4-tuple, optional
             Clip imagery to these ``(min_x, min_y, max_x, max_y)`` bounds,
-            expressed in :py:attr:`~earthone.common.geo.geocontext.AOI.bounds_crs`
+            expressed in :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.bounds_crs`
             (which defaults to WGS84 lat-lon).
-            :py:attr:`~earthone.common.geo.geocontext.AOI.bounds`
+            :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.bounds`
             are automatically computed from `geometry` if not specified.
             Otherwise,
-            :py:attr:`~earthone.common.geo.geocontext.AOI.bounds` are required.
+            :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.bounds` are required.
         bounds_crs: str, optional, default "EPSG:4326"
             The Coordinate Reference System of the
-            :py:attr:`~earthone.common.geo.geocontext.AOI.bounds`,
+            :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.bounds`,
             given as an EPSG code (like :const:`EPSG:4326`), a PROJ.4 definition,
             or an OGC CRS Well-Known Text string.
         shape: 2-tuple, optional
@@ -257,7 +257,7 @@ class AOI(GeoContext):
         shapely geometry: Clip imagery to this geometry
         Coordinates must be WGS84 (lat-lon).
         If :const:`None`, imagery will just be clipped to
-        :py:attr:`~earthone.common.geo.geocontext.AOI.bounds`.
+        :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.bounds`.
         """
 
         return self._geometry
@@ -312,7 +312,7 @@ class AOI(GeoContext):
         """
         tuple: Clip imagery to these ``(min_x, min_y, max_x, max_y)`` bounds,
         expressed in the coordinate reference system in
-        :py:attr:`~earthone.common.geo.geocontext.AOI.bounds_crs`.
+        :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.bounds_crs`.
         """
 
         return self._bounds
@@ -321,7 +321,7 @@ class AOI(GeoContext):
     def bounds_crs(self):
         """
         str: The coordinate reference system of the
-        :py:attr:`~earthone.common.geo.geocontext.AOI.bounds`,
+        :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.bounds`,
         given as an EPSG code (like :const:`EPSG:4326`), a PROJ.4 definition,
         or an OGC CRS Well-Known Text string.
         """
@@ -342,12 +342,12 @@ class AOI(GeoContext):
         """
         dict: The properties of this `AOI`,
         as keyword arguments to use for
-        :class:`~earthone.client.services.raster.raster.Raster.ndarray` or
-        :class:`~earthone.client.services.raster.raster.Raster.raster`.
+        :class:`~earthdaily.earthone.client.services.raster.raster.Raster.ndarray` or
+        :class:`~earthdaily.earthone.client.services.raster.raster.Raster.raster`.
 
         Raises ValueError if
-        :py:attr:`~earthone.common.geo.geocontext.AOI.bounds`, `crs`,
-        :py:attr:`~earthone.common.geo.geocontext.AOI.bounds_crs`,
+        :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.bounds`, `crs`,
+        :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.bounds_crs`,
         `resolution`, or `align_pixels` is :const:`None`.
         """
 
@@ -386,13 +386,13 @@ class AOI(GeoContext):
     @property
     def __geo_interface__(self):
         """
-        dict: :py:attr:`~earthone.common.geo.geocontext.AOI.geometry` as a GeoJSON Geometry dict,
+        dict: :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.geometry` as a GeoJSON Geometry dict,
         otherwise
-        :py:attr:`~earthone.common.geo.geocontext.AOI.bounds`
+        :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.bounds`
         as a GeoJSON Polygon dict if
-        :py:attr:`~earthone.common.geo.geocontext.AOI.geometry` is
+        :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.geometry` is
         :const:`None` and
-        :py:attr:`~earthone.common.geo.geocontext.AOI.bounds_crs`
+        :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.bounds_crs`
         is :const:`EPSG:4326`, otherwise
         raises :exc:`RuntimeError`.
         """
@@ -425,15 +425,15 @@ class AOI(GeoContext):
         ----
             If you are assigning a new geometry and want bounds to updated as
             well, use ``bounds="update"``. This will also change
-            :py:attr:`~earthone.common.geo.geocontext.AOI.bounds_crs`
+            :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.bounds_crs`
             to :const:`EPSG:4326`, since the geometry's coordinates are in WGS84
             decimal degrees, so the new bounds determined from those coordinates
             must be in that CRS as well.
 
             If you assign
-            :py:attr:`~earthone.common.geo.geocontext.AOI.geometry`
+            :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.geometry`
             without changing
-            :py:attr:`~earthone.common.geo.geocontext.AOI.bounds`,
+            :py:attr:`~earthdaily.earthone.common.geo.geocontext.AOI.bounds`,
             the new AOI GeoContext will produce rasters with the same
             shape and covering the same spatial area as the old one, just with
             pixels masked out that fall outside your new geometry.
@@ -1197,7 +1197,7 @@ class DLTile(GeoContext):
         """
         tuple: The ``(min_x, min_y, max_x, max_y)`` of the area covered by
         this DLTile, in the UTM coordinate reference system given in
-        :py:attr:`~earthone.common.geo.geocontext.DLTile.bounds_crs`.
+        :py:attr:`~earthdaily.earthone.common.geo.geocontext.DLTile.bounds_crs`.
         """
 
         return self._bounds
@@ -1206,7 +1206,7 @@ class DLTile(GeoContext):
     def bounds_crs(self):
         """
         str: The coordinate reference system of the
-        :py:attr:`~earthone.common.geo.geocontext.DLTile.bounds`,
+        :py:attr:`~earthdaily.earthone.common.geo.geocontext.DLTile.bounds`,
         given as an EPSG code (like :const:`EPSG:32615`).
         A DLTile's CRS is always UTM.
         """
@@ -1291,7 +1291,7 @@ class DLTile(GeoContext):
 
     @property
     def __geo_interface__(self):
-        """dict: :py:attr:`~earthone.common.geo.geocontext.DLTile.geometry` as a GeoJSON Polygon"""
+        """dict: :py:attr:`~earthdaily.earthone.common.geo.geocontext.DLTile.geometry` as a GeoJSON Polygon"""
 
         return self._geometry.__geo_interface__
 
@@ -1390,7 +1390,7 @@ class XYZTile(GeoContext):
     def bounds_crs(self):
         """
         str: The coordinate reference system of the
-        :py:attr:`~earthone.common.geo.geocontext.XYZTile.bounds`.
+        :py:attr:`~earthdaily.earthone.common.geo.geocontext.XYZTile.bounds`.
         Always :const:`EPSG:3857` (spherical Mercator, aka "Web Mercator")
         """
 
@@ -1415,7 +1415,7 @@ class XYZTile(GeoContext):
 
     @property
     def __geo_interface__(self):
-        "dict: :py:attr:`~earthone.common.geo.geocontext.XYZTile.geometry` as a GeoJSON Polygon"
+        "dict: :py:attr:`~earthdaily.earthone.common.geo.geocontext.XYZTile.geometry` as a GeoJSON Polygon"
 
         return self.geometry.__geo_interface__
 

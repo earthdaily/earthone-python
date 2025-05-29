@@ -126,22 +126,22 @@ class Collection(Generic[T]):
     def each(self):
         """
         Any operations chained onto
-        :attr:`~earthone.common.collection.Collection.each` (attribute access,
+        :attr:`~earthdaily.earthone.common.collection.Collection.each` (attribute access,
         item access, and calls) are applied to each item in the
-        :class:`~earthone.common.collection.Collection`.
+        :class:`~earthdaily.earthone.common.collection.Collection`.
 
         Yields
         ------
         Any
             The result of an item with all operations following
-            :attr:`~earthone.common.collection.Collection.each` applied to it.
+            :attr:`~earthdaily.earthone.common.collection.Collection.each` applied to it.
 
         Notes
         -----
-        * Add :meth:`~earthone.common.collection.Eacher.combine`
+        * Add :meth:`~earthdaily.earthone.common.collection.Eacher.combine`
           at the end of the operations chain to combine the results into a
           list by default, or any container type passed into
-          :meth:`~earthone.common.collection.Eacher.combine`
+          :meth:`~earthdaily.earthone.common.collection.Eacher.combine`
         * Use
           :meth:`pipe(f, *args, **kwargs) <earthone.common.collection.Eacher.pipe>`
           to yield ``f(x, *args, **kwargs)`` for each item ``x`` yielded by the
@@ -172,7 +172,7 @@ class Collection(Generic[T]):
         return Eacher(iter(self._list))
 
     def map(self, f):
-        """Returns a :class:`~earthone.common.collection.Collection` of ``f`` applied to each item.
+        """Returns a :class:`~earthdaily.earthone.common.collection.Collection` of ``f`` applied to each item.
 
         Parameters
         ----------
@@ -195,17 +195,17 @@ class Collection(Generic[T]):
             return Collection(res)
 
     def filter(self, predicate):
-        """Returns a :class:`~earthone.common.collection.Collection` filtered by predicate.
+        """Returns a :class:`~earthdaily.earthone.common.collection.Collection` filtered by predicate.
 
         Predicate can either be a ``callable`` or an
-        :py:class:`~earthone.common.property_filtering.filtering.Expression`
+        :py:class:`~earthdaily.earthone.common.property_filtering.filtering.Expression`
         from :ref:`property_filtering`.
 
         If the predicate is a ``callable``, :py:meth:`filter` will return all items
         for which ``predicate(item)`` is ``True``.
 
         If the predicate is an
-        :py:class:`~earthone.common.property_filtering.filtering.Expression`,
+        :py:class:`~earthdaily.earthone.common.property_filtering.filtering.Expression`,
         :py:meth:`filter` will return all items
         for which ``predicate.evaluate(item)`` is ``True``.
 
@@ -231,7 +231,7 @@ class Collection(Generic[T]):
 
     def sorted(self, *predicates, **reverse):
         """
-        Returns a :class:`~earthone.common.collection.Collection`,
+        Returns a :class:`~earthdaily.earthone.common.collection.Collection`,
         sorted by predicates in ascending order.
 
         Each predicate can be a key function, or a string of dot-chained attributes
@@ -283,7 +283,7 @@ class Collection(Generic[T]):
 
     def sort(self, field, ascending=True):
         """
-        Returns a :class:`~earthone.common.collection.Collection`,
+        Returns a :class:`~earthdaily.earthone.common.collection.Collection`,
         sorted by the given field and direction.
 
         Parameters
@@ -313,7 +313,7 @@ class Collection(Generic[T]):
 
         Groups items by predicates and yields tuple of ``(group, items)``
         for each group, where ``items`` is a
-        :class:`~earthone.common.collection.Collection`.
+        :class:`~earthdaily.earthone.common.collection.Collection`.
 
         Each predicate can be a key function, or a string of dot-chained attributes
         to use as sort keys.
@@ -370,7 +370,7 @@ class Collection(Generic[T]):
             yield group, self._cast_and_copy_attrs_to(items)
 
     def append(self, x):
-        """Append x to the end of this :class:`~earthone.common.collection.Collection`.
+        """Append x to the end of this :class:`~earthdaily.earthone.common.collection.Collection`.
 
         The type of the item must match the type of the collection.
 
@@ -387,7 +387,7 @@ class Collection(Generic[T]):
         self._list.append(x)
 
     def extend(self, x):
-        """Extend this :class:`~earthone.common.collection.Collection` by appending elements from the iterable.
+        """Extend this :class:`~earthdaily.earthone.common.collection.Collection` by appending elements from the iterable.
 
         The type of the items in the list must all match the type of the collection.
 
