@@ -10,7 +10,7 @@ display as a single image.
 
 """
 
-from earthone.catalog import Image, properties as p
+from earthdaily.earthone.catalog import Image, properties as p
 from earthone.utils import display
 import numpy as np
 

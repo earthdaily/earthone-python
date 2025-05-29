@@ -9,7 +9,7 @@ Visualize a true color Landsat 8 image.
 
 """
 
-from earthone.catalog import Product, properties as p
+from earthdaily.earthone.catalog import Product, properties as p
 from earthone.geo import DLTile
 from earthone.utils import display
 

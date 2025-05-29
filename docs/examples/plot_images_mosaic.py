@@ -14,7 +14,7 @@ by acquisition date (and/or any other metadata property).
 
 """
 
-from earthone.catalog import Product, properties as p
+from earthdaily.earthone.catalog import Product, properties as p
 from earthone.geo import DLTile
 from earthone.utils import display
 

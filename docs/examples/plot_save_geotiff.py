@@ -10,7 +10,7 @@ to your local machine in GeoTiff format.
 """
 
 import os
-from earthone.catalog import Product, properties as p
+from earthdaily.earthone.catalog import Product, properties as p
 
 #################################################
 # Create an aoi feature to clip imagery.
