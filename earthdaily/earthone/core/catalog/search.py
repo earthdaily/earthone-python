@@ -38,8 +38,8 @@ class Search(object):
 
     Each method on a search instance returns a narrowed-down search object.  You obtain
     a search instance using the search() method on a catalog object class, for example
-    `Product.search() <earthone.catalog.Product.search>`, `Band.search()
-    <earthone.catalog.Band>` or `Image.search() <earthone.catalog.Image>`.
+    `Product.search() <earthdaily.earthone.catalog.Product.search>`, `Band.search()
+    <earthdaily.earthone.catalog.Band>` or `Image.search() <earthdaily.earthone.catalog.Image>`.
 
     You must use the `Search` object as an ``iterator`` to get the results.  This will
     execute the search query and return a generator for iterating through the returned
@@ -135,7 +135,7 @@ class Search(object):
         properties : Expression
             Expression used to filter objects in the search by their properties, built
             from :class:`properties
-            <earthone.common.property_filtering.filtering.Properties>`.
+            <earthdaily.earthone.common.property_filtering.filtering.Properties>`.
             You can construct filter expressions using the ``==``, ``!=``, ``<``,
             ``>``, ``<=`` and ``>=`` operators as well as the
             :meth:`~earthdaily.earthone.common.property_filtering.filtering.Property.in_`
@@ -192,10 +192,10 @@ class Search(object):
         """Full-text search for a string in the name or description of an item.
 
         Not all attributes support full-text search; the product name
-        (`Product.name <earthone.catalog.Product.name>`)
+        (`Product.name <earthdaily.earthone.catalog.Product.name>`)
         and product and band description
-        (`Product.description <earthone.catalog.Product.description>`,
-        `Band.description <earthone.catalog.Band.description>`)
+        (`Product.description <earthdaily.earthone.catalog.Product.description>`,
+        `Band.description <earthdaily.earthone.catalog.Band.description>`)
         support full-text search.  Successive calls
         to `find_text` override the previous find_text parameter.
 

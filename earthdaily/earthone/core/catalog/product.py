@@ -37,9 +37,9 @@ class Product(AuthCatalogObject):
 
     Instantiating a product indicates that you want to create a *new* EarthOne
     catalog product.  If you instead want to retrieve an existing catalog product use
-    `Product.get() <earthone.catalog.Product.get>`, or if you're not sure
-    use `Product.get_or_create() <earthone.catalog.Product.get_or_create>`.
-    You can also use `Product.search() <earthone.catalog.Product.search>`.
+    `Product.get() <earthdaily.earthone.catalog.Product.get>`, or if you're not sure
+    use `Product.get_or_create() <earthdaily.earthone.catalog.Product.get_or_create>`.
+    You can also use `Product.search() <earthdaily.earthone.catalog.Product.search>`.
     Also see the example for :py:meth:`~earthdaily.earthone.catalog.Product.save`.
 
 

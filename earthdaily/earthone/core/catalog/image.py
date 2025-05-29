@@ -141,9 +141,9 @@ class Image(NamedCatalogObject):
 
     Instantiating an image indicates that you want to create a *new* EarthOne
     catalog image.  If you instead want to retrieve an existing catalog image use
-    `Image.get() <earthone.catalog.Image.get>`, or if you're not sure use
+    `Image.get() <earthdaily.earthone.catalog.Image.get>`, or if you're not sure use
     `Image.get_or_create() <~earthdaily.earthone.catalog.Image.get_or_create>`.  You
-    can also use `Image.search() <earthone.catalog.Image.search>`.  Also
+    can also use `Image.search() <earthdaily.earthone.catalog.Image.search>`.  Also
     see the example for :py:meth:`~earthdaily.earthone.catalog.Image.save`.
 
     Parameters
@@ -172,7 +172,7 @@ class Image(NamedCatalogObject):
         *Filterable*
 
         (use :py:meth:`ImageSearch.intersects
-        <earthone.catalog.ImageSearch.intersects>` to search based on geometry)
+        <earthdaily.earthone.catalog.ImageSearch.intersects>` to search based on geometry)
         """
     )
     cs_code = TypedAttribute(
@@ -719,7 +719,7 @@ class Image(NamedCatalogObject):
             Control of the upload process.
         raster_meta : dict, optional
             Metadata returned from the :meth:`Raster.ndarray()
-            <earthone.client.services.raster.Raster.ndarray>` request which
+            <earthdaily.earthone.client.services.raster.Raster.ndarray>` request which
             generated the initial data for the `ndarray` being uploaded.  Specifying
             `geotrans` and one of the spatial reference attributes (`cs_code` or
             `projection`) is unnecessary in this case but will take precedence over

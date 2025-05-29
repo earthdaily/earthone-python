@@ -677,10 +677,10 @@ class SpectralBand(Band):
 
     Instantiating a spectral band indicates that you want to create a *new* EarthOne
     catalog spectral band.  If you instead want to retrieve an existing catalog
-    spectral band use `Band.get() <earthone.catalog.Band.get>`, or if
+    spectral band use `Band.get() <earthdaily.earthone.catalog.Band.get>`, or if
     you're not sure use `SpectralBand.get_or_create()
-    <earthone.catalog.SpectralBand.get_or_create>`.  You can also use
-    `Band.search() <earthone.catalog.Band.search>`.  Also see the example
+    <earthdaily.earthone.catalog.SpectralBand.get_or_create>`.  You can also use
+    `Band.search() <earthdaily.earthone.catalog.Band.search>`.  Also see the example
     for :py:meth:`~earthdaily.earthone.catalog.Band.save`.
 
     Parameters
@@ -737,10 +737,10 @@ class MicrowaveBand(Band):
 
     Instantiating a microwave band indicates that you want to create a *new* EarthOne
     catalog microwave band.  If you instead want to retrieve an existing catalog
-    microwave band use `Band.get() <earthone.catalog.Band.get>`, or if
+    microwave band use `Band.get() <earthdaily.earthone.catalog.Band.get>`, or if
     you're not sure use `MicrowaveBand.get_or_create()
-    <earthone.catalog.MicrowaveBand.get_or_create>`.  You can also use
-    `Band.search() <earthone.catalog.Band.search>`.  Also see the example
+    <earthdaily.earthone.catalog.MicrowaveBand.get_or_create>`.  You can also use
+    `Band.search() <earthdaily.earthone.catalog.Band.search>`.  Also see the example
     for :py:meth:`~earthdaily.earthone.catalog.Band.save`.
 
     Parameters
@@ -787,10 +787,10 @@ class MaskBand(Band):
 
     Instantiating a mask band indicates that you want to create a *new* EarthOne
     catalog mask band.  If you instead want to retrieve an existing catalog
-    mask band use `Band.get() <earthone.catalog.Band.get>`, or if
+    mask band use `Band.get() <earthdaily.earthone.catalog.Band.get>`, or if
     you're not sure use `MaskBand.get_or_create()
-    <earthone.catalog.MaskBand.get_or_create>`.  You can also use
-    `Band.search() <earthone.catalog.Band.search>`.  Also see the example
+    <earthdaily.earthone.catalog.MaskBand.get_or_create>`.  You can also use
+    `Band.search() <earthdaily.earthone.catalog.Band.search>`.  Also see the example
     for :py:meth:`~earthdaily.earthone.catalog.Band.save`.
 
     Parameters
@@ -832,10 +832,10 @@ class ClassBand(Band):
 
     Instantiating a class band indicates that you want to create a *new* EarthOne
     catalog class band.  If you instead want to retrieve an existing catalog
-    class band use `Band.get() <earthone.catalog.Band.get>`, or if
+    class band use `Band.get() <earthdaily.earthone.catalog.Band.get>`, or if
     you're not sure use `ClassBand.get_or_create()
-    <earthone.catalog.ClassBand.get_or_create>`.  You can also use
-    `Band.search() <earthone.catalog.Band.search>`.  Also see the example
+    <earthdaily.earthone.catalog.ClassBand.get_or_create>`.  You can also use
+    `Band.search() <earthdaily.earthone.catalog.Band.search>`.  Also see the example
     for :py:meth:`~earthdaily.earthone.catalog.Band.save`.
 
     Parameters
@@ -872,10 +872,10 @@ class GenericBand(Band):
 
     Instantiating a generic band indicates that you want to create a *new* EarthOne
     catalog generic band.  If you instead want to retrieve an existing catalog
-    generic band use `Band.get() <earthone.catalog.Band.get>`, or if
+    generic band use `Band.get() <earthdaily.earthone.catalog.Band.get>`, or if
     you're not sure use `GenericBand.get_or_create()
-    <earthone.catalog.GenericBand.get_or_create>`.  You can also use
-    `Band.search() <earthone.catalog.Band.search>`.  Also see the example
+    <earthdaily.earthone.catalog.GenericBand.get_or_create>`.  You can also use
+    `Band.search() <earthdaily.earthone.catalog.Band.search>`.  Also see the example
     for :py:meth:`~earthdaily.earthone.catalog.Band.save`.
 
     Parameters

@@ -42,17 +42,17 @@ print("There are {} images in the collection.".format(len(images)))
 ################################################
 # To create subcollections using the ImageCollection API, we have
 # the built in methods
-# :meth:`ImageCollection.groupby <earthone.catalog.ImageCollection.groupby>`
-# and :meth:`ImageCollection.filter <earthone.catalog.ImageCollection.filter>`.
+# :meth:`ImageCollection.groupby <earthdaily.earthone.catalog.ImageCollection.groupby>`
+# and :meth:`ImageCollection.filter <earthdaily.earthone.catalog.ImageCollection.filter>`.
 #
 # If we want to create multiple subsets based on those properties, we can use the
-# :meth:`ImageCollection.groupby <earthone.catalog.ImageCollection.groupby>` method.
+# :meth:`ImageCollection.groupby <earthdaily.earthone.catalog.ImageCollection.groupby>` method.
 for (year, month), month_images in images.groupby("acquired.year", "acquired.month"):
     print("{}: {} images".format(month, len(month_images)))
 
 ################################################
 # You can further group the subsets using the built in
-# :meth:`ImageCollection.filter <earthone.catalog.ImageCollection.filter>` method.
+# :meth:`ImageCollection.filter <earthdaily.earthone.catalog.ImageCollection.filter>` method.
 spring_images = images.filter(lambda i: i.acquired.month > 2 and i.acquired.month < 6)
 fall_images = images.filter(lambda i: i.acquired.month > 8 and i.acquired.month < 12)
 

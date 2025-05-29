@@ -143,7 +143,7 @@ class Collection(Generic[T]):
           list by default, or any container type passed into
           :meth:`~earthdaily.earthone.common.collection.Eacher.combine`
         * Use
-          :meth:`pipe(f, *args, **kwargs) <earthone.common.collection.Eacher.pipe>`
+          :meth:`pipe(f, *args, **kwargs) <earthdaily.earthone.common.collection.Eacher.pipe>`
           to yield ``f(x, *args, **kwargs)`` for each item ``x`` yielded by the
           preceeding operations chain
 

@@ -408,7 +408,7 @@ class EventSubscription(AuthCatalogObject):
         *Filterable*
 
         (use :py:meth:`EventSubscriptionSearch.intersects
-        <earthone.catalog.EventSubscriptionSearch.intersects>` to search based on geometry)
+        <earthdaily.earthone.catalog.EventSubscriptionSearch.intersects>` to search based on geometry)
         """
     )
     expires = Timestamp(

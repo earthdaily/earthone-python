@@ -158,7 +158,7 @@ class Search(Generic[T]):
         expression : Expression
             Expression used to filter objects in the search by their attributes, built
             from class :class:`attributes
-            <earthone.common.client.attributes.Attribute>` ex. Job.id == 'some-id'.
+            <earthdaily.earthone.common.client.attributes.Attribute>` ex. Job.id == 'some-id'.
             You can construct filter expressions using the ``==``, ``!=``, ``<``,
             ``>``, ``<=`` and ``>=`` operators as well as the
             :meth:`~earthdaily.earthone.common.client.attributes.Attribute.in_`

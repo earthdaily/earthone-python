@@ -124,8 +124,8 @@ class Blob(AuthCatalogObject):
 
     Instantiating a blob indicates that you want to create a *new* EarthOne
     storage blob.  If you instead want to retrieve an existing blob use
-    `Blob.get() <earthone.catalog.Blob.get>`.
-    You can also use `Blob.search() <earthone.catalog.Blob.search>`.
+    `Blob.get() <earthdaily.earthone.catalog.Blob.get>`.
+    You can also use `Blob.search() <earthdaily.earthone.catalog.Blob.search>`.
     Also see the example for :py:meth:`~earthdaily.earthone.catalog.Blob.upload`.
 
 
@@ -215,7 +215,7 @@ class Blob(AuthCatalogObject):
         *Filterable*
 
         (use :py:meth:`BlobSearch.intersects
-        <earthone.catalog.BlobSearch.intersects>` to search based on geometry)
+        <earthdaily.earthone.catalog.BlobSearch.intersects>` to search based on geometry)
         """
     )
     expires = Timestamp(

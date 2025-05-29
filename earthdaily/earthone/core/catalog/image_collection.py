@@ -126,7 +126,7 @@ class ImageCollection(Collection):
         """
         Include only images overlapping with ``geom`` by some fraction.
 
-        See `Image.coverage <earthone.catalog.image.Image.coverage>`
+        See `Image.coverage <earthdaily.earthone.catalog.image.Image.coverage>`
         for getting coverage information for an image.
 
         Parameters
@@ -179,7 +179,7 @@ class ImageCollection(Collection):
 
         If the selected bands and images have different data types the resulting
         ndarray has the most general of those data types. See
-        `Image.ndarray() <earthone.catalog.image.Image.ndarray>` for details
+        `Image.ndarray() <earthdaily.earthone.catalog.image.Image.ndarray>` for details
         on data type conversions.
 
         Parameters
@@ -444,7 +444,7 @@ class ImageCollection(Collection):
 
         If the selected bands and images have different data types the resulting
         ndarray has the most general of those data types. See
-        `Image.ndarray() <earthone.catalog.image.Image.ndarray>` for details
+        `Image.ndarray() <earthdaily.earthone.catalog.image.Image.ndarray>` for details
         on data type conversions.
 
         Parameters
@@ -1027,7 +1027,7 @@ class ImageCollection(Collection):
         introducing the possibility that the band properties for a band
         of a given name may differ from product to product. This method
         works in a similar fashion to the
-        :meth:`Image.scaling_parameters <earthone.catalog.image.Image.scaling_parameters>`
+        :meth:`Image.scaling_parameters <earthdaily.earthone.catalog.image.Image.scaling_parameters>`
         method, but it additionally ensures that the resulting scale
         elements are compatible across the multiple products. If there
         is an incompatibility, an appropriate ValueError will be raised.
@@ -1044,13 +1044,13 @@ class ImageCollection(Collection):
             is available.
         scaling : None or str or list or dict
             Band scaling specification. See
-            :meth:`Image.scaling_parameters <earthone.catalog.image.Image.scaling_parameters>`
+            :meth:`Image.scaling_parameters <earthdaily.earthone.catalog.image.Image.scaling_parameters>`
             for a full description of this parameter.
         data_type : None or str
             Result data type desired, as a standard data type string (e.g.
             ``"Byte"``, ``"Uint16"``, or ``"Float64"``). If not specified,
             will be deduced from the ``scaling`` specification. See
-            :meth:`Image.scaling_parameters <earthone.catalog.image.Image.scaling_parameters>`
+            :meth:`Image.scaling_parameters <earthdaily.earthone.catalog.image.Image.scaling_parameters>`
             for a full description of this parameter.
 
         Returns
