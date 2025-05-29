@@ -39,7 +39,7 @@ except ImportError:
 LEGACY_DELEGATION_CLIENT_IDS = ["ZOBAi4UROl5gKZIpxxlwOEfx8KpqXf2c"]
 
 
-# copied from earthdaily.earthone/common/threading/local.py, but we need
+# copied from earthone/common/threading/local.py, but we need
 # it standalone here to avoid any dependencies on our own packages
 # for client configuration purposes
 class ThreadLocalWrapper(object):
@@ -321,7 +321,7 @@ class Auth:
 
         Examples
         --------
-        >>> import earthdaily.earthone
+        >>> import earthone
         >>> # Use default credentials obtained through 'earthone auth login'
         >>> auth = earthone.auth.Auth()
         >>> # Your EarthOne user id
