@@ -31,16 +31,16 @@ by providing:
     * A Python client library to access these systems
 """
 
-from earthone import auth
-from earthone import config
-from earthone import exceptions
-from earthone.core.client.version import __version__
+from earthdaily.earthone import auth
+from earthdaily.earthone import config
+from earthdaily.earthone import exceptions
+from earthdaily.earthone.core.client.version import __version__
 
-from earthone import geo
-from earthone import utils
-from earthone import catalog
-from earthone import compute
-from earthone import vector
+from earthdaily.earthone import geo
+from earthdaily.earthone import utils
+from earthdaily.earthone import catalog
+from earthdaily.earthone import compute
+from earthdaily.earthone import vector
 
 select_env = config.select_env
 get_settings = config.get_settings
