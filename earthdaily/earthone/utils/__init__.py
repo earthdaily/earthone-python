@@ -12,4 +12,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from earthone.core.utils import *  # noqa F401 F403
+from earthdaily.earthone.core.utils import *  # noqa F401 F403

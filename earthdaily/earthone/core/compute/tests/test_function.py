@@ -25,7 +25,7 @@ from datetime import timezone
 import responses
 from requests import PreparedRequest
 
-from earthone import exceptions
+from earthdaily.earthone import exceptions
 from ..function import Function, FunctionStatus
 from ..job import Job, JobStatus
 
