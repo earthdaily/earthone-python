@@ -321,7 +321,7 @@ class Auth:
 
         Examples
         --------
-        >>> import earthone
+        >>> import earthdaily.earthone
         >>> # Use default credentials obtained through 'earthone auth login'
         >>> auth = earthone.auth.Auth()
         >>> # Your EarthOne user id

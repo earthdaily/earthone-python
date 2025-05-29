@@ -142,11 +142,11 @@ class AOI(GeoContext):
 
     .. code-block:: python
 
-        cutline_aoi = dl.geo.AOI(my_geometry, resolution=40)
+        cutline_aoi = eo.geo.AOI(my_geometry, resolution=40)
         aoi_with_cutline_disabled = cutline_aoi.assign(geometry=None)
-        no_cutline_aoi = dl.geo.AOI(geometry=None, resolution=15, bounds=(-40, 35, -39, 36))
-        aoi_without_auto_bounds = dl.geo.AOI(geometry=my_geometry, resolution=15, bounds=(-40, 35, -39, 36))
-        aoi_with_specific_pixel_dimensions = dl.geo.AOI(geometry=my_geometry, shape=(200, 400))
+        no_cutline_aoi = eo.geo.AOI(geometry=None, resolution=15, bounds=(-40, 35, -39, 36))
+        aoi_without_auto_bounds = eo.geo.AOI(geometry=my_geometry, resolution=15, bounds=(-40, 35, -39, 36))
+        aoi_with_specific_pixel_dimensions = eo.geo.AOI(geometry=my_geometry, shape=(200, 400))
     """
 
     __slots__ = (
@@ -660,7 +660,7 @@ class DLTile(GeoContext):
 
     Example
     -------
-    >>> import earthone as dl
+    >>> import earthdaily.earthone as eo
     >>> from earthdaily.earthone.geo import DLTile
     >>> tile = DLTile.from_latlon(
     ...    lat=35.691,
@@ -669,7 +669,7 @@ class DLTile(GeoContext):
     ...    resolution=10,
     ...    pad=0
     ... )
-    >>> product = dl.catalog.Product.get("usgs:landsat:oli-tirs:c2:l2:v0")  # doctest: +SKIP
+    >>> product = eo.catalog.Product.get("usgs:landsat:oli-tirs:c2:l2:v0")  # doctest: +SKIP
     >>> images = product.images().intersects(tile).collect()  # doctest: +SKIP
     >>> images  # doctest: +SKIP
             ImageCollection of 558 images

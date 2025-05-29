@@ -45,7 +45,7 @@ from typing import (
 from packaging.requirements import InvalidRequirement, Requirement
 from strenum import StrEnum
 
-import earthone.exceptions as exceptions
+import earthdaily.earthone.exceptions as exceptions
 
 from ..client.deprecation import deprecate
 from ..client.services.service import ThirdPartyService

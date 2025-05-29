@@ -43,11 +43,11 @@ class Retry(object):
     Example
     -------
 
-    >>> import earthone as dl
-    >>> retry = dl.common.retry.Retry(
+    >>> import earthdaily.earthone as eo
+    >>> retry = eo.common.retry.Retry(
     ...     maximum=30,
     ...     retries=5,
-    ...     exceptions=(dl.exceptions.GatewayTimeoutError,)
+    ...     exceptions=(eo.exceptions.GatewayTimeoutError,)
     ... )
     >>> @retry
     ... def flaky(x):

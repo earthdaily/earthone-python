@@ -142,11 +142,11 @@ class ImageCollection(Collection):
 
         Example
         -------
-        >>> import earthone as dl
+        >>> import earthdaily.earthone as eo
         >>> aoi_geometry = {
         ...    'type': 'Polygon',
         ...    'coordinates': [[[-95, 42],[-93, 42],[-93, 40],[-95, 41],[-95, 42]]]}
-        >>> product = dl.catalog.Product.get("landsat:LC08:PRE:TOAR")  # doctest: +SKIP
+        >>> product = eo.catalog.Product.get("landsat:LC08:PRE:TOAR")  # doctest: +SKIP
         >>> images = product.images().intersects(aoi_geometry).limit(20).collect()  # doctest: +SKIP
         >>> filtered_images = images.filter_coverage(images.geocontext, 0.01)  # doctest: +SKIP
         >>> assert len(filtered_images) < len(images)  # doctest: +SKIP
@@ -704,9 +704,9 @@ class ImageCollection(Collection):
 
         Example
         -------
-        >>> import earthone as dl
-        >>> tile = dl.common.geo.DLTile.from_key("256:0:75.0:15:-5:230")  # doctest: +SKIP
-        >>> product = dl.catalog.Product.get("landsat:LC08:PRE:TOAR")  # doctest: +SKIP
+        >>> import earthdaily.earthone as eo
+        >>> tile = eo.common.geo.DLTile.from_key("256:0:75.0:15:-5:230")  # doctest: +SKIP
+        >>> product = eo.catalog.Product.get("landsat:LC08:PRE:TOAR")  # doctest: +SKIP
         >>> images = product.images().intersects(tile).limit(5).collect()  # doctest: +SKIP
         >>> images.download("red green blue", tile, "rasters")  # doctest: +SKIP
         ["rasters/landsat:LC08:PRE:TOAR:meta_LC80260322013108_v1-red-green-blue.tif",
@@ -939,9 +939,9 @@ class ImageCollection(Collection):
 
         Example
         -------
-        >>> import earthone as dl
-        >>> tile = dl.common.geo.DLTile.from_key("256:0:75.0:15:-5:230")  # doctest: +SKIP
-        >>> product = dl.catalog.Product.get("landsat:LC08:PRE:TOAR")  # doctest: +SKIP
+        >>> import earthdaily.earthone as eo
+        >>> tile = eo.common.geo.DLTile.from_key("256:0:75.0:15:-5:230")  # doctest: +SKIP
+        >>> product = eo.catalog.Product.get("landsat:LC08:PRE:TOAR")  # doctest: +SKIP
         >>> images = product.images().intersects(tile).limit(5).collect()  # doctest: +SKIP
         >>> images.download_mosaic("nir red", mask_alpha=False)  # doctest: +SKIP
         'mosaic-nir-red.tif'
