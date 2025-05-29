@@ -244,7 +244,9 @@ class TestFunctionBundle(FunctionTestCase):
             # If the OS is Windows, the path will be different
             if "earthdaily\\earthone" in __file__:
                 # We are running tests in the public client
-                parts = ["earthdaily", "earthone"] + __file__.split("earthdaily\\earthone")[-1].split("\\")
+                parts = ["earthdaily", "earthone"] + __file__.split(
+                    "earthdaily\\earthone"
+                )[-1].split("\\")
             else:
                 # We are running tests in monorepo
                 parts = ["earthone"] + __file__.split("earthone")[-1].split("\\")
@@ -254,10 +256,14 @@ class TestFunctionBundle(FunctionTestCase):
         else:
             if "earthdaily/earthone" in __file__:
                 # We are running tests in the public client
-                parts = ["earthdaily", "earthone"] + __file__.split("earthdaily/earthone")[-1].strip("/").split("/")
+                parts = ["earthdaily", "earthone"] + __file__.split(
+                    "earthdaily/earthone"
+                )[-1].strip("/").split("/")
             else:
                 # We are running tests in monorepo
-                parts = ["earthone"] + __file__.split("earthone")[-1].strip("/").split("/")
+                parts = ["earthone"] + __file__.split("earthone")[-1].strip("/").split(
+                    "/"
+                )
 
         # Construct the module path and module in dot notation
         module_path = os.path.join(*parts[:-1])

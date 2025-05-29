@@ -60,7 +60,9 @@ def do_setup():
         ],
         license="Apache 2.0",
         download_url=(
-            "https://github.com/earthdaily/earthone-python/archive/v{}.tar.gz".format(version)
+            "https://github.com/earthdaily/earthone-python/archive/v{}.tar.gz".format(
+                version
+            )
         ),
         version=version,
         packages=find_namespace_packages(include=["earthdaily.earthone*"]),
@@ -71,7 +73,9 @@ def do_setup():
         },
         include_package_data=True,
         entry_points={
-            "console_scripts": ["earthone = earthdaily.earthone.core.client.scripts.__main__:main"]
+            "console_scripts": [
+                "earthone = earthdaily.earthone.core.client.scripts.__main__:main"
+            ]
         },
         python_requires="~=3.10",
         install_requires=[
