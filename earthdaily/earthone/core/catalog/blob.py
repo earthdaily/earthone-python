@@ -193,7 +193,7 @@ class Blob(AuthCatalogObject):
         doc="""str or StorageType: Storage type of the blob.
 
         `~StorageType.DATA` is managed by end users (e.g. via
-        :py:meth:`earthone.catalog.Blob.upload`.
+        :py:meth:`earthdaily.earthone.catalog.Blob.upload`.
         Other types are generated and managed by various components of the platform.
 
         *Filterable, sortable*.

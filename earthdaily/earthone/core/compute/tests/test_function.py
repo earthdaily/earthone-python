@@ -240,30 +240,16 @@ class TestFunctionBundle(FunctionTestCase):
     def get_module_paths(self):
         # Get the path to the module
 
-        if os.name == "nt":
-            # If the OS is Windows, the path will be different
-            if "earthdaily\\earthone" in __file__:
-                # We are running tests in the public client
-                parts = ["earthdaily", "earthone"] + __file__.split(
-                    "earthdaily\\earthone"
-                )[-1].split("\\")
-            else:
-                # We are running tests in monorepo
-                parts = ["earthone"] + __file__.split("earthone")[-1].split("\\")
+        parts = ["earthdaily", "earthone"] + __file__.split("earthdaily/earthone")[-1].strip(
+            "/"
+        ).split("/")
 
+        # If the OS is Windows, the path will be different
+
+        if os.name == "nt":
+            parts = ["earthdaily", "earthone"] + __file__.split("earthdaily\\earthone")[-1].split("\\")
             # remove empty elements
             parts = [i for i in parts if i]
-        else:
-            if "earthdaily/earthone" in __file__:
-                # We are running tests in the public client
-                parts = ["earthdaily", "earthone"] + __file__.split(
-                    "earthdaily/earthone"
-                )[-1].strip("/").split("/")
-            else:
-                # We are running tests in monorepo
-                parts = ["earthone"] + __file__.split("earthone")[-1].strip("/").split(
-                    "/"
-                )
 
         # Construct the module path and module in dot notation
         module_path = os.path.join(*parts[:-1])

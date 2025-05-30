@@ -31,8 +31,6 @@ class TestCli(unittest.TestCase):
     # at present, I don't want to test individual commands,
     # it'd be a huge pain to mock and would basically just be
     # testing catalog itself.
-    # click version >= 8.2.0 returns exit code 2 if no command specified
-
     def test_products(self):
         result = self.runner.invoke(cli, ["products"])
         assert result.exit_code == 2

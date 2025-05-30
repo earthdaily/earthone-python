@@ -262,7 +262,7 @@ class Auth:
         Parameters
         ----------
 
-        domain : str, default ``earthone.config.get_settings().IAM_URL``
+        domain : str, default ``earthdaily.earthone.config.get_settings().IAM_URL``
             The domain used for the credentials. You should normally never
             change this.
         scope : list(str), optional

@@ -813,8 +813,8 @@ class MaskBand(Band):
 
         This enables special behavior for this band during rastering.  If this is
         ``True`` and the band appears as the last band in a raster operation (such as
-        :meth:`earthone.catalog.imagecollection.ImageCollection.mosaic` or
-        :meth:`earthone.catalog.imagecollection.ImageCollection.stack`) pixels
+        :meth:`earthdaily.earthone.catalog.imagecollection.ImageCollection.mosaic` or
+        :meth:`earthdaily.earthone.catalog.imagecollection.ImageCollection.stack`) pixels
         with a value of 0 in this band will be treated as transparent.
         """
     )
