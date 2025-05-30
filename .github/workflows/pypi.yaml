@@ -50,7 +50,7 @@ jobs:
       - name: Build Python Packages
         run: |
           # Update version.py with version suffix
-          python earthdaily/earthone/client/scripts/version_suffix.py earthdaily/earthone/client/version.py ${{ inputs.version_suffix }}          
+          python scripts/version_suffix.py earthdaily/earthone/client/version.py ${{ inputs.version_suffix }}          
           
           pip install twine
           pip install -U packaging
