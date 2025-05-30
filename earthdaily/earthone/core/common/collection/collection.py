@@ -387,7 +387,8 @@ class Collection(Generic[T]):
         self._list.append(x)
 
     def extend(self, x):
-        """Extend this :class:`~earthdaily.earthone.common.collection.Collection` by appending elements from the iterable.
+        """Extend this :class:`~earthdaily.earthone.common.collection.Collection` 
+        by appending elements from the iterable.
 
         The type of the items in the list must all match the type of the collection.
 
