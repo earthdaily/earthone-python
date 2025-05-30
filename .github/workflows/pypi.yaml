@@ -16,7 +16,7 @@ on:
       publish:
         description: 'Publish packages to PyPI Repository'
         required: true
-        # default: false
+        default: true
         type: boolean
       repository:
         description: 'PyPI Repository to upload package to'
@@ -25,7 +25,12 @@ on:
         type: choice
         options:
           - 'testpypi'
-          # - 'pypi'
+          - 'pypi'
+      version_suffix:
+        description: 'Suffix which will be appended to version e.g "b1" for beta 1'
+        required: false
+        default: ""
+        type: string
 
 jobs:
   publish:
@@ -44,6 +49,9 @@ jobs:
       # https://github.com/pypa/twine/issues/1216
       - name: Build Python Packages
         run: |
+          # Update version.py with version suffix
+          python earthdaily/earthone/client/scripts/version_suffix.py earthdaily/earthone/client/version.py ${{ inputs.version_suffix }}          
+          
           pip install twine
           pip install -U packaging
 
