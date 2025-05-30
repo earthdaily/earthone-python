@@ -16,7 +16,7 @@
 
 .. code-block:: bash
 
-    pip install earthone[complete]
+    pip install earthdaily-earthone[complete]
 
 Documentation is available at https://docs.earthone.earthdaily.com.
 

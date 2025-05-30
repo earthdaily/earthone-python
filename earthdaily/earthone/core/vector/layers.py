@@ -19,7 +19,7 @@ except ImportError:
     raise ImportError(
         "The visualization support in the `earthone.vector` Python package"
         " requires the `viz` extra to be installed."
-        " Please run `pip install earthone[viz]` and try again."
+        " Please run `pip install earthdaily-earthone[viz]` and try again."
         " Alternatively you can install the `ipyleaflet` package directly."
     )
 

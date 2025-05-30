@@ -83,7 +83,7 @@ def _dl_aoi_to_shape(aoi: GeoContext) -> shapely.geometry.base.BaseGeometry:
 
     Parameters
     ----------
-    aoi: earthone.geo.GeoContext
+    aoi: earthdaily.earthone.geo.GeoContext
         AOI for which we want a shapely shape.
 
     Returns
@@ -112,7 +112,7 @@ def _to_shape(
 
     Parameters
     ----------
-    aoi: Optional[Union[earthone.geo.GeoContext, dict, shapely.geometry.base.BaseGeometry]]
+    aoi: Optional[Union[earthdaily.earthone.geo.GeoContext, dict, shapely.geometry.base.BaseGeometry]]
         Optional AOI to convert to a shapely object.
 
     Returns
@@ -177,7 +177,7 @@ class TableOptions:
         ----------
         product_id: str
             Product ID of a Vector Table.
-        aoi: Optional[Union[earthone.geo.GeoContext, dict, shapely.geometry.base.BaseGeometry]]
+        aoi: Optional[Union[earthdaily.earthone.geo.GeoContext, dict, shapely.geometry.base.BaseGeometry]]
             AOI to associate with this TableOptions.
         property_filter: Optional[Properties]
             Property filter to associate with this TableOptions.
@@ -249,7 +249,7 @@ class TableOptions:
 
         Parameters
         ----------
-        aoi: Union[earthone.geo.GeoContext, dict, shapely.geometry.base.BaseGeometry]
+        aoi: Union[earthdaily.earthone.geo.GeoContext, dict, shapely.geometry.base.BaseGeometry]
             AOI of this TableOptions.
 
         Returns
@@ -392,7 +392,7 @@ class Table:
         ----------
         product_id: str
             Product ID of the Vector Table.
-        aoi: Optional[Union[earthone.geo.GeoContext, dict, shapely.geometry.base.BaseGeometry]]
+        aoi: Optional[Union[earthdaily.earthone.geo.GeoContext, dict, shapely.geometry.base.BaseGeometry]]
             AOI to associate with this Vector Table.
         property_filter: Optional[Properties]
             Property filter to associate with this Vector Table.
