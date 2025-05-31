@@ -300,7 +300,7 @@ class TestFunctionBundle(FunctionTestCase):
             "timeout": 60,
             "retry_count": 1,
             "requirements": [
-                "earthone[complete]>=2.0.3",
+                "earthdaily-earthone[complete]>=5.0.0",
                 "geopandas==0.13.2",
             ],
             "include_modules": [
