@@ -240,14 +240,16 @@ class TestFunctionBundle(FunctionTestCase):
     def get_module_paths(self):
         # Get the path to the module
 
-        parts = ["earthdaily", "earthone"] + __file__.split("earthdaily/earthone")[-1].strip(
-            "/"
-        ).split("/")
+        parts = ["earthdaily", "earthone"] + __file__.split("earthdaily/earthone")[
+            -1
+        ].strip("/").split("/")
 
         # If the OS is Windows, the path will be different
 
         if os.name == "nt":
-            parts = ["earthdaily", "earthone"] + __file__.split("earthdaily\\earthone")[-1].split("\\")
+            parts = ["earthdaily", "earthone"] + __file__.split("earthdaily\\earthone")[
+                -1
+            ].split("\\")
             # remove empty elements
             parts = [i for i in parts if i]
 

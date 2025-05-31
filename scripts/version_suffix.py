@@ -1,5 +1,5 @@
 """
-Script to update the version.py with a suffix e.g "b1" (Beta 1). Used before building library for pypi upload. 
+Script to update the version.py with a suffix e.g "b1" (Beta 1). Used before building library for pypi upload.
 """
 
 import sys
@@ -12,7 +12,7 @@ with open(file_path) as f:
 
 for i, line in enumerate(lines):
     if line.strip().startswith("__version__"):
-        base_version = line.split("=")[1].strip().strip('"\'')
+        base_version = line.split("=")[1].strip().strip("\"'")
         print(f"{base_version = }")
         if suffix:
             new_version = f"{base_version}{suffix}"
