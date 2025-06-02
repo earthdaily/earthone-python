@@ -1,6 +1,10 @@
 # Release the EarthOne Python Client to PyPI
 name: Publish to PyPI
 
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout
+
 on:
   # Trigger manually (via Github Web UI) here:
   # https://github.com/earthdaily/earthone-python/actions/workflows/pypi.yaml
@@ -12,20 +16,26 @@ on:
       publish:
         description: 'Publish packages to PyPI Repository'
         required: true
-        default: false
+        default: true
         type: boolean
       repository:
         description: 'PyPI Repository to upload package to'
         required: true
-        default: 'testpypi'
+        default: 'pypi'
         type: choice
         options:
           - 'testpypi'
           - 'pypi'
+      version_suffix:
+        description: 'Suffix which will be appended to version e.g "b1" for beta 1'
+        required: false
+        default: ""
+        type: string
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: pypi
     steps:
       # Checkout the source code from this repository
       - name: Checkout Source Code
@@ -39,6 +49,9 @@ jobs:
       # https://github.com/pypa/twine/issues/1216
       - name: Build Python Packages
         run: |
+          # Update version.py with version suffix
+          python scripts/version_suffix.py earthdaily/earthone/core/client/version.py ${{ inputs.version_suffix }}          
+          
           pip install twine
           pip install -U packaging
 
@@ -47,12 +60,10 @@ jobs:
 
       # Upload the Python wheel packages to PyPI using an API Token
       # https://pypi.org/help/#apitoken
-      # https://github.com/descarteslabs/paas-infrastructure/blob/main/foundation/operations/pypi.tf
+      # paas-infrastructure repo: paas-infrastructure/blob/main/foundation/operations/pypi.tf
       - name: Upload to PyPI
         if: inputs.publish
         env:
           TWINE_REPOSITORY: "${{ inputs.repository }}"
-          TWINE_USERNAME: "__token__"
-          TWINE_PASSWORD: "${{ secrets.PYPI_API_TOKEN }}"
         run: |
           twine upload dist/*
