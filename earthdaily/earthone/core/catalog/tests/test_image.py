@@ -646,8 +646,8 @@ class TestImage(ClientTestCase):
         # when the new ingest is completed, we may implement the reload
         # of the updated Image...
 
-    @patch("earthdaily.earthone.catalog.Image._do_upload", return_value=True)
-    @patch("earthdaily.earthone.catalog.Image.exists", return_value=False)
+    @patch.object(image_module.Image, "_do_upload", return_value=True)
+    @patch.object(image_module.Image, "exists", return_value=False)
     def test_upload_warnings(self, *mocks):
         p = Product(id="p1", name="Test Product", client=self.client, _saved=True)
         image = Image(id="p1:image", product=p, acquired="2012-05-06", projection="foo")
@@ -800,8 +800,8 @@ class TestImage(ClientTestCase):
 
         assert upload.status == ImageUploadStatus.SUCCESS
 
-    @patch("earthdaily.earthone.catalog.Image._do_upload", return_value=True)
-    @patch("earthdaily.earthone.catalog.Image.exists", return_value=False)
+    @patch.object(image_module.Image, "_do_upload", return_value=True)
+    @patch.object(image_module.Image, "exists", return_value=False)
     def test_upload_ndarray_dtype(self, *mocks):
         p = Product(id="p1", name="Test Product", client=self.client, _saved=True)
         image = Image(
@@ -822,7 +822,7 @@ class TestImage(ClientTestCase):
             ValueError, image.upload_ndarray, np.zeros((1, 100, 100), np.uint64)
         )
 
-    @patch("earthdaily.earthone.catalog.Image.exists", return_value=False)
+    @patch.object(image_module.Image, "exists", return_value=False)
     def test_upload_ndarray_bad_georef(self, *mocks):
         p = Product(id="p1", name="Test Product", client=self.client, _saved=True)
         image = Image(
@@ -833,8 +833,8 @@ class TestImage(ClientTestCase):
         )
         pytest.raises(ValueError, image.upload_ndarray, np.zeros((100, 100)))
 
-    @patch("earthdaily.earthone.catalog.Image._do_upload", return_value=True)
-    @patch("earthdaily.earthone.catalog.Image.exists", return_value=False)
+    @patch.object(image_module.Image, "_do_upload", return_value=True)
+    @patch.object(image_module.Image, "exists", return_value=False)
     def test_upload_ndarray_shape(self, *mocks):
         p = Product(id="p1", name="Test Product", client=self.client, _saved=True)
         image = Image(
@@ -871,8 +871,8 @@ class TestImage(ClientTestCase):
             assert 1 == len(w)
             assert "cs_code" in str(w[0].message)
 
-    @patch("earthdaily.earthone.catalog.Image._do_upload", return_value=True)
-    @patch("earthdaily.earthone.catalog.Image.exists", return_value=False)
+    @patch.object(image_module.Image, "_do_upload", return_value=True)
+    @patch.object(image_module.Image, "exists", return_value=False)
     @patch("numpy.save")
     def test_upload_ndarray_moves_band_axis(self, mock_np_save, *mocks):
         p = Product(id="p1", name="Test Product", client=self.client, _saved=True)
@@ -894,8 +894,8 @@ class TestImage(ClientTestCase):
         _, ndarray = mock_np_save.call_args[0]
         assert ndarray.shape == (100, 100, 1)
 
-    @patch("earthdaily.earthone.catalog.Image._do_upload", return_value=True)
-    @patch("earthdaily.earthone.catalog.Image.exists", return_value=False)
+    @patch.object(image_module.Image, "_do_upload", return_value=True)
+    @patch.object(image_module.Image, "exists", return_value=False)
     @patch("numpy.save")
     def test_upload_ndarray_multiple(self, mock_np_save, *mocks):
         p = Product(id="p1", name="Test Product", client=self.client, _saved=True)
