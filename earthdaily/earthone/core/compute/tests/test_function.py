@@ -238,7 +238,7 @@ class TestCreateFunction(FunctionTestCase):
 
 
 class TestFunctionBundle(FunctionTestCase):
-    
+
     def get_current_directory_os_aware(self, normalize: str = os.sep) -> str:
         relative_path = str(Path(__file__).parent).rsplit("earthone", 1)[-1]
         file_path = f"earthdaily{os.sep}earthone{relative_path}"
