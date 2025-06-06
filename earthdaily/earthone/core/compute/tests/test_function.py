@@ -273,7 +273,7 @@ class TestFunctionBundle(FunctionTestCase):
             "requirements.txt",
         ] + self.get_init_files(relative_python_file_directory)
 
-        current_directory_os_aware = self.get_current_directory()
+        current_directory_os_aware = self.get_current_directory_unix()
 
         params = {
             "image": "python3.8:latest",
