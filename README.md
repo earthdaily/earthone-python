@@ -15,20 +15,24 @@ The `earthdaily-earthone` python package, available at [https://pypi.org/project
 
 The documentation for the latest release can be found at [https://docs.earthone.earthdaily.com](https://docs.earthone.earthdaily.com). For any issues please request Customer Support at [https://support.earthdaily.com](https://support.earthdaily.com).
 
+
+## Migrating from Descarteslabs
+
+- Install `earthdaily-earthone` instead of `descarteslabs` via pip, poetry, etc. The initial release GA version number will be 5.0.0. See Pypi [https://pypi.org/project/earthdaily-earthone](https://pypi.org/project/earthdaily-earthone) for current beta versions.
+- Change all imports from `descarteslabs` to `earthdaily.earthone`. You can even get away with changing the typical `import descarteslabs as dl` to `import earthdaily.earthone as dl` and maybe not have to change anything else! In our example code and documentation, we are generally using `import earthdaily.earthone as eo`.
+- Change any embedded URLs from `*.descarteslabs.com` to `*.earthone.earthdaily.com` or `*.earthdaily.com` as appropriate.
+- Change any references to Catalog or Vector products/bands/images that are prefixed with `descarteslabs:` to instead be prefixed with `earthdaily:`.
+- Change any use of `DESCARTESLABS_` prefixed enviroment variables to `EARTHONE_`.
+- Reauthenticate using `earthone auth login`
+
 Changelog
 =========
-
 
 ## [5.0.0] - 2025-05-23
 
 ## General
 
-- Client updated as the EarthOne platform, using new Github page and Pypi project.
-- Top level module is now `earthdaily`. Use `earthdaily.earthone` to import EarthOne modules.
-- Client CLI command renamed to `earthone`.
-- API domain updated to `earthone.earthdaily.com`.
-- `descarteslabs:` prefixed Product, Image and Band ids updated to `earthdaily:`.
-- Client environment variable prefixes updated to `EARTHONE_`.
+- Client updated as the EarthOne platform, using new Github page and Pypi project. See [Migrating from Descartelabs](#Migrating-from-descarteslabs) for details.
 - Support for Python 3.9 has been dropped, as it is reaching end of life an many dependencies no longer support it.
 
 ## [4.0.0] - 2025-03-13
@@ -1096,7 +1100,7 @@ No more irrelevant `DeprecationWarning`s when importing the package. Deprecated 
 
 ## [1.1.1] - 2020-03-11
 
-1.1.1 fixes a packaging issue that caused `import earthone.workflows` to fail.
+1.1.1 fixes a packaging issue that caused `import earthdaily.earthone.workflows` to fail.
 
 It also makes NumPy an explicit dependency. NumPy was already a transitive dependency, so this shouldn't cause any changes.
 
