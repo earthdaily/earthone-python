@@ -16,6 +16,7 @@ import gzip
 import itertools
 import json
 import os
+from pathlib import Path, PurePosixPath
 import random
 import string
 import zipfile
@@ -237,62 +238,49 @@ class TestCreateFunction(FunctionTestCase):
 
 
 class TestFunctionBundle(FunctionTestCase):
-    def get_module_paths(self):
-        # Get the path to the module
 
-        parts = ["earthdaily", "earthone"] + __file__.split("earthdaily/earthone")[
-            -1
-        ].strip("/").split("/")
+    def get_current_directory_os_aware(self, normalize: str = os.sep) -> str:
+        relative_path = str(Path(__file__).parent).rsplit("earthone", 1)[-1]
+        file_path = f"earthdaily{os.sep}earthone{relative_path}"
+        return file_path.replace("/", normalize).replace("\\", normalize)
 
-        # If the OS is Windows, the path will be different
+    def get_current_directory_unix(self) -> str:
+        return self.get_current_directory_os_aware(normalize="/")
 
-        if os.name == "nt":
-            parts = ["earthdaily", "earthone"] + __file__.split("earthdaily\\earthone")[
-                -1
-            ].split("\\")
-            # remove empty elements
-            parts = [i for i in parts if i]
+    def get_current_module(self) -> str:
+        return __name__.rsplit(".", 1)[0]
 
-        # Construct the module path and module in dot notation
-        module_path = os.path.join(*parts[:-1])
-        module_dot = ".".join(parts[:-1])
-
-        # Return the module path, module in dot notation and the parts of the path
-        return module_path, module_dot, parts
-
-    def get_init_files(self, parts):
-        # Return list of paths to the __init__.py files
-
-        init_files = []
-
-        # Don't need the last part of the path because it's the current file name
-        parts.remove(parts[-1])
-
-        # Construct list of paths to the __init__.py files for each sub-module
-        for i in range(len(parts)):
-            init_files.append("/".join(parts[: i + 1] + ["__init__.py"]))
-
-        return init_files
+    def get_init_files(self, path):
+        parts = PurePosixPath(path).parts
+        segments = [
+            "/".join(parts[: i + 1]) + "/__init__.py" for i in range(len(parts))
+        ]
+        return segments
 
     def test_function_bundling(self):
         # Test with list of requirements, explicitly specified modules and explicitly
         # specified data file
 
-        module_path, module_dot, parts = self.get_module_paths()
+        # This test and `test_function_bundling_requirements_file` behave differently
+        # if runnning in monorepo or within client library. In monorepo, the module
+        # is earthdaily.earthone.compute.tests . In the client library it
+        # reports as earthone.compute.tests
+
+        current_module = self.get_current_module()
 
         # Construct the module path with forward slashes, regardless of OS
         # This is needed for the bundle check to work with ZipFile
-        module_path_forward_slash = "/".join(parts[:-1])
+        relative_python_file_directory = current_module.replace(".", "/")
 
-        # Add the paths to the __init__.py files
-        # Must use forward slashes for the ZipFile check to work
         files_to_be_bundled = [
             "__dlentrypoint__.py",
-            f"{module_path_forward_slash}/data/test_data1.csv",
-            f"{module_path_forward_slash}/test_function.py",
-            f"{module_path_forward_slash}/test_job.py",
+            f"{relative_python_file_directory}/data/test_data1.csv",
+            f"{relative_python_file_directory}/test_function.py",
+            f"{relative_python_file_directory}/test_job.py",
             "requirements.txt",
-        ] + self.get_init_files(parts)
+        ] + self.get_init_files(relative_python_file_directory)
+
+        current_directory_os_aware = self.get_current_directory_unix()
 
         params = {
             "image": "python3.8:latest",
@@ -306,10 +294,12 @@ class TestFunctionBundle(FunctionTestCase):
                 "geopandas==0.13.2",
             ],
             "include_modules": [
-                f"{module_dot}.test_function",
-                f"{module_dot}.test_job",
+                f"{current_module}.test_function",
+                f"{current_module}.test_job",
             ],
-            "include_data": [os.path.join(module_path, "data", "test_data1.csv")],
+            "include_data": [
+                os.path.join(current_directory_os_aware, "data", "test_data1.csv")
+            ],
         }
 
         def test_compute_fn(a, b):
@@ -325,28 +315,30 @@ class TestFunctionBundle(FunctionTestCase):
         assert sorted(files_to_be_bundled) == sorted(set(contents))
 
         # Check that the base.py file is not in the bundle since we didn't specify it
-        assert os.path.join(module_path, "base.py") not in contents
+        assert os.path.join(current_directory_os_aware, "base.py") not in contents
 
     def test_function_bundling_requirements_file(self):
         # Test with requirements file, full module and all (*) contents of data folder
 
-        module_path, module_dot, parts = self.get_module_paths()
-
         # Construct the module path with forward slashes, regardless of OS
         # This is needed for the bundle check to work with ZipFile
-        module_path_forward_slash = "/".join(parts[:-1])
+
+        current_module = self.get_current_module()
+        relative_python_file_directory = current_module.replace(".", "/")
 
         # Add the paths to the __init__.py files
         # Must use forward slashes for the ZipFile check to work
         files_to_be_bundled = [
             "__dlentrypoint__.py",
-            f"{module_path_forward_slash}/data/test_data1.csv",
-            f"{module_path_forward_slash}/data/test_data2.json",
-            f"{module_path_forward_slash}/base.py",
-            f"{module_path_forward_slash}/test_function.py",
-            f"{module_path_forward_slash}/test_job.py",
+            f"{relative_python_file_directory}/data/test_data1.csv",
+            f"{relative_python_file_directory}/data/test_data2.json",
+            f"{relative_python_file_directory}/base.py",
+            f"{relative_python_file_directory}/test_function.py",
+            f"{relative_python_file_directory}/test_job.py",
             "requirements.txt",
-        ] + self.get_init_files(parts)
+        ] + self.get_init_files(relative_python_file_directory)
+
+        current_directory_os_aware = self.get_current_directory_os_aware()
 
         params = {
             "image": "python3.8:latest",
@@ -355,9 +347,11 @@ class TestFunctionBundle(FunctionTestCase):
             "maximum_concurrency": 1,
             "timeout": 60,
             "retry_count": 1,
-            "requirements": os.path.join(module_path, "requirements.txt"),
-            "include_modules": [module_dot],
-            "include_data": [os.path.join(module_path, "data", "*")],
+            "requirements": os.path.join(
+                current_directory_os_aware, "requirements.txt"
+            ),
+            "include_modules": [current_module],
+            "include_data": [os.path.join(current_directory_os_aware, "data", "*")],
         }
 
         def test_compute_fn(a, b):
@@ -374,8 +368,8 @@ class TestFunctionBundle(FunctionTestCase):
 
         # Remove the _main_tests.py file from the expected contents because it is
         # dynamically generated
-        if os.path.join(module_path, "_main_tests.py") in contents:
-            contents.remove(os.path.join(module_path, "_main_tests.py"))
+        if os.path.join(current_directory_os_aware, "_main_tests.py") in contents:
+            contents.remove(os.path.join(current_directory_os_aware, "_main_tests.py"))
 
         assert sorted(files_to_be_bundled) == sorted(contents)
 
