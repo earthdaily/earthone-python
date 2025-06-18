@@ -264,7 +264,7 @@ class TestFunctionBundle(FunctionTestCase):
         # This test and `test_function_bundling_requirements_file` behave differently
         # if runnning in monorepo or within client library. In monorepo, the module
         # is earthdaily.earthone.compute.tests . In the client library it
-        # reports as earthone.compute.tests
+        # reports as earthdaily.earthone.compute.tests
 
         current_module = self.get_current_module()
 

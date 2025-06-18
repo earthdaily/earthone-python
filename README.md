@@ -206,7 +206,7 @@ below.
 - The Vector package now has a `VectorClient` API client, with the usual support for `get_default_client()`
   and `set_default_client()`. Most constructors and methods now accept an optional `client=` parameter
   if you need to use something other than the default client.
-- Configuration is now accomplished using the standard `earthone.config` package. In particular,
+- Configuration is now accomplished using the standard `earthdaily.earthone.config` package. In particular,
   the `vector_url` setting is used to specify the default Vector host. The `VECTOR_API_HOST` environment
   variable is no longer consulted.
 - Vector client methods now raise standard `earthdaily.earthone.exceptions` Exception classes rather than
@@ -1298,7 +1298,7 @@ You should _NOT_ install version 1.1.0; 1.1.1 should be used instead in all circ
 - `Datetime` and `Timedelta` are unpacked into `datetime.datetime` and `datetime.timedelta` objects when computed.
 
 ### Workflows - Changed
-- **[breaking]** Result containers moved to `earthone/workflows/results` and renamed, appending "Result" to disambiguate (e.g. ImageResult and ImageCollectionResult)
+- **[breaking]** Result containers moved to `earthdaily/earthone/workflows/results` and renamed, appending "Result" to disambiguate (e.g. ImageResult and ImageCollectionResult)
 - **[breaking] `.bands` and `.images` attributes of ImageResult and ImageCollectionResult renamed `.ndarray`**
 - **[breaking]** When `compute`-ing an `Image` or `ImageCollection`, **the order of `bandinfo` is only correct for Python >= 3.6**
 - Interactive maps: coordinates are displayed in lat, lon order instead of lon, lat for easier copy-pasting
