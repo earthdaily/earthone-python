@@ -31,11 +31,23 @@ by providing:
     * A Python client library to access these systems
 """
 
+# This is required in order to support namespace packages
+# PEP420 is not sufficient because of legacy usage patterns
+# and the three levels of earthdaily, earthdaily.earthone,
+# and earthdaily.earthone.dynamic_compute all being packaged
+# separately.
+__path__ = __import__("pkgutil").extend_path(__path__, __name__)  # noqa: F821
+
+from importlib.metadata import PackageNotFoundError, version
+
+try:
+    __version__ = version("earthdaily-earthone")
+except PackageNotFoundError:
+    from earthdaily.earthone.core.client import __version__
+
 from earthdaily.earthone import auth
 from earthdaily.earthone import config
 from earthdaily.earthone import exceptions
-from earthdaily.earthone.core.client.version import __version__
-
 from earthdaily.earthone import geo
 from earthdaily.earthone import utils
 from earthdaily.earthone import catalog
@@ -44,15 +56,12 @@ from earthdaily.earthone import vector
 
 select_env = config.select_env
 get_settings = config.get_settings
-AWS_ENVIRONMENT = config.AWS_ENVIRONMENT
-GCP_ENVIRONMENT = config.GCP_ENVIRONMENT
 
 __author__ = "EarthDaily"
 
 __all__ = [
+    "__author__",
     "__version__",
-    "AWS_ENVIRONMENT",
-    "GCP_ENVIRONMENT",
     "auth",
     "catalog",
     "compute",
