@@ -57,6 +57,7 @@ def do_setup():
             "Programming Language :: Python :: 3.10",
             "Programming Language :: Python :: 3.11",
             "Programming Language :: Python :: 3.12",
+            "Programming Language :: Python :: 3.13",
         ],
         license="Apache 2.0",
         download_url=(
@@ -80,7 +81,7 @@ def do_setup():
         python_requires="~=3.10",
         install_requires=[
             "affine>=2.2.2",
-            "blosc>=1.11.2",
+            "blosc>=1.11.3",
             "cachetools>=3.1.1",
             "click>=8.2.0",
             "dill>=0.3.6",

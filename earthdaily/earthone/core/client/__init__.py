@@ -15,13 +15,13 @@
 import sys
 import warnings
 
-if sys.version_info < (3, 9):
+if sys.version_info < (3, 10):
     msg = "Python version {}.{} not supported by the EarthOne client".format(
         sys.version_info.major, sys.version_info.minor
     )
     raise ImportError(msg)
 
-if sys.version_info >= (3, 13):
+if sys.version_info >= (3, 14):
     msg = "Python version {}.{} is not supported yet. You may encounter unexpected errors.".format(
         sys.version_info.major, sys.version_info.minor
     )
