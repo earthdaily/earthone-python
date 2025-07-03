@@ -31,6 +31,8 @@ by providing:
     * A Python client library to access these systems
 """
 
+__path__ = __import__("pkgutil").extend_path(__path__, __name__)
+
 from importlib.metadata import PackageNotFoundError, version
 
 try:
