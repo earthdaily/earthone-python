@@ -28,18 +28,12 @@ The documentation for the latest release can be found at [https://docs.earthone.
 Changelog
 =========
 
-## [Unreleased]
-
 ## [5.0.0] - 2025-05-23
 
 ## General
 
 - Client updated as the EarthOne platform, using new Github page and Pypi project. See [Migrating from Descartelabs](#Migrating-from-descarteslabs) for details.
 - Support for Python 3.9 has been dropped, as it is reaching end of life an many dependencies no longer support it.
-
-## Configuration
-
-- Configuration environments have changed names, by removing the `aws-` prefix. So what was `aws-production` is now `production`. This should not affect anyone but power users who mess around with dev and staging.
 
 ## [4.0.0] - 2025-03-13
 

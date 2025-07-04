@@ -19,7 +19,8 @@ import dynaconf
 
 from earthdaily.earthone.exceptions import ConfigError
 
-DEFAULT_ENVIRONMENT = "production"  #: Standard AWS environment
+GCP_ENVIRONMENT = "gcp-production"  #: Standard GCP environment
+AWS_ENVIRONMENT = "aws-production"  #: Standard AWS environment
 
 
 class Settings(dynaconf.Dynaconf):
@@ -77,7 +78,7 @@ class Settings(dynaconf.Dynaconf):
             ``earthdaily.earthone/config/settings.toml`` If not supplied will be determined
             from the `EARTHONE_ENV` environment variable (or use the prefix
             specified in the `envvar_prefix`_ENV), if set. Otherwise defaults to
-            `production`.
+            `aws-production`.
         settings_file : str, optional
             If supplied, will be consulted for additional configuration overrides. These
             are applied over those in the ``earthdaily.earthone/config/settings.toml`` file,
@@ -210,7 +211,7 @@ class Settings(dynaconf.Dynaconf):
             os.environ[selector] = env
         elif not os.environ.get(selector):
             # Default it.
-            os.environ[selector] = DEFAULT_ENVIRONMENT
+            os.environ[selector] = "aws-production"
 
         builtin_settings_file = os.path.join(
             os.path.dirname(os.path.abspath(__file__)), "settings.toml"
@@ -264,7 +265,8 @@ select_env = Settings.select_env
 """An alias for :py:meth:`Settings.select_env`"""
 
 __all__ = [
-    "DEFAULT_ENVIRONMENT",
+    "AWS_ENVIRONMENT",
+    "GCP_ENVIRONMENT",
     "Settings",
     "get_settings",
     "peek_settings",

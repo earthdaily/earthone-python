@@ -4,7 +4,7 @@ log_level = "WARNING"
 # default_domain must be overridden
 default_domain = ""
 
-[production]
+[aws-production]
 default_domain = "@format production.{this.DOMAIN}"
 platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
 
@@ -19,7 +19,7 @@ userlimit_url = "@format {this.PLATFORM_URL}/userlimit/v1"
 vector_url = "@format {this.PLATFORM_URL}/vector/v1"
 yaas_url = "@format {this.PLATFORM_URL}/yaas/v1"
 
-[staging]
+[aws-staging]
 default_domain = "@format staging.{this.DOMAIN}"
 platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
 
@@ -34,7 +34,7 @@ userlimit_url = "@format {this.PLATFORM_URL}/userlimit/v1"
 vector_url = "@format {this.PLATFORM_URL}/vector/v1"
 yaas_url = "@format {this.PLATFORM_URL}/yaas/v1"
 
-[dev]
+[aws-dev]
 default_domain = "@format dev.{this.DOMAIN}"
 platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
 
@@ -49,7 +49,7 @@ userlimit_url = "@format {this.PLATFORM_URL}/userlimit/v1"
 vector_url = "@format {this.PLATFORM_URL}/vector/v1"
 yaas_url = "@format {this.PLATFORM_URL}/yaas/v1"
 
-[freemium]
+[aws-freemium]
 default_domain = "@format freemium.{this.DOMAIN}"
 platform_url = "@format https://platform.{this.DEFAULT_DOMAIN}"
 
