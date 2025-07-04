@@ -46,18 +46,18 @@ class TestSettings(unittest.TestCase):
         self.assertEqual(id(settings), id(Settings._settings))
         self.assertEqual(id(settings), id(Settings.get_settings()))
 
-    @patch.dict(os.environ, {"EARTHONE_ENV": "aws-production"})
+    @patch.dict(os.environ, {"EARTHONE_ENV": "production"})
     def test_select_env_from_env(self):
         settings = Settings.select_env()
-        self.assertEqual(settings.current_env, "aws-production")
+        self.assertEqual(settings.current_env, "production")
         self.assertEqual(id(settings), id(Settings._settings))
         self.assertEqual(id(settings), id(Settings.get_settings()))
 
     # environment must be patched because select_env will alter it
     @patch.dict(os.environ, clear=True)
     def test_select_env_from_string(self):
-        settings = Settings.select_env("aws-production")
-        self.assertEqual(settings.current_env, "aws-production")
+        settings = Settings.select_env("production")
+        self.assertEqual(settings.current_env, "production")
         self.assertEqual(id(settings), id(Settings._settings))
         self.assertEqual(id(settings), id(Settings.get_settings()))
 
@@ -88,7 +88,7 @@ class TestSettings(unittest.TestCase):
 
     def test_peek_settings(self):
         current_env = os.environ["EARTHONE_ENV"]
-        env = "aws-production"
+        env = "production"
         settings = Settings.peek_settings(env)
         assert os.environ["EARTHONE_ENV"] == current_env
         assert settings.env == env
@@ -108,18 +108,18 @@ class TestSettings(unittest.TestCase):
         assert a.domain == "https://iam.dev.earthone.earthdaily.com"
 
     def test_auth_with_env(self):
-        with patch.dict(os.environ, {"EARTHONE_ENV": "aws-production"}):
+        with patch.dict(os.environ, {"EARTHONE_ENV": "production"}):
             a = Auth()
             assert a.domain == "https://iam.production.earthone.earthdaily.com"
 
     def test_auth_with_test_config(self):
-        Settings.select_env("aws-production")
+        Settings.select_env("production")
         a = Auth()
         assert a.domain == "https://iam.production.earthone.earthdaily.com"
 
     def test_env(self):
-        peek1_env = "aws-dev"
-        env = "aws-staging"
+        peek1_env = "dev"
+        env = "staging"
 
         assert Settings.env is None
         s1 = Settings.peek_settings(peek1_env)
@@ -134,7 +134,7 @@ class TestSettings(unittest.TestCase):
 
 class VerifyValues(unittest.TestCase):
     configs = {
-        "aws-dev": {
+        "dev": {
             "APP_URL": "https://app.earthone.earthdaily.com",
             "CATALOG_V2_URL": "https://platform.dev.earthone.earthdaily.com/metadata/v1/catalog/v2",
             "COMPUTE_URL": "https://platform.dev.earthone.earthdaily.com/compute/v1",
@@ -148,7 +148,7 @@ class VerifyValues(unittest.TestCase):
             "VECTOR_URL": "https://platform.dev.earthone.earthdaily.com/vector/v1",
             "YAAS_URL": "https://platform.dev.earthone.earthdaily.com/yaas/v1",
         },
-        "aws-freemium": {
+        "freemium": {
             "APP_URL": "https://app.earthone.earthdaily.com",
             "CATALOG_V2_URL": "https://platform.freemium.earthone.earthdaily.com/metadata/v1/catalog/v2",
             "IAM_URL": "https://iam.freemium.earthone.earthdaily.com",
@@ -159,7 +159,7 @@ class VerifyValues(unittest.TestCase):
             "USAGE_URL": "https://platform.freemium.earthone.earthdaily.com/usage/v1",
             "USERLIMIT_URL": "https://platform.freemium.earthone.earthdaily.com/userlimit/v1",
         },
-        "aws-production": {
+        "production": {
             "APP_URL": "https://app.earthone.earthdaily.com",
             "CATALOG_V2_URL": "https://platform.production.earthone.earthdaily.com/metadata/v1/catalog/v2",
             "COMPUTE_URL": "https://platform.production.earthone.earthdaily.com/compute/v1",
@@ -173,7 +173,7 @@ class VerifyValues(unittest.TestCase):
             "VECTOR_URL": "https://platform.production.earthone.earthdaily.com/vector/v1",
             "YAAS_URL": "https://platform.production.earthone.earthdaily.com/yaas/v1",
         },
-        "aws-staging": {
+        "staging": {
             "APP_URL": "https://app.earthone.earthdaily.com",
             "CATALOG_V2_URL": "https://platform.staging.earthone.earthdaily.com/metadata/v1/catalog/v2",
             "COMPUTE_URL": "https://platform.staging.earthone.earthdaily.com/compute/v1",
