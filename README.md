@@ -23,6 +23,7 @@ The documentation for the latest release can be found at [https://docs.earthone.
 - Change any embedded URLs from `*.descarteslabs.com` to `*.earthone.earthdaily.com` or `*.earthdaily.com` as appropriate.
 - Change any references to Catalog or Vector products/bands/images that are prefixed with `descarteslabs:` to instead be prefixed with `earthdaily:`.
 - Change any use of `DESCARTESLABS_` prefixed enviroment variables to `EARTHONE_`.
+- If you are setting `EARTHONE_ENV` environment variables anywhere, be sure to adjust the platform environment name by dropping any `aws-` prefix.
 - Reauthenticate using `earthone auth login`
 
 Changelog
