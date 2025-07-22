@@ -52,11 +52,10 @@ jobs:
           # Update version.py with version suffix
           python scripts/version_suffix.py earthdaily/earthone/core/client/version.py ${{ inputs.version_suffix }}          
           
-          pip install twine
+          pip install twine build
           pip install -U packaging
 
-          python3 setup.py bdist_wheel
-          python3 setup.py sdist
+          python3 -m build
 
       # Upload the Python wheel packages to PyPI using an API Token
       # https://pypi.org/help/#apitoken
