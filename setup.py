@@ -45,7 +45,7 @@ def do_setup():
         "freezegun==0.3.12",
     ]
     setup(
-        name="earthdaily_earthone",
+        name="earthdaily-earthone",
         description=DOCLINES[0],
         long_description="\n".join(DOCLINES[2:]),
         author="EarthDaily",
