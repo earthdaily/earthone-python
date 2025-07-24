@@ -37,10 +37,16 @@ Changelog
 
 - Client updated as the EarthOne platform, using new Github page and Pypi project. See [Migrating from Descartelabs](#Migrating-from-descarteslabs) for details.
 - Support for Python 3.9 has been dropped, as it is reaching end of life an many dependencies no longer support it.
+- Support for Python 3.13 has been added
 
 ## Configuration
 
 - Configuration environments have changed names, by removing the `aws-` prefix. So what was `aws-production` is now `production`. This should not affect anyone but power users who mess around with dev and staging.
+
+## Compute
+
+- Python 3.13 base images are now available
+- Base images now include the `earthdaily` client
 
 ## [4.0.0] - 2025-03-13
 
