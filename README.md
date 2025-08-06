@@ -31,7 +31,11 @@ Changelog
 
 ## [Unreleased]
 
-## [5.0.0] - 2025-05-23
+## General
+
+- Updated from blosc to blosc2, which required updating the minimum numpy version to 2.0.0.
+
+## [5.0.0b1] - 2025-05-23
 
 ## General
 

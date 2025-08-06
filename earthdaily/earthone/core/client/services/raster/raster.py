@@ -20,7 +20,7 @@ import time
 from collections.abc import Iterable
 from concurrent import futures
 
-import blosc
+import blosc2
 import numpy as np
 from earthdaily.earthone.auth import Auth
 from earthdaily.earthone.config import get_settings
@@ -110,7 +110,7 @@ def read_tiled_blosc_array(metadata, data, progress=None):
                 )
             )
 
-        blosc.decompress_ptr(buffer, chunk.__array_interface__["data"][0])
+        blosc2.decompress(buffer, chunk)
 
         start_band, y_off, x_off = chunk_metadata["offset"]
         output.data[
@@ -129,7 +129,7 @@ def read_tiled_blosc_array(metadata, data, progress=None):
                 )
             )
 
-        blosc.decompress_ptr(buffer, mask_chunk.__array_interface__["data"][0])
+        blosc2.decompress(buffer, mask_chunk)
 
         start_band, y_off, x_off = chunk_metadata["offset"]
         output.mask[
@@ -170,7 +170,7 @@ def yield_chunks(metadata, data, progress, nodata):
                     raw_size, chunk.nbytes
                 )
             )
-        blosc.decompress_ptr(buffer, chunk.__array_interface__["data"][0])
+        blosc2.decompress(buffer, chunk)
 
         mask_raw_size, mask_buffer = read_blosc_buffer(data)
         if nodata is not None:
@@ -181,7 +181,7 @@ def yield_chunks(metadata, data, progress, nodata):
                         raw_size, chunk.nbytes
                     )
                 )
-            blosc.decompress_ptr(mask_buffer, mask_chunk.__array_interface__["data"][0])
+            blosc2.decompress(mask_buffer, mask_chunk)
             chunk[mask_chunk] = nodata
 
         if chunk.shape[0] == 1:

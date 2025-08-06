@@ -19,7 +19,7 @@ import time
 import unittest
 from unittest.mock import patch
 
-import blosc
+import blosc2
 import numpy as np
 import pytest
 import responses
@@ -90,15 +90,13 @@ class RasterTest(unittest.TestCase):
 
             chunk_meta = {"offset": [i * shape[0], 0, 0], "shape": list(array.shape)}
 
-            array_ptr = array.__array_interface__["data"][0]
-            blosc_data = blosc.compress_ptr(
-                array_ptr, array.size, array.dtype.itemsize
+            blosc_data = blosc2.compress(
+                array, array.dtype.itemsize, codec=blosc2.Codec.BLOSCLZ
             ).decode("utf-8")
 
             mask = np.zeros(array.shape[1:]).astype(bool)
-            mask_ptr = mask.__array_interface__["data"][0]
-            mask_data = blosc.compress_ptr(
-                mask_ptr, mask.size, mask.dtype.itemsize
+            mask_data = blosc2.compress(
+                mask, mask.dtype.itemsize, codec=blosc2.Codec.BLOSCLZ
             ).decode("utf-8")
 
             parts.append(json.dumps(chunk_meta) + "\n")
