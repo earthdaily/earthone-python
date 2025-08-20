@@ -18,7 +18,7 @@
 
     pip install earthdaily-earthone[complete]
 
-Documentation is available at https://docs.earthone.earthdaily.com.
+Documentation is available at https://earthone.earthdaily.com/docs.
 
 Source code and version information is at
 https://github.com/earthdaily/earthone-python.

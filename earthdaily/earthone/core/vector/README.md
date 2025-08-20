@@ -4,7 +4,7 @@
 
 _Vector_ is a **catalog for vector data**. It enables users to store, query, and display vector data — which includes everything from fault lines to thermal anomalies to material spectra.
 
-Formal documentation for this library is available under the [EarthOne API Documentation](https://docs.earthone.earthdaily.com/api.html). Below is a very simple example to get you started with uploading and querying data to and from Vector.
+Formal documentation for this library is available under the [EarthOne API Documentation](https://earthone.earthdaily.com/docs/api.html). Below is a very simple example to get you started with uploading and querying data to and from Vector.
 
 To start using the Vector client, first import it:
 
@@ -135,4 +135,4 @@ Which should yield the feature we just created, outlining the coldest lake on Ea
 
 ![The coldest lake](https://raw.githubusercontent.com/earthone/earthone-python/master/vector/images/the-coldest-lake.png)
 
-The Vector service also provides for more advanced product and feature management and querying. You can read more about what can be done with Vector in the [EarthOne API Documentation](https://docs.earthone.earthdaily.com/api.html).
+The Vector service also provides for more advanced product and feature management and querying. You can read more about what can be done with Vector in the [EarthOne API Documentation](https://earthone.earthdaily.com/docs/api.html).

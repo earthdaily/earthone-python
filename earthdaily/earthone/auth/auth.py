@@ -147,7 +147,7 @@ class Auth:
 
     AUTHORIZATION_ERROR = (
         "No valid authentication info found{}. "
-        "See https://docs.earthone.earthdaily.com/authentication.html."
+        "See https://earthone.earthdaily.com/docs/authentication.html."
     )
 
     KEY_CLIENT_ID = "client_id"

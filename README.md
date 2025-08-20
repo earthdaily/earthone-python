@@ -29,19 +29,14 @@ The documentation for the latest release can be found at [https://docs.earthone.
 Changelog
 =========
 
-## [Unreleased]
-
-## General
-
-- Updated from blosc to blosc2, which required updating the minimum numpy version to 2.0.0.
-
-## [5.0.0b1] - 2025-05-23
+## [5.0.0] - 2025-08-20
 
 ## General
 
 - Client updated as the EarthOne platform, using new Github page and Pypi project. See [Migrating from Descartelabs](#Migrating-from-descarteslabs) for details.
 - Support for Python 3.9 has been dropped, as it is reaching end of life an many dependencies no longer support it.
 - Support for Python 3.13 has been added
+- Updated from blosc to blosc2, which required updating the minimum numpy version to 2.0.0.
 
 ## Configuration
 
@@ -50,7 +45,7 @@ Changelog
 ## Compute
 
 - Python 3.13 base images are now available
-- Base images now include the `earthdaily` client
+- Base images now include the `earthdaily` client in addition to this `earthdaily-earthone` client.
 
 ## [4.0.0] - 2025-03-13
 
