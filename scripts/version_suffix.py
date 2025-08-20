@@ -5,7 +5,7 @@ Script to update the version.py with a suffix e.g "b1" (Beta 1). Used before bui
 import sys
 
 file_path = sys.argv[1]
-suffix = sys.argv[2].strip()
+suffix = len(sys.argv) >= 3 and sys.argv[2].strip() or ""
 
 with open(file_path) as f:
     lines = f.readlines()
