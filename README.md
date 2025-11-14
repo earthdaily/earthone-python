@@ -29,6 +29,13 @@ The documentation for the latest release can be found at [https://docs.earthone.
 Changelog
 =========
 
+## [5.0.1] - 2025-11-14
+
+## General
+
+- Cleanup of various references to DescartesLabs in code and documentation
+- A minor edge case in the latlon bounds checking helper affecting the Catalog client was fixed
+
 ## [5.0.0] - 2025-08-20
 
 ## General
