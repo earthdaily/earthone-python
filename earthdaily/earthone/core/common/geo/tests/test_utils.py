@@ -50,6 +50,8 @@ class TestSimpleHelpers(unittest.TestCase):
         assert valid_latlon_bounds([-10, 5, 60, 80])
         assert valid_latlon_bounds([-180, -90, 180, 90])
         assert not valid_latlon_bounds([361760.0, 4531200.0, 515360.0, 4684800.0])
+        assert valid_latlon_bounds([-0.05, -90.05, 359.5, 90.05], 0.05, 180.0)
+        assert valid_latlon_bounds([-180.125, -90.125, 179.875, 90.125], 0.125)
 
     def test_is_geographic_crs(self):
         assert is_geographic_crs("EPSG:4326")

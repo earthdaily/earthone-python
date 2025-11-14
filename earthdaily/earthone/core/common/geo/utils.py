@@ -96,7 +96,7 @@ def is_wgs84_crs(crs):
 def round_if_close_to_int(value, tol=0.001):
     closest_int = int(floor(value + 0.5))
 
-    if abs(value - closest_int) < tol:
+    if abs(value - closest_int) <= tol:
         return closest_int
     else:
         return value
