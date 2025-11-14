@@ -172,6 +172,7 @@ class ImageCollection(Collection):
         data_type=None,
         progress=None,
         max_workers=None,
+        **kwargs,
     ):
         """
         Load bands from all images and stack them into a 4D ndarray,
@@ -324,6 +325,7 @@ class ImageCollection(Collection):
             resampler=resampler,
             processing_level=processing_level,
             progress=progress,
+            **kwargs,
         )
 
         if bands_axis == 0 or bands_axis == -4:
@@ -434,6 +436,7 @@ class ImageCollection(Collection):
         data_type=None,
         progress=None,
         raster_info=False,
+        **kwargs,
     ):
         """
         Load bands from all images, combining them into a single 3D ndarray
@@ -588,8 +591,12 @@ class ImageCollection(Collection):
             progress=progress,
             **raster_params,
         )
+
+        raster = kwargs.pop("raster_client", None) or Raster.get_default_client()
+        if kwargs:
+            raise TypeError(f"Unexpected keyword arguments: {kwargs}")
         try:
-            arr, info = Raster.get_default_client().ndarray(**full_raster_args)
+            arr, info = raster.ndarray(**full_raster_args)
         except NotFoundError:
             raise NotFoundError(
                 "Some or all of these IDs don't exist in the EarthOne catalog: {}".format(
@@ -632,6 +639,7 @@ class ImageCollection(Collection):
         data_type=None,
         progress=None,
         max_workers=None,
+        **kwargs,
     ):
         """
         Download images as image files in parallel.
@@ -828,6 +836,7 @@ class ImageCollection(Collection):
             scaling=scales,
             data_type=data_type,
             progress=progress,
+            **kwargs,
         )
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = {
@@ -864,6 +873,7 @@ class ImageCollection(Collection):
         mask_alpha=None,
         nodata=None,
         progress=None,
+        **kwargs,
     ):
         """
         Download all images as a single image file.
@@ -1008,6 +1018,7 @@ class ImageCollection(Collection):
             processing_level=processing_level,
             nodata=nodata,
             progress=progress,
+            **kwargs,
         )
 
     def scaling_parameters(

@@ -982,6 +982,7 @@ class Image(NamedCatalogObject):
         scaling=None,
         data_type=None,
         progress=None,
+        **kwargs,
     ):
         """
         Load bands from this image as an ndarray, optionally masking invalid data.
@@ -1122,6 +1123,7 @@ class Image(NamedCatalogObject):
             scaling=scaling,
             data_type=data_type,
             progress=progress,
+            **kwargs,
         )
 
     # the ndarray implementation is broken out so it can be used directly from ImageCollection
@@ -1138,6 +1140,7 @@ class Image(NamedCatalogObject):
         scaling=None,
         data_type=None,
         progress=None,
+        **kwargs,
     ):
         if not (-3 < bands_axis < 3):
             raise ValueError(
@@ -1203,8 +1206,11 @@ class Image(NamedCatalogObject):
             **raster_params,
         )
 
+        raster = kwargs.pop("raster_client", None) or Raster.get_default_client()
+        if kwargs:
+            raise TypeError(f"Unexpected keyword arguments: {kwargs}")
         try:
-            arr, info = Raster.get_default_client().ndarray(**full_raster_args)
+            arr, info = raster.ndarray(**full_raster_args)
 
         except NotFoundError:
             raise NotFoundError(

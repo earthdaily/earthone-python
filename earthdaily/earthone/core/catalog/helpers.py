@@ -93,6 +93,7 @@ def download(
     scales=None,
     nodata=None,
     progress=None,
+    **kwargs,
 ):
     """
     Download inputs as an image file and save to file or path-like `dest`.
@@ -136,8 +137,11 @@ def download(
         **raster_params,
     )
 
+    raster = kwargs.pop("raster_client", None) or Raster.get_default_client()
+    if kwargs:
+        raise TypeError(f"Unexpected keyword arguments: {kwargs}")
     try:
-        Raster.get_default_client().raster(**full_raster_args)
+        raster.raster(**full_raster_args)
     except NotFoundError:
         if len(inputs) == 1:
             msg = "'{}' does not exist in the EarthOne catalog".format(inputs[0])
