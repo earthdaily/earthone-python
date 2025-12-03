@@ -27,7 +27,7 @@ import responses
 from earthdaily.earthone.exceptions import AuthError
 
 from .. import auth as auth_module
-from ..auth import Auth, EARTHONE_CUSTOM_CLAIM_PREFIX, LEGACY_DELEGATION_CLIENT_IDS
+from ..auth import Auth, EARTHONE_CUSTOM_CLAIM_PREFIX
 
 
 def token_response_callback(request):
@@ -38,23 +38,11 @@ def token_response_callback(request):
     data = json.loads(body)
 
     required_fields = ["client_id", "grant_type", "refresh_token"]
-    legacy_required_fields = ["api_type", "target"]
 
     if not all(field in data for field in required_fields):
         return 400, {"Content-Type": "application/json"}, json.dumps("missing fields")
 
-    if data["grant_type"] == "urn:ietf:params:oauth:grant-type:jwt-bearer" and all(
-        field in data for field in legacy_required_fields
-    ):
-        return (
-            200,
-            {"Content-Type": "application/json"},
-            json.dumps(dict(id_token="legacy-id-token")),
-        )
-
-    if data["grant_type"] == "refresh_token" and all(
-        field not in data for field in legacy_required_fields
-    ):
+    if data["grant_type"] == "refresh_token":
         # note: this used to return both an access_token and an id_token
         # but that isn't how IAM works anymore: it only returns an id_token.
         # this isn't really OAuth2, but it is what it is.
@@ -116,19 +104,6 @@ class TestAuth(unittest.TestCase):
 
         assert "access-token" == auth._token
 
-    @responses.activate
-    def test_get_token_legacy(self):
-        responses.add(
-            responses.POST,
-            f"{domain}/token",
-            json=dict(id_token="id-token"),
-            status=200,
-        )
-        auth = Auth(client_secret="client-secret", client_id="client-id")
-        auth._get_token()
-
-        assert "id-token" == auth._token
-
     def test_payload(self):
         auth = Auth()
 
@@ -167,11 +142,6 @@ class TestAuth(unittest.TestCase):
         auth = Auth(client_secret="client-secret", client_id="client-id")
         assert auth.namespace == "1234"
 
-    @patch.object(Auth, "payload", new=dict(sub="asdf"))
-    def test_get_legacy_namespace(self):
-        auth = Auth(client_secret="client-secret", client_id="client-id")
-        assert auth.namespace == "3da541559918a808c2402bba5012f6c60b27661c"
-
     def test_init_token_no_path(self):
         token = b".".join(
             (
@@ -198,21 +168,6 @@ class TestAuth(unittest.TestCase):
         auth._get_token()
 
         assert "id-token" == auth._token
-
-    @unittest.skipUnless(len(LEGACY_DELEGATION_CLIENT_IDS) > 0, "No legacy client IDs")
-    @responses.activate
-    def test_get_token_schema_legacy_internal_only(self):
-        responses.add_callback(
-            responses.POST,
-            f"{domain}/token",
-            callback=token_response_callback,
-        )
-        auth = Auth(
-            client_secret="client-secret",
-            client_id=LEGACY_DELEGATION_CLIENT_IDS[0],
-        )
-        auth._get_token()
-        assert "legacy-id-token" == auth._token
 
     @patch.object(Auth, "_get_token")
     def test_token(self, _get_token):
@@ -328,7 +283,7 @@ class TestAuth(unittest.TestCase):
         environ.pop("EARTHONE_CLIENT_SECRET")
         environ.pop("EARTHONE_CLIENT_ID")
 
-        # should fallback to legacy env vars
+        # should fallback to unnamespaced env vars
         with patch.object(auth_module.os, "environ", environ):
             auth = Auth()
             assert auth.client_secret == environ.get("EARTHONE_REFRESH_TOKEN")
@@ -537,13 +492,14 @@ class TestAuth(unittest.TestCase):
                 for p in [
                     "header",
                     json.dumps(
-                        dict(
-                            sub="some|user",
-                            groups=["public"],
-                            org="some-org",
-                            exp=9999999999,
-                            aud="client-id",
-                        )
+                        {
+                            "sub": "some|user",
+                            f"{EARTHONE_CUSTOM_CLAIM_PREFIX}groups": ["public"],
+                            f"{EARTHONE_CUSTOM_CLAIM_PREFIX}org": "some-org",
+                            "exp": 9999999999,
+                            "aud": "client-id",
+                            f"{EARTHONE_CUSTOM_CLAIM_PREFIX}userid": "abcdef1234567890",
+                        }
                     ),
                     "sig",
                 ]
@@ -568,13 +524,18 @@ class TestAuth(unittest.TestCase):
                 for p in [
                     "header",
                     json.dumps(
-                        dict(
-                            sub="some|user",
-                            groups=["public", "some-org:baz", "other:baz"],
-                            org="some-org",
-                            exp=9999999999,
-                            aud="client-id",
-                        )
+                        {
+                            "sub": "some|user",
+                            f"{EARTHONE_CUSTOM_CLAIM_PREFIX}groups": [
+                                "public",
+                                "some-org:baz",
+                                "other:baz",
+                            ],
+                            f"{EARTHONE_CUSTOM_CLAIM_PREFIX}org": "some-org",
+                            "exp": 9999999999,
+                            "aud": "client-id",
+                            f"{EARTHONE_CUSTOM_CLAIM_PREFIX}userid": "abcdef1234567890",
+                        }
                     ),
                     "sig",
                 ]

@@ -20,6 +20,7 @@ import unittest
 
 import responses
 from earthdaily.earthone.auth import Auth
+from earthdaily.earthone.auth.auth import EARTHONE_CUSTOM_CLAIM_PREFIX
 
 from ..catalog_client import CatalogClient
 
@@ -41,10 +42,13 @@ class ClientTestCase(unittest.TestCase):
             base64.b64encode(
                 json.dumps(
                     {
+                        f"{EARTHONE_CUSTOM_CLAIM_PREFIX}groups": ["public"],
+                        f"{EARTHONE_CUSTOM_CLAIM_PREFIX}name": "some name",
+                        f"{EARTHONE_CUSTOM_CLAIM_PREFIX}org": "some-org",
+                        f"{EARTHONE_CUSTOM_CLAIM_PREFIX}userid": "1234",
                         "aud": "client-id",
                         "exp": time.time() + 3600,
                         "sub": "some|user",
-                        "org": "some-org",
                     }
                 ).encode()
             )

@@ -34,11 +34,6 @@ except ImportError:
     from ..common.http import Retry, Session
 
 
-# This is only for the existing DL production tenant, and must remain in place
-# until the tenant is completely replaced, if ever.
-LEGACY_DELEGATION_CLIENT_IDS = ["ZOBAi4UROl5gKZIpxxlwOEfx8KpqXf2c"]
-
-
 # copied from earthdaily/earthone/common/threading/local.py, but we need
 # it standalone here to avoid any dependencies on our own packages
 # for client configuration purposes
@@ -755,28 +750,14 @@ class Auth:
                 self.AUTHORIZATION_ERROR.format(" (no client_secret or refresh_token)")
             )
 
-        if self.client_id in LEGACY_DELEGATION_CLIENT_IDS:
-            if self.scope is None:
-                scope = ["openid", "name", "groups", "org", "email"]
-            else:
-                scope = self.scope
-            params = {
-                self.KEY_SCOPE: " ".join(scope),
-                self.KEY_CLIENT_ID: self.client_id,
-                self.KEY_GRANT_TYPE: "urn:ietf:params:oauth:grant-type:jwt-bearer",
-                self.KEY_TARGET: self.client_id,
-                self.KEY_API_TYPE: "app",
-                self.KEY_REFRESH_TOKEN: self.refresh_token,
-            }
-        else:
-            params = {
-                self.KEY_CLIENT_ID: self.client_id,
-                self.KEY_GRANT_TYPE: "refresh_token",
-                self.KEY_REFRESH_TOKEN: self.refresh_token,
-            }
+        params = {
+            self.KEY_CLIENT_ID: self.client_id,
+            self.KEY_GRANT_TYPE: "refresh_token",
+            self.KEY_REFRESH_TOKEN: self.refresh_token,
+        }
 
-            if self.scope is not None:
-                params[self.KEY_SCOPE] = " ".join(self.scope)
+        if self.scope is not None:
+            params[self.KEY_SCOPE] = " ".join(self.scope)
 
         r = self.session.post("/token", json=params, timeout=timeout)
 
@@ -785,7 +766,7 @@ class Auth:
 
         data = r.json()
         access_token = data.get("access_token")
-        id_token = data.get("id_token")  # TODO(justin) remove legacy id_token usage
+        id_token = data.get("id_token")
 
         if access_token is not None:
             self._token = access_token
@@ -839,9 +820,6 @@ class Auth:
         namespace = self._namespace
         if namespace is None:
             namespace = self.payload.get("userid")
-            if not namespace:
-                # legacy, compute it on the fly
-                namespace = sha1(self.payload["sub"].encode("utf-8")).hexdigest()
             self._namespace = namespace
         return namespace
 

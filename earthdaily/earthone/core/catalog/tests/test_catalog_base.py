@@ -709,6 +709,7 @@ class TestAuthCatalogObject(ClientTestCase):
         payload.update(
             {
                 "sub": "some|other-user",
+                "userid": "4321",
             }
         )
         auth.__dict__["_payload"] = payload
@@ -723,6 +724,7 @@ class TestAuthCatalogObject(ClientTestCase):
                 "sub": "some|other-user",
                 "org": "some-other-org",
                 "groups": ["some-group"],
+                "userid": "4321",
             }
         )
         auth.__dict__["_payload"] = payload
@@ -737,6 +739,7 @@ class TestAuthCatalogObject(ClientTestCase):
                 "sub": "some|other-user",
                 "org": "some-other-org",
                 "groups": ["some-other-group"],
+                "userid": "4321",
             }
         )
         auth.__dict__["_payload"] = payload
