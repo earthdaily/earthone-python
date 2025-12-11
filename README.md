@@ -29,6 +29,12 @@ The documentation for the latest release can be found at [https://docs.earthone.
 Changelog
 =========
 
+## [5.0.2] - 2025-12-10
+
+## Auth
+
+- A minor cleanup of obsolete legacy code in the Auth class.
+
 ## [5.0.1] - 2025-11-14
 
 ## General
