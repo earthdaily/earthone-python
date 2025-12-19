@@ -29,6 +29,12 @@ The documentation for the latest release can be found at [https://docs.earthone.
 Changelog
 =========
 
+## [Unreleased]
+
+## Raster
+
+- Due to an internal bug, the Raster client was not retrying 503 errors as expected, instead giving up with a hard failure very quickly. Now corrected to retry for up to 60 seconds as intended.
+
 ## [5.0.2] - 2025-12-10
 
 ## Auth

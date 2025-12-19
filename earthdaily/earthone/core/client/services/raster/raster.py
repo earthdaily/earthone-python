@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from http import HTTPStatus
 import json
 import os
 import random
@@ -27,7 +28,7 @@ from earthdaily.earthone.config import get_settings
 from earthdaily.earthone.exceptions import ServerError
 from PIL import Image
 from tqdm import tqdm
-from urllib3.exceptions import IncompleteRead, ProtocolError, ReadTimeoutError
+from urllib3.exceptions import IncompleteRead, ProtocolError
 
 from ....common.dltile import Tile
 from ....common.http.service import DefaultClientMixin
@@ -35,7 +36,16 @@ from ..service.service import Service
 from .geotiff_utils import make_geotiff
 
 DEFAULT_MAX_WORKERS = 8
+DEFAULT_DELAY = 0.5
+DEFAULT_MULTIPLIER = 2
+DEFAULT_JITTER = 0.25
+DEFAULT_MAX_DELAY = 30.0
 DEFAULT_MAX_RETRIES = 8
+DEFAULT_STATUS_FORCELIST = [
+    HTTPStatus.INTERNAL_SERVER_ERROR,
+    HTTPStatus.BAD_GATEWAY,
+    HTTPStatus.GATEWAY_TIMEOUT,
+]
 
 
 def as_json_string(str_or_dict):
@@ -191,11 +201,13 @@ def yield_chunks(metadata, data, progress, nodata):
 
 
 def _retry(req, headers=None):
-    # this provides a nominal 60 seconds of retry
-    DELAY = 0.5
-    MULTIPLIER = 2
-    JITTER = 1.0
-    MAX_DELAY = 30.0
+    # This provides a nominal 60 seconds of retry for 502, 502, and 504 errors
+    # as well as partial reads and protocol errors.
+    # Otherwise retries are handled by the client Retry configuration.
+    DELAY = DEFAULT_DELAY
+    MULTIPLIER = DEFAULT_MULTIPLIER
+    JITTER = DEFAULT_JITTER
+    MAX_DELAY = DEFAULT_MAX_DELAY
     MAX_RETRIES = DEFAULT_MAX_RETRIES
 
     retry_count = 0
@@ -209,14 +221,13 @@ def _retry(req, headers=None):
 
         try:
             return req(headers=headers)
-        except (IncompleteRead, ProtocolError, ReadTimeoutError, ServerError):
+        except (IncompleteRead, ProtocolError, ServerError):
             # IncompleteRead: Response length doesn’t match expected Content-Length
             # ProtocolError: Something unexpected happened mid-request/response
-            # ReadTimeoutError: timeout occurred while reading response from server
-            # ServerError: the usual retryable bad status >= 500. Normally won't
-            # occur thanks to the client Retry configuration.
-            if retry_count == MAX_RETRIES:
+            # ServerError: retryable bad status >= 500.
+            if retry_count >= MAX_RETRIES:
                 raise
+
         # MaxRetry and all other ClientError types will be raised to our caller
 
         if retry_count:
@@ -240,18 +251,24 @@ class Raster(Service, DefaultClientMixin):
 
     TIMEOUT = (CONNECT_TIMEOUT, READ_TIMEOUT)
 
-    def __init__(self, url=None, auth=None):
-        """The parent Service class implements authentication and exponential
-        backoff/retry. Override the url parameter to use a different instance
-        of the backing service.
+    def __init__(self, url=None, auth=None, retries=None, **kwargs):
+        """Override the url parameter to use a different instance
+        of the backing service. Retries are handled by a combination
+        of the retries parameter and special handling of 503 errors.
         """
-        if auth is None:
-            auth = Auth.get_default_auth()
-
         if url is None:
             url = get_settings().raster_url
 
-        super(Raster, self).__init__(url, auth=auth)
+        if auth is None:
+            auth = Auth.get_default_auth()
+
+        # We want 503s to be handled by _retry()
+        if retries is None:
+            retries = Service.RETRY_CONFIG.new(
+                status_forcelist=DEFAULT_STATUS_FORCELIST
+            )
+
+        super(Raster, self).__init__(url, auth=auth, retries=retries, **kwargs)
 
     def raster(
         self,

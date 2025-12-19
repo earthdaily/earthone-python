@@ -138,6 +138,7 @@ class RasterTest(unittest.TestCase):
         self.mock_response(responses.POST, json=None, body=content, stream=True)
         with self.assertRaises(ServerError):
             self.raster.ndarray(["fakeid"], bands=["red"])
+        assert len(responses.calls) == 2
 
         content = self.create_blosc_response(
             expected_metadata, expected_array[0:1, :, :], "{"
@@ -145,6 +146,15 @@ class RasterTest(unittest.TestCase):
         self.mock_response(responses.POST, json=None, body=content, stream=True)
         with self.assertRaises(ServerError):
             self.raster.ndarray(["fakeid"], bands=["red"])
+        assert len(responses.calls) == 4
+
+    @responses.activate
+    @patch.object(raster_module, "DEFAULT_MAX_RETRIES", 3)
+    def test_ndarray_retry_503(self):
+        self.mock_response(responses.POST, json=None, status=503)
+        with self.assertRaises(ServerError):
+            self.raster.ndarray(["fakeid"], bands=["red"])
+        assert len(responses.calls) == 4
 
     @responses.activate
     def do_stack(self, **stack_args):
