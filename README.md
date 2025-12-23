@@ -29,7 +29,7 @@ The documentation for the latest release can be found at [https://docs.earthone.
 Changelog
 =========
 
-## [Unreleased]
+## [5.0.3] - 2025-12-22
 
 ## Raster
 
