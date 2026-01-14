@@ -13,10 +13,10 @@ with open(file_path) as f:
 for i, line in enumerate(lines):
     if line.strip().startswith("__version__"):
         base_version = line.split("=")[1].strip().strip("\"'")
-        print(f"{base_version = }")
+        print(f"{base_version=}")
         if suffix:
             new_version = f"{base_version}{suffix}"
-            print(f"Adding suffix. {new_version = }")
+            print(f"Adding suffix. {new_version=}")
             lines[i] = f'__version__ = "{new_version}"\n'
             break
 

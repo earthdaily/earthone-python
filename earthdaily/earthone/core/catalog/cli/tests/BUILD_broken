@@ -1,0 +1,15 @@
+load("@pip//:requirements.bzl", "requirement")
+load("//tools/rules/pytest_test:pytest_test.bzl", "pytest_test")
+
+pytest_test(
+    name = "tests",
+    timeout = "moderate",
+    srcs = glob(["*.py"]),
+    coverage = "earthdaily.earthone.catalog.cli",
+    deps = [
+        requirement("click"),
+        requirement("responses"),
+        "//earthdaily/earthone/client:pkg",
+        "//earthdaily/earthone/catalog/cli",
+    ],
+)

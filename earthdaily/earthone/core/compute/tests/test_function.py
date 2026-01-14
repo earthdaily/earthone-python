@@ -366,10 +366,16 @@ class TestFunctionBundle(FunctionTestCase):
 
         contents = set(contents)
 
-        # Remove the _main_tests.py file from the expected contents because it is
-        # dynamically generated
-        if os.path.join(current_directory_os_aware, "_main_tests.py") in contents:
-            contents.remove(os.path.join(current_directory_os_aware, "_main_tests.py"))
+        # Remove the _main_tests.py file and pytest dreck from the expected contents because it is
+        # dynamically generated and not part of the bundle
+        contents = [
+            file
+            for file in contents
+            if not any(
+                file.startswith(f"{current_directory_os_aware}/{prefix}")
+                for prefix in ["_main_tests.py", "_tests.venv/", "_tests_stage2_"]
+            )
+        ]
 
         assert sorted(files_to_be_bundled) == sorted(contents)
 
