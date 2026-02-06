@@ -89,6 +89,7 @@ def make_geotiff_profile(metadata, blosc_meta):
     dtype = {
         "uint16": np.uint16,
         "uint8": np.uint8,
+        "int8": np.int8,
         "int16": np.int16,
         "uint32": np.uint32,
         "int32": np.int32,

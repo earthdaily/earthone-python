@@ -119,12 +119,14 @@ GOOD_COMBINATIONS = (
     (CHUNK_SHAPES_SINGLEBLOCK, (400, 400), 3, "uint8"),
     (CHUNK_SHAPES_MULTIBLOCK, (882, 794), 4, "uint8"),
     (CHUNK_SHAPES_SINGLEBLOCK, (400, 400), 4, "uint8"),
+    (CHUNK_SHAPES_MULTIBLOCK, (882, 794), 4, "int8"),
 )
 
 # These don't work with tifffile for some reason
 BAD_TIFFFILE_COMBINATIONS = (
     (CHUNK_SHAPES_MULTIBLOCK, (882, 794), 1, "float32"),
     (CHUNK_SHAPES_MULTIBLOCK, (882, 794), 1, "uint8"),
+    (CHUNK_SHAPES_MULTIBLOCK, (882, 794), 1, "int8"),
 )
 
 if "rasterio" in sys.modules:

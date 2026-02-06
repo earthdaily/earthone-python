@@ -29,6 +29,12 @@ The documentation for the latest release can be found at [https://docs.earthone.
 Changelog
 =========
 
+## Unreleased
+
+## Raster/Catalog
+
+- Add support for the Int8 datatype for images.
+
 ## [5.0.3] - 2025-12-22
 
 ## Raster

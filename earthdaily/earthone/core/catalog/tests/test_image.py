@@ -813,9 +813,6 @@ class TestImage(ClientTestCase):
         )
 
         pytest.raises(
-            ValueError, image.upload_ndarray, np.zeros((1, 100, 100), np.int8)
-        )
-        pytest.raises(
             ValueError, image.upload_ndarray, np.zeros((1, 100, 100), np.int64)
         )
         pytest.raises(

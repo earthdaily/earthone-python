@@ -441,6 +441,7 @@ class Image(NamedCatalogObject):
     )
 
     SUPPORTED_DATATYPES = (
+        "int8",
         "uint8",
         "int16",
         "uint16",
