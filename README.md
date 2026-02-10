@@ -31,6 +31,10 @@ Changelog
 
 ## Unreleased
 
+## General
+
+- Add support for Python 3.14. Note that as of 3.14, the `multiprocessing.Process` class now uses the `forkserver` method by default, which pickles everything. While EarthOne code itself is adapted to this, it may cause issues for user code which is out of our control.
+
 ## Raster/Catalog
 
 - Add support for the Int8 datatype for images.

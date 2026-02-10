@@ -177,18 +177,7 @@ class Auth:
     KEY_ALL_OWNER_ACL_SUBJECTS = "_aoas"
     KEY_ALL_OWNER_ACL_SUBJECTS_AS_SET = "_aoasas"
 
-    __attrs__ = [
-        "domain",
-        "scope",
-        "leeway",
-        "token_info_path",
-        "client_id",
-        "client_secret",
-        "refresh_token",
-        "_token",
-        "_namespace",
-        "RETRY_CONFIG",
-    ]
+    __nopickle_attrs__ = ["_session"]
 
     _default_token_info_path = object()  # Just any unique object
 
@@ -939,7 +928,11 @@ class Auth:
         self._namespace = None
 
     def __getstate__(self):
-        return dict((attr, getattr(self, attr)) for attr in self.__attrs__)
+        return dict(
+            (attr, getattr(self, attr))
+            for attr in self.__dict__
+            if attr not in self.__nopickle_attrs__
+        )
 
     def __setstate__(self, state):
         for name, value in state.items():

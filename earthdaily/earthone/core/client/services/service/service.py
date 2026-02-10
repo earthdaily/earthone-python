@@ -168,7 +168,7 @@ class Service:
 
     # List of attributes that will be included in state for pickling.
     # Subclasses can extend this attribute list.
-    __attrs__ = ["auth", "base_url", "_session_class", "RETRY_CONFIG"]
+    __nopickle_attrs__ = ["_session"]
 
     @classmethod
     def set_default_session_class(cls, session_class):
@@ -298,7 +298,11 @@ class Service:
         return session
 
     def __getstate__(self):
-        return dict((attr, getattr(self, attr)) for attr in self.__attrs__)
+        return dict(
+            (attr, getattr(self, attr))
+            for attr in self.__dict__
+            if attr not in self.__nopickle_attrs__
+        )
 
     def __setstate__(self, state):
         for name, value in state.items():

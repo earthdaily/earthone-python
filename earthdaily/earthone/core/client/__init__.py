@@ -21,7 +21,7 @@ if sys.version_info < (3, 10):
     )
     raise ImportError(msg)
 
-if sys.version_info >= (3, 14):
+if sys.version_info >= (3, 15):
     msg = "Python version {}.{} is not supported yet. You may encounter unexpected errors.".format(
         sys.version_info.major, sys.version_info.minor
     )
