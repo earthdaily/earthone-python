@@ -24,11 +24,21 @@ from .band import BandType
 # supported data types.
 # values must be ordered from smallest to largest, and
 # (arbitrarily) unsigned before signed, integer before float
-valid_data_types = ("Byte", "UInt16", "Int16", "UInt32", "Int32", "Float32", "Float64")
+valid_data_types = (
+    "Byte",
+    "Int8",
+    "UInt16",
+    "Int16",
+    "UInt32",
+    "Int32",
+    "Float32",
+    "Float64",
+)
 
 # supported upcasts for each data type
 valid_data_type_casts = {
     "Byte": ("UInt16", "Int16", "UInt32", "Int32", "Float32", "Float64"),
+    "Int8": ("Int16", "Int32", "Float32", "Float64"),
     "UInt16": ("UInt32", "Int32", "Float32", "Float64"),
     "Int16": ("Int32", "Float32", "Float64"),
     "UInt32": ("Float64"),
@@ -41,6 +51,7 @@ valid_data_type_casts = {
 # min/max ranges for supported data types
 data_type_ranges = {
     "Byte": [0, 255],
+    "Int8": [-128, 127],
     "UInt16": [0, 65535],
     "Int16": [-32768, 32767],
     "UInt32": [0, 4294967295],

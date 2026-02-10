@@ -44,6 +44,8 @@ class DataType(StrEnum):
     ----------
     BYTE : enum
         An 8 bit unsigned integer value.
+    INT8 : enum
+        A 8 bit signed integer value.
     UINT16 : enum
         A 16 bit unsigned integer value.
     INT16 : enum
@@ -59,6 +61,7 @@ class DataType(StrEnum):
     """
 
     BYTE = "Byte"
+    INT8 = "Int8"
     UINT16 = "UInt16"
     INT16 = "Int16"
     UINT32 = "UInt32"

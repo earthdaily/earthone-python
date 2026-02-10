@@ -993,6 +993,7 @@ class Image(NamedCatalogObject):
         can be cast to which more general data types:
 
         * ``Byte`` to: ``UInt16``, ``UInt32``, ``Int16``, ``Int32``, ``Float32``, ``Float64``
+        * ``Int8`` to: ``Int16``, ``Int32``, ``Float32``, ``Float64``
         * ``UInt16`` to: ``UInt32``, ``Int32``, ``Float32``, ``Float64``
         * ``UInt32`` to: ``Float64``
         * ``Int16`` to: ``Int32``, ``Float32``, ``Float64``
