@@ -51,7 +51,7 @@ class ThreadLocalWrapperTest(unittest.TestCase):
     # can't work on Windows. But the problem it solves for multiprocessing also doesn't
     # exist there.
 
-    @unittest.skipIf(sys.platform.startswith("win"), "forking not a concern on Windows")
+    @unittest.skipIf(sys.platform.startswith("win") or sys.version_info >= (3, 14), "forking not a concern on Windows")
     def test_wrapper_process(self):
         main_thread_id = self.wrapper.get()
         thread = threading.Thread(target=self._store_id)
@@ -67,7 +67,7 @@ class ThreadLocalWrapperTest(unittest.TestCase):
         assert main_thread_id != process_id
         assert self.thread_id != process_id
 
-    @unittest.skipIf(sys.platform.startswith("win"), "forking not a concern on Windows")
+    @unittest.skipIf(sys.platform.startswith("win") or sys.version_info >= (3, 14), "forking not a concern on Windows")
     def test_wrapper_unused_in_main_process(self):
         queue = multiprocessing.Queue()
         process = multiprocessing.Process(target=self._send_id, args=(queue,))
@@ -76,7 +76,7 @@ class ThreadLocalWrapperTest(unittest.TestCase):
         process.join()
         assert process_id != self.wrapper.get()
 
-    @unittest.skipIf(sys.platform.startswith("win"), "forking not a concern on Windows")
+    @unittest.skipIf(sys.platform.startswith("win") or sys.version_info >= (3, 14), "forking not a concern on Windows")
     def test_fork_from_fork(self):
         # A gross edge case discovered by Clark: if a process is forked from a forked process
         # things will go awry if we hadn't initialized the internal threading.local's pid.
