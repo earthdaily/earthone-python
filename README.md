@@ -33,11 +33,12 @@ Changelog
 
 ## General
 
-- Add support for Python 3.14. Note that as of 3.14, the `multiprocessing.Process` class now uses the `forkserver` method by default, which pickles everything. While EarthOne code itself is adapted to this, it may cause issues for user code which is out of our control.
+- Add support for Python 3.14. Note that as of 3.14, the `multiprocessing.Process` class now uses the `forkserver` method by default, which pickles everything (the callable target and all parameters). While EarthOne code itself is adapted to this, it may cause issues for user code which is out of our control.
 
 ## Raster/Catalog
 
 - Add support for the Int8 datatype for images.
+- Removed several obsolete fields from Bands and Images: `v1_properties`, `c6s_dlsr`, `confidence_dlsr`, `jpx_layer_index`. This is in principle a *breaking change*, however, these fields are not likely to be referenced in any user-level code.
 
 ## [5.0.3] - 2025-12-22
 

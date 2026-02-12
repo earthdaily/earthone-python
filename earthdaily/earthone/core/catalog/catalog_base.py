@@ -184,12 +184,6 @@ class CatalogObjectBase(AttributeEqualityMixin, metaclass=CatalogObjectMeta):
         *Filterable, sortable*.
         """,
     )
-    v1_properties = TypedAttribute(
-        dict,
-        mutable=False,
-        serializable=False,
-        readonly=True,
-    )
 
     def __new__(cls, *args, **kwargs):
         return _new_abstract_class(cls, CatalogObjectBase)

@@ -91,7 +91,6 @@ class TestCatalogObject(ClientTestCase):
                 "modified",
                 "extra_properties",
                 "tags",
-                "v1_properties",
             ],
         )
         assert c.is_modified

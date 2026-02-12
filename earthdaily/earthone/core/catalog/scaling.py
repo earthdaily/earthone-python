@@ -468,14 +468,12 @@ def properties_for_band(name, band, processing_level):
         )
         if processing_level_steps:
             step = processing_level_steps[-1]
-            # processing levels are always Float64 by default, except "dlsr" is special
-            # and always uses the underlying raw band's definitions
-            if step.function != "dlsr":
-                data_type = step.data_type or "Float64"
-                # this is a somewhat arbitrary default (good for reflectance)
-                data_range = step.data_range or data_type_ranges.get(data_type)
-                display_range = step.display_range or data_range
-                physical_range = step.physical_range or data_range
+            # processing levels are always Float64 by default
+            data_type = step.data_type or "Float64"
+            # this is a somewhat arbitrary default (good for reflectance)
+            data_range = step.data_range or data_type_ranges.get(data_type)
+            display_range = step.display_range or data_range
+            physical_range = step.physical_range or data_range
     return {
         "name": name,
         "band_type": band_type,

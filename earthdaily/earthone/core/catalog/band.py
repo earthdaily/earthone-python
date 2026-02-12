@@ -460,7 +460,6 @@ class Band(NamedCatalogObject):
     :attr:`~earthdaily.earthone.catalog.GenericBand.resolution`,
     :attr:`~earthdaily.earthone.catalog.GenericBand.band_index`,
     :attr:`~earthdaily.earthone.catalog.GenericBand.file_index`,
-    :attr:`~earthdaily.earthone.catalog.GenericBand.jpx_layer_index`.
     :attr:`~earthdaily.earthone.catalog.GenericBand.vendor_band_name`.
 
     To create a new band instantiate one of those specialized classes:
@@ -566,8 +565,8 @@ class Band(NamedCatalogObject):
     vendor_order = TypedAttribute(
         int,
         doc="""int, optional: A number defining the ordering of bands within a product
-        as defined by the data vendor. 1-based. Used for indexing ``c6s_dlsr``.
-        Generally only used internally by certain core products.
+        as defined by the data vendor. 1-based. Generally only used internally by certain
+        core products.
 
         *Sortable*.
         """,
@@ -609,13 +608,6 @@ class Band(NamedCatalogObject):
         If there are multiple files, it maps the band index to the file index.  It defaults
         to 0 (first file).
         """
-    )
-    jpx_layer_index = TypedAttribute(
-        int,
-        doc="""int, optional: The 0-based layer index if the source data is JPEG2000 with layers.
-
-        Defaults to 0.
-        """,
     )
     vendor_band_name = TypedAttribute(
         str,

@@ -75,7 +75,6 @@ class TestImage(ClientTestCase):
                         "name": "myimage",
                         "product_id": "p1",
                         "geometry": self.geometry,
-                        "c6s_dlsr": [],
                         "x_pixels": 15696,
                         "y_pixels": 15960,
                         "geotrans": [258292.5, 15.0, 0.0, 4743307.5, 0.0, -15.0],

@@ -287,22 +287,10 @@ class Image(NamedCatalogObject):
         empty if not applicable.
         """,
     )
-    c6s_dlsr = ListAttribute(
-        ListAttribute(TypedAttribute(float, coerce=True)),
-        doc="list(list(float), optional: DLSR conversion coefficients.",
-    )
     cloud_fraction = TypedAttribute(
         float,
         coerce=True,
         doc="""float, optional: Fraction of pixels which are obscured by clouds.
-
-        *Filterable, sortable*.
-        """,
-    )
-    confidence_dlsr = TypedAttribute(
-        float,
-        coerce=True,
-        doc="""float, optional: Confidence value for DLSR coefficients.
 
         *Filterable, sortable*.
         """,
