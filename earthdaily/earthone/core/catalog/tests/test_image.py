@@ -812,10 +812,7 @@ class TestImage(ClientTestCase):
         )
 
         pytest.raises(
-            ValueError, image.upload_ndarray, np.zeros((1, 100, 100), np.int64)
-        )
-        pytest.raises(
-            ValueError, image.upload_ndarray, np.zeros((1, 100, 100), np.uint64)
+            ValueError, image.upload_ndarray, np.zeros((1, 100, 100), np.complex64)
         )
 
     @patch.object(image_module.Image, "exists", return_value=False)

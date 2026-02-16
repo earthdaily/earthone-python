@@ -54,6 +54,12 @@ class DataType(StrEnum):
         A 32 bit unsigned integer value.
     INT32 : enum
         A 32 bit signed integer value.
+    UINT64 : enum
+        A 64 bit unsigned integer value.
+    INT64 : enum
+        A 64 bit signed integer value.
+    FLOAT16 : enum
+        A 16 bit half-precision floating-point format value.
     FLOAT32 : enum
         A 32 bit single-precision floating-point format value.
     FLOAT64 : enum
@@ -66,6 +72,9 @@ class DataType(StrEnum):
     INT16 = "Int16"
     UINT32 = "UInt32"
     INT32 = "Int32"
+    UINT64 = "UInt64"
+    INT64 = "Int64"
+    FLOAT16 = "Float16"
     FLOAT32 = "Float32"
     FLOAT64 = "Float64"
 

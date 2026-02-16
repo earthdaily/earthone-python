@@ -31,20 +31,36 @@ valid_data_types = (
     "Int16",
     "UInt32",
     "Int32",
+    "UInt64",
+    "Int64",
+    "Float16",
     "Float32",
     "Float64",
 )
 
 # supported upcasts for each data type
 valid_data_type_casts = {
-    "Byte": ("UInt16", "Int16", "UInt32", "Int32", "Float32", "Float64"),
-    "Int8": ("Int16", "Int32", "Float32", "Float64"),
-    "UInt16": ("UInt32", "Int32", "Float32", "Float64"),
-    "Int16": ("Int32", "Float32", "Float64"),
-    "UInt32": ("Float64"),
-    "Int32": ("Float32", "Float64"),
-    "Float32": ("Float64"),
-    "Float64": (),
+    "Byte": (
+        "UInt16",
+        "Int16",
+        "UInt32",
+        "UInt64",
+        "Int32",
+        "Int64",
+        "Float16",
+        "Float32",
+        "Float64",
+    ),
+    "Int8": ("Int16", "Int32", "Int64", "Float16", "Float32", "Float64"),
+    "UInt16": ("UInt32", "Int32", "UInt64", "Int64", "Float32", "Float64"),
+    "Int16": ("Int32", "Int64", "Float32", "Float64"),
+    "UInt32": ("UInt64", "Int64", "Float64"),
+    "Int32": ("Int64", "Float32", "Float64"),
+    "UInt64": ("Float64",),
+    "Int64": ("Float64",),
+    "Float16": ("Float32", "Float64"),
+    "Float32": ("Float64",),
+    "Float64": tuple(),
 }
 
 
@@ -56,8 +72,11 @@ data_type_ranges = {
     "Int16": [-32768, 32767],
     "UInt32": [0, 4294967295],
     "Int32": [-2147483648, 2147483647],
+    "UInt64": [0, 18446744073709551615],
+    "Int64": [-9223372036854775808, 9223372036854775807],
     # for floats, this is our default output range,
     # and does not imply the range a float can contain.
+    "Float16": [0.0, 1.0],
     "Float32": [0.0, 1.0],
     "Float64": [0.0, 1.0],
 }
@@ -382,8 +401,8 @@ def data_type_from_range(min, max, is_float):
     # short circuit float since range is 0-1
     if (
         is_float
-        or (min is not None and min < data_type_ranges["Int32"][0])
-        or (max is not None and max > data_type_ranges["Int32"][1])
+        or (min is not None and min < data_type_ranges["Int64"][0])
+        or (max is not None and max > data_type_ranges["Int64"][1])
     ):
         return "Float64"
     for dt in valid_data_types:

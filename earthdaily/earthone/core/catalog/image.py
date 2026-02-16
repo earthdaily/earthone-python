@@ -435,6 +435,9 @@ class Image(NamedCatalogObject):
         "uint16",
         "int32",
         "uint32",
+        "int64",
+        "uint64",
+        "float16",
         "float32",
         "float64",
     )
@@ -703,7 +706,7 @@ class Image(NamedCatalogObject):
             the first dimension must index the bands.  The ``dtype`` of the array must
             also be one of the following:
             [``uint8``, ``int8``, ``uint16``, ``int16``, ``uint32``, ``int32``,
-            ``float32``, ``float64``]
+            ``uint64``, ``int64``, ``float16``, ``float32``, ``float64``]
         upload_options : :py:class:`~earthdaily.earthone.catalog.ImageUploadOptions`, optional
             Control of the upload process.
         raster_meta : dict, optional
@@ -980,12 +983,15 @@ class Image(NamedCatalogObject):
         has the most general of those data types. This table defines which data types
         can be cast to which more general data types:
 
-        * ``Byte`` to: ``UInt16``, ``UInt32``, ``Int16``, ``Int32``, ``Float32``, ``Float64``
-        * ``Int8`` to: ``Int16``, ``Int32``, ``Float32``, ``Float64``
-        * ``UInt16`` to: ``UInt32``, ``Int32``, ``Float32``, ``Float64``
-        * ``UInt32`` to: ``Float64``
-        * ``Int16`` to: ``Int32``, ``Float32``, ``Float64``
-        * ``Int32`` to: ``Float32``, ``Float64``
+        * ``Byte`` to: ``UInt16``, ``UInt32``, ``UInt64``, ``Int16``, ``Int32``, ``Int64``,
+          ``Float16``, ``Float32``, ``Float64``
+        * ``Int8`` to: ``Int16``, ``Int32``, ``Int64``, ``Float16``, ``Float32``, ``Float64``
+        * ``UInt16`` to: ``UInt32``, ``UInt64``, ``Int32``, ``Int64``, ``Float32``, ``Float64``
+        * ``UInt32`` to: ``UInt64``, ``Int64``, ``Float64``
+        * ``UInt64`` to: ``Float64``
+        * ``Int16`` to: ``Int32``, ``Int64``, ``Float32``, ``Float64``
+        * ``Int32`` to: ``Int64``, ``Float32``, ``Float64``
+        * ``Float16`` to: ``Float32``, ``Float64``
         * ``Float32`` to: ``Float64``
         * ``Float64`` to: No possible casts
 
