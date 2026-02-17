@@ -1019,7 +1019,7 @@ class Function(Document):
             return
 
         if self.state == DocumentState.NEW:
-            self.update_credentials()
+            self.update_credentials(client=self._client)
 
             code_bundle_path = self._bundle()
             response = self._client.session.post(

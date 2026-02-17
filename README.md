@@ -29,6 +29,12 @@ The documentation for the latest release can be found at [https://docs.earthone.
 Changelog
 =========
 
+## [6.0.1] - 2026-02-17
+
+## Compute
+
+- A minor bugfix so that `Function.update_credentials()` is called using the Function's client, rather than the default client.
+
 ## [6.0.0] - 2026-02-17
 
 ## General
