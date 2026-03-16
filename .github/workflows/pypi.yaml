@@ -43,7 +43,9 @@ jobs:
 
       # Setup the Python environment
       - name: 'Setup Python Environment'
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
       # Build the Python wheel packages
       # https://github.com/pypa/twine/issues/1216
