@@ -374,7 +374,7 @@ class ImageUpload(CatalogObjectBase):
         relationships=None,
         related_objects=None,
         deleted=False,
-        **kwargs
+        **kwargs,
     ):
         # CatalogObjectBase only supports many to one, we need the other direction
         if relationships and related_objects:

@@ -63,7 +63,7 @@ class TaskStatus(object):
         duration_in_seconds=None,
         errors=None,
         _client=None,
-        **kwargs
+        **kwargs,
     ):
         self.id = id
         self.start_datetime = start_datetime
