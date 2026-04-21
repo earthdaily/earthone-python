@@ -691,6 +691,16 @@ class TestEventSubscription(ClientTestCase):
         with pytest.raises(DeletedObjectError):
             s.delete()
 
+    def test_placeholder_text_output(self):
+        quoted = Placeholder("event.detail.id")
+        assert quoted.text == '"{{ event.detail.id }}"'
+
+        unquoted = Placeholder("event.detail", unquoted=True)
+        assert unquoted.text == "{{ event.detail }}"
+
+        raw = Placeholder("literal text", raw=True)
+        assert raw.text == "literal text"
+
     def test_compute_target(self):
         target = EventSubscriptionComputeTarget(
             "some-function-id",

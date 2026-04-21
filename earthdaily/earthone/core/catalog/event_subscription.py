@@ -107,6 +107,9 @@ class Placeholder:
     detail template.
     """
 
+    _SUBSTITUTION_START = "{" * 2
+    _SUBSTITUTION_END = "}" * 2
+
     def __init__(self, text: str, unquoted=False, raw=False):
         """Create a Placeholder object.
 
@@ -143,9 +146,9 @@ class Placeholder:
         if raw:
             self.text = text
         elif unquoted:
-            self.text = f"{{{{ {text} }}}}"
+            self.text = f"{self._SUBSTITUTION_START} {text} {self._SUBSTITUTION_END}"
         else:
-            self.text = f'"{{{{ {text} }}}}"'
+            self.text = f'"{self._SUBSTITUTION_START} {text} {self._SUBSTITUTION_END}"'
 
     @classmethod
     def json_serialize(cls, obj, placeholders=None):
