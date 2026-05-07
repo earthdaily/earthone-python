@@ -449,7 +449,7 @@ class Blob(AuthCatalogObject):
         )
 
     @check_deleted
-    def upload(self, file):
+    def upload(self, file, request_params=None):
         """Uploads storage blob from a file.
 
         Uploads data from a file and creates the Blob.
@@ -511,13 +511,13 @@ class Blob(AuthCatalogObject):
             raise ValueError("Invalid file value: must be string or IOBase")
 
         try:
-            return self._do_upload(file)
+            return self._do_upload(file, request_params=request_params)
         finally:
             if close:
                 file.close()
 
     @check_deleted
-    def upload_data(self, data):
+    def upload_data(self, data, request_params=None):
         """Uploads storage blob from a bytes or str.
 
         Uploads data from a string or bytes and creates the Blob.
@@ -568,10 +568,10 @@ class Blob(AuthCatalogObject):
         elif not isinstance(data, bytes):
             raise ValueError("Invalid data value: must be string or bytes")
 
-        return self._do_upload(data)
+        return self._do_upload(data, request_params=request_params)
 
     # the upload implementation is broken out so it can be used from multiple methods
-    def _do_upload(self, src):
+    def _do_upload(self, src, request_params=None):
         # import here for circular dependency
         from .blob_upload import BlobUpload
 
@@ -596,8 +596,11 @@ class Blob(AuthCatalogObject):
         # do the upload
         self._url_client.session.put(upload.resumable_url, data=src, headers=headers)
 
+        req_params = {"upload_signature": upload.signature}
+        if request_params:
+            req_params.update(request_params)
         # save the blob
-        upload.storage.save(request_params={"upload_signature": upload.signature})
+        upload.storage.save(request_params=req_params)
 
         # replenish our state, like reload but no need to go to server.
         # this will effectively wipe all current state & caching.

@@ -205,7 +205,9 @@ class Service:
 
         return cls._session_class
 
-    def __init__(self, url, token=None, auth=None, retries=None, session_class=None):
+    def __init__(
+        self, url, token=None, auth=None, retries=None, session_class=None, headers=None
+    ):
         if auth is None:
             auth = Auth.get_default_auth()
 
@@ -222,6 +224,8 @@ class Service:
         if retries is None:
             retries = Service.RETRY_CONFIG
         self._retry_config = retries
+
+        self.headers = headers or {}
 
         if session_class is not None:
             # Overwrite the default session class
@@ -292,6 +296,7 @@ class Service:
                     HttpHeaderKeys.ClientSession: uuid.uuid4().hex,
                 }
             )
+            session.headers.update(self.headers)
         except Exception:
             pass
 

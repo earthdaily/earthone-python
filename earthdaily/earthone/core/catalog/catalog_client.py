@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from earthdaily.earthone.auth import Auth
 from earthdaily.earthone.config import get_settings
 
 from ..client.services.service.service import HttpRequestMethod, JsonApiService
@@ -44,13 +43,8 @@ class CatalogClient(JsonApiService, DefaultClientMixin):
         zero to disable retries.  The default is 3 retries.
     """
 
-    def __init__(self, url=None, auth=None, retries=None):
-        if auth is None:
-            auth = Auth.get_default_auth()
-
+    def __init__(self, url=None, **kwargs):
         if url is None:
             url = get_settings().catalog_v2_url
 
-        super(CatalogClient, self).__init__(
-            url, auth=auth, retries=retries, rewrite_errors=True
-        )
+        super(CatalogClient, self).__init__(url, rewrite_errors=True, **kwargs)
