@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from earthdaily.earthone.auth import Auth
 from earthdaily.earthone.config import get_settings
 
 from ..client.services.service import ApiService
@@ -28,11 +27,8 @@ class VectorClient(ApiService, DefaultClientMixin):
     # where we need it.
     READ_TIMEOUT = 300
 
-    def __init__(self, url=None, auth=None, retries=None):
-        if auth is None:
-            auth = Auth.get_default_auth()
-
+    def __init__(self, url=None, **kwargs):
         if url is None:
             url = get_settings().vector_url
 
-        super().__init__(url, auth=auth, retries=retries)
+        super().__init__(url, **kwargs)
