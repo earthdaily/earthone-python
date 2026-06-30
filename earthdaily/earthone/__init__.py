@@ -62,6 +62,10 @@ def __getattr__(name: str):
         return module
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
 
+
+def __dir__():
+    return __all__
+
 __author__ = "EarthDaily"
 
 __all__ = [
