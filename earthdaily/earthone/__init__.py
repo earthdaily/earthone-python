@@ -45,12 +45,12 @@ try:
 except PackageNotFoundError:
     from earthdaily.earthone.core.client import __version__
 
-from earthdaily.earthone import auth, config, exceptions, geo, utils
+from earthdaily.earthone import config
 
 select_env = config.select_env
 get_settings = config.get_settings
 
-_LAZY_SUBMODULES = {"catalog", "compute", "vector"}
+_LAZY_SUBMODULES = {"auth", "catalog", "compute", "exceptions", "geo", "utils", "vector"}
 
 
 def __getattr__(name: str):
