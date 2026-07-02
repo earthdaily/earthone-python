@@ -45,21 +45,39 @@ try:
 except PackageNotFoundError:
     from earthdaily.earthone.core.client import __version__
 
-from earthdaily.earthone import auth
 from earthdaily.earthone import config
-from earthdaily.earthone import exceptions
-from earthdaily.earthone import geo
-from earthdaily.earthone import utils
-from earthdaily.earthone import catalog
-from earthdaily.earthone import compute
-from earthdaily.earthone import vector
 
 select_env = config.select_env
 get_settings = config.get_settings
 
+_LAZY_SUBMODULES = {
+    "auth",
+    "catalog",
+    "compute",
+    "exceptions",
+    "geo",
+    "utils",
+    "vector",
+}
+
+
+def __getattr__(name: str):
+    if name in _LAZY_SUBMODULES:
+        import importlib
+
+        module = importlib.import_module(f"earthdaily.earthone.{name}")
+        globals()[name] = module
+        return module
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+
+def __dir__():
+    return __all__
+
+
 __author__ = "EarthDaily"
 
-__all__ = [
+__all__ = [  # noqa: F822 - submodules are resolved lazily via __getattr__
     "__author__",
     "__version__",
     "auth",

@@ -29,6 +29,12 @@ The documentation for the latest release can be found at [https://docs.earthone.
 Changelog
 =========
 
+## [6.1.0] - 2026-06-30
+
+## General
+
+- Submodules (`auth`, `catalog`, `compute`, `exceptions`, `geo`, `utils`, `vector`) are now loaded lazily on first access rather than at import time, using module-level `__getattr__` as defined in [PEP 562]. This improves startup performance by deferring the cost of importing each submodule until it is actually used, and avoids importing submodules that are never used at all.
+
 ## [6.0.1] - 2026-02-17
 
 ## Compute
