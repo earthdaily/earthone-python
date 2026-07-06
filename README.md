@@ -29,7 +29,7 @@ The documentation for the latest release can be found at [https://docs.earthone.
 Changelog
 =========
 
-## [6.1.0] - 2026-06-30
+## [6.1.1] - 2026-07-06
 
 ## General
 

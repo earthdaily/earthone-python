@@ -45,7 +45,20 @@ try:
 except PackageNotFoundError:
     from earthdaily.earthone.core.client import __version__
 
+from typing import TYPE_CHECKING
+
 from earthdaily.earthone import config
+
+if TYPE_CHECKING:
+    from earthdaily.earthone import (
+        auth,
+        catalog,
+        compute,
+        exceptions,
+        geo,
+        utils,
+        vector,
+    )
 
 select_env = config.select_env
 get_settings = config.get_settings
