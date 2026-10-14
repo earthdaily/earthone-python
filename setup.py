@@ -40,9 +40,9 @@ def do_setup():
         "ipyleaflet>=0.17.2",
     ]
     tests_requires = [
-        "pytest==6.0.0",
+        "pytest>=8.4.2",
         "responses==0.12.1",
-        "freezegun==0.3.12",
+        "freezegun>=1.5.5",
     ]
     setup(
         name="earthdaily-earthone",
