@@ -29,6 +29,13 @@ The documentation for the latest release can be found at [https://docs.earthone.
 Changelog
 =========
 
+## [7.0.0] - 2026-10-15
+
+## General
+
+- Support Python 3.15.
+- Drop support for Python 3.10 as it has reached end of life.
+
 ## [6.1.1] - 2026-07-06
 
 ## General

@@ -40,9 +40,9 @@ def do_setup():
         "ipyleaflet>=0.17.2",
     ]
     tests_requires = [
-        "pytest==6.0.0",
+        "pytest>=8.4.2",
         "responses==0.12.1",
-        "freezegun==0.3.12",
+        "freezegun>=1.5.5",
     ]
     setup(
         name="earthdaily-earthone",
@@ -54,10 +54,11 @@ def do_setup():
         classifiers=[
             "Programming Language :: Python",
             "Programming Language :: Python :: 3",
-            "Programming Language :: Python :: 3.10",
             "Programming Language :: Python :: 3.11",
             "Programming Language :: Python :: 3.12",
             "Programming Language :: Python :: 3.13",
+            "Programming Language :: Python :: 3.14",
+            "Programming Language :: Python :: 3.15",
         ],
         license="Apache 2.0",
         download_url=(
@@ -78,7 +79,7 @@ def do_setup():
                 "earthone = earthdaily.earthone.core.client.scripts.__main__:main"
             ]
         },
-        python_requires="~=3.10",
+        python_requires="~=3.11",
         install_requires=[
             "affine>=2.2.2",
             "blosc2>=3.6.1",
